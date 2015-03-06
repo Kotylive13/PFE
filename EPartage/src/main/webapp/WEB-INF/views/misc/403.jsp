@@ -1,22 +1,20 @@
-<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:spring="http://www.springframework.org/tags"
-	xmlns:tiles="http://tiles.apache.org/tags-tiles"
-	
-	xmlns="http://www.w3.org/1999/xhtml">
+<%@ page contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-	<jsp:output omit-xml-declaration="false" doctype-root-element="html"
-		doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
-			<jsp:directive.page contentType="text/html" />
-<html><head><title>403</title>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<html>
+<head>
+<title>403</title>
 </head>
 <body>
-<p><spring:message code="url.notFount"></spring:message></p> 
-<div>
-<img src="../images/oops.jpg" alt=""/></div>
-<spring:url value='/' var="var"/>
+	<p>Url non trouvé</p>
+	<div>
+		<img src="../images/oops.jpg" alt="" />
+	</div>
+	<spring:url value='/' var="var" />
 
-<p><a href="${var}">Return to index page</a></p>
+	<p>
+		<a href="${var}">Return to index page</a>
+	</p>
 </body>
 </html>
-</jsp:root>

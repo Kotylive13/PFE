@@ -1,26 +1,13 @@
-<jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page"
- xmlns:spring="http://www.springframework.org/tags"
- xmlns:tiles="http://tiles.apache.org/tags-tiles"
- xmlns:security="http://www.springframework.org/security/tags"
- xmlns="http://www.w3.org/1999/xhtml">
+<%@ page contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
- <jsp:output omit-xml-declaration="false" doctype-root-element="html"
-  doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
-  doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
- <jsp:directive.page contentType="text/html" />
+<tiles:insertDefinition name="master.page">
+	<tiles:putAttribute name="title">
+			Accueil
+		</tiles:putAttribute>
+	<tiles:putAttribute name="body">
+		<p>Bienvenue sur le site e-Partage de Aix Marseille Université</p>
+	</tiles:putAttribute>
+</tiles:insertDefinition>
 
- <tiles:insertDefinition name="master.page">
-  <tiles:putAttribute name="title">
-   <spring:message code="title.accueil" />
-  </tiles:putAttribute>
-  <tiles:putAttribute name="body">
-   <p>
-    <spring:message code="welcome.greeting.prefix" />
-    
-   </p>
-
-
-  </tiles:putAttribute>
- </tiles:insertDefinition>
-
-</jsp:root>
