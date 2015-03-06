@@ -1,34 +1,154 @@
 package domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+
+
+/**
+ * Class representing users
+ * @author 
+ *
+ */
 
 @Entity
-@NamedQueries({
-    @NamedQuery(name = User.FIND_ALL, query = "SELECT u FROM User u"),
-})
 public class User {
 
-	public static final String FIND_ALL = "FIND_ALL_USERS";
 	@Id
-	private String id;
+	@GeneratedValue( strategy = GenerationType.AUTO )
+	@Column (name = "ID_U")
+	private Integer id;
 	
-	private String name;
+	 @Lob
+	 @Column( name = "AVATAR")
+	 private byte[] avatar;
+	 
+	 
+	 @Column( name = "FIRSTNAME")
+	 private String firstName;
+	 
+	 @Column( name = "LASTNAME")
+	 private String lastName;
+	 
+	 
+	 @Column( name = "ADRESS")
+	 private String adress;
+	 
+	 @Column( name = "PHONE")
+	 private String phone;
+	 
+	 @Column( name = "BIRTHDATE")
+	 private Date birthDate;
+	 
+	 @Column( name = "INSCRIPTAPPDATE")
+	 private Date inscriptAppDate;
+	 
+	 @Column( name = "PASSWORD")
+	 private String password;
+	 
+	 @Column( name = "EMAIL")
+	 private String email;
+	 
+	 @Column( name = "STATUS")
+	 private String status;
 
-	public String getName() {
-		return name;
+	public User() {
+		super();
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public byte[] getAvatar() {
+		return avatar;
 	}
 
-	public String getId() {
+	public void setAvatar(byte[] avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Date getInscriptAppDate() {
+		return inscriptAppDate;
+	}
+
+	public void setInscriptAppDate(Date inscriptAppDate) {
+		this.inscriptAppDate = inscriptAppDate;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Integer getId() {
 		return id;
 	}
+	
+
+	
+	 
+
 	
 	
 	
