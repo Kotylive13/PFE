@@ -49,14 +49,14 @@ public class UserController extends AbstractController {
 			HttpSession session) {
 		
 		
-//		User user = userService.findLogin(login, password);  //renvoi NULL ?
-//		
-//		if(user != null){
-//			session.setAttribute( "userSession", user );
-//		} else {
-//			session.setAttribute( "userSession", null );
-//		}
-//		
+		User user = userService.findLogin(login, password);  //renvoi NULL ?
+		
+		if(user != null){
+			session.setAttribute( "userSession", user );
+		} else {
+			session.setAttribute( "userSession", null );
+		}
+		
 
 		return new ModelAndView("connection");
 	}

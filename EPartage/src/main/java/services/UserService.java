@@ -27,8 +27,8 @@ public class UserService {
 	}
 	
 	
-//	public User findLogin(String login, String password) {
-//		return userDao.findLogin(login, password);
-//	}
+	public User findLogin(String login, String password) {
+		return userDao.findLogin(login, password);
+	}
 	
 }

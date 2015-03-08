@@ -20,13 +20,13 @@
 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost/epartagetest" />
-		<property name="username" value="root" />
-		<property name="password" value="Q_8QKZ" />
+		<property name="url" value="jdbc:mysql://db4free.net:3306/m2islpfe" />
+		<property name="username" value="m2islpfe" />
+		<property name="password" value="password" />
 		<property name="validationQuery" value="SELECT 1" />
 	</bean>
 	<!-- JPA -->
-
+	
 
 	<bean id="persistenceUnit" class="java.lang.String">
 		<constructor-arg value="epartage" />
