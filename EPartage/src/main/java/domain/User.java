@@ -7,7 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -43,9 +47,11 @@ public class User {
 	 private String phone;
 	 
 	 @Column( name = "BIRTHDATE")
+	 @Temporal(TemporalType.DATE)
 	 private Date birthDate;
 	 
 	 @Column( name = "INSCRIPTAPPDATE")
+	 @Temporal(TemporalType.DATE)
 	 private Date inscriptAppDate;
 	 
 	 @Column( name = "PASSWORD")

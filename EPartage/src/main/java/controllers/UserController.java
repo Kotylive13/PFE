@@ -15,14 +15,16 @@ import domain.User;
 
 @Controller
 @RequestMapping("/user")
-public class UserController extends AbstractController {
+public class UserController {
+	
+
+	@Autowired
+	UserService userService;
 
 	public UserController() {
 		super();
 	}
 
-	@Autowired
-	UserService userService;
 
 	/**
 	 * List all users
@@ -31,43 +33,13 @@ public class UserController extends AbstractController {
 	 */
 	@RequestMapping("/list")
 	public ModelAndView allUsers() {
+		System.out.println("Controller : /UserController --- Action : /list");
 		ModelAndView result;
 		Collection<User> users = userService.findAll();
 		result = new ModelAndView("user/list");
 		System.out.println(users.size());
 		result.addObject("users", users);
 		return result;
-	}
-	
-	/**
-	 * Connexion de l'utilisateur
-	 */
-	@RequestMapping(value = "/login")
-	public ModelAndView loginForm (
-			@RequestParam(required = true) String login,
-			@RequestParam(required = true) String password, 
-			HttpSession session) {
-		
-		
-//		User user = userService.findLogin(login, password);  //renvoi NULL ?
-//		
-//		if(user != null){
-//			session.setAttribute( "userSession", user );
-//		} else {
-//			session.setAttribute( "userSession", null );
-//		}
-//		
-
-		return new ModelAndView("connection");
-	}
-	
-	/**
-	 * Deconnexion de l'utilisateur
-	 */
-	@RequestMapping(value = "/logout")
-	public String logoutForm (HttpSession session) {
-		session.setAttribute( "userSession", null );
-		return "redirect:connection.htm";
 	}
 
 }
