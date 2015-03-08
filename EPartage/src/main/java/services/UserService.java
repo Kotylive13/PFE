@@ -26,7 +26,6 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
-	
 	public User findLogin(String email, String password) {
 		return userDao.findByEmailAndPassword(email, password);
 	}

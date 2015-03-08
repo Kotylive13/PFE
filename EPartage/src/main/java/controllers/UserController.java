@@ -27,7 +27,7 @@ public class UserController {
 
 
 	/**
-	 * List all users
+	 * List all users 
 	 * 
 	 * @return the jsp view of users
 	 */
