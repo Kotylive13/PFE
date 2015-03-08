@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import repositories.UserDAO;
+import utilities.CryptPassword;
 import domain.User;
 
 
@@ -28,6 +29,11 @@ public class UserService {
 	
 	public User findLogin(String email, String password) {
 		return userDao.findByEmailAndPassword(email, password);
+	}
+
+	public void save(User user) {
+		user.setPassword(CryptPassword.getCryptString(user.getPassword()));
+		userDao.save(user);
 	}
 	
 }

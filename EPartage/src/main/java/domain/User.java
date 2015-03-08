@@ -51,7 +51,7 @@ public class User {
 	 private Date birthDate;
 	 
 	 @Column( name = "INSCRIPTAPPDATE")
-	 @Temporal(TemporalType.DATE)
+	 @Temporal(TemporalType.TIMESTAMP)
 	 private Date inscriptAppDate;
 	 
 	 @Column( name = "PASSWORD")
