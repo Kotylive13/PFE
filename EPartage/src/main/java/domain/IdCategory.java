@@ -11,19 +11,19 @@ public class IdCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "nameG")
-	private String group;
+	private String groupName;
 
 	@Column(name = "nameC")
 	private String name;
 	
 	public IdCategory() {}
 
-	public String getGroup() {
-		return group;
+	public String getGroupName() {
+		return groupName;
 	}
 
-	public void setGroup(String group) {
-		this.group = group;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 
 	public String getName() {
@@ -38,7 +38,8 @@ public class IdCategory implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((group == null) ? 0 : group.hashCode());
+		result = prime * result
+				+ ((groupName == null) ? 0 : groupName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -52,10 +53,10 @@ public class IdCategory implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		IdCategory other = (IdCategory) obj;
-		if (group == null) {
-			if (other.group != null)
+		if (groupName == null) {
+			if (other.groupName != null)
 				return false;
-		} else if (!group.equals(other.group))
+		} else if (!groupName.equals(other.groupName))
 			return false;
 		if (name == null) {
 			if (other.name != null)
