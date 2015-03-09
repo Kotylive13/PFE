@@ -3,6 +3,10 @@ package domain;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +15,20 @@ public class CommentFile {
 
 	@EmbeddedId
 	private IdCommentFile idCommentFile;
+	
+	@MapsId("publication")
+	@ManyToOne
+	@JoinColumn(name = "id_pub")
+	private Publication publication;
+	
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "id_com", referencedColumnName = "id_com",
+					insertable=false, updatable=false),
+		@JoinColumn(name = "id_pub", referencedColumnName = "id_pub",
+					insertable=false, updatable=false)
+	})
+	private Comment comment;
 	
 	@Column(name = "title")
 	private String title;
@@ -24,6 +42,22 @@ public class CommentFile {
 
 	public void setIdCommentFile(IdCommentFile idCommentFile) {
 		this.idCommentFile = idCommentFile;
+	}
+
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
+
+	public Comment getComment() {
+		return comment;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
 	}
 
 	public String getTitle() {

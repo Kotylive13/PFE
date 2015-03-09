@@ -12,7 +12,7 @@ public class IdComment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "id_pub")
-	private int publicationId;
+	private int publication;
 	
 	@Column(name = "id_com")
 	@GeneratedValue
@@ -20,12 +20,12 @@ public class IdComment implements Serializable {
 
 	public IdComment() {}
 
-	public int getPublicationId() {
-		return publicationId;
+	public int getPublication() {
+		return publication;
 	}
 
-	public void setPublicationId(int publicationId) {
-		this.publicationId = publicationId;
+	public void setPublication(int publication) {
+		this.publication = publication;
 	}
 
 	public int getNum() {
@@ -41,7 +41,7 @@ public class IdComment implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + num;
-		result = prime * result + publicationId;
+		result = prime * result + publication;
 		return result;
 	}
 
@@ -56,7 +56,7 @@ public class IdComment implements Serializable {
 		IdComment other = (IdComment) obj;
 		if (num != other.num)
 			return false;
-		if (publicationId != other.publicationId)
+		if (publication != other.publication)
 			return false;
 		return true;
 	}

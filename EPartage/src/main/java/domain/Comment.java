@@ -5,6 +5,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +14,11 @@ public class Comment {
 	
 	@EmbeddedId
 	private IdComment idComment;
+	
+	@MapsId("publication")
+	@ManyToOne
+	@JoinColumn(name = "id_pub")
+	private Publication publication;
 
 	@ManyToOne
 	@JoinColumn(name = "author")
@@ -27,6 +33,14 @@ public class Comment {
 
 	public void setIdComment(IdComment idComment) {
 		this.idComment = idComment;
+	}
+
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 
 	public User getAuthor() {

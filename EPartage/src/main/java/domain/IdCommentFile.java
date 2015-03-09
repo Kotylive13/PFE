@@ -12,48 +12,48 @@ public class IdCommentFile implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "id_pub")
-	private int pubblicationId;
+	private int publication;
 	
 	@Column(name = "id_com")
-	private int commentId;
+	private int comment;
 	
 	@Column(name = "id_cf")
 	@GeneratedValue
-	private int commentFileId;
+	private int id;
 
 	public IdCommentFile() {}
 
-	public int getPubblicationId() {
-		return pubblicationId;
+	public int getPublication() {
+		return publication;
 	}
 
-	public void setPubblicationId(int pubblicationId) {
-		this.pubblicationId = pubblicationId;
+	public void setPublication(int publication) {
+		this.publication = publication;
 	}
 
-	public int getCommentId() {
-		return commentId;
+	public int getComment() {
+		return comment;
 	}
 
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
+	public void setComment(int comment) {
+		this.comment = comment;
 	}
 
-	public int getCommentFileId() {
-		return commentFileId;
+	public int getId() {
+		return id;
 	}
 
-	public void setCommentFileId(int commentFileId) {
-		this.commentFileId = commentFileId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + commentFileId;
-		result = prime * result + commentId;
-		result = prime * result + pubblicationId;
+		result = prime * result + id;
+		result = prime * result + comment;
+		result = prime * result + publication;
 		return result;
 	}
 
@@ -66,11 +66,11 @@ public class IdCommentFile implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		IdCommentFile other = (IdCommentFile) obj;
-		if (commentFileId != other.commentFileId)
+		if (id != other.id)
 			return false;
-		if (commentId != other.commentId)
+		if (comment != other.comment)
 			return false;
-		if (pubblicationId != other.pubblicationId)
+		if (publication != other.publication)
 			return false;
 		return true;
 	}
