@@ -56,7 +56,7 @@ public class AuthenticationController {
 		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
 		
-		User user = userService.findLogin(email, password);  //renvoi NULL ?
+		User user = null;/* userService.findLogin(email, password);*/  //renvoi NULL ?
 		
 		if(user != null){
 			session.setAttribute( "userSession", user );

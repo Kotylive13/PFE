@@ -27,9 +27,9 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
-	public User findLogin(String email, String password) {
-		return userDao.findLogin(email, password);
-	}
+//	public User findLogin(String email, String password) {
+//		return userDao.findLogin(email, password);
+//	}
 
 	public void save(User user) {
 		user.setPassword(CryptPassword.getCryptString(user.getPassword()));
