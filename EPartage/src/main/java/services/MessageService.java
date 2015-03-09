@@ -8,19 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import domain.Message;
-import repositories.DAOMessage;
+import repositories.MessageDAO;
 
 @Service
 @Transactional
 public class MessageService {
 
 	@Autowired
-	private DAOMessage daoMessage;
+	private MessageDAO messageDAO;
 	
 	/**
 	 * All messages
 	 */
 	public Collection<Message> findAll() {
-		return daoMessage.findAll();
+		return messageDAO.findAll();
 	}
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Embeddable
 public class IdMessage implements Serializable {
@@ -12,6 +14,7 @@ public class IdMessage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "dateM")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateM;
 	
 	@Column(name = "author")
