@@ -1,21 +1,22 @@
 package domain;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 /**
  * Class representing users
+ * 
  * @author 
  *
  */
@@ -24,44 +25,48 @@ import javax.persistence.TemporalType;
 public class User {
 
 	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO )
-	@Column (name = "ID_U")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_U")
 	private Integer id;
-	
-	 @Lob
-	 @Column( name = "AVATAR")
-	 private byte[] avatar;
-	 
-	 
-	 @Column( name = "FIRSTNAME")
-	 private String firstName;
-	 
-	 @Column( name = "LASTNAME")
-	 private String lastName;
-	 
-	 
-	 @Column( name = "ADRESS")
-	 private String adress;
-	 
-	 @Column( name = "PHONE")
-	 private String phone;
-	 
-	 @Column( name = "BIRTHDATE")
-	 @Temporal(TemporalType.DATE)
-	 private Date birthDate;
-	 
-	 @Column( name = "INSCRIPTAPPDATE")
-	 @Temporal(TemporalType.TIMESTAMP)
-	 private Date inscriptAppDate;
-	 
-	 @Column( name = "PASSWORD")
-	 private String password;
-	 
-	 @Column( name = "EMAIL")
-	 private String email;
-	 
-	 @Column( name = "STATUS")
-	 private String status;
+
+	@Lob
+	@Column(name = "AVATAR")
+	private byte[] avatar;
+
+	@Column(name = "FIRSTNAME")
+	private String firstName;
+
+	@Column(name = "LASTNAME")
+	private String lastName;
+
+	@Column(name = "ADRESS")
+	private String adress;
+
+	@Column(name = "PHONE")
+	private String phone;
+
+	@Column(name = "BIRTHDATE")
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
+
+	@Column(name = "INSCRIPTAPPDATE")
+	@Temporal(TemporalType.DATE)
+	private Date inscriptAppDate;
+
+	@Column(name = "PASSWORD")
+	private String password;
+
+	@Column(name = "EMAIL")
+	private String email;
+
+	@Column(name = "STATUS")
+	private String status;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	private Set<AcademicPeriod> academicPeriods;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	private Set<ProfessionalPeriod> professionnalPeriods;
 
 	public User() {
 		super();
@@ -150,15 +155,22 @@ public class User {
 	public Integer getId() {
 		return id;
 	}
-	
 
-	
-	 
+	public Set<AcademicPeriod> getAcademicPeriods() {
+		return academicPeriods;
+	}
 
-	
-	
-	
-	
-	
-	
+	public void setAcademicPeriods(Set<AcademicPeriod> academicPeriods) {
+		this.academicPeriods = academicPeriods;
+	}
+
+	public Set<ProfessionalPeriod> getProfessionnalPeriods() {
+		return professionnalPeriods;
+	}
+
+	public void setProfessionnalPeriods(
+			Set<ProfessionalPeriod> professionnalPeriods) {
+		this.professionnalPeriods = professionnalPeriods;
+	}
+
 }
