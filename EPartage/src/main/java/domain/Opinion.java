@@ -1,13 +1,12 @@
 package domain;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 /**
  * Represents the user's opinion
@@ -18,21 +17,44 @@ import javax.persistence.OneToOne;
 @Entity
 public class Opinion {
 
-	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO )
-	@Column (name = "ID_OP")
-	private Integer id;
+	@EmbeddedId
+	private IdOpinion idOpinion;
 	
 	@Column ( name = "VALUE")
+	@Size (max = 32)
 	private String value;
 	
-	@Column ( name = "AUTHOR", nullable = false)
-	@OneToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "ID_U")
-	private User user;
+//	@Column ( name = "AUTHOR", nullable = false)
+//	@OneToOne (fetch = FetchType.LAZY)
+//	@JoinColumn (name = "ID_U")
+//	private User user;
 	
 	@Column ( name = "ID_PUB", nullable = false)
 	@OneToOne (fetch = FetchType.LAZY)
 	@JoinColumn (name = "ID_PUB")
 	private Publication publication;
+
+	public IdOpinion getIdOpinion() {
+		return idOpinion;
+	}
+
+	public void setIdOpinion(IdOpinion idOpinion) {
+		this.idOpinion = idOpinion;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
+	}
 }
