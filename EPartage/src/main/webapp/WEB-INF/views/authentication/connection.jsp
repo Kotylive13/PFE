@@ -1,48 +1,34 @@
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<div>
-	<form method="post" action="<c:url value="/EPartage/user/login"/>">
-		<!-- CHANGER VALUE !!! -->
-		<fieldset>
-			<legend>Connexion</legend>
+<%@ page contentType="text/html; charset=utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-			<!-- ---------------- ATTENTE DE CONNEXION ----------------- -->
+<tiles:insertDefinition name="master.page">
+	<tiles:putAttribute name="title">
+			Authentification
+		</tiles:putAttribute>
+	<tiles:putAttribute name="body">
+		<p>Connexion</p>
+		<form:form method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/authentication/login.htm">
+			<table>
+				<tr>
+					<td><form:label path="email">Adresse email</form:label></td>
+					<td><form:input path="email" placeholder="Ex : name@mail.com"
+							size="30" maxlength="60" /></td>
+				</tr>
+				<tr>
+					<td><form:label path="password">Mot de passe</form:label></td>
+					<td><form:password path="password" size="30" maxlength="60" /></td>
+				</tr>
 
-			<c:if test="${empty sessionScope.userSession}">
 
-				<!-- EMAIL -->
-				<label for="email">Adresse email </label>
-				<input type="email" id="email" name="email"
-					placeholder="Ex : name@mail.com" size="30" maxlength="60" />
-				<br />
+			</table>
+			<input type="submit" value="Connexion" />
+		</form:form>
 
-				<!-- MOT DE PASSE -->
-				<label for="password">Mot de passe </label>
-				<input type="password" id="password" name="password" size="30"
-					maxlength="60" />
 
-				<!-- VALIDATION -->
-				<input type="submit" value="Connexion" />
 
-				<p>
-					<a href="<c:url value=""/>">Mot de passe oublié ?</a>
-				</p>
-				<!-- CHANGER VALUE !!! -->
+	</tiles:putAttribute>
+</tiles:insertDefinition>
 
-			</c:if>
 
-			<!-- ---------------- UTILISATEUR CONNECTE ----------------- -->
-
-			<%-- Vérification de la présence d'un objet utilisateur en session --%>
-			<c:otherwise>
-
-				<%-- Si l'utilisateur existe en session, alors on affiche son login. --%>
-				<p class="succes">Vous êtes connecté(e) avec l'adresse :
-					${sessionScope.userSession.login}</p>
-				<p>
-					<a href="<c:url value="/EPartage/user/logout"/>">Deconnexion</a>
-				</p>
-			</c:otherwise>
-		</fieldset>
-	</form>
-</div>
