@@ -8,7 +8,7 @@ import services.MessageService;
 
 @Controller
 @RequestMapping("/message")
-public class MessageController extends AbstractController {
+public class MessageController {
 
 	@Autowired
 	private MessageService messageService;
@@ -21,7 +21,6 @@ public class MessageController extends AbstractController {
 	public void listMessage () {
 		System.out.println("###### Messages");
 		System.out.println(messageService);
-		System.out.println("Nombre de message : " + messageService.findAll().size());
+		System.out.println("Nombre de message : " + messageService.findAll().iterator().next().getReceivers().size());
 	}
-	
 }

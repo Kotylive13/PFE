@@ -10,17 +10,17 @@ public class IdMessageReceiver implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private int id_u;
+	private Integer id_u;
 	
 	private Date dateM;
 	
-	private int receiver;
+	private Integer receiver;
 	
-	public int getId_u() {
+	public Integer getId_u() {
 		return id_u;
 	}
 
-	public void setId_u(int id_u) {
+	public void setId_u(Integer id_u) {
 		this.id_u = id_u;
 	}
 
@@ -32,11 +32,11 @@ public class IdMessageReceiver implements Serializable {
 		this.dateM = dateM;
 	}
 
-	public int getReceiver() {
+	public Integer getReceiver() {
 		return receiver;
 	}
 
-	public void setReceiver(int receiver) {
+	public void setReceiver(Integer receiver) {
 		this.receiver = receiver;
 	}
 

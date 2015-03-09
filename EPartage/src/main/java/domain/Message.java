@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class Message {
 	@EmbeddedId
 	private IdMessage idMessage;
 
-	@OneToMany
+	@OneToMany (fetch = FetchType.EAGER)
 	@JoinTable(name="MessageReceiver",
 	joinColumns={
 			@JoinColumn(name="id_u"),
