@@ -21,10 +21,10 @@ public class Message {
 	@OneToMany (fetch = FetchType.EAGER)
 	@JoinTable(name="MessageReceiver",
 	joinColumns={
-			@JoinColumn(name="id_u"),
-			@JoinColumn(name="dateM")},
+			@JoinColumn(name="dateM", referencedColumnName = "dateM"),
+			@JoinColumn(name="id_u", referencedColumnName = "author")},
 	inverseJoinColumns=
-			@JoinColumn(name="receiver"))
+			@JoinColumn(name="receiver", referencedColumnName = "id_u"))
 	private List<User> receivers;
 
 	@Column(name = "content")
