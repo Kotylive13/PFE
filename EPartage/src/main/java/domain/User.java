@@ -74,6 +74,9 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<ProfessionalPeriod> professionnalPeriods;
 	
+	@ManyToMany 
+	private Set<Hobby> hobbys;
+	
 	@ManyToMany
 	@JoinTable (name="MembershipGroup",
 	joinColumns =
@@ -81,14 +84,6 @@ public class User {
 	inverseJoinColumns=
 		@JoinColumn(name="nameG"))
 	private Set<Group> groups;
-
-	@ManyToMany
-	@JoinTable (name="UserHobby",
-	joinColumns =
-		@JoinColumn(name="id_u"),
-	inverseJoinColumns=
-		@JoinColumn(name="nameH"))
-	private Set<Group> hobbys;
 
 	public User() {
 		super();
