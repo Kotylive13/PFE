@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
@@ -34,19 +35,18 @@ public class Publication {
 	@Size (max = 1024)
 	private String content;
 	
-	@Column ( name = "AUTHOR", nullable = false)
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "ID_U")
+	@JoinColumn (name = "ID_U", nullable = false)
 	private User user;
 	
-	@Column ( name = "NAMEC", nullable = false)
 	@OneToOne
-	@JoinColumn (name = "NAMEC")
+	@JoinColumns ({
+		@JoinColumn (name = "NAMEC", nullable = false, referencedColumnName="NAMEC", insertable = false, updatable = false),
+		@JoinColumn (name = "NAMEG", nullable = false, referencedColumnName="NAMEG", insertable = false, updatable = false)})
 	private Category category;
 	
-	@Column ( name = "NAMEG", nullable = false)
 	@OneToOne
-	@JoinColumn (name = "NAMEG")
+	@JoinColumn (name = "NAMEG", nullable = false, insertable = false, updatable = false)
 	private Group group;
 
 	public Integer getId() {

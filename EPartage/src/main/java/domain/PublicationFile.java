@@ -19,8 +19,8 @@ public class PublicationFile {
 	private String title;
 	
 	@Lob @Basic(fetch = FetchType.LAZY)
-	@Column( name = "FILE", length=100000)
-	private byte[] picture;
+	@Column( name = "FILE", length=5000)
+	private byte[] file;
 
 	public IdPublicationFile getIdPublicationFile() {
 		return idPublicationFile;
@@ -38,11 +38,11 @@ public class PublicationFile {
 		this.title = title;
 	}
 
-	public byte[] getPicture() {
-		return picture;
+	public byte[] getFile() {
+		return file;
 	}
 
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
+	public void setFile(byte[] file) {
+		this.file = file;
 	}
 }
