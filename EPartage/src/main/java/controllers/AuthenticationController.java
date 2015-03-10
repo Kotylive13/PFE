@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.UserService;
+import utilities.CryptPassword;
 import domain.User;
 
 
@@ -55,8 +56,9 @@ public class AuthenticationController {
 			HttpSession session) {
 		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
+		password = CryptPassword.getCryptString(password);
 		
-		User user = null;/* userService.findLogin(email, password);*/  //renvoi NULL ?
+		User user = userService.findLogin(email, password); //renvoi NULL ?
 		
 		if(user != null){
 			session.setAttribute( "userSession", user );
