@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
@@ -25,6 +27,7 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class User {
 
 	@Id
@@ -78,6 +81,14 @@ public class User {
 	inverseJoinColumns=
 		@JoinColumn(name="nameG"))
 	private Set<Group> groups;
+
+	@ManyToMany
+	@JoinTable (name="UserHobby",
+	joinColumns =
+		@JoinColumn(name="id_u"),
+	inverseJoinColumns=
+		@JoinColumn(name="nameH"))
+	private Set<Group> hobbys;
 
 	public User() {
 		super();
