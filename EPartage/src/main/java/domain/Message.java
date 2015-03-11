@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -16,7 +18,12 @@ import javax.persistence.Table;
 public class Message {
 
 	@EmbeddedId
-	private IdMessage idMessage;
+	private IdMessage idMessage = new IdMessage();
+	
+	@MapsId("sender")
+	@ManyToOne
+	@JoinColumn(name = "author")
+	private User author;
 
 	@OneToMany (fetch = FetchType.EAGER)
 	@JoinTable(name="MessageReceiver",
@@ -52,6 +59,14 @@ public class Message {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 	
 }
