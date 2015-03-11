@@ -30,10 +30,10 @@ public class CommentFile {
 	})
 	private Comment comment;
 	
-	@Column(name = "title")
+	@Column(name = "title", nullable = false)
 	private String title;
 	
-	@Column(name = "file")
+	@Column(name = "file", nullable = false)
 	private byte[] file;
 
 	public IdCommentFile getIdCommentFile() {

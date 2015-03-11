@@ -24,7 +24,7 @@ public class Comment {
 	@JoinColumn(name = "author")
 	private User author;
 	
-	@Column(name = "content")
+	@Column(name = "content", nullable = false)
 	String content;
 
 	public IdComment getIdComment() {

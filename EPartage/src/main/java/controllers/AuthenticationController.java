@@ -15,7 +15,7 @@ import domain.User;
 
 
 /**
- * Class managing connection page actions
+ * Class managing connection page's actions
  * 
  * @author 
  */
@@ -58,9 +58,9 @@ public class AuthenticationController {
 		
 		password = CryptPassword.getCryptString(password);
 		
-		User user = userService.findLogin(email, password); //renvoi NULL ?
+		User user = userService.findLogin(email, password);
 		
-		if(user != null){
+		if(user != null && user.getStatus().equals("Waiting")){
 			session.setAttribute( "userSession", user );
 		} else {
 			session.setAttribute( "userSession", null );
@@ -71,15 +71,13 @@ public class AuthenticationController {
 	}
 	
 	
-	
-	
 	/**
 	 * User logout
 	 */
 	@RequestMapping(value = "/logout")
-	public String logoutForm (HttpSession session) {
-		session.setAttribute( "userSession", null );
-		return "redirect:connection.htm";
+	public ModelAndView logoutForm (HttpSession session) {
+		session.invalidate();
+		return new ModelAndView("welcome/index");
 	}
 
 	

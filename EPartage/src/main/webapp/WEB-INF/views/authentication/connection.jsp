@@ -21,12 +21,9 @@
 					<td><form:password path="password" size="30" maxlength="60" /></td>
 				</tr>
 
-
 			</table>
 			<input type="submit" value="Connexion" />
 		</form:form>
-
-
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
