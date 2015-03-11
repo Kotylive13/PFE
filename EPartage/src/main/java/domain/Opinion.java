@@ -24,31 +24,9 @@ public class Opinion {
 	@Size (max = 32)
 	private String value;
 	
-	@OneToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "ID_PUB", nullable = false)
-	private Publication publication;
 
-	public IdOpinion getIdOpinion() {
-		return idOpinion;
-	}
+	@Column(name = "AUTHOR", nullable = false)
+	private Integer author;
 
-	public void setIdOpinion(IdOpinion idOpinion) {
-		this.idOpinion = idOpinion;
-	}
 
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	public Publication getPublication() {
-		return publication;
-	}
-
-	public void setPublication(Publication publication) {
-		this.publication = publication;
-	}
 }
