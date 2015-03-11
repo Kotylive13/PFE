@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 /**
  * Class representing users
  * 
- * @author 
+ * @author
  *
  */
 
