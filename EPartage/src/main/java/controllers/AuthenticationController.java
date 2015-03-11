@@ -77,9 +77,9 @@ public class AuthenticationController {
 	 * User logout
 	 */
 	@RequestMapping(value = "/logout")
-	public String logoutForm (HttpSession session) {
-		session.setAttribute( "userSession", null );
-		return "redirect:connection.htm";
+	public ModelAndView logoutForm (HttpSession session) {
+		session.invalidate();
+		return new ModelAndView("welcome/index");
 	}
 
 	
