@@ -32,9 +32,13 @@
 			<spring:url value='/authentication/logout.htm' var="var" />
 			<a href="${var}">Deconnexion</a>
 			</div>
-			
-			
+
 		</c:if>
+		
+		<div>
+			<spring:url value='/login_staff/index.htm' var="var" />
+			<a href="${var}">Administration</a>
+		</div>
 		
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -28,7 +28,7 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 			+ " AND u.password = :password ";
 
 	@Query(FIND_BY_LOGIN_PASSWORD_QUERY)
-	public User findLogin(@Param("login") String login,
+	public User findByLogin(@Param("login") String login,
 			@Param("password") String password);
 
 }

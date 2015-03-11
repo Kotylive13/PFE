@@ -58,9 +58,9 @@ public class AuthenticationController {
 		
 		password = CryptPassword.getCryptString(password);
 		
-		User user = userService.findLogin(email, password);
+		User user = userService.findByLogin(email, password);
 		
-		if(user != null && user.getStatus().equals("Waiting")){
+		if(user != null && !user.getStatus().equals("Waiting")){
 			session.setAttribute( "userSession", user );
 		} else {
 			session.setAttribute( "userSession", null );
