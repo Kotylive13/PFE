@@ -8,16 +8,27 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.validation.constraints.Size;
 
+/**
+ * This class represents the file in the publication
+ * @author Koty
+ *
+ */
 @Entity
 public class PublicationFile {
 
 	@EmbeddedId
 	private IdPublicationFile idPublicationFile;
 	
+	/**
+	 * The file's title
+	 */
 	@Column ( name = "TITLE" )
 	@Size (max = 32)
 	private String title;
 	
+	/**
+	 * The file
+	 */
 	@Lob @Basic(fetch = FetchType.LAZY)
 	@Column( name = "FILE", length=5000)
 	private byte[] file;

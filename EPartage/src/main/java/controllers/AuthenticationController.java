@@ -15,7 +15,7 @@ import domain.User;
 
 
 /**
- * Class managing connection page actions
+ * Class managing connection page's actions
  * 
  * @author 
  */
@@ -58,9 +58,9 @@ public class AuthenticationController {
 		
 		password = CryptPassword.getCryptString(password);
 		
-		User user = userService.findLogin(email, password); //renvoi NULL ?
+		User user = userService.findLogin(email, password);
 		
-		if(user != null){
+		if(user != null && user.getStatus().equals("Waiting")){
 			session.setAttribute( "userSession", user );
 		} else {
 			session.setAttribute( "userSession", null );
@@ -69,8 +69,6 @@ public class AuthenticationController {
 		System.out.println(user.getFirstName());
 		return new ModelAndView("welcome/index");
 	}
-	
-	
 	
 	
 	/**
