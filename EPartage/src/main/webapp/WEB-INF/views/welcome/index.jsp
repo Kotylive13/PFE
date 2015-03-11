@@ -19,6 +19,11 @@
 		<spring:url value='/subscription/subscribe.htm' var="var" />
 		<a href="${var}">S'inscrire</a>
 		</div>
+		
+		<div>
+		<spring:url value='/message/newmessage.htm' var="var" />
+		<a href="${var}">Nouveau message</a>
+		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 
