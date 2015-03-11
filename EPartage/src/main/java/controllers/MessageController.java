@@ -57,10 +57,8 @@ public class MessageController {
 			System.out.println("Erreurs   :" + bindingResult.getAllErrors());
 		}else{
 			
-			//User user = (User) session.getAttribute("userSession");
-			//message.setAuthor(user);
-			User author = userService.findLogin("yoann.m@gmail.com", "mdp");
-			message.setAuthor(author);
+			User user = (User) session.getAttribute("userSession");
+			message.setAuthor(user);
 			
 			String input = request.getParameter("receiversList");
 			input = input.replace(" ", "");

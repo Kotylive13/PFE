@@ -29,6 +29,11 @@
 			<p>Vous êtes connecté(e) avec l'adresse : ${sessionScope.userSession.email}</p>
 
 			<div>
+			<spring:url value='/message/newmessage.htm' var="var" />
+			<a href="${var}">Nouveau message</a>
+			</div>
+
+			<div>
 			<spring:url value='/authentication/logout.htm' var="var" />
 			<a href="${var}">Deconnexion</a>
 			</div>
