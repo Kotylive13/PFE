@@ -2,8 +2,6 @@ package controllers;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -18,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.UserService;
 import domain.Status;
+import domain.Student;
 import domain.User;
 
 /**
@@ -42,15 +41,15 @@ public class SubscriptionController {
 	public ModelAndView subscribe(Model model) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribe");
-		User user = new User();
+		Student student = new Student();
 		ModelAndView result;
 		result = new ModelAndView("subscription/subscribe");
-		model.addAttribute("user", user);
+		model.addAttribute("student", student);
 		return result;
 	}
 
 	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute User user,
+	public ModelAndView subscribePost(@Valid @ModelAttribute Student student,
 			BindingResult bindingResult) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribePost");
@@ -62,9 +61,9 @@ public class SubscriptionController {
 			//System.out.println("Erreurs   :" + bindingResult.getAllErrors());
 			return result;
 		} else {
-			user.setInscriptAppDate(new Date());
-			user.setStatus(Status.W);
-			userService.save(user);
+			student.setInscriptAppDate(new Date());
+			student.setStatus(Status.W);
+			userService.save(student);
 			result = new ModelAndView("welcome/index");
 			return result;
 		}
