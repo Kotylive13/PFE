@@ -33,7 +33,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
 	@Id

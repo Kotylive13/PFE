@@ -18,7 +18,7 @@ public class IdMessage implements Serializable {
 	private Date dateM;
 	
 	@Column(name = "author")
-	private int sender;
+	private Integer sender;
 	
 	public IdMessage() {}
 
@@ -30,11 +30,11 @@ public class IdMessage implements Serializable {
 		this.dateM = dateM;
 	}
 	
-	public int getSender() {
+	public Integer getSender() {
 		return sender;
 	}
 
-	public void setSender(int sender) {
+	public void setSender(Integer sender) {
 		this.sender = sender;
 	}
 

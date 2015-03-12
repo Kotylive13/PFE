@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.UserService;
 import utilities.CryptPassword;
-import domain.User;
+import domain.Student;
 
 
 /**
@@ -39,10 +42,10 @@ public class AuthenticationController {
 	@RequestMapping(value = "/connection")
 	public ModelAndView connection(Model model) {
 		System.out.println("Controller : /AuthenticationController --- Action : /connection");
-		User user = new User();
+		Student student = new Student();
 		ModelAndView result;
 		result = new ModelAndView("authentication/connection");
-		model.addAttribute("user", user);
+		model.addAttribute("student", student);
 		return result;
 	}
 	
@@ -53,24 +56,32 @@ public class AuthenticationController {
 	public ModelAndView login (
 			@RequestParam(required = true) String email,
 			@RequestParam(required = true) String password, 
-			HttpSession session) {
+			HttpSession session,
+			Model model) {
 		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
 		password = CryptPassword.getCryptString(password);
-		
-		User user = userService.findLogin(email, password);
-		
-		if(user != null && user.getStatus().equals("Waiting")){
-			session.setAttribute( "userSession", user );
+		Map<String, Object> message = new HashMap<String, Object>();
+		Student studentSession = userService.findByEmailPass(email, password);
+		if(studentSession != null){
+			if(!studentSession.getStatus().equals("Waiting")){
+				session.setAttribute( "userSession", studentSession );
+			}
 		} else {
 			session.setAttribute( "userSession", null );
+			message.put("type", "error");
+	    	message.put("message", "Le login ou le mot de passe n'est pas correct.");
+	    	Student student = new Student();
+			ModelAndView result;
+			result = new ModelAndView("authentication/connection", message);
+			model.addAttribute("student", student);
+			return result;
 		}
 	
-		System.out.println(user.getFirstName());
+		System.out.println(studentSession.getFirstName());
 		return new ModelAndView("welcome/index");
 	}
-	
-	
+
 	/**
 	 * User logout
 	 */
@@ -80,5 +91,4 @@ public class AuthenticationController {
 		return new ModelAndView("welcome/index");
 	}
 
-	
 }

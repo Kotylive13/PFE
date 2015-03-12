@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 
 import repositories.UserDAO;
 import utilities.CryptPassword;
+import domain.Student;
 import domain.User;
-
-
 
 @Service
 @Transactional
@@ -27,8 +26,12 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
-	public User findLogin(String email, String password) {
-		return userDao.findLogin(email, password);
+	public Student findByEmailPass(String email, String password) {
+		return userDao.findByEmailPass(email, password);
+	}
+	
+	public User findByLogin(String email) {
+		return userDao.findByLogin(email);
 	}
 
 	public void save(User user) {

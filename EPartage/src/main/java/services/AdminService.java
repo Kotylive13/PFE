@@ -30,4 +30,8 @@ public class AdminService {
 		adminDao.save(admin);
 	}
 	
+	public Admin findByLogin(String login, String password) {
+		return adminDao.findByLogin(login, password);
+	}
+	
 }
