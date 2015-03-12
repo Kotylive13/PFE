@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Class representing users
@@ -39,13 +45,17 @@ public class User {
 	@Column(name = "AVATAR")
 	private byte[] avatar;
 
-	@Column(name = "FIRSTNAME")
+	@Column(name = "FIRSTNAME")//, nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre prénom !")
+	@NotNull
 	private String firstName;
 
-	@Column(name = "LASTNAME")
+	@Column(name = "LASTNAME", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre nom !")
 	private String lastName;
 
-	@Column(name = "ADRESS")
+	@Column(name = "ADRESS", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre adresse !")
 	private String adress;
 
 	@Column(name = "PHONE")
@@ -59,14 +69,20 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	private Date inscriptAppDate;
 
-	@Column(name = "PASSWORD")
+	@Column(name = "PASSWORD", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre mot de passe !")
 	private String password;
 
-	@Column(name = "EMAIL")
+	
+	
+	@Column(name = "EMAIL", nullable = false, unique = true)
+	@Email
+	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
 	private String email;
 
 	@Column(name = "STATUS")
-	private String status;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<AcademicPeriod> academicPeriods;
@@ -161,11 +177,11 @@ public class User {
 		this.email = email;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

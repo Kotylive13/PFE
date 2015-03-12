@@ -3,6 +3,12 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<style>
+    .error {
+        color: red; font-weight: bold;
+    }
+</style>
+
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">
 			Subscribe
@@ -16,44 +22,44 @@
 				<tr>
 					<td><form:label path="firstName">Prénom</form:label></td>
 					<td><form:input path="firstName" size="30" maxlength="60" /></td>
-					<form:errors path="firstName" />
+					<td><form:errors path="firstName" cssClass="error" /></td>
 				</tr>
 
 				<tr>
 					<td><form:label path="lastName">Nom</form:label></td>
 					<td><form:input path="lastName" size="30" maxlength="60" /></td>
-					<form:errors path="lastName" />
+					<td><form:errors path="lastName" cssClass="error"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="adress">Adresse</form:label></td>
 					<td><form:input path="adress" size="30" maxlength="60" /></td>
-					<form:errors path="adress" />
+					<td><form:errors path="adress" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="birthDate">Date de naissance</form:label></td>
-					<td><form:input path="birthDate" size="30" maxlength="60" /></td>
-					<form:errors path="birthDate" />
+					<td><form:input path="birthDate" /></td>
+					<td><form:errors path="birthDate" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="phone">Téléphone</form:label></td>
 					<td><form:input path="phone" size="30" maxlength="60" /></td>
-					<form:errors path="phone" />
+					<td><form:errors path="phone" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="email">Adresse email</form:label></td>
 					<td><form:input path="email" placeholder="Ex : name@mail.com"
 							size="30" maxlength="60" /></td>
-							<form:errors path="email" />
+					<td><form:errors path="email" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="password">Mot de passe</form:label></td>
 					<td><form:password path="password" size="30" maxlength="60" /></td>
-					<form:errors path="password" />
+					<td><form:errors path="password" cssClass="error"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="avatar">Photo : </form:label></td>
-					<td><input type="file"></td>
-					<form:errors path="avatar" />
+					<td><form:input path="avatar" type="file"/></td>
+					<td><form:errors path="avatar" /></td>
 				</tr>
 
 			</table>
