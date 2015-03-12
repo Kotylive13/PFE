@@ -4,27 +4,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <tiles:insertDefinition name="master.page">
-	<tiles:putAttribute name="title">
-			Authentification
-		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
-		<p>Connexion</p>
-		<form:form method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/authentication/login.htm">
-			<table>
-				<tr>
-					<td><form:label path="email">Adresse email</form:label></td>
-					<td><form:input path="email" placeholder="Ex : name@mail.com"
-							size="30" maxlength="60" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="password">Mot de passe</form:label></td>
-					<td><form:password path="password" size="30" maxlength="60" /></td>
-				</tr>
-
-			</table>
-			<input type="submit" value="Connexion" />
-		</form:form>
-
+	<tiles:putAttribute name="title">Authentification</tiles:putAttribute>
+	<tiles:putAttribute name="content">
+		<div class="mainRibbon">
+			<div class="contentMainRibbon">
+				<h1>e-Partage</h1>
+				<p>Un réseau social au sein d'Aix-Marseille Université</p>
+				<a href="/EPartage/subscription/subscribe.htm">Inscription</a>
+				<a href="">Contact</a>
+			</div>
+		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 

@@ -1,23 +1,24 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-
-
+<%@ include file="/WEB-INF/views/include.jsp" %>
 
 <html>
-<head>
-<title><tiles:insertAttribute name="title" /></title>
-</head>
-<body>
-	<div>
+	<head>
+		<title><tiles:insertAttribute name="title" /></title>
+		<link type="text/css" rel="stylesheet" href="<c:url value="/css/style.css" />" />
+	</head>
+	<body>
 		<tiles:insertAttribute name="header" />
-	</div>
-	<div>
-		<tiles:insertAttribute name="body" />
-	</div>
-	<div>
-		<tiles:insertAttribute name="footer" />
-	</div>
-</body>
+		<tiles:insertAttribute name="content" />
+		<div class="script">
+			<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+			<script type="text/javascript" src="/js/jquery.validate.js"></script>
+			<script type="text/javascript" src="/js/messages_fr.js"></script>
+			<script type="text/javascript" src="/js/autosize.js"></script>
+			<script type="text/javascript" src="/js/validate.js"></script>
+			<script type="text/javascript" src="/js/jquery-scrolltofixed.js"></script>
+			<script type="text/javascript" src="/js/jquery-ias.min.js"></script>
+			<script type="text/javascript" src="/js/script.js"></script>
+		</div>
+	</body>
 </html>

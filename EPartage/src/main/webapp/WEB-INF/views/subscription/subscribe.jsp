@@ -4,11 +4,78 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <tiles:insertDefinition name="master.page">
-	<tiles:putAttribute name="title">
-			Subscribe
-		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
-
+	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
+	<tiles:putAttribute name="content">
+	
+		<div class="page">
+			<div class="form">
+				<form id="updateInformationForm" method="post" action="">
+						<table>
+							<tr>
+								<td>Numéro étudiant</td>
+								<td><input name="name" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Nom</td>
+								<td><input name="firstName" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Prénom</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Date de naissance</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>E-mail</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Mot de passe</td>
+								<td><input id="" type="password"/></td>
+							</tr>
+							<tr>
+								<td>Adresse</td>
+								<td><textarea placeholder="Exprimez-vous"></textarea></td>
+							</tr>
+							<tr>
+								<td>Téléphone</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Centres d'intérêt</td>
+								<td><textarea placeholder="Exprimez-vous"></textarea></td>
+							</tr>
+							<tr>
+								<td>Formation actuelle</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Année d'inscription sur la plateforme</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Année d'inscription à l'université</td>
+								<td><input id="" type="text"/></td>
+							</tr>
+							<tr>
+								<td>Parcours académique</td>
+								<td><textarea placeholder="Exprimez-vous"></textarea></td>
+							</tr>
+							<tr>
+								<td>Expériences professionnelles</td>
+								<td><textarea placeholder="Exprimez-vous"></textarea></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input id="informationSubmit" type="submit"></td>
+						</table>
+					</form>
+			</div>
+		</div>
+	
+	
 		<p>S'inscrire</p>
 		<form:form method="POST" modelAttribute="user"
 			action="${pageContext.request.contextPath}/subscription/subscribe.htm">
