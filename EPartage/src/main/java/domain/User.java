@@ -19,6 +19,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * Class representing users
  * 
@@ -27,7 +30,7 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
 	@Id
@@ -63,6 +66,8 @@ public class User {
 	private String password;
 
 	@Column(name = "EMAIL")
+	@Email
+	@NotEmpty(message = "Veuillez saisir une adresse électronique !")
 	private String email;
 
 	@Column(name = "STATUS")
@@ -73,20 +78,13 @@ public class User {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<ProfessionalPeriod> professionnalPeriods;
-	
-	@ManyToMany 
-	@JoinTable(
-		name="userhobby",
-		joinColumns={@JoinColumn(name="ID_U", referencedColumnName="ID_U")},
-		inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
-	private Set<Hobby> hobbys;
-	
+
 	@ManyToMany
-	@JoinTable (name="MembershipGroup",
-	joinColumns =
-		@JoinColumn(name="id_u"),
-	inverseJoinColumns=
-		@JoinColumn(name="nameG"))
+	@JoinTable(name = "userhobby", joinColumns = { @JoinColumn(name = "ID_U", referencedColumnName = "ID_U") }, inverseJoinColumns = { @JoinColumn(name = "nameH", referencedColumnName = "nameH") })
+	private Set<Hobby> hobbys;
+
+	@ManyToMany
+	@JoinTable(name = "MembershipGroup", joinColumns = @JoinColumn(name = "id_u"), inverseJoinColumns = @JoinColumn(name = "nameG"))
 	private Set<Group> groups;
 
 	public User() {
