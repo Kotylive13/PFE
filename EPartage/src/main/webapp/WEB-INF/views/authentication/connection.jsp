@@ -15,5 +15,3 @@
 		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
-
-
