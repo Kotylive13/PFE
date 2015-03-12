@@ -8,26 +8,20 @@
 			Authentification
 		</tiles:putAttribute>
 	<tiles:putAttribute name="body">
-		<p>Connexion</p>
-		<form:form method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/authentication/login.htm">
+		<p>Connexion pour l'administration</p>
+		<form:form method="POST" modelAttribute="admin" action="${pageContext.request.contextPath}/login_staff/login.htm">
 			<table>
 				<tr>
-					<td><form:label path="email">Adresse email</form:label></td>
-					<td><form:input path="email" placeholder="Ex : name@mail.com"
-							size="30" maxlength="60" /></td>
+					<td><form:label path="login">Identifiant</form:label></td>
+					<td><form:input path="login" size="30" maxlength="60" /></td>
 				</tr>
 				<tr>
 					<td><form:label path="password">Mot de passe</form:label></td>
 					<td><form:password path="password" size="30" maxlength="60" /></td>
 				</tr>
-
-
 			</table>
 			<input type="submit" value="Connexion" />
 		</form:form>
-
-
-
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 
