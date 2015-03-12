@@ -5,7 +5,7 @@
 <div class="header">
 	<div class="centerHeader">
 		<p id="logo"><a href="">e-Partage</a></p>
-		<form:form method="POST" modelAttribute="user" action="${pageContext.request.contextPath}/authentication/login.htm">
+		<form:form method="POST" modelAttribute="student" action="${pageContext.request.contextPath}/authentication/login.htm">
 			<input id="connection" type="submit" value="Connexion">
 		  	<form:input id="password" type="password" path="password" placeholder="mot de passe"/>
 		  	<form:input id="login" type="text" path="email" placeholder="Adresse mail" />
