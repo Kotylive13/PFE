@@ -1,15 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ include file="/WEB-INF/views/include.jsp" %>
 
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
 	<tiles:putAttribute name="content">
-	
 		<div class="page">
+		<h2>S'inscrire</h2>
 			<div class="form">
-				<form id="updateInformationForm" method="post" action="">
+				<form:form id="updateInformationForm" method="POST" modelAttribute="user" 
+					action="${pageContext.request.contextPath}/subscription/subscribe.htm">
+
 						<table>
 							<tr>
 								<td>Numéro étudiant</td>
@@ -71,14 +72,10 @@
 								<td></td>
 								<td><input id="informationSubmit" type="submit"></td>
 						</table>
-					</form>
+					</form:form>
 			</div>
 		</div>
-	
-	
-		<p>S'inscrire</p>
-		<form:form method="POST" modelAttribute="user"
-			action="${pageContext.request.contextPath}/subscription/subscribe.htm">
+		
 			<table>
 				<tr>
 					<td><form:label path="firstName">Prénom</form:label></td>
@@ -125,7 +122,7 @@
 
 			</table>
 			<input type="submit" value="S'inscrire" />
-		</form:form>
+		
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
