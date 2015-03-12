@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import repositories.UserDAO;
 import utilities.CryptPassword;
+import domain.Student;
 import domain.User;
 
 @Service
@@ -25,8 +26,8 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
-	public User findByLogin(String email, String password) {
-		return userDao.findByLogin(email, password);
+	public Student findByEmailPass(String email, String password) {
+		return userDao.findByEmailPass(email, password);
 	}
 	
 	public User findByLogin(String email) {
