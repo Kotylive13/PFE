@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Message")
@@ -35,6 +36,7 @@ public class Message {
 	private List<User> receivers;
 
 	@Column(name = "content")
+	@Size (min = 2, max = 2048, message = "Le message doit contenir entre 2 et 2048 caractères")
 	private String content;
 
 	public IdMessage getIdMessage() {

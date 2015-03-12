@@ -22,6 +22,11 @@ import services.UserService;
 import domain.Message;
 import domain.User;
 
+/**
+ * Class managing message page's actions
+ * 
+ * @author 
+ */
 @Controller
 @RequestMapping("/message")
 public class MessageController {
@@ -54,42 +59,47 @@ public class MessageController {
 		result = new ModelAndView("message/NewMessageForm");
 		
 		if (bindingResult.hasErrors()) {
-			System.out.println("Erreurs   :" + bindingResult.getAllErrors());
-		}else{
-			
-			User user = (User) session.getAttribute("userSession");
-			message.setAuthor(user);
+			result.addObject("message", message);
+		} else {
 			
 			String input = request.getParameter("receiversList");
 			input = input.replace(" ", "");
 			String[] emails = input.split(";");
 			
+			if (emails[0].isEmpty() || emails.length > 100)
+				return result.addObject("error",
+						"Le nombre de destinataire doit être compris entre 1 et 100");
+			
 			List<User> receivers = new ArrayList<User>();
+			List<String> badReceivers = new ArrayList<String>();
+			
 			for (String email : emails) {
 				User receiver = userService.findByLogin(email);
-				if(receiver == null) {
-					System.out.println("Erreur : " + email + " utilisateur inconnu");
-					continue;
-				}
-				receivers.add(receiver);
+				if(receiver == null)
+					badReceivers.add(email);
+				else
+					receivers.add(receiver);
 			}
-			message.setReceivers(receivers);
 			
-			message.getIdMessage().setDateM(new Date());
+			if (!receivers.isEmpty()) {
+				message.setReceivers(receivers);
+				User user = (User) session.getAttribute("userSession");
+				message.setAuthor(user);
+				message.getIdMessage().setDateM(new Date());
+				messageService.save(message);
+				result = new ModelAndView("redirect:list.htm");
+			}
 			
-			messageService.save(message);
-			
-			result = new ModelAndView("redirect:list.htm");
+			if (!badReceivers.isEmpty())
+				result = new ModelAndView("message/NewMessageForm", 
+						"badReceivers", badReceivers);
 		}
 		
 		return result;
 	}
 
 	@RequestMapping("/list.htm")
-	public void listMessage() {
-		System.out.println("###### Messag");
-		System.out.println(messageService);
-		System.out.println("Nom expéditeur : "
-				+ messageService.findAll().iterator().next().getIdMessage().getDateM());
+	public String listMessage() {
+		return "message/ReceivedMessagesList";
 	}
 }
