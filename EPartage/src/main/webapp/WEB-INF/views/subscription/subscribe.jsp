@@ -13,16 +13,19 @@
 
 						<table>
 							<tr>
-								<td>Numéro étudiant</td>
-								<td><input name="name" type="text"/></td>
+								<td><form:label path="numStudent">Numéro étudiant</form:label></td>
+								<td><form:input path="numStudent" name="numStudent" type="text"/></td>
+								<form:errors path="numStudent" />
 							</tr>
 							<tr>
-								<td>Nom</td>
-								<td><input name="firstName" type="text"/></td>
+								<td><form:label path="lastName">Nom</form:label></td>
+								<td><form:input path="lastName" name="lastName" type="text"/></td>
+								<form:errors path="lastName" />
 							</tr>
 							<tr>
-								<td>Prénom</td>
-								<td><input id="" type="text"/></td>
+								<td><form:label path="firstName">Nom</form:label></td>
+								<td><form:input path="firstName" name="firstName" type="text"/></td>
+								<form:errors path="firstName" />
 							</tr>
 							<tr>
 								<td>Date de naissance</td>
