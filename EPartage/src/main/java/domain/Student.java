@@ -18,13 +18,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Student extends User {
 	
 	@Column (name = "numStudent", unique=true)
-	@NotNull(message = "Veuillez saisir votre numéro d'étudiant !")
-	@NotEmpty(message = "Veuillez saisir votre numéro d'étudiant !")
+	@NotNull(message = "Veuillez saisir votre numÃ©ro d'Ã©tudiant !")
+	@NotEmpty(message = "Veuillez saisir votre numÃ©ro d'Ã©tudiant !")
 	private String numStudent;
 	
 	@Column (name = "inscriptUnivDate")
 	@Temporal(TemporalType.DATE)
-	@Past (message = "Veuillez saisir une date dans le passé !")
+	@Past (message = "Veuillez saisir une date dans le passÃ© !")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull (message = "Veuillez saisir votre date d'inscription !")
 	private Date inscriptUnivDate;

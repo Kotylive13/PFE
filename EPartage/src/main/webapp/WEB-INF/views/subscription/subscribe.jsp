@@ -63,6 +63,11 @@
 							</td>
 						</tr>
 						<tr>
+							<td><form:label path="promo">Confirmation</form:label></td>
+							<td><form:input path="promo" name="promo" type="text"/></td>
+							<form:errors path="promo" />
+						</tr>
+						<tr>
 							<td></td>
 							<td><input id="informationSubmit" type="submit" value="s'inscrire"></td>
 						</tr>
