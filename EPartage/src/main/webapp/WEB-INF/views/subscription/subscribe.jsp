@@ -58,7 +58,16 @@
 						<tr>
 							<td><form:label path="phone">Téléphone</form:label></td>
 							<td><form:input path="phone" /></td>
-							<td><form:errors path="phone" cssClass="error" /></td>
+							<td><form:errors path="phone" cssClass="error" /></td> 
+							<td><label>Hobbies</label></td>
+							<td>
+								<select id="selector" class="tokenizer" multiple tabindex="-1" >
+						        	<c:forEach items="${hobbies}" var="hobby">
+									    <option>${hobby.nameH}</option>
+									</c:forEach>
+						        </select>
+						        <input id="selectedValues" type="hidden" />
+							</td>
 						</tr>
 						<tr>
 							<td>Centres d'intérêt</td>
