@@ -7,7 +7,7 @@
 	<tiles:putAttribute name="title">
 			Unsubscribe
 		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
+	<tiles:putAttribute name="content">
 
 
 	</tiles:putAttribute>

@@ -8,7 +8,7 @@
 	<tiles:putAttribute name="title">
 			Messages list
 		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
+	<tiles:putAttribute name="content">
 
 		<p>Boite de réception</p>
 

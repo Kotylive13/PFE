@@ -7,7 +7,7 @@
 <tiles:putAttribute name="title">
 			Authentification
 		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
+	<tiles:putAttribute name="content">
 		<p>Connexion</p>
 
 		<c:if test="${not empty type}">
