@@ -39,4 +39,8 @@ public class UserService {
 		userDao.save(user);
 	}
 	
+	/*public boolean exists(User user){
+		return userDao.exists(user.getId());
+	}*/
+	
 }

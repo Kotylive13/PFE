@@ -2,21 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<style>
-.error {
-	color: red;
-	font-weight: bold;
-}
-</style>
-
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="page">
-			<h2>S'inscrire</h2>
+			<h1>S'inscrire</h1>
 			<div class="form">
-				<form:form id="updateInformationForm" method="POST"
-					modelAttribute="student"
+				<form:form id="updateInformationForm" method="POST" modelAttribute="student" 
 					action="${pageContext.request.contextPath}/subscription/subscribe.htm">
 
 					<table>
@@ -33,7 +25,7 @@
 						</tr>
 						<tr>
 							<td><form:label path="lastName">Nom</form:label></td>
-							<td><form:input path="lastName" name="lastName"/></td>
+							<td><form:input path="lastName" name="lastName" type="text" /></td>
 							<td><form:errors path="lastName" cssClass="error" /></td>
 						</tr>
 						<tr>
@@ -70,7 +62,7 @@
 						</tr>
 						<tr>
 							<td>Centres d'intérêt</td>
-							<td><textarea placeholder="Exprimez-vous"></textarea></td>
+							<td><textarea placeholder="Natation, equitation, ..." name ="hobbies"></textarea></td>
 							<td><form:errors path="" cssClass="error" /></td>
 						</tr>
 

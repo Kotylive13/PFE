@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -46,16 +45,16 @@ public class SubscriptionController {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribe");
 		Student student = new Student();
+		Set<Hobby> studentHobbies = new HashSet<Hobby>();
 		ModelAndView result;
 		result = new ModelAndView("subscription/subscribe");
 		model.addAttribute("student", student);
+		model.addAttribute("hobbies", studentHobbies );
 		return result;
 	}
 
 	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute Student student,
-			@RequestParam(required = true) String hobbies,
-			BindingResult bindingResult) {
+	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,BindingResult bindingResult) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribePost");
 
@@ -67,8 +66,9 @@ public class SubscriptionController {
 		}
 		student.setInscriptAppDate(new Date());
 		student.setStatus(Status.W);
-		Set<Hobby> studentHobbies = new HashSet<Hobby>();
+		
 		// store hobbies
+		/*Set<Hobby> studentHobbies = new HashSet<Hobby>();
 		String[] arrayHobbies = null;
 		if (hobbies != null) {
 			if (!hobbies.isEmpty()) {
@@ -78,8 +78,8 @@ public class SubscriptionController {
 				studentHobbies.add(new Hobby(arrayHobbies[i]));
 			}
 
-		}
-		student.setHobbys(studentHobbies);
+		}*/
+		//student.setHobbys(studentHobbies);
 		// send email to this person
 		MailSender
 				.sendEmail(
@@ -93,6 +93,7 @@ public class SubscriptionController {
 								+ "A bientôt sur e-Partage !");
 
 		// show message "Votre demande d'inscription est en cours de validation"
+		//if(!userService.exists(student))
 		userService.save(student);
 		result = new ModelAndView("welcome/index");
 		return result;
