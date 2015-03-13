@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @PrimaryKeyJoinColumn(name="ID_U")
 public class Student extends User {
 	
 	@Column (name = "numStudent", unique=true)
+	@NotNull(message = "Veuillez saisir votre numéro d'étudiant !")
 	private String numStudent;
 	
 	@Column (name = "inscriptUnivDate")
