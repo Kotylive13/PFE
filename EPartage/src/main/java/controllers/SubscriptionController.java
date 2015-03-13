@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -14,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.HobbyService;
 import services.UserService;
 import domain.Status;
 import domain.Student;
-import domain.User;
 
 /**
  * Class managing subscription page actions
@@ -30,6 +32,8 @@ public class SubscriptionController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	HobbyService hobbyService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -41,10 +45,12 @@ public class SubscriptionController {
 	public ModelAndView subscribe(Model model) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribe");
-		Student student = new Student();
-		ModelAndView result;
-		result = new ModelAndView("subscription/subscribe");
-		model.addAttribute("student", student);
+		
+		Map<String, Object> hobbies = new HashMap<String, Object>();
+		hobbies.put("hobbies", hobbyService.findAll());		
+		ModelAndView result = new ModelAndView("subscription/subscribe", hobbies);
+		
+		model.addAttribute("student", new Student());
 		return result;
 	}
 

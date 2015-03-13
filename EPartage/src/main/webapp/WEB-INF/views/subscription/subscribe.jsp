@@ -55,9 +55,9 @@
 							<td><label>Hobbies</label></td>
 							<td>
 								<select id="selector" class="tokenizer" multiple tabindex="-1" >
-						        	<option>red</option>
-						          	<option>blue</option>
-						          	<option>green</option>
+						        	<c:forEach items="${hobbies}" var="hobby">
+									    <option>${hobby.nameH}</option>
+									</c:forEach>
 						        </select>
 						        <input id="selectedValues" type="hidden" />
 							</td>
