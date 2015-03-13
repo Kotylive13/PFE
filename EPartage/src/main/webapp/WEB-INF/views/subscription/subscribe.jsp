@@ -69,7 +69,7 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><input id="informationSubmit" type="submit" value="s'inscrire"></td>
+							<td><input id="informationSubmit" class="submit" type="submit" value="S'inscrire"></td>
 						</tr>
 					</table>
 				</form:form>
