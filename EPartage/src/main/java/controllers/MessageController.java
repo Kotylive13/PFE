@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.MessageService;
 import services.UserService;
 import domain.Message;
+import domain.Student;
 import domain.User;
 
 /**
@@ -101,5 +102,10 @@ public class MessageController {
 	@RequestMapping("/list.htm")
 	public String listMessage() {
 		return "message/ReceivedMessagesList";
+	}
+	
+	@ModelAttribute("student")
+	public Student getStudent (HttpSession session) {
+		return (Student) session.getAttribute("userSession");
 	}
 }
