@@ -7,7 +7,7 @@
 	<tiles:putAttribute name="title">
 			Liste des utilisateurs
 		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
+	<tiles:putAttribute name="content">
 		<p>Bienvenue sur le site e-Partage de Aix Marseille Université</p>
 
 		<display:table name="users" pagesize="20" class="displaytag" id="row" requestURI="list.htm">

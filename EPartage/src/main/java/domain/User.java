@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,14 +20,17 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Class representing users
  * 
- * @author
+ * @author 
  *
  */
 
@@ -42,13 +47,17 @@ public class User {
 	@Column(name = "AVATAR")
 	private byte[] avatar;
 
-	@Column(name = "FIRSTNAME")
+	@Column(name = "FIRSTNAME")//, nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre prénom !")
+	@NotNull
 	private String firstName;
 
-	@Column(name = "LASTNAME")
+	@Column(name = "LASTNAME", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre nom !")
 	private String lastName;
 
-	@Column(name = "ADRESS")
+	@Column(name = "ADRESS", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre adresse !")
 	private String adress;
 
 	@Column(name = "PHONE")
@@ -56,35 +65,45 @@ public class User {
 
 	@Column(name = "BIRTHDATE")
 	@Temporal(TemporalType.DATE)
+	@Past (message = "Veuillez saisir une date dans le passé !")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull (message = "Veuillez saisir votre date de naissance !")
 	private Date birthDate;
 
 	@Column(name = "INSCRIPTAPPDATE")
 	@Temporal(TemporalType.DATE)
 	private Date inscriptAppDate;
 
-	@Column(name = "PASSWORD")
+	@Column(name = "PASSWORD", nullable = false)
+	@NotEmpty(message = "Veuillez saisir votre mot de passe !")
 	private String password;
 
-	@Column(name = "EMAIL")
+	
+	
+	@Column(name = "EMAIL", nullable = false, unique = true)
 	@Email
-	@NotEmpty(message = "Veuillez saisir une adresse électronique !")
+	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
 	private String email;
 
 	@Column(name = "STATUS")
-	private String status;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<AcademicPeriod> academicPeriods;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<ProfessionalPeriod> professionnalPeriods;
-
-	@ManyToMany
-	@JoinTable(name = "userhobby", joinColumns = { @JoinColumn(name = "ID_U", referencedColumnName = "ID_U") }, inverseJoinColumns = { @JoinColumn(name = "nameH", referencedColumnName = "nameH") })
+	
+	@ManyToMany 
 	private Set<Hobby> hobbys;
-
+	
 	@ManyToMany
-	@JoinTable(name = "MembershipGroup", joinColumns = @JoinColumn(name = "id_u"), inverseJoinColumns = @JoinColumn(name = "nameG"))
+	@JoinTable (name="MembershipGroup",
+	joinColumns =
+		@JoinColumn(name="id_u"),
+	inverseJoinColumns=
+		@JoinColumn(name="nameG"))
 	private Set<Group> groups;
 
 	public User() {
@@ -163,11 +182,11 @@ public class User {
 		this.email = email;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

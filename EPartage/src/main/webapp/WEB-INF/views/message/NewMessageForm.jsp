@@ -8,7 +8,7 @@
 	<tiles:putAttribute name="title">
 			New message
 		</tiles:putAttribute>
-	<tiles:putAttribute name="body">
+	<tiles:putAttribute name="content">
 
 		<p>Nouveau message</p>
 		

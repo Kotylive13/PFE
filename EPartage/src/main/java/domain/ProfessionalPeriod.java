@@ -31,16 +31,16 @@ public class ProfessionalPeriod {
 	private Integer id;
 	
 	
-	@Column (name = "START")
+	@Column (name = "START", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date start;
 	
 	
-	@Column (name = "END")
+	@Column (name = "END", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date end;
 	
-	@Column (name = "NAME")
+	@Column (name = "NAME", nullable = false)
 	private String name;
 	
 	@Column (name = "DESCRIPTION")
