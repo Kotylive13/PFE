@@ -56,18 +56,16 @@ public class SubscriptionController {
 
 		ModelAndView result;
 		result = new ModelAndView("subscription/subscribe");
-
+		//Validation du model
 		if (bindingResult.hasErrors()) {
-			//System.out.println("Erreurs   :" + bindingResult.getAllErrors());
-			return result;
-		} else {
-			student.setInscriptAppDate(new Date());
-			student.setStatus(Status.W);
-			userService.save(student);
-			result = new ModelAndView("welcome/index");
 			return result;
 		}
-		
+		student.setInscriptAppDate(new Date());
+		student.setStatus(Status.W);
+		userService.save(student);
+		result = new ModelAndView("welcome/index");
+		return result;
+
 	}
 
 	@ModelAttribute("months")

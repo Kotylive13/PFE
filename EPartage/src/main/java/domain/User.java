@@ -81,7 +81,7 @@ public class User {
 	
 	
 	@Column(name = "EMAIL", nullable = false, unique = true)
-	@Email
+	@Email (message = "Veuillez saisir une adresse électronique valide !")
 	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
 	private String email;
 

@@ -22,14 +22,18 @@
 					<table>
 						<tr>
 							<td><form:label path="numStudent">Numéro étudiant</form:label></td>
-							<td><form:input path="numStudent" name="numStudent"
-									type="text" /></td>
+							<td><form:input path="numStudent" name="numStudent" /></td>
 							<td><form:errors path="numStudent" cssClass="error" />
 							<td>
 						</tr>
+							<tr>
+							<td><form:label path="inscriptUnivDate">Date d'inscription à l'université</form:label></td>
+							<td><form:input path="inscriptUnivDate" /></td>
+							<td><form:errors path="inscriptUnivDate" cssClass="error" /></td>
+						</tr>
 						<tr>
 							<td><form:label path="lastName">Nom</form:label></td>
-							<td><form:input path="lastName" name="lastName" type="text" /></td>
+							<td><form:input path="lastName" name="lastName"/></td>
 							<td><form:errors path="lastName" cssClass="error" /></td>
 						</tr>
 						<tr>
