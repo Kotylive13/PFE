@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
 <tiles:insertDefinition name="master.page">
@@ -63,8 +62,13 @@
 							</td>
 						</tr>
 						<tr>
+							<td><form:label path="promo">Confirmation</form:label></td>
+							<td><form:input path="promo" name="promo" type="text"/></td>
+							<form:errors path="promo" />
+						</tr>
+						<tr>
 							<td></td>
-							<td><input id="informationSubmit" type="submit" value="s'inscrire"></td>
+							<td><input id="informationSubmit" class="submit" type="submit" value="S'inscrire"></td>
 						</tr>
 					</table>
 				</form:form>
