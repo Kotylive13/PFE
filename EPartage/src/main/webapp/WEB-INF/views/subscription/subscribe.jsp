@@ -6,7 +6,7 @@
 	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="page">
-			<h2>S'inscrire</h2>
+			<h1>S'inscrire</h1>
 			<div class="form">
 				<form:form id="updateInformationForm" method="POST" modelAttribute="student" 
 					action="${pageContext.request.contextPath}/subscription/subscribe.htm">
@@ -50,6 +50,17 @@
 							<td><form:label path="password">Confirmation</form:label></td>
 							<td><form:input path="password" name="password" type="text"/></td>
 							<form:errors path="password" />
+						</tr>
+						<tr>
+							<td><label>Hobbies</label></td>
+							<td>
+								<select id="selector" class="tokenizer" multiple tabindex="-1" >
+						        	<option>red</option>
+						          	<option>blue</option>
+						          	<option>green</option>
+						        </select>
+						        <input id="selectedValues" type="hidden" />
+							</td>
 						</tr>
 						<tr>
 							<td></td>

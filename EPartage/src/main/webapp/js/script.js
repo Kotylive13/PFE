@@ -9,18 +9,18 @@ $('#options').scrollToFixed({
     marginTop: $('.header').outerHeight() + 50
 });
 
-var ias = $.ias({
-  container:  "#publications",
-  item:       ".publication",
-  pagination: "#pagination",
-  next:       ".next"
+$(".tokenizer").select2({
+  tags: true,
+  tokenSeparators: [',', ' ']
+})
+
+$(".multiple-tokens").select2({
+  templateResult: formatState
 });
 
-ias.extension(new IASSpinnerExtension());            // shows a spinner (a.k.a. loader)
-ias.extension(new IASTriggerExtension({offset: 3})); // shows a trigger after page 3
-ias.extension(new IASNoneLeftExtension({
-  text: 'There are no more pages left to load.'      // override text when no pages left
-}));
+$('#selector').change(function() {
+  $('#selectedValues').val($(".tokenizer").val());
+});
 
 function hover(element, src) {
     element.setAttribute('src', src);
@@ -54,3 +54,11 @@ function slideOptions (element, vitesse) {
 		$('.fixedHeader').css("box-shadow", "none");
 	}
 }
+
+function formatState (state) {
+  if (!state.id) { return state.text; }
+  var $state = $(
+    '<span><img src="../Images/logo.png" /> ' + state.text + '</span>'
+  );
+  return $state;
+};
