@@ -13,4 +13,10 @@
 		<put-attribute name="content" value="" />
 	</definition>
 	
+	<definition name="masterAdmin.page" template="/WEB-INF/views/master-page/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/master-page/header_admin.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+	
 </tiles-definitions>

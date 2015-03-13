@@ -10,7 +10,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @PrimaryKeyJoinColumn(name="ID_U")
-public class Student extends User{
+public class Student extends User {
 	
 	@Column (name = "numStudent", unique=true)
 	private String numStudent;
@@ -21,5 +21,30 @@ public class Student extends User{
 	
 	@Column (name = "promo")
 	private String promo;
+
+	
+	public String getNumStudent() {
+		return numStudent;
+	}
+
+	public void setNumStudent(String numStudent) {
+		this.numStudent = numStudent;
+	}
+
+	public Date getInscriptUnivDate() {
+		return inscriptUnivDate;
+	}
+
+	public void setInscriptUnivDate(Date inscriptUnivDate) {
+		this.inscriptUnivDate = inscriptUnivDate;
+	}
+
+	public String getPromo() {
+		return promo;
+	}
+
+	public void setPromo(String promo) {
+		this.promo = promo;
+	}
 
 }
