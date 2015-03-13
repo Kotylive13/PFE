@@ -24,13 +24,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Class representing users
  * 
- * @author 
+ * @author
  *
  */
 
@@ -47,7 +48,8 @@ public class User {
 	@Column(name = "AVATAR")
 	private byte[] avatar;
 
-	@Column(name = "FIRSTNAME")//, nullable = false)
+	@Column(name = "FIRSTNAME")
+	// , nullable = false)
 	@NotEmpty(message = "Veuillez saisir votre prénom !")
 	@NotNull
 	private String firstName;
@@ -61,13 +63,14 @@ public class User {
 	private String adress;
 
 	@Column(name = "PHONE")
+	@Length(min = 10, max = 10, message = "Veuillez saisir un numéro de téléphone valide !")
 	private String phone;
 
 	@Column(name = "BIRTHDATE")
 	@Temporal(TemporalType.DATE)
-	@Past (message = "Veuillez saisir une date dans le passé !")
+	@Past(message = "Veuillez saisir une date dans le passé !")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@NotNull (message = "Veuillez saisir votre date de naissance !")
+	@NotNull(message = "Veuillez saisir votre date de naissance !")
 	private Date birthDate;
 
 	@Column(name = "INSCRIPTAPPDATE")
@@ -78,10 +81,8 @@ public class User {
 	@NotEmpty(message = "Veuillez saisir votre mot de passe !")
 	private String password;
 
-	
-	
 	@Column(name = "EMAIL", nullable = false, unique = true)
-	@Email (message = "Veuillez saisir une adresse électronique valide !")
+	@Email(message = "Veuillez saisir une adresse électronique valide !")
 	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
 	private String email;
 
@@ -94,16 +95,12 @@ public class User {
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<ProfessionalPeriod> professionnalPeriods;
-	
-	@ManyToMany 
-	private Set<Hobby> hobbys;
-	
+
 	@ManyToMany
-	@JoinTable (name="MembershipGroup",
-	joinColumns =
-		@JoinColumn(name="id_u"),
-	inverseJoinColumns=
-		@JoinColumn(name="nameG"))
+	private Set<Hobby> hobbys;
+
+	@ManyToMany
+	@JoinTable(name = "MembershipGroup", joinColumns = @JoinColumn(name = "id_u"), inverseJoinColumns = @JoinColumn(name = "nameG"))
 	private Set<Group> groups;
 
 	public User() {
@@ -211,4 +208,19 @@ public class User {
 		this.professionnalPeriods = professionnalPeriods;
 	}
 
+	public Set<Hobby> getHobbys() {
+		return hobbys;
+	}
+
+	public void setHobbys(Set<Hobby> hobbys) {
+		this.hobbys = hobbys;
+	}
+
+	public Set<Group> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(Set<Group> groups) {
+		this.groups = groups;
+	}
 }

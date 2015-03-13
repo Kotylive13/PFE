@@ -69,8 +69,8 @@
 							<td><form:errors path="phone" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="">Centres d'intêrets</form:label></td>
-							<td><form:input  placeholder="Tennis, natation, ..." path="" /></td>
+							<td>Centres d'intérêt</td>
+							<td><textarea placeholder="Exprimez-vous"></textarea></td>
 							<td><form:errors path="" cssClass="error" /></td>
 						</tr>
 
