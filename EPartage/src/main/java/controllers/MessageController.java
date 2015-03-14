@@ -43,7 +43,7 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/newmessage.htm", method = RequestMethod.GET)
-	public ModelAndView detailPerson(Model model) {
+	public ModelAndView newMessageForm(Model model) {
 
 		ModelAndView result;
 		Message message = new Message();
@@ -53,7 +53,7 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/newmessage.htm",  method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute Message message, 
+	public ModelAndView newMessageForm(@Valid @ModelAttribute Message message, 
 			BindingResult bindingResult, HttpSession session, HttpServletRequest request) {
 
 		ModelAndView result;
