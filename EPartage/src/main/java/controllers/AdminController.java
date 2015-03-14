@@ -14,13 +14,13 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
-	// Constructors -----------------------------------------------------------
+// Constructors ---------------------------------------------------------------
 
 	public AdminController() {
 		super();
 	}
 
-	// Index 
+// Index ----------------------------------------------------------------------
 	
 	@RequestMapping(value = "/index")
 	public ModelAndView index() {
@@ -29,6 +29,5 @@ public class AdminController {
 		result = new ModelAndView("login_staff/index");
 		return result;
 	}
-		
-			
+					
 }

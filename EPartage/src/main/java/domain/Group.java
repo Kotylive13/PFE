@@ -73,4 +73,36 @@ public class Group {
 			return false;
 		return true;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public byte[] getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(byte[] avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<User> getMembers() {
+		return members;
+	}
+
+	public void setMembers(Set<User> members) {
+		this.members = members;
+	}
 }

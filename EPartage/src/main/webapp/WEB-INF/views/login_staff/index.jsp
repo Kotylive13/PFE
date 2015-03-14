@@ -6,12 +6,33 @@
 	<tiles:putAttribute name="title">Accueil</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 	
-		<p>Bienvenue dans l'interface administration</p>
+		<div class="page">
+		
+		<p>
+			<h1>Bienvenue dans l'interface administration</h1><br/><br/>
+		</p>
+		
+		<c:if test="${empty sessionScope.adminSession}">
+			<FONT color="red"><p> Vous n"êtes pas administrateur <br/><br/></p></FONT>
+		</c:if>
 		
 		<c:if test="${!empty sessionScope.adminSession}">
-			<p>Vous êtes connecté(e) en tant qu'administrateur</p>
-			<a href="${pageContext.request.contextPath}/login_staff/waitingUsers/listWaiting.htm">Voir les utilisateurs en attente</a>
+		
+			<FONT color="green"> <p> Vous êtes connecté en tant qu'administrateur <br/><br/> </p></FONT>
+			
+			<FONT color="blue"> <p> MENU <br/><br/></p> </FONT>
+		
+			<a href="${pageContext.request.contextPath}/login_staff/waitingUsers/listWaiting.htm">1/ Voir les utilisateurs en attente</a><br/><br/>
+			<a href="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">2/ Ajouter un groupe</a><br/><br/>
+			<a href="${pageContext.request.contextPath}/login_staff/group/listGroup.htm">3/ Voir les groupes</a><br/><br/>
+			<br/>
+			
+			<a href="${pageContext.request.contextPath}/login_staff/authentication/logout.htm">Déconnexion</a><br/>
+		
 		</c:if>
+		
+		</div>
+		
 	</tiles:putAttribute>
 </tiles:insertDefinition>
 
