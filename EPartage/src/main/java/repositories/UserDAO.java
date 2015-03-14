@@ -9,7 +9,7 @@ import domain.User;
 
 public interface UserDAO extends JpaRepository<User, Integer> {
 
-	/*FIND_BY_EMAIL_PASSWORD_QUERY*/
+//	FIND_BY_EMAIL_PASSWORD_QUERY ----------------------------------------------
 	
 	public final String FIND_BY_EMAIL_PASSWORD_QUERY = 
 			  " SELECT s "
@@ -22,7 +22,7 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 	public Student findByEmailPass(@Param("email") String email,
 			@Param("password") String password);
 
-	/*FIND_BY_LOGIN_QUERY*/
+//	FIND_BY_LOGIN_QUERY -------------------------------------------------------
 	
 	public final String FIND_BY_LOGIN_QUERY = 
 			  " SELECT u "

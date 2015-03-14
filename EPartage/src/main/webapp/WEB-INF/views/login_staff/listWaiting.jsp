@@ -5,13 +5,13 @@
 <tiles:insertDefinition name="masterAdmin.page">
 	<tiles:putAttribute name="title">Affichage des personnes en attente</tiles:putAttribute>
 	<tiles:putAttribute name="content">
+	<div class="page">
+
 		<c:if test="${!empty sessionScope.adminSession}">
 			<c:choose>
 				<c:when test="${not empty listStudents}">
-					<h1>1/ Liste des personne en attente de validation.</h1>
+					<h1>Liste des personne en attente de validation.</h1><br/><br/>
 					<ul>
-
-
 						<c:forEach var="student" items="${listStudents}">
 							<li><form:form method="POST"
 									modelAttribute="admin"
@@ -25,9 +25,13 @@
 					</ul>
 				</c:when>
 				<c:otherwise>
-					<h1>2/ Aucune personne en attente de validation.</h1>
+					<h1>Aucune personne en attente de validation.</h1>
 				</c:otherwise>
 			</c:choose>
 		</c:if>
+		
+		<a href="${pageContext.request.contextPath}/login_staff/index.htm">Retour au menu</a><br/>
+
+	</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

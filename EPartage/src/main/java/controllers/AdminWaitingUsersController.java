@@ -24,20 +24,18 @@ public class AdminWaitingUsersController {
 	@Autowired
 	AdminService adminService;
 
-	// Constructors -----------------------------------------------------------
+// Constructors ---------------------------------------------------------------
 
 	public AdminWaitingUsersController() {
 		super();
 	}
 
-	// List waiting
-	// ------------------------------------------------------------------
+// List waiting ---------------------------------------------------------------
 
 	@RequestMapping(value = "/listWaiting")
 	public ModelAndView listWaiting(HttpSession session, Model model) {
 
-		System.out
-				.println("Controller : /AdminController --- Action : /listWaiting");
+		System.out.println("Controller : /AdminController --- Action : /listWaiting");
 
 		Map<String, List<Student>> mapStudents = new HashMap<String, List<Student>>();
 
@@ -51,10 +49,10 @@ public class AdminWaitingUsersController {
 	
 	@RequestMapping(value = "/validateUser")
 	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , HttpSession session, Model model) {
-		System.out.println("coucou");
 		System.out.println(id);
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		adminService.validateUser(id);
 		return new ModelAndView("login_staff/listWaiting");
 	}
+	
 }
