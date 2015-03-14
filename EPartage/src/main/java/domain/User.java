@@ -98,6 +98,10 @@ public class User {
 	private Set<ProfessionalPeriod> professionnalPeriods;
 
 	@ManyToMany
+	@JoinTable(
+		      name="UserHobby",
+		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
+		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbys;
 
 	@ManyToMany
