@@ -7,11 +7,19 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Hobby {
-	
+
 	@Id
-	@Column (name = "nameH")
-	@Size (max = 32)
+	@Column(name = "nameH")
+	@Size(max = 32)
 	private String nameH;
+
+	public Hobby() {
+
+	}
+
+	public Hobby(String nameH) {
+		this.nameH = nameH;
+	}
 
 	public String getNameH() {
 		return nameH;
