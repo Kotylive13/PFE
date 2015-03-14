@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import services.UserService;
 import domain.Status;
 import domain.Student;
-import domain.User;
 
 /**
  * Class managing subscription page actions
