@@ -10,7 +10,21 @@
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
-		<p>Boite de réception</p>
+		<h1>Boite de réception</h1>
+		
+		<a href="${pageContext.request.contextPath}/message/receivedMessagesList.htm">Réception | </a>
+		<a href="${pageContext.request.contextPath}/message/sentMessagesList.htm">Envoyés</a>
+		
+		<h2>Détail message</h2>
+		
+		<p>De : ${message.author.firstName} ${message.author.lastName}</p>
+		<p>A :
+		<c:forEach items="${message.receivers}" var="r">
+			${r.firstName} ${r.lastName} 
+		</c:forEach>
+		</p>
+		<p>Date : ${message.idMessage.dateM}</p>
+		<p>Contenu : ${message.content}</p>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
