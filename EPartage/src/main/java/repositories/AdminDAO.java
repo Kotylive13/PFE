@@ -42,4 +42,21 @@ public interface AdminDAO extends JpaRepository<Admin, Integer> {
 	public void validateUser(@Param("id") Integer id,
 			@Param("status") Status status);
 	
+// FIND_USER_BY_ID ------------------------------------------------------
+	
+	public final static String FIND_USER_BY_ID = "SELECT s "
+			+ " FROM Student s" + " WHERE s.id = :id ";
+
+	@Query(FIND_USER_BY_ID)
+	public Student findStudentById(@Param("id") Integer id);
+	
+// REFUSED_USER
+	
+	public final static String REFUSED_USER = "UPDATE User "
+			+ " SET status = :status " + " WHERE id = :id ";
+	
+	@Modifying 
+	@Query(REFUSED_USER)
+	public void refusedUser(@Param("id") Integer id,
+			@Param("status") Status status);
 }

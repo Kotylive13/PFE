@@ -12,6 +12,6 @@ package domain;
  */
 public enum Status {
 	
-	W, A, I
+	W, A, I, R
 
 }

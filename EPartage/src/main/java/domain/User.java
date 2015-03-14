@@ -20,7 +20,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -105,7 +104,10 @@ public class User {
 	private Set<Hobby> hobbys;
 
 	@ManyToMany
-	@JoinTable(name = "MembershipGroup", joinColumns = @JoinColumn(name = "id_u"), inverseJoinColumns = @JoinColumn(name = "nameG"))
+	@JoinTable(
+		      name="MembershipGroup",
+		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
+		      inverseJoinColumns={@JoinColumn(name="nameG", referencedColumnName="nameG")})
 	private Set<Group> groups;
 
 	public User() {
