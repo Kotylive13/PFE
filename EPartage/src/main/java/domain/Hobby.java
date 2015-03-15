@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
+
 public class Hobby {
 
 	@Id

@@ -47,13 +47,16 @@ public class AdminGroupController {
 	}
 	
 	@RequestMapping(value = "/addGroup", method = RequestMethod.POST)
-	public ModelAndView addGroupForm(@ModelAttribute Group group){
+	public ModelAndView addGroupForm(HttpSession session, Model model, @ModelAttribute Group group){
 		System.out.println("Controller : /AdminGroupController --- Action : /addGroup POST");
 		ModelAndView result;
+		Admin admin = (Admin) session.getAttribute("adminSession");
 		result = new ModelAndView("/login_staff/group/addGroup");
-		if(group == null ) System.out.println("groupe est null");
+		if(group == null ) System.out.println("Le groupe est null");
 		System.out.println("Nom du groupe : " + group.getName());
+		System.out.println("Nom du Description : " + group.getDescription());
 		groupService.save(group);
+		model.addAttribute("admin", admin);
 		return result;
 	}
 	

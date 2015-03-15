@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AdminService;
+import utilities.MailSender;
 import domain.Status;
 import domain.Student;
+import domain.User;
 
 @Controller
 @RequestMapping("/login_staff/waitingUsers")
@@ -48,10 +50,16 @@ public class AdminWaitingUsersController {
 	}
 	
 	@RequestMapping(value = "/validateUser")
-	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , HttpSession session, Model model) {
+	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , @RequestParam String action, HttpSession session, Model model) {
 		System.out.println(id);
 		model.addAttribute("admin", session.getAttribute("adminSession"));
-		adminService.validateUser(id);
+		Student student = adminService.findStudentById(id);
+		if (action.equals("Valider")) {
+			adminService.validateUser(student.getId());
+			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", "Votre compte a bien été activé sur le site E-Partage. Vous pouvez dès à présent vous connecter.");
+		} else {
+			adminService.refusedUser(student.getId());
+		}
 		return new ModelAndView("login_staff/listWaiting");
 	}
 	

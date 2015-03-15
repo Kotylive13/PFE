@@ -17,12 +17,13 @@ public class GroupService {
 	@Autowired
 	private GroupDAO groupDao;
 
-	public void save(Group group) {
-		groupDao.save(group);
-	}
-
 	public List<Group> findAll() {
 		return groupDao.findAll();
+	}
+	
+	public void save(Group group) {
+		//groupDao.save2(group.getName(), null, group.getDescription());
+		groupDao.save(group);
 	}
 	
 }

@@ -45,4 +45,12 @@ public class AdminService {
 		adminDao.validateUser(id, Status.A);
 	}
 	
+	public Student findStudentById(Integer id) {
+		return adminDao.findStudentById(id);
+	}
+	
+	
+	public void refusedUser(Integer id) {
+		adminDao.refusedUser(id, Status.R);
+	}
 }
