@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,11 +16,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.MessageService;
 import services.UserService;
+import domain.IdMessage;
 import domain.Message;
+import domain.ReceivedMessage;
 import domain.Student;
 import domain.User;
 
@@ -43,21 +47,17 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/newmessage.htm", method = RequestMethod.GET)
-	public ModelAndView detailPerson(Model model) {
-
-		ModelAndView result;
-		Message message = new Message();
-		result = new ModelAndView("message/NewMessageForm");
-		model.addAttribute("message", message);
-		return result;
+	public String newMessageForm(Model model) {
+		return "message/newMessageForm";
 	}
 	
 	@RequestMapping(value = "/newmessage.htm",  method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute Message message, 
-			BindingResult bindingResult, HttpSession session, HttpServletRequest request) {
+	public ModelAndView newMessageForm(@Valid @ModelAttribute Message message,
+			BindingResult bindingResult, HttpSession session, 
+			HttpServletRequest request) {
 
 		ModelAndView result;
-		result = new ModelAndView("message/NewMessageForm");
+		result = new ModelAndView("message/newMessageForm");
 		
 		if (bindingResult.hasErrors()) {
 			result.addObject("message", message);
@@ -88,24 +88,94 @@ public class MessageController {
 				message.setAuthor(user);
 				message.getIdMessage().setDateM(new Date());
 				messageService.save(message);
-				result = new ModelAndView("redirect:list.htm");
+				result = new ModelAndView("redirect:sentMessagesList.htm");
 			}
 			
 			if (!badReceivers.isEmpty())
-				result = new ModelAndView("message/NewMessageForm", 
+				result = new ModelAndView("message/newMessageForm", 
 						"badReceivers", badReceivers);
 		}
 		
 		return result;
 	}
 
-	@RequestMapping("/list.htm")
-	public String listMessage() {
-		return "message/ReceivedMessagesList";
+	@RequestMapping("/sentMessagesList.htm")
+	public String sentMessageList() {
+		return "message/sentMessagesList";
+	}
+	
+	@RequestMapping("/receivedMessagesList.htm")
+	public String receivedMessageList() {
+		return "message/receivedMessagesList";
+	}
+	
+	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
+	public String detailMessage(
+			@ModelAttribute Message m, @ModelAttribute User u) {
+		
+		if (m == null || m.getAuthor() == null)
+			return "message/receivedMessagesList";
+				
+		if (!m.getAuthor().equals(u) && !m.getReceivers().contains(u))
+			return "message/receivedMessagesList";
+		
+		messageService.setConsultedMessage(u, m, true);
+		
+		return "message/message";
+	}
+	
+	@ModelAttribute("message")
+	public Message newMessage(
+			@RequestParam(value = "id", required = false) Integer author,
+			@RequestParam(value = "date", required = false) Long date) {
+		
+		if (author != null && date != null) {
+			IdMessage idMessage = new IdMessage();
+			idMessage.setSender(author);
+			idMessage.setDateM(new Date(date));
+			return messageService.findOne(idMessage);
+		}
+
+		return new Message();
+	}
+	
+	@ModelAttribute("sentMessages")
+	public Collection<Message> sentMessages(HttpSession session) {
+		return messageService.findAllSentMessages(
+				(User) session.getAttribute("userSession"));
+	}
+	
+//	@ModelAttribute("consultedMessages")
+//	public Collection<Message> consultedMessages(HttpSession session) {
+//		return messageService.findAllReceivedMessages(
+//				(User) session.getAttribute("userSession"), true);
+//	}
+//	
+//	@ModelAttribute("unconsultedMessages")
+//	public Collection<Message> unconsultedMessages(HttpSession session) {
+//		return messageService.findAllReceivedMessages(
+//				(User) session.getAttribute("userSession"), false);
+//	}
+	
+	@ModelAttribute("receivedMessages")
+	public Collection<ReceivedMessage> receivedMessages(HttpSession session) {
+		return messageService.findAllReceivedMessages(
+				(User) session.getAttribute("userSession"));
+	}
+	
+	@ModelAttribute("nbOfUnconsultedMessages")
+	public int nbOfUnconsultedMessages(HttpSession session) {
+		return messageService.getNbOfUnconsultedMessages(
+				(User) session.getAttribute("userSession"));
 	}
 	
 	@ModelAttribute("student")
 	public Student getStudent (HttpSession session) {
 		return (Student) session.getAttribute("userSession");
+	}
+	
+	@ModelAttribute("user")
+	public User getUser (HttpSession session) {
+		return (User) session.getAttribute("userSession");
 	}
 }
