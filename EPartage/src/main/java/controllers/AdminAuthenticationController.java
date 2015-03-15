@@ -80,11 +80,16 @@ public class AdminAuthenticationController {
 	 * Admin logout
 	 */
 	@RequestMapping(value = "/logout")
-	public ModelAndView logoutForm (HttpSession session, Model model) {
-		session.invalidate();
+	public ModelAndView logoutForm (HttpSession session, Model model) {	
+		if(session.getAttribute("adminSession") == null) {
+			System.out.println("Error Admin Session is Null");
+			return new ModelAndView("/authentication/connection");
+		}
 		
-		Admin admin = new Admin();
-		model.addAttribute("admin", admin);
+		session.invalidate();
+		model.addAttribute("admin", new Admin());
+		
 		return new ModelAndView("login_staff/index");
 	}
+	
 }
