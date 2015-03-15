@@ -7,6 +7,11 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Class id for MessageReceiver entities
+ * @author
+ *
+ */
 @Embeddable
 public class IdMessageReceiver implements Serializable {
 

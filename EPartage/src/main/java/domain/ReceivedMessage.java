@@ -1,5 +1,10 @@
 package domain;
 
+/**
+ * Class representing a received message
+ * @author 
+ *
+ */
 public class ReceivedMessage {
 
 	private Message message;

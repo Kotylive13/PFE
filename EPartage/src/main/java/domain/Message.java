@@ -1,5 +1,6 @@
 package domain;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,6 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+/**
+ * Class representing a message
+ * @author 
+ *
+ */
 @Entity
 @Table(name = "Message")
 public class Message {
@@ -69,6 +75,31 @@ public class Message {
 
 	public void setAuthor(User author) {
 		this.author = author;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		
+		if (obj instanceof Message) {
+			Message m = (Message) obj;
+			
+			if (this.idMessage.getSender().compareTo(m.idMessage.getSender()) == 0) {
+				
+				DateFormat mediumDateFormat = DateFormat.getDateTimeInstance(
+						DateFormat.MEDIUM,
+						DateFormat.MEDIUM);
+				
+				String date1 = mediumDateFormat.format(this.idMessage.getDateM());
+				String date2 = mediumDateFormat.format(m.idMessage.getDateM());
+				
+				if (date1.compareTo(date2) == 0)
+					return true;
+			}
+		}
+		
+		return false;
 	}
 	
 }
