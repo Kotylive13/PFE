@@ -11,7 +11,7 @@ import javax.persistence.TemporalType;
 public class IdMessageReceiver implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	private Integer id_u;
 	
 	@Temporal(TemporalType.TIMESTAMP)

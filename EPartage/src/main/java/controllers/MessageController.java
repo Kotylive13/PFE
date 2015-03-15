@@ -23,6 +23,7 @@ import services.MessageService;
 import services.UserService;
 import domain.IdMessage;
 import domain.Message;
+import domain.ReceivedMessage;
 import domain.Student;
 import domain.User;
 
@@ -114,9 +115,11 @@ public class MessageController {
 		
 		if (m == null || m.getAuthor() == null)
 			return "message/receivedMessagesList";
-		
+				
 		if (!m.getAuthor().equals(u) && !m.getReceivers().contains(u))
 			return "message/receivedMessagesList";
+		
+		messageService.setConsultedMessage(u, m, true);
 		
 		return "message/message";
 	}
@@ -137,8 +140,32 @@ public class MessageController {
 	}
 	
 	@ModelAttribute("sentMessages")
-	public Collection<Message> persons(HttpSession session) {
+	public Collection<Message> sentMessages(HttpSession session) {
 		return messageService.findAllSentMessages(
+				(User) session.getAttribute("userSession"));
+	}
+	
+//	@ModelAttribute("consultedMessages")
+//	public Collection<Message> consultedMessages(HttpSession session) {
+//		return messageService.findAllReceivedMessages(
+//				(User) session.getAttribute("userSession"), true);
+//	}
+//	
+//	@ModelAttribute("unconsultedMessages")
+//	public Collection<Message> unconsultedMessages(HttpSession session) {
+//		return messageService.findAllReceivedMessages(
+//				(User) session.getAttribute("userSession"), false);
+//	}
+	
+	@ModelAttribute("receivedMessages")
+	public Collection<ReceivedMessage> receivedMessages(HttpSession session) {
+		return messageService.findAllReceivedMessages(
+				(User) session.getAttribute("userSession"));
+	}
+	
+	@ModelAttribute("nbOfUnconsultedMessages")
+	public int nbOfUnconsultedMessages(HttpSession session) {
+		return messageService.getNbOfUnconsultedMessages(
 				(User) session.getAttribute("userSession"));
 	}
 	

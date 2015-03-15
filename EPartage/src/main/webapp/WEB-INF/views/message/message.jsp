@@ -4,6 +4,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:url var="received" value="/message/receivedMessagesList.htm" />
+<c:url var="sent" value="/message/sentMessagesList.htm" />
+
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">
 			Messages list
@@ -12,8 +15,8 @@
 
 		<h1>Boite de réception</h1>
 		
-		<a href="${pageContext.request.contextPath}/message/receivedMessagesList.htm">Réception | </a>
-		<a href="${pageContext.request.contextPath}/message/sentMessagesList.htm">Envoyés</a>
+		<a href="${received}">Réception(${nbOfUnconsultedMessages}) | </a>
+		<a href="${sent}">Envoyés</a>
 		
 		<h2>Détail message</h2>
 		

@@ -16,7 +16,7 @@
 
 		<h1>Boite de réception</h1>
 		
-		<a href="${received}">Réception | </a>
+		<a href="${received}">Réception(${nbOfUnconsultedMessages}) | </a>
 		<a href="${sent}">Envoyés</a>
 		
 		<h2>Messages envoyés</h2>
