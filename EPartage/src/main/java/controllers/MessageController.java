@@ -111,7 +111,9 @@ public class MessageController {
 	
 	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
 	public String detailMessage(
-			@ModelAttribute Message m, @ModelAttribute User u) {
+			@ModelAttribute Message m, 
+			@ModelAttribute User u,
+			HttpSession session) {
 		
 		if (m == null || m.getAuthor() == null)
 			return "message/receivedMessagesList";
