@@ -63,20 +63,21 @@ public class SubscriptionController {
 		
 		// store hobbies not implemented
 		//...
+		
+
+		// show message "Votre demande d'inscription est en cours de validation"
+		userService.save(student);
 		// send email to this person
 		MailSender
 				.sendEmail(
 						student.getEmail(),
-						"Demande d'inscription à la plateforme collaborative e-Partage",
-						"Chèr(e) "
+						"Demande d'inscription ï¿½ la plateforme collaborative e-Partage",
+						"Chï¿½r(e) "
 								+ student.getFirstName()
 								+ ",\n"
-								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"
+								+ "Votre demande d'inscription Ã  la plateforme collaborative e-Partage a bien Ã©tÃ© prise en compte.\n\n"
 								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
-								+ "A bientôt sur e-Partage !");
-
-		// show message "Votre demande d'inscription est en cours de validation"
-		userService.save(student);
+								+ "A bientÃ´t sur e-Partage !");
 		result = new ModelAndView("welcome/index");
 		return result;
 

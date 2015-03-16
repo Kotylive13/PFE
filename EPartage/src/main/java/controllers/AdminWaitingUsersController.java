@@ -57,18 +57,29 @@ public class AdminWaitingUsersController {
 			System.out.println("Error Admin Session is Null");
 			return new ModelAndView("/authentication/connection");
 		}
+		
+		Map<String, Object> errorMessages = new HashMap<String, Object>();
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		
 		Student student = adminService.findStudentById(id);
+		if (student == null) {
+			errorMessages.put("type", "error");
+			errorMessages.put("message", "Cette page est inaccessible.");
+			return new ModelAndView("login_staff/listWaiting", errorMessages);
+		}
+		
 		if (action.equals("Valider")) {
 			adminService.validateUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
-					"Votre compte a bien été activé sur le site E-Partage. "
-					+ "Vous pouvez dès à présent vous connecter.");
-		} else {
+					"Votre compte a bien Ã©tÃ© activÃ© sur le site E-Partage. "
+					+ "Vous pouvez dÃ¨s Ã  prÃ©sent vous connecter.");
+		} else if (action.equals("Supprimer")){
 			adminService.refusedUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Non validation de l'inscription", 
-					"Votre compte n'a pas été validé par l'administrateur pour des raisons de sécurité sur le site E-Partage. ");
+					"Votre compte n'a pas Ã©tÃ© validÃ© par l'administrateur pour des raisons de sÃ©curitÃ© sur le site E-Partage. ");
+		} else {
+			System.out.println("Erreur");
+			return new ModelAndView ("/authentication/connection");
 		}
 		return new ModelAndView("login_staff/listWaiting");
 	}
