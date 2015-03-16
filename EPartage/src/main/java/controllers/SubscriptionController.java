@@ -63,6 +63,10 @@ public class SubscriptionController {
 		
 		// store hobbies not implemented
 		//...
+		
+
+		// show message "Votre demande d'inscription est en cours de validation"
+		userService.save(student);
 		// send email to this person
 		MailSender
 				.sendEmail(
@@ -74,9 +78,6 @@ public class SubscriptionController {
 								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"
 								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
 								+ "A bientôt sur e-Partage !");
-
-		// show message "Votre demande d'inscription est en cours de validation"
-		userService.save(student);
 		result = new ModelAndView("welcome/index");
 		return result;
 
