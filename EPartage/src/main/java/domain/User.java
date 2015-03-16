@@ -103,7 +103,7 @@ public class User {
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbys;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		      name="MembershipGroup",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},

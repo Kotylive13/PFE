@@ -2,41 +2,54 @@ package controllers;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
+import services.GroupService;
 import services.UserService;
+import domain.Group;
+import domain.Student;
 import domain.User;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/workspace")
 public class UserController {
 	
-
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	GroupService groupService;
 
 	public UserController() {
 		super();
 	}
 
-
-	/**
-	 * List all users 
-	 * 
-	 * @return the jsp view of users
-	 */
-	@RequestMapping("/list")
-	public ModelAndView allUsers() {
-		System.out.println("Controller : /UserController --- Action : /list");
-		ModelAndView result;
-		Collection<User> users = userService.findAll();
-		result = new ModelAndView("user/list");
-		System.out.println(users.size());
-		result.addObject("users", users);
-		return result;
+	@RequestMapping("/index.htm")
+	public String index() {
+//		User user = userService.findByLogin("yoann.m@gmail.com");
+//		Set<Group> groups = new HashSet<Group>();
+//		Group group = groupService.findGroupByName("M2_ISL");
+//		groups.add(group);
+//		user.setGroups(groups);
+//		
+//		userService.save(user);
+		
+		return "workspace/workspace";
+	}
+	
+	@ModelAttribute("groupsList")
+	public Collection<Group> getUserGroups(HttpSession session) {
+		return ((User) session.getAttribute("userSession")).getGroups();
+	}
+	
+	@ModelAttribute("student")
+	public Student getStudent (HttpSession session) {
+		return (Student) session.getAttribute("userSession");
 	}
 
 }
