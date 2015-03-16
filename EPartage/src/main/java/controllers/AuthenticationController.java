@@ -65,7 +65,7 @@ public class AuthenticationController {
 		Student studentSession = userService.findByEmailPass(email, password);
 		if(studentSession != null){
 			if(!studentSession.getStatus().equals("Waiting")){
-				session.setAttribute( "userSession", studentSession );
+				session.setAttribute( "userSession", new Student() );
 			}
 		} else {
 			session.setAttribute( "userSession", null );

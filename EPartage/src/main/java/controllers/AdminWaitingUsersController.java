@@ -63,12 +63,12 @@ public class AdminWaitingUsersController {
 		if (action.equals("Valider")) {
 			adminService.validateUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
-					"Votre compte a bien été activé sur le site E-Partage. "
-					+ "Vous pouvez dès à présent vous connecter.");
+					"Votre compte a bien Ã©tÃ© activÃ© sur le site E-Partage. "
+					+ "Vous pouvez dÃ¨s Ã  prÃ©sent vous connecter.");
 		} else {
 			adminService.refusedUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Non validation de l'inscription", 
-					"Votre compte n'a pas été validé par l'administrateur pour des raisons de sécurité sur le site E-Partage. ");
+					"Votre compte n'a pas Ã©tÃ© validÃ© par l'administrateur pour des raisons de sÃ©curitÃ© sur le site E-Partage. ");
 		}
 		return new ModelAndView("login_staff/listWaiting");
 	}
