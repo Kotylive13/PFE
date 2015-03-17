@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Class representing an administrator
+ * @author 
+ *
+ */
 @Entity
 public class Admin {
 

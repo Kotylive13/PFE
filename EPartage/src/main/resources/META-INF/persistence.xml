@@ -9,15 +9,15 @@
 		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
-			<property name="url" value="jdbc:mysql://db4free.net:3306/m2islpfe" />
-			<property name="username" value="m2islpfe" />
-			<property name="password" value="password" />
+			<property name="url" value="jdbc:mysql://localhost/v801245" />
+			<property name="username" value="v801245" />
+			<property name="password" value="bdwfB9" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.format_sql" value="true" />
-			
+
 		</properties>
-		
+
 
 	</persistence-unit>
 

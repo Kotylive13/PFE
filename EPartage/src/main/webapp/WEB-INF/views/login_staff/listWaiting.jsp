@@ -1,12 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
 <tiles:insertDefinition name="masterAdmin.page">
 	<tiles:putAttribute name="title">Affichage des personnes en attente</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 	<div class="page">
-
+		<c:if test="${not empty type}">
+	        <div class="popup">
+	            <p class="<c:out value="${type}"/>"><c:out value="${message}"/></p>
+	        </div>
+		</c:if>
 		<c:if test="${!empty sessionScope.adminSession}">
 			<c:choose>
 				<c:when test="${not empty listStudents}">

@@ -5,10 +5,14 @@
 <div class="header">
 	<div class="centerHeader">
 		<p id="logo"><a href="">e-Partage</a></p>
+
+<!-- Problème sécurité de l'admin non identifié   -->
+
 		<form:form method="POST" modelAttribute="admin" action="${pageContext.request.contextPath}/login_staff/authentication/login.htm">
 			<input id="connection" type="submit" value="Connexion">
 		  	<form:input id="password" type="password" path="password" placeholder="Mot de passe"/>
 		  	<form:input id="login" type="text" path="login" placeholder="Login" />
-		</form:form>		
+		</form:form>
+		
 	</div>
 </div>

@@ -21,9 +21,20 @@ public class GroupService {
 		return groupDao.findAll();
 	}
 	
+	public Group findGroupByName(String name){
+		return groupDao.findGroupByName(name);
+	}
+	
 	public void save(Group group) {
-		//groupDao.save2(group.getName(), null, group.getDescription());
 		groupDao.save(group);
+	}
+	
+	public void delete(Group group){
+		groupDao.delete(group);
+	}
+	
+	public void modify(Group group, String nameOld){
+		groupDao.modify(group.getName(),group.getDescription(), group.getAvatar(), nameOld);
 	}
 	
 }

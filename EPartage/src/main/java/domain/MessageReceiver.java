@@ -8,6 +8,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+/**
+ * Class representing the association between a message and receivers
+ * Also save message status "read" or "unread"
+ * @author 
+ *
+ */
 @Entity
 @Table(name = "MessageReceiver")
 public class MessageReceiver {
@@ -21,7 +27,7 @@ public class MessageReceiver {
 	private User receiver;
 	
 	@Column(name="consult", columnDefinition="BOOLEAN default false")
-	private boolean consult;
+	private boolean consult = false;
 
 	public IdMessageReceiver getIdMessageReceiver() {
 		return idMessageReceiver;

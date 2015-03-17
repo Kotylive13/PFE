@@ -50,7 +50,7 @@ public class User {
 
 	@Column(name = "FIRSTNAME")
 	// , nullable = false)
-	@NotEmpty(message = "Veuillez saisir votre prénom !")
+	@NotEmpty(message = "Veuillez saisir votre prï¿½nom !")
 	@NotNull
 	private String firstName;
 
@@ -63,12 +63,12 @@ public class User {
 	private String adress;
 
 	@Column(name = "PHONE")
-	@Length(min = 10, max = 10, message = "Veuillez saisir un numéro de téléphone valide !")
+	@Length(min = 10, max = 10, message = "Veuillez saisir un numï¿½ro de tï¿½lï¿½phone valide !")
 	private String phone;
 
 	@Column(name = "BIRTHDATE")
 	@Temporal(TemporalType.DATE)
-	@Past(message = "Veuillez saisir une date dans le passé !")
+	@Past(message = "Veuillez saisir une date dans le passï¿½ !")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull(message = "Veuillez saisir votre date de naissance !")
 	private Date birthDate;
@@ -82,8 +82,8 @@ public class User {
 	private String password;
 
 	@Column(name = "EMAIL", nullable = false, unique = true)
-	@Email(message = "Veuillez saisir une adresse électronique valide !")
-	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
+	@Email(message = "Veuillez saisir une adresse ï¿½lectronique valide !")
+	@NotEmpty(message = "Veuillez saisir votre adresse ï¿½lectronique !")
 	private String email;
 
 	@Column(name = "STATUS")
@@ -103,7 +103,7 @@ public class User {
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbys;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		      name="MembershipGroup",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
@@ -230,4 +230,19 @@ public class User {
 	public void setGroups(Set<Group> groups) {
 		this.groups = groups;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		
+		if (obj instanceof User) {
+			User user = (User) obj;
+			
+			if (this.id == user.id)
+				return true;
+		}
+		return false;
+	}
+
 }
