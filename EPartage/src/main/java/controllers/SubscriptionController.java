@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.HobbyService;
 import services.UserService;
 import utilities.MailSender;
+import domain.Hobby;
 import domain.Status;
 import domain.Student;
 
@@ -82,4 +84,18 @@ public class SubscriptionController {
 		return result;
 
 	}
+	
+	@ModelAttribute("hobbiesList")
+	public Collection<Hobby> getCategories() {
+		return hobbyService.findAll();
+	}
+	
+	
+	/*@ModelAttribute
+	public Student newStudent(){
+		Student newStudent = new Student();
+		newStudent.setInscriptAppDate(new Date());
+		newStudent.setStatus(Status.W);
+		return newStudent;
+	}*/
 }
