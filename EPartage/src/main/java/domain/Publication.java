@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -31,23 +38,35 @@ public class Publication {
 	@Size (max = 32)
 	private String title;
 	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateP;
+	
 	@Column ( name = "CONTENT" )
 	@Size (max = 1024)
 	private String content;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "ID_U", nullable = false)
-	private User user;
+	@JoinColumn (name = "author", nullable = false)
+	private User author;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumns ({
-		@JoinColumn (name = "NAMEC", nullable = false, referencedColumnName="NAMEC", insertable = false, updatable = false),
-		@JoinColumn (name = "NAMEG", nullable = false, referencedColumnName="NAMEG", insertable = false, updatable = false)})
-	private Category category;
+		@JoinColumn (name = "nameS", referencedColumnName = "nameS"),
+		@JoinColumn (name = "nameC", referencedColumnName = "nameC"),
+		@JoinColumn (name = "nameG", referencedColumnName = "nameG")
+	})
+	private Subcategory subcategory;
 	
 	@OneToOne
 	@JoinColumn (name = "NAMEG", nullable = false, insertable = false, updatable = false)
 	private Group group;
+	
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	private List<Comment> comments;
+	
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	private List<Opinion> opinions;
 
 	public Integer getId() {
 		return id;
@@ -65,6 +84,14 @@ public class Publication {
 		this.title = title;
 	}
 
+	public Date getDateP() {
+		return dateP;
+	}
+
+	public void setDateP(Date dateP) {
+		this.dateP = dateP;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -73,20 +100,28 @@ public class Publication {
 		this.content = content;
 	}
 
-	public User getUser() {
-		return user;
+	public User getAuthor() {
+		return author;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
-	public Category getCategory() {
-		return category;
+//	public Category getCategory() {
+//		return category;
+//	}
+//
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
+
+	public Subcategory getSubcategory() {
+		return subcategory;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setSubcategory(Subcategory subcategory) {
+		this.subcategory = subcategory;
 	}
 
 	public Group getGroup() {
@@ -96,4 +131,21 @@ public class Publication {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Opinion> getOpinions() {
+		return opinions;
+	}
+
+	public void setOpinions(List<Opinion> opinions) {
+		this.opinions = opinions;
+	}
+
 }

@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +28,9 @@ public class Group {
 	
 	@Column(name = "description")
 	private String description;
+	
+	@OneToMany(mappedBy="group", fetch = FetchType.EAGER)
+	private List<Category> categories;
 	
 //	@ManyToMany (mappedBy = "groups")
 //	private Set<User> members;
@@ -92,6 +98,14 @@ public class Group {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 //	public Set<User> getMembers() {

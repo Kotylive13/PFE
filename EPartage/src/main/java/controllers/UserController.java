@@ -31,14 +31,6 @@ public class UserController {
 
 	@RequestMapping("/index.htm")
 	public String index() {
-//		User user = userService.findByLogin("yoann.m@gmail.com");
-//		Set<Group> groups = new HashSet<Group>();
-//		Group group = groupService.findGroupByName("M2_ISL");
-//		groups.add(group);
-//		user.setGroups(groups);
-//		
-//		userService.save(user);
-		
 		return "workspace/workspace";
 	}
 	

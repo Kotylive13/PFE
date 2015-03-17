@@ -13,7 +13,22 @@
 		
 		<p>Mes groupes</p>
 		<c:forEach items="${groupsList}" var="g">
-			<a href="#">${g.name}</a>
+			<div><a href="#">${g.name}</a></div>
+			<c:forEach items="${g.categories}" var="c">
+				<div><a href="#">${c.idCategory.name}</a></div>
+				<c:forEach items="${c.subcategories}" var="s">
+					<div><a href="#">${s.idSubcategory.subcategory}</a></div>
+					<c:forEach items="${s.publications}" var="p">
+						<div>${p.title}</div>
+						<c:forEach items="${p.opinions}" var="op">
+							<div>${op.value}</div>
+						</c:forEach>
+						<c:forEach items="${p.comments}" var="com">
+							<div>${com.content}</div>
+						</c:forEach>
+					</c:forEach>
+				</c:forEach>
+			</c:forEach>
 		</c:forEach>
 
 	</tiles:putAttribute>

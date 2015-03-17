@@ -1,11 +1,11 @@
 package domain;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
@@ -16,19 +16,15 @@ import javax.persistence.Table;
 public class Category {
 
 	@EmbeddedId
-	private IdCategory idCategory;
+	private IdCategory idCategory = new IdCategory();
 	
 	@MapsId("group")
 	@ManyToOne
 	@JoinColumn(name = "nameG")
 	private Group group;
 
-	@OneToMany
-	@JoinColumns({
-		@JoinColumn(name = "nameG", referencedColumnName = "nameG"),
-		@JoinColumn(name = "nameC_parent", referencedColumnName = "nameC")
-	})
-	private Set<Category> subcategories;
+	@OneToMany(mappedBy="category", fetch = FetchType.EAGER)
+	private List<Subcategory> subcategories;
 
 	public IdCategory getIdCategory() {
 		return idCategory;
@@ -46,11 +42,12 @@ public class Category {
 		this.group = group;
 	}
 
-	public Set<Category> getSubcategories() {
+	public List<Subcategory> getSubcategories() {
 		return subcategories;
 	}
 
-	public void setSubcategories(Set<Category> subcategories) {
+	public void setSubcategories(List<Subcategory> subcategories) {
 		this.subcategories = subcategories;
 	}
+
 }
