@@ -42,8 +42,7 @@ public class Publication {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateP;
 	
-	@Column ( name = "CONTENT" )
-	@Size (max = 1024)
+	@Column ( name = "CONTENT", columnDefinition="TEXT")
 	private String content;
 	
 	@ManyToOne (fetch = FetchType.LAZY)

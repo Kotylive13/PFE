@@ -5,6 +5,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
@@ -33,6 +34,7 @@ public class CommentFile {
 	@Column(name = "title", nullable = false)
 	private String title;
 	
+	@Lob
 	@Column(name = "file", nullable = false)
 	private byte[] file;
 
