@@ -1,14 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<tiles:insertDefinition name="masterAdmin.page">
+<tiles:insertDefinition name="admin">
 	<tiles:putAttribute name="title">Ajouter un nouveau groupe</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 	
-		<div class="page">
+		
 		
 		<c:if test="${!empty sessionScope.adminSession}">
-
+			<div class="page">
+				<h1>Modification d'un groupe</h1>
 				<div class="form">
 					<form:form id="modifyGroup" method="POST" modelAttribute="group" 
 	 					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?name=${group.name}">
@@ -33,9 +34,8 @@
 				</div>
 				
 				<a href="${pageContext.request.contextPath}/login_staff/index.htm">Retour au menu</a><br/>
-
+			</div>
 			</c:if>
-		</div>
 		
 	</tiles:putAttribute>
 </tiles:insertDefinition>
