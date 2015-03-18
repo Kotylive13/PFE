@@ -26,9 +26,8 @@
 	
 							<tr>
 								<td></td>
-								<td><input id="addGroup" type="submit"></td>
+								<td><input id="addGroup" class="submit" type="submit"></td>
 							</tr>
-							
 						</table>
 					</form:form>
 				</div>
