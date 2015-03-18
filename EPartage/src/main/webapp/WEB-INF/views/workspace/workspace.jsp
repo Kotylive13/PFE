@@ -17,6 +17,8 @@
 		<c:forEach items="${groupsList}" var="g">
 			<div><a href="${detail}?name=${g.name}">${g.name}</a></div>
 		</c:forEach>
+		
+		<a href="/EPartage/publication/edit.htm">Ajouter une publication</a>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
