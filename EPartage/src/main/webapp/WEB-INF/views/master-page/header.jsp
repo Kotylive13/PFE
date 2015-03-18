@@ -11,6 +11,6 @@
 		  	<form:input id="password" type="password" path="password" placeholder="mot de passe"/>
 		  	<form:input id="login" type="text" path="email" placeholder="Adresse mail" />
 		  	<a id="forgetPassword" href="">Mot de passe oublié ?</a>
-		</form:form>		
+		</form:form>
 	</div>
 </div>

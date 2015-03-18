@@ -21,6 +21,7 @@
 									action="${pageContext.request.contextPath}/login_staff/waitingUsers/validateUser.htm?id=${student.id}">
 									<c:out value="${student.firstName}" />
 									<c:out value="${student.lastName}" />
+									<form:select name="groupPost" items="${groupMap}" path="" />
 									<input name="action" type="submit" value="Valider">
 									<input name="action" type="submit" value="Refuser">
 								</form:form>
