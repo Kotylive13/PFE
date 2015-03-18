@@ -4,8 +4,6 @@
 <tiles:insertDefinition name="admin">
 	<tiles:putAttribute name="title">Liste des groupes</tiles:putAttribute>
 	<tiles:putAttribute name="content">
-
-		
 		
 		<c:if test="${!empty sessionScope.adminSession}">
 			<div class="page">
@@ -37,7 +35,5 @@
 			</div>
 		</c:if>
 		
-		
-
 	</tiles:putAttribute>
 </tiles:insertDefinition>
