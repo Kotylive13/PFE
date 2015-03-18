@@ -10,7 +10,7 @@
 
 
 		<properties>
-			<property name="url" value="jdbc:mysql://localhost:3306/pfetest" />
+			<property name="url" value="jdbc:mysql://localhost:3306/dbpfe" />
 			<property name="username" value="root" />
 			<property name="password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />

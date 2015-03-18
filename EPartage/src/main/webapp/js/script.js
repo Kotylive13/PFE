@@ -1,25 +1,37 @@
-$("#options").hide();
-$(".postComment").hide();
-$(".comments").hide();
+/* Elements cachés par défaut */
+
+$('#options').hide();
+$('.postComment').hide();
+$('.comments').hide();
+$('.information > table[class="tata"]').hide();
+
+/* Permet de redimensionner automatiquement un textarea */
 
 autosize($('textarea'));
+
+/* Permet de fixer le header en haut de la page */
 
 $('.fixedHeader').scrollToFixed();
 $('#options').scrollToFixed({
     marginTop: $('.header').outerHeight() + 50
 });
 
-$(".tokenizer").select2({
+/**/
+$('.tokenizer').select2({
   tags: true,
   tokenSeparators: [',', ' ']
-})
+});
 
-$(".multiple-tokens").select2({
+$('#tokenizer').change(function() {
+  $('#selectedValues').val($('.tokenizer').val());
+});
+
+$('.multipleTokens').select2({
   templateResult: formatState
 });
 
-$('#selector').change(function() {
-  $('#selectedValues').val($(".tokenizer").val());
+$('#multipleTokens').change(function() {
+  $('#selectedValues').val($(".multipleTokens").val());
 });
 
 function hover(element, src) {
@@ -35,30 +47,46 @@ function slideToggle(element, vitesse) {
 }
 
 function slideUp(element) {
-  $(element).slideUp("slow");
-}
-
-function remove(element) {
-  $(element).slideUp("slow");
+  $(element).slideUp('slow');
 }
 
 function slideOptions (element, vitesse) {
 	$(element).slideToggle(vitesse);
-	var box_shadow = $('.fixedHeader').css("box-shadow");
-	if (box_shadow == "none") {
+	var box_shadow = $('.fixedHeader').css('box-shadow');
+	if (box_shadow == 'none') {
 		setTimeout(function() {
-		      $('.fixedHeader').delay(2000).css("box-shadow", "0px 5px 5px #888888");
+		      $('.fixedHeader').delay(2000).css('box-shadow', '0px 5px 5px #888888');
 		}, 100);
 	} else {
-		$('#options').css("box-shadow", "0px 5px 5px #888888");
-		$('.fixedHeader').css("box-shadow", "none");
+		$('#options').css('box-shadow', '0px 5px 5px #888888');
+		$('.fixedHeader').css('box-shadow', 'none');
 	}
+}
+
+function slideElement (element, element2, vitesse) {
+  $(element).slideToggle(vitesse);
+  if ($(element2).attr('src') == '../images/arrow-down.png'){
+    $(element2).attr('src', '../images/arrow-up.png');
+  } else {
+    $(element2).attr('src', '../images/arrow-down.png');
+  }
+}
+
+function slideElement2 (element, element2, vitesse) {
+  
+  if ($(element2).attr('src') == '../images/arrow-down.png'){
+    $(element2).attr('src', '../images/arrow-up.png');
+    $(element).fadeIn('600');
+  } else {
+    $(element2).attr('src', '../images/arrow-down.png');
+    $(element).fadeOut('600');
+  }
 }
 
 function formatState (state) {
   if (!state.id) { return state.text; }
   var $state = $(
-    '<span><img src="../Images/logo.png" /> ' + state.text + '</span>'
+    '<span>' + state.text + '</span>'
   );
   return $state;
 };
