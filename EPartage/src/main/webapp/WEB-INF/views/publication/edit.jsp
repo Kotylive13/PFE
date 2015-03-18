@@ -7,18 +7,12 @@
 
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">
-			Espace de travail
+			Publication
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
-		<p>Espace de travail</p>
+		<p>Etider une publication</p>
 		
-		<p>Mes groupes</p>
-		<c:forEach items="${groupsList}" var="g">
-			<div><a href="${detail}?name=${g.name}">${g.name}</a></div>
-		</c:forEach>
-		
-		<a href="/EPartage/publication/edit.htm">Ajouter une publication</a>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

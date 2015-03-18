@@ -79,7 +79,8 @@ public class AuthenticationController {
 		}
 	
 		System.out.println(studentSession.getFirstName());
-		return new ModelAndView("welcome/index");
+
+		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 
 	/**

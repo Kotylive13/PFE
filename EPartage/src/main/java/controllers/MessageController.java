@@ -3,7 +3,9 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,8 +49,10 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/newmessage.htm", method = RequestMethod.GET)
-	public String newMessageForm(Model model) {
-		return "message/newMessageForm";
+	public ModelAndView newMessageForm(Model model) {
+		Map<String, Object> users = new HashMap<String, Object>();
+		users.put("users", userService.findAll());
+		return new ModelAndView("message/newMessageForm", users);
 	}
 	
 	@RequestMapping(value = "/newmessage.htm",  method = RequestMethod.POST)
@@ -65,7 +69,7 @@ public class MessageController {
 			
 			String input = request.getParameter("receiversList");
 			input = input.replace(" ", "");
-			String[] emails = input.split(";");
+			String[] emails = input.split(",");
 			
 			if (emails[0].isEmpty() || emails.length > 100)
 				return result.addObject("error",
