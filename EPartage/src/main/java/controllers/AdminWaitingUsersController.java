@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.AdminService;
 import services.GroupService;
+import services.MembershipGroupService;
 import utilities.MailSender;
 import domain.Group;
 import domain.Status;
@@ -32,6 +33,9 @@ public class AdminWaitingUsersController {
 	
 	@Autowired
 	GroupService groupService;
+	
+	@Autowired
+	MembershipGroupService membershipGroupService;
 
 // Constructors ---------------------------------------------------------------
 
@@ -78,12 +82,10 @@ public class AdminWaitingUsersController {
 			return new ModelAndView("login_staff/listWaiting", errorMessages);
 		}
 		
-		if (action.equals("Valider")) {
-			Group group = groupService.findGroupByName(groupName);
-			System.out.println(group.getName() + " nom du groupe ");
-			listGroup.add(group);
-			student.setGroups(listGroup);
+		if (action.equals("Valider") && groupService.findGroupByName(groupName) != null) {
+			membershipGroupService.addUser(student, groupName);
 			adminService.validateUser(student.getId());
+			
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
 					"Votre compte a bien été activé sur le site E-Partage. "
 					+ "Vous pouvez dès à présent vous connecter.");
@@ -99,7 +101,7 @@ public class AdminWaitingUsersController {
 	}
 	
 	@ModelAttribute("groupMap")
-	public Map<String,String> getGroups() {
+	public Map<String, String> getGroups() {
 		Map<String,String> groupMap = new LinkedHashMap<String,String>();
 		List<Group> groupList = groupService.findAll();
 		
