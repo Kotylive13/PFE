@@ -26,7 +26,7 @@ public class Group {
 	@Column( name = "avatar", length=100000)
 	private byte[] avatar;
 	
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition="TEXT")
 	private String description;
 	
 	@OneToMany(mappedBy="group", fetch = FetchType.EAGER)
