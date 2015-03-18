@@ -9,9 +9,9 @@
 		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
-			<property name="url" value="jdbc:mysql://db4free.net:3306/m2islpfe" />
-			<property name="username" value="m2islpfe" />
-			<property name="password" value="password" />
+			<property name="url" value="jdbc:mysql://localhost:3306/dbpfe" />
+			<property name="username" value="root" />
+			<property name="password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.format_sql" value="true" />
