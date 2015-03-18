@@ -9,9 +9,12 @@
 		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
-			<property name="url" value="jdbc:mysql://localhost/v801245" />
-			<property name="username" value="v801245" />
-			<property name="password" value="bdwfB9" />
+			<!-- <property name="url" value="jdbc:mysql://localhost/v801245" /> -->
+			<!-- <property name="username" value="v801245" /> -->
+			<!-- <property name="password" value="bdwfB9" /> -->
+			<property name="url" value="jdbc:mysql://localhost/pfetest" />
+			<property name="username" value="root" />
+			<property name="password" value="" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.format_sql" value="true" />
