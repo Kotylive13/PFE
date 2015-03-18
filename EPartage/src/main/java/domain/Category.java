@@ -26,6 +26,8 @@ public class Category {
 	@OneToMany(mappedBy="category", fetch = FetchType.EAGER)
 	private List<Subcategory> subcategories;
 
+	
+
 	public IdCategory getIdCategory() {
 		return idCategory;
 	}
