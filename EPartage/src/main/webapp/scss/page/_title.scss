@@ -1,0 +1,27 @@
+/******************************************************/
+/*                                                    */
+/*                        Title                       */
+/*                                                    */
+/******************************************************/
+
+.title {
+	border-radius: 10px 10px 0px 0px;
+    border: 1px solid $blue4;
+	background-color: $blue4;
+    p {
+        font-size: 40px;
+        display: inline-block;
+        height:90px;
+        line-height:90px;
+        margin-left: 220px;
+    }
+	img {
+		position: absolute;
+		border: 1px solid $blue5;
+		width:160px;
+		height:160px;
+		line-height:160px;
+		margin: -18px 20px 0px 20px;
+        border-radius: 10px;
+	}
+}

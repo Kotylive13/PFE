@@ -141,6 +141,7 @@ img[class="largePicture"] {
 .header .centerHeader, .fixedHeader .centerHeader {
   width: 1200px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   min-width: 1200px;
@@ -242,11 +243,11 @@ img[class="largePicture"] {
 }
 /* line 93, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login {
-  width: 200px;
+  width: 180px;
 }
 /* line 96, ../sass/header/_header.scss */
 .header .centerHeader #password, .fixedHeader .centerHeader #password {
-  width: 150px;
+  width: 180px;
 }
 /* line 99, ../sass/header/_header.scss */
 .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword {
@@ -285,6 +286,7 @@ img[class="largePicture"] {
 #options #optionsCenter {
   width: 1200px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   text-align: right;
@@ -312,48 +314,51 @@ img[class="largePicture"] {
   text-align: center;
 }
 /* line 11, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #lightInformation, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
+#navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   margin-top: 10px;
+}
+/* line 14, ../sass/page/_navbar.scss */
+#navBar #group, #navBar #link, #navBar #lightInformation, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   background-color: #c4d7ed;
   border-radius: 10px;
   border: 1px solid #abc8e2;
   overflow: hidden;
 }
-/* line 17, ../sass/page/_navbar.scss */
+/* line 19, ../sass/page/_navbar.scss */
 #navBar #group h1, #navBar #link h1, #navBar #lightInformation h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
-/* line 22, ../sass/page/_navbar.scss */
+/* line 24, ../sass/page/_navbar.scss */
 #navBar #group h1:hover, #navBar #link h1:hover, #navBar #lightInformation h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover, #navBar #manageCategories h1:hover {
   cursor: pointer;
 }
-/* line 25, ../sass/page/_navbar.scss */
+/* line 27, ../sass/page/_navbar.scss */
 #navBar #group h1 img, #navBar #link h1 img, #navBar #lightInformation h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img, #navBar #manageCategories h1 img {
   padding: 0px;
   margin: 0px 0px 4px 5px;
   border: none;
 }
-/* line 32, ../sass/page/_navbar.scss */
+/* line 34, ../sass/page/_navbar.scss */
 #navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   border-radius: 10px;
 }
-/* line 34, ../sass/page/_navbar.scss */
+/* line 36, ../sass/page/_navbar.scss */
 #navBar #group ul[class="adminNavBar"], #navBar #link ul[class="adminNavBar"], #navBar #manageUsers ul[class="adminNavBar"], #navBar #manageGroups ul[class="adminNavBar"], #navBar #manageCategories ul[class="adminNavBar"] {
   padding: 10px;
 }
-/* line 37, ../sass/page/_navbar.scss */
+/* line 39, ../sass/page/_navbar.scss */
 #navBar #group ul[class="userNavBar"], #navBar #link ul[class="userNavBar"], #navBar #manageUsers ul[class="userNavBar"], #navBar #manageGroups ul[class="userNavBar"], #navBar #manageCategories ul[class="userNavBar"] {
   padding: 20px 10px 10px 10px;
 }
-/* line 40, ../sass/page/_navbar.scss */
+/* line 42, ../sass/page/_navbar.scss */
 #navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li, #navBar #manageCategories li {
   text-align: left;
   width: 230px;
 }
-/* line 43, ../sass/page/_navbar.scss */
+/* line 45, ../sass/page/_navbar.scss */
 #navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a, #navBar #manageCategories li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -362,12 +367,12 @@ img[class="largePicture"] {
   border-radius: 5px;
   padding: 5px 10px;
 }
-/* line 48, ../sass/page/_navbar.scss */
+/* line 50, ../sass/page/_navbar.scss */
 #navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover, #navBar #manageCategories li a:hover {
   background-color: #abc8e2;
   color: black;
 }
-/* line 54, ../sass/page/_navbar.scss */
+/* line 56, ../sass/page/_navbar.scss */
 #navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p, #navBar #manageCategories p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -375,31 +380,31 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 58, ../sass/page/_navbar.scss */
+/* line 60, ../sass/page/_navbar.scss */
 #navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover, #navBar #manageCategories p a:hover {
   color: #4a6b8a;
 }
-/* line 64, ../sass/page/_navbar.scss */
+/* line 66, ../sass/page/_navbar.scss */
 #navBar #link p {
   text-align: center;
 }
-/* line 69, ../sass/page/_navbar.scss */
+/* line 71, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1 {
   padding-left: 25px;
 }
-/* line 72, ../sass/page/_navbar.scss */
+/* line 74, ../sass/page/_navbar.scss */
 #navBar #lightInformation img {
   margin: 20px 20px 10px 20px;
   border-radius: 10px;
   border: 1px solid #4a6b8a;
 }
-/* line 77, ../sass/page/_navbar.scss */
+/* line 79, ../sass/page/_navbar.scss */
 #navBar #lightInformation ul {
   width: 210px;
   margin: 0px;
   padding: 10px 20px 10px 20px;
 }
-/* line 82, ../sass/page/_navbar.scss */
+/* line 84, ../sass/page/_navbar.scss */
 #navBar #lightInformation li {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -407,15 +412,15 @@ img[class="largePicture"] {
   text-align: left;
   padding: 5px 0px;
 }
-/* line 86, ../sass/page/_navbar.scss */
+/* line 88, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:first-child {
   padding: 0px 0px 5px 0px;
 }
-/* line 89, ../sass/page/_navbar.scss */
+/* line 91, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:last-child {
   padding: 5px 0px 0px 0px;
 }
-/* line 93, ../sass/page/_navbar.scss */
+/* line 95, ../sass/page/_navbar.scss */
 #navBar #lightInformation p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -423,7 +428,7 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 97, ../sass/page/_navbar.scss */
+/* line 99, ../sass/page/_navbar.scss */
 #navBar #lightInformation p a:hover {
   color: #4a6b8a;
 }
@@ -437,46 +442,54 @@ img[class="largePicture"] {
 .page {
   width: 1200px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
+  margin-top: 30px;
+  /*& > h1:first-child, & > p:first-child {
+      margin-top: 20px;
+  }*/
   /******************************************************/
   /*                                                    */
   /*                     Information                    */
   /*                                                    */
   /******************************************************/
 }
-/* line 9, ../sass/page/_page.scss */
+/* line 10, ../sass/page/_page.scss */
 .page a:hover {
   color: #4a6b8a;
 }
-/* line 12, ../sass/page/_page.scss */
-.page > h1:first-child, .page > p:first-child {
-  margin-top: 20px;
-}
-/* line 15, ../sass/page/_page.scss */
+/* line 16, ../sass/page/_page.scss */
 .page > h1 {
-  width: 630px;
+  width: 756px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   margin-bottom: 20px;
   padding-left: 20px;
   font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #4a6b8a;
 }
-/* line 18, ../sass/page/_page.scss */
+/* line 21, ../sass/page/_page.scss */
 .page > h2 {
-  width: 630px;
+  width: 716px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   margin-bottom: 18px;
   padding-left: 60px;
   font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #4a6b8a;
 }
 /* line 7, ../sass/page/_information.scss */
 .page .information, .page .form {
   width: 628px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   background-color: white;
@@ -609,17 +622,14 @@ img[class="largePicture"] {
 }
 /* line 1, ../sass/page/_blocs.scss */
 .page .blocs {
-  width: 786px;
   margin: auto;
-  left: 0;
-  right: 0;
 }
 /* line 3, ../sass/page/_blocs.scss */
 .page .blocs .bloc {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
   width: 250px;
   margin: 10px 5px 0px 5px;
-  text-align: center;
   background-color: #c4d7ed;
   border-radius: 10px;
   border: 1px solid #abc8e2;
@@ -683,10 +693,9 @@ img[class="largePicture"] {
 /*                       Content                      */
 /*                                                    */
 /******************************************************/
-/* line 31, ../sass/page/_page.scss */
+/* line 36, ../sass/page/_page.scss */
 .content {
   margin-left: 260px;
-  padding-top: 40px;
   /******************************************************/
   /*                                                    */
   /*                        Title                       */
@@ -713,20 +722,22 @@ img[class="largePicture"] {
   /*                                                    */
   /******************************************************/
 }
-/* line 34, ../sass/page/_page.scss */
+/* line 38, ../sass/page/_page.scss */
 .content h1 {
   width: 630px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   margin-bottom: 20px;
   padding-left: 20px;
   font-size: 20px;
 }
-/* line 37, ../sass/page/_page.scss */
+/* line 41, ../sass/page/_page.scss */
 .content h2 {
   width: 630px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   margin-bottom: 18px;
@@ -899,6 +910,7 @@ img[class="largePicture"] {
 .content .listPublication {
   width: 940px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   background-color: #eff9ff;
@@ -998,6 +1010,7 @@ img[class="largePicture"] {
 .content .post, .content .postPublication, .content .postComment {
   width: 648px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   background-color: white;
@@ -1083,6 +1096,7 @@ img[class="largePicture"] {
 .content .publication {
   width: 650px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   margin-top: 20px;
@@ -1181,6 +1195,7 @@ img[class="largePicture"] {
 .mainRibbon .contentMainRibbon {
   width: 650px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -1214,6 +1229,7 @@ img[class="largePicture"] {
 #popup {
   width: 500px;
   margin: auto;
+  padding: 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -1397,7 +1413,7 @@ label.css-label-checkbox {
 /* line 15, ../sass/select2/_dropdown.scss */
 .select2-results {
   display: block;
-  width: 1198px;
+  width: 100%;
 }
 
 /* line 20, ../sass/select2/_dropdown.scss */

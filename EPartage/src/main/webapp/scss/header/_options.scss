@@ -1,0 +1,23 @@
+/******************************************************/
+/*                                                    */
+/*                       Options                      */
+/*                                                    */
+/******************************************************/
+
+#options {
+    background-color: $blue4;
+    margin-top: 0.1px;
+    width: 100%;
+    #optionsCenter {
+        @include center($page-width);
+        text-align: right;
+        height: 30px;
+        line-height: 30px;
+        #createGroup, #deconnection {
+            display: inline-block;
+        }
+        #createGroup {
+            margin-right: 20px;
+        }
+    }
+}
