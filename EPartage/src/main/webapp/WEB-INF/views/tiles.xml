@@ -25,10 +25,12 @@
 	</definition>
 	
 	<!-- User -->
-	<definition name="master.page" template="/WEB-INF/views/layouts/layout.jsp">
+	<definition name="user" template="/WEB-INF/views/layouts/user/layout_user.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/master-page/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/user/header_user.jsp" />
+		<put-attribute name="navBar" value="/WEB-INF/views/layouts/user/navBar_user.jsp" />
 		<put-attribute name="content" value="" />
+		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
 	
 </tiles-definitions>

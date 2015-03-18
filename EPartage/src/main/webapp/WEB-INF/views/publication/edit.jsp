@@ -5,7 +5,7 @@
 
 <c:url var="detail" value="/workspace/group/detail.htm" />
 
-<tiles:insertDefinition name="master.page">
+<tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
 			Publication
 		</tiles:putAttribute>

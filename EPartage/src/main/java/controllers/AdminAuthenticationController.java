@@ -81,7 +81,7 @@ public class AdminAuthenticationController {
 	 */
 	@RequestMapping(value = "/logout")
 	public ModelAndView logoutForm (HttpSession session, Model model) {
-		
+		session.invalidate();
 		return new ModelAndView("redirect:/login_staff/authentication/connection.htm");
 	}
 }
