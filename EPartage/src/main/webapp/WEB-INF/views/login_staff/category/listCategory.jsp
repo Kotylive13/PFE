@@ -1,11 +1,12 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<tiles:insertDefinition name="masterAdmin.page">
+<%-- <tiles:insertDefinition name="masterAdmin.page"> --%>
+<tiles:insertDefinition name="admin">
 	<tiles:putAttribute name="title">Liste des catégories</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
-		<div class="page">
+<!-- 		<div class="page"> -->
 		
 		<c:if test="${!empty sessionScope.adminSession}">
 
@@ -40,7 +41,7 @@
 			
 		</c:if>
 		
-		</div>
+<!-- 		</div> -->
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
