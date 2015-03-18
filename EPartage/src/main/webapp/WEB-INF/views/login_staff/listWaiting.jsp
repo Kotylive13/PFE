@@ -9,7 +9,7 @@
 	            <p class="<c:out value="${type}"/>"><c:out value="${message}"/></p>
 	        </div>
 		</c:if>
-		<div class="page">
+		<div class="content">
 			<c:if test="${!empty sessionScope.adminSession}">
 				<c:choose>
 					<c:when test="${not empty listStudents}">

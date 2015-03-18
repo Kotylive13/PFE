@@ -312,7 +312,7 @@ img[class="largePicture"] {
   text-align: center;
 }
 /* line 11, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #lightInformation, #navBar #manageUsers, #navBar #manageGroups {
+#navBar #group, #navBar #link, #navBar #lightInformation, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   margin-top: 10px;
   background-color: #c4d7ed;
   border-radius: 10px;
@@ -320,41 +320,41 @@ img[class="largePicture"] {
   overflow: hidden;
 }
 /* line 17, ../sass/page/_navbar.scss */
-#navBar #group h1, #navBar #link h1, #navBar #lightInformation h1, #navBar #manageUsers h1, #navBar #manageGroups h1 {
+#navBar #group h1, #navBar #link h1, #navBar #lightInformation h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
 /* line 22, ../sass/page/_navbar.scss */
-#navBar #group h1:hover, #navBar #link h1:hover, #navBar #lightInformation h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover {
+#navBar #group h1:hover, #navBar #link h1:hover, #navBar #lightInformation h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover, #navBar #manageCategories h1:hover {
   cursor: pointer;
 }
 /* line 25, ../sass/page/_navbar.scss */
-#navBar #group h1 img, #navBar #link h1 img, #navBar #lightInformation h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img {
+#navBar #group h1 img, #navBar #link h1 img, #navBar #lightInformation h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img, #navBar #manageCategories h1 img {
   padding: 0px;
   margin: 0px 0px 4px 5px;
   border: none;
 }
 /* line 32, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups {
+#navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   border-radius: 10px;
 }
 /* line 34, ../sass/page/_navbar.scss */
-#navBar #group ul[class="adminNavBar"], #navBar #link ul[class="adminNavBar"], #navBar #manageUsers ul[class="adminNavBar"], #navBar #manageGroups ul[class="adminNavBar"] {
+#navBar #group ul[class="adminNavBar"], #navBar #link ul[class="adminNavBar"], #navBar #manageUsers ul[class="adminNavBar"], #navBar #manageGroups ul[class="adminNavBar"], #navBar #manageCategories ul[class="adminNavBar"] {
   padding: 10px;
 }
 /* line 37, ../sass/page/_navbar.scss */
-#navBar #group ul[class="userNavBar"], #navBar #link ul[class="userNavBar"], #navBar #manageUsers ul[class="userNavBar"], #navBar #manageGroups ul[class="userNavBar"] {
+#navBar #group ul[class="userNavBar"], #navBar #link ul[class="userNavBar"], #navBar #manageUsers ul[class="userNavBar"], #navBar #manageGroups ul[class="userNavBar"], #navBar #manageCategories ul[class="userNavBar"] {
   padding: 20px 10px 10px 10px;
 }
 /* line 40, ../sass/page/_navbar.scss */
-#navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li {
+#navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li, #navBar #manageCategories li {
   text-align: left;
   width: 230px;
 }
 /* line 43, ../sass/page/_navbar.scss */
-#navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a {
+#navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a, #navBar #manageCategories li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -363,12 +363,12 @@ img[class="largePicture"] {
   padding: 5px 10px;
 }
 /* line 48, ../sass/page/_navbar.scss */
-#navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover {
+#navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover, #navBar #manageCategories li a:hover {
   background-color: #abc8e2;
   color: black;
 }
 /* line 54, ../sass/page/_navbar.scss */
-#navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p {
+#navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p, #navBar #manageCategories p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -376,7 +376,7 @@ img[class="largePicture"] {
   padding: 10px 20px;
 }
 /* line 58, ../sass/page/_navbar.scss */
-#navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover {
+#navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover, #navBar #manageCategories p a:hover {
   color: #4a6b8a;
 }
 /* line 64, ../sass/page/_navbar.scss */
@@ -1386,71 +1386,73 @@ label.css-label-checkbox {
   background-color: white;
   border: 1px solid #d9c27e;
   border-radius: 5px;
+  overflow: hidden;
   box-sizing: border-box;
-  display: block;
+  display: table;
   position: absolute;
   left: -100000px;
-  z-index: 1051;
+  z-index: 800;
 }
 
 /* line 15, ../sass/select2/_dropdown.scss */
 .select2-results {
   display: block;
+  width: 1198px;
 }
 
-/* line 19, ../sass/select2/_dropdown.scss */
+/* line 20, ../sass/select2/_dropdown.scss */
 .select2-results__options {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 25, ../sass/select2/_dropdown.scss */
+/* line 26, ../sass/select2/_dropdown.scss */
 .select2-results__option {
   padding: 6px;
   user-select: none;
   -webkit-user-select: none;
 }
-/* line 31, ../sass/select2/_dropdown.scss */
+/* line 32, ../sass/select2/_dropdown.scss */
 .select2-results__option[aria-selected] {
   cursor: pointer;
 }
 
-/* line 36, ../sass/select2/_dropdown.scss */
+/* line 37, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown {
   left: 0;
 }
 
-/* line 40, ../sass/select2/_dropdown.scss */
+/* line 41, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown--above {
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 46, ../sass/select2/_dropdown.scss */
+/* line 47, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown--below {
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 52, ../sass/select2/_dropdown.scss */
+/* line 53, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown {
   display: block;
   padding: 4px;
 }
-/* line 56, ../sass/select2/_dropdown.scss */
+/* line 57, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown .select2-search__field {
   padding: 4px;
   width: 100%;
   box-sizing: border-box;
 }
-/* line 61, ../sass/select2/_dropdown.scss */
+/* line 62, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-/* line 66, ../sass/select2/_dropdown.scss */
+/* line 67, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown.select2-search--hide {
   display: none;
 }
