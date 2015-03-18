@@ -2,7 +2,10 @@ package controllers;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,18 +47,24 @@ public class SubscriptionController {
 	@RequestMapping(value = "/subscribe", method = RequestMethod.GET)
 	public ModelAndView subscribe(Model model) {
 		System.out.println("Controller : /SubscriptionController --- Action : /subscribe");
-		ModelAndView result = new ModelAndView("subscription/subscribe");
+		Map<String, Object> hobbies = new HashMap<String, Object>();
+		hobbies.put("hobbies", hobbyService.findAll());
+		ModelAndView result = new ModelAndView("subscription/subscribe", hobbies);
 		model.addAttribute("student", new Student());
 		return result;
 	}
 
 	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,BindingResult bindingResult) {
+	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,
+			BindingResult bindingResult, 
+			HttpServletRequest request) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribePost");
 
-		ModelAndView result;
-		result = new ModelAndView("subscription/subscribe");
+		Map<String, Object> hobbies = new HashMap<String, Object>();
+		hobbies.put("hobbies", hobbyService.findAll());
+		ModelAndView result = new ModelAndView("subscription/subscribe", hobbies);
+		
 		// Validation du model
 		if (bindingResult.hasErrors()) {
 			return result;
@@ -65,7 +74,8 @@ public class SubscriptionController {
 		
 		// store hobbies not implemented
 		//...
-		
+		String userHobbies = request.getParameter("hobbies");
+		System.out.println(userHobbies);
 
 		// show message "Votre demande d'inscription est en cours de validation"
 		userService.save(student);

@@ -60,8 +60,9 @@ public class MessageController {
 			BindingResult bindingResult, HttpSession session, 
 			HttpServletRequest request) {
 
-		ModelAndView result;
-		result = new ModelAndView("message/newMessageForm");
+		Map<String, Object> users = new HashMap<String, Object>();
+		users.put("users", userService.findAll());
+		ModelAndView result = new ModelAndView("message/newMessageForm", users);
 		
 		if (bindingResult.hasErrors()) {
 			result.addObject("message", message);

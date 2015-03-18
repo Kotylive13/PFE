@@ -6,7 +6,6 @@
 	<head>
 		<title><tiles:insertAttribute name="title" /></title>
 		<link type="text/css" rel="stylesheet" href="<c:url value="/css/style.css" />" />
-		<link type="text/css" rel="stylesheet" href="<c:url value="/css/select2.css" />" />
 	</head>
 	<body>
 		<tiles:insertAttribute name="header" />
