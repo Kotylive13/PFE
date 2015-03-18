@@ -73,7 +73,7 @@ public class SubscriptionController {
 		MailSender
 				.sendEmail(
 						student.getEmail(),
-						"Demande d'inscription � la plateforme collaborative e-Partage",
+						"Demande d'inscription à la plateforme collaborative e-Partage",
 						"Ch�r(e) "
 								+ student.getFirstName()
 								+ ",\n"

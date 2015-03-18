@@ -30,6 +30,7 @@ public class Student extends User {
 	private Date inscriptUnivDate;
 	
 	@Column (name = "promo")
+	@NotNull
 	private String promo;
 
 	

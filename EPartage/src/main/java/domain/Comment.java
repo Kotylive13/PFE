@@ -33,7 +33,7 @@ public class Comment {
 	@JoinColumn(name = "author")
 	private User author;
 	
-	@Column(name = "content", nullable = false)
+	@Column(name = "content", nullable = false, columnDefinition="Text")
 	String content;
 
 	public IdComment getIdComment() {

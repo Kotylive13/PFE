@@ -26,7 +26,7 @@ public class MessageReceiver {
 	@JoinColumn(name = "receiver")
 	private User receiver;
 	
-	@Column(name="consult", columnDefinition="BOOLEAN default false")
+	@Column(name="consult")//, columnDefinition="BOOLEAN default false")
 	private boolean consult = false;
 
 	public IdMessageReceiver getIdMessageReceiver() {

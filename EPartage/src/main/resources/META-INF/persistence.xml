@@ -9,18 +9,16 @@
 		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
 
 		<properties>
-			<property name="url" value="jdbc:mysql://localhost/pfetest" />
+
+			<property name="url" value="jdbc:mysql://localhost:3306/dbpfe" />
 			<property name="username" value="root" />
 			<property name="password" value="" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
 			<property name="hibernate.format_sql" value="true" />
 
 		</properties>
 
-
 	</persistence-unit>
-
+	
 </persistence>
-
-

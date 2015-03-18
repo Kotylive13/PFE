@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,12 +11,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AdminService;
+import services.GroupService;
 import utilities.MailSender;
+import domain.Group;
 import domain.Status;
 import domain.Student;
 
@@ -24,6 +29,9 @@ public class AdminWaitingUsersController {
 
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	GroupService groupService;
 
 // Constructors ---------------------------------------------------------------
 
@@ -51,7 +59,7 @@ public class AdminWaitingUsersController {
 	
 	@RequestMapping(value = "/validateUser")
 	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , 
-			@RequestParam String action, HttpSession session, Model model) {
+			@RequestParam String action, @RequestParam("groupPost") String groupName, HttpSession session, Model model) {
 		
 		if(session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
@@ -60,6 +68,8 @@ public class AdminWaitingUsersController {
 		
 		Map<String, Object> errorMessages = new HashMap<String, Object>();
 		model.addAttribute("admin", session.getAttribute("adminSession"));
+		List <Group> listGroup = new ArrayList<Group>();
+		
 		
 		Student student = adminService.findStudentById(id);
 		if (student == null) {
@@ -69,7 +79,12 @@ public class AdminWaitingUsersController {
 		}
 		
 		if (action.equals("Valider")) {
+			Group group = groupService.findGroupByName(groupName);
+			System.out.println(group.getName() + " nom du groupe ");
+			listGroup.add(group);
+			student.setGroups(listGroup);
 			adminService.validateUser(student.getId());
+			groupService.addUser(student, group.getName());
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
 					"Votre compte a bien été activé sur le site E-Partage. "
 					+ "Vous pouvez dès à présent vous connecter.");
@@ -84,4 +99,14 @@ public class AdminWaitingUsersController {
 		return new ModelAndView("login_staff/listWaiting");
 	}
 	
+	@ModelAttribute("groupMap")
+	public Map getGroups() {
+		Map<String,String> groupMap = new LinkedHashMap<String,String>();
+		List<Group> groupList = groupService.findAll();
+		
+		for (Group group : groupList) {
+			groupMap.put(group.getName(), group.getName());
+		}
+		return groupMap;
+	}
 }

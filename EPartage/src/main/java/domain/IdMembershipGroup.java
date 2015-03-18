@@ -14,7 +14,7 @@ public class IdMembershipGroup implements Serializable {
 	private Integer id;
 	
 	@Column (name = "nameG")
-	private String nameH;
+	private String nameG;
 
 	
 	
@@ -26,12 +26,12 @@ public class IdMembershipGroup implements Serializable {
 		this.id = id;
 	}
 
-	public String getNameH() {
-		return nameH;
+	public String getNameG() {
+		return nameG;
 	}
 
-	public void setNameH(String nameH) {
-		this.nameH = nameH;
+	public void setNameG(String nameG) {
+		this.nameG = nameG;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class IdMembershipGroup implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nameH == null) ? 0 : nameH.hashCode());
+		result = prime * result + ((nameG == null) ? 0 : nameG.hashCode());
 		return result;
 	}
 
@@ -57,10 +57,10 @@ public class IdMembershipGroup implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nameH == null) {
-			if (other.nameH != null)
+		if (nameG == null) {
+			if (other.nameG != null)
 				return false;
-		} else if (!nameH.equals(other.nameH))
+		} else if (!nameG.equals(other.nameG))
 			return false;
 		return true;
 	}
