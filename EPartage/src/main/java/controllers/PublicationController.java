@@ -1,15 +1,23 @@
 package controllers;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.PublicationService;
+import domain.IdPublicationFile;
 import domain.Publication;
+import domain.PublicationFile;
 import domain.Student;
 import domain.User;
 
@@ -25,11 +33,8 @@ import domain.User;
 public class PublicationController {
 	
 	
-	 /**
-	  * Edit a publication
-	  * @param model publication
-	  * @return
-	  */
+	@Autowired
+	PublicationService publicationService;
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit(Model model) {
@@ -37,6 +42,29 @@ public class PublicationController {
 		ModelAndView result = new ModelAndView("publication/edit");
 		model.addAttribute("publication", new Publication());
 		return result;
+	}
+	
+	
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public ModelAndView save(@Valid @ModelAttribute Publication publication ,BindingResult bindingResult, HttpSession session, @RequestParam("file") MultipartFile file) {
+		
+		System.out.println("Controller : /PublicationController --- Action : /save");
+
+		ModelAndView result=new ModelAndView("publication/edit");
+		// Validating model
+		if (bindingResult.hasErrors()) {
+			return result;
+		}
+		//upload the file
+//		 if (file != null) {
+//			 PublicationFile pubFile = new PublicationFile();
+//			 
+//		 }
+		
+		User user = (User) session.getAttribute("userSession");
+		publication.setAuthor(user);
+		publicationService.save(publication);
+		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 	
 
