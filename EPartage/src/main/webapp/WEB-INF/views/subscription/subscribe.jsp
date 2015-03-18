@@ -57,7 +57,7 @@
 						</tr>
 						
 						<tr>
-							<td><form:label path="promo">Promotion</form:label></td>
+							<td><form:label path="promo" >Promotion</form:label></td>
 							<td><form:input path="promo" type="text" /></td>
 							<td><form:errors path="promo" cssClass="error" /></td>
 						</tr>

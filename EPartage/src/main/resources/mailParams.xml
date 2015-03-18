@@ -10,7 +10,7 @@
 		<constructor-arg type="String" value="Luminy.annuaire@gmail.com" />
 	</bean>
 
-	<bean id="adminPassword" class="java.lang.String">
+	<bean id="adminPassword" class="java.lang.String" >
 		<constructor-arg type="String" value="annu1987" />
 	</bean>
 
