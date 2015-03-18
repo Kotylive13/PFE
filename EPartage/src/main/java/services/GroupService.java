@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import repositories.GroupDAO;
 import domain.Group;
-import domain.IdMembershipGroup;
-import domain.MembershipGroup;
-import domain.User;
 
 @Service
 @Transactional
