@@ -84,6 +84,7 @@ public class AdminWaitingUsersController {
 			listGroup.add(group);
 			student.setGroups(listGroup);
 			adminService.validateUser(student.getId());
+			groupService.addUser(student, group.getName());
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
 					"Votre compte a bien été activé sur le site E-Partage. "
 					+ "Vous pouvez dès à présent vous connecter.");
