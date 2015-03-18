@@ -99,7 +99,7 @@ public class AdminWaitingUsersController {
 	}
 	
 	@ModelAttribute("groupMap")
-	public Map getGroups() {
+	public Map<String,String> getGroups() {
 		Map<String,String> groupMap = new LinkedHashMap<String,String>();
 		List<Group> groupList = groupService.findAll();
 		

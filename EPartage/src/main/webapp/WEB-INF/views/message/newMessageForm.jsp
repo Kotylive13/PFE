@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/include.jsp" %>
 
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">
@@ -24,7 +22,14 @@
 			action="${pageContext.request.contextPath}/message/newmessage.htm">
 			<table>
 				<tr>
-					<td><input type="text" name="receiversList" /></td>
+					<td>
+						<select id="multipleTokens" class="multipleTokens" multiple="multiple" >
+							<c:forEach items="${users}" var="user">
+								<option value="<c:out value="${user.email}"/>">${user.firstName} ${user.lastName}</option>
+							</c:forEach>
+ 						</select>
+ 						<input name="receiversList" id="selectedValues" type="hidden" />
+ 					</td>
 					<c:if test="${!empty error}">
 						<td><c:out value="${error}"/></td>
 					</c:if>			

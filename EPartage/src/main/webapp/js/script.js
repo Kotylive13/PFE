@@ -14,12 +14,16 @@ $(".tokenizer").select2({
   tokenSeparators: [',', ' ']
 })
 
-$(".multiple-tokens").select2({
+$(".multipleTokens").select2({
   templateResult: formatState
 });
 
-$('#selector').change(function() {
+$('#tokenizer').change(function() {
   $('#selectedValues').val($(".tokenizer").val());
+});
+
+$('#multipleTokens').change(function() {
+  $('#selectedValues').val($(".multipleTokens").val());
 });
 
 function hover(element, src) {
@@ -58,7 +62,7 @@ function slideOptions (element, vitesse) {
 function formatState (state) {
   if (!state.id) { return state.text; }
   var $state = $(
-    '<span><img src="../Images/logo.png" /> ' + state.text + '</span>'
+    '<span>' + state.text + '</span>'
   );
   return $state;
 };
