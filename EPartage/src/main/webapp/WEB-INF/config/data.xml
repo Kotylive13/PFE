@@ -26,7 +26,6 @@
 	</bean>
 	<!-- JPA -->
 
-
 	<bean id="persistenceUnit" class="java.lang.String">
 		<constructor-arg value="epartage" />
 	</bean>
@@ -35,15 +34,11 @@
 		<constructor-arg value="org.hibernate.dialect.MySQLInnoDBDialect" />
 	</bean>
 
-
-
 	<util:properties id="jpaProperties">
 		<prop key="hibernate.format_sql">true</prop>
 		<prop key="hibernate.show_sql">true</prop>
 		<prop key="hibernate.hbm2ddl.auto">validate</prop>
 		<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
 	</util:properties>
-
-
 
 </beans>
