@@ -59,17 +59,17 @@ public class AdminWaitingUsersController {
 	
 	@RequestMapping(value = "/validateUser")
 	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , 
-			@RequestParam String action, @RequestParam("groupPost") String statut, HttpSession session, Model model) {
+			@RequestParam String action, @RequestParam("groupPost") String groupName, HttpSession session, Model model) {
 		
 		if(session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
 			return new ModelAndView("/authentication/connection");
 		}
 		
-		System.out.println(statut+" testttteee");
 		Map<String, Object> errorMessages = new HashMap<String, Object>();
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		List <Group> listGroup = new ArrayList<Group>();
+		
 		
 		Student student = adminService.findStudentById(id);
 		if (student == null) {
@@ -79,6 +79,9 @@ public class AdminWaitingUsersController {
 		}
 		
 		if (action.equals("Valider")) {
+			Group group = groupService.findGroupByName(groupName);
+			System.out.println(group.getName() + " nom du groupe ");
+			listGroup.add(group);
 			student.setGroups(listGroup);
 			adminService.validateUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Validation de l'inscription", 
