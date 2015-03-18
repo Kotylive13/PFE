@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import repositories.GroupDAO;
 import domain.Group;
+import domain.IdMembershipGroup;
+import domain.MembershipGroup;
 import domain.User;
 
 @Service
@@ -38,8 +40,5 @@ public class GroupService {
 		groupDao.modify(group.getName(),group.getDescription(), group.getAvatar(), nameOld);
 	}
 	
-	public void addUser(User user, String groupName) {
-		groupDao.addUser(user.getId(), groupName);
-	}
 	
 }
