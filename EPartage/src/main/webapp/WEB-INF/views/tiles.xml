@@ -16,6 +16,14 @@
 		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
 	
+	<!-- Visitor -->
+	<definition name="visitor" template="/WEB-INF/views/layouts/visitor/layout_visitor.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/visitor/header_visitor.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
+	</definition>
+	
 	<!-- User -->
 	<definition name="master.page" template="/WEB-INF/views/layouts/layout.jsp">
 		<put-attribute name="title" value="" />
