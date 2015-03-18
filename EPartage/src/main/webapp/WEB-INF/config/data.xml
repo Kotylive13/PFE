@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
@@ -33,15 +32,15 @@
 	</bean>
 
 	<bean id="sqlDialect" class="java.lang.String">
-		<constructor-arg value="org.hibernate.dialect.MySQLDialect" />
+		<constructor-arg value="org.hibernate.dialect.MySQLInnoDBDialect" />
 	</bean>
 
 
 
 	<util:properties id="jpaProperties">
 		<prop key="hibernate.format_sql">true</prop>
-		<prop key="hibernate.show_sql">false</prop>
-		<!-- <prop key="hibernate.hbm2ddl.auto">verify</prop> -->
+		<prop key="hibernate.show_sql">true</prop>
+		<prop key="hibernate.hbm2ddl.auto">validate</prop>
 		<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
 	</util:properties>
 

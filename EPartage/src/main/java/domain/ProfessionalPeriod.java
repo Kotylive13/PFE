@@ -43,7 +43,7 @@ public class ProfessionalPeriod {
 	@Column (name = "NAME", nullable = false)
 	private String name;
 	
-	@Column (name = "DESCRIPTION")
+	@Column (name = "DESCRIPTION", nullable = false, columnDefinition="TEXT")
 	private String description;
 	
 	@Id

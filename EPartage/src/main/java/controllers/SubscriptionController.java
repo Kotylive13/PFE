@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.HobbyService;
 import services.UserService;
 import utilities.MailSender;
+import domain.Hobby;
 import domain.Status;
 import domain.Student;
 
@@ -63,6 +65,10 @@ public class SubscriptionController {
 		
 		// store hobbies not implemented
 		//...
+		
+
+		// show message "Votre demande d'inscription est en cours de validation"
+		userService.save(student);
 		// send email to this person
 		MailSender
 				.sendEmail(
@@ -74,11 +80,22 @@ public class SubscriptionController {
 								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"
 								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
 								+ "A bientôt sur e-Partage !");
-
-		// show message "Votre demande d'inscription est en cours de validation"
-		userService.save(student);
 		result = new ModelAndView("welcome/index");
 		return result;
 
 	}
+	
+	@ModelAttribute("hobbiesList")
+	public Collection<Hobby> getCategories() {
+		return hobbyService.findAll();
+	}
+	
+	
+	/*@ModelAttribute
+	public Student newStudent(){
+		Student newStudent = new Student();
+		newStudent.setInscriptAppDate(new Date());
+		newStudent.setStatus(Status.W);
+		return newStudent;
+	}*/
 }

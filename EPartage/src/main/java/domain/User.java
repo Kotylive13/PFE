@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -103,12 +104,12 @@ public class User {
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbys;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		      name="MembershipGroup",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
 		      inverseJoinColumns={@JoinColumn(name="nameG", referencedColumnName="nameG")})
-	private Set<Group> groups;
+	private List<Group> groups;
 
 	public User() {
 		super();
@@ -223,11 +224,11 @@ public class User {
 		this.hobbys = hobbys;
 	}
 
-	public Set<Group> getGroups() {
+	public List<Group> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(Set<Group> groups) {
+	public void setGroups(List<Group> groups) {
 		this.groups = groups;
 	}
 

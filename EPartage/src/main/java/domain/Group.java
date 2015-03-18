@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
 @Table(name ="`Group`")
 public class Group {
 
@@ -23,8 +26,11 @@ public class Group {
 	@Column( name = "avatar", length=100000)
 	private byte[] avatar;
 	
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition="TEXT")
 	private String description;
+	
+	@OneToMany(mappedBy="group", fetch = FetchType.EAGER)
+	private List<Category> categories;
 	
 //	@ManyToMany (mappedBy = "groups")
 //	private Set<User> members;
@@ -92,6 +98,31 @@ public class Group {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Group other = (Group) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 
 //	public Set<User> getMembers() {

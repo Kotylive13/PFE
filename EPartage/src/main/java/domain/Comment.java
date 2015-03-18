@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -7,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Comment")
@@ -14,6 +19,10 @@ public class Comment {
 	
 	@EmbeddedId
 	private IdComment idComment;
+	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateC;
 	
 	@MapsId("publication")
 	@ManyToOne
@@ -24,7 +33,7 @@ public class Comment {
 	@JoinColumn(name = "author")
 	private User author;
 	
-	@Column(name = "content", nullable = false)
+	@Column(name = "content", nullable = false, columnDefinition="Text")
 	String content;
 
 	public IdComment getIdComment() {
@@ -33,6 +42,14 @@ public class Comment {
 
 	public void setIdComment(IdComment idComment) {
 		this.idComment = idComment;
+	}
+
+	public Date getDateC() {
+		return dateC;
+	}
+
+	public void setDateC(Date dateC) {
+		this.dateC = dateC;
 	}
 
 	public Publication getPublication() {
