@@ -9,6 +9,9 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * Class for sending emails
  * 
@@ -49,7 +52,14 @@ public class MailSender {
 		System.out.print("Creating the session...");
 
 		// Compte gmail : Luminy.annuaire@gmail.com
-		// password : nnu1987
+		// password : annu1987
+		
+		 AbstractApplicationContext context = new ClassPathXmlApplicationContext("mailParams.xml");
+	     context.registerShutdownHook();
+
+	        // recuperer les beans
+	     String adminMail = context.getBean("adminMail", String.class);
+	     String adminPassword = context.getBean("adminPassword", String.class);
 
 		// Create the session
 		Session session = Session.getDefaultInstance(connectionProperties,
@@ -58,7 +68,7 @@ public class MailSender {
 					// authenticator
 					protected PasswordAuthentication getPasswordAuthentication() {
 						return new PasswordAuthentication(
-								"Luminy.annuaire@gmail.com", "annu1987");
+								adminMail, adminPassword);
 					}
 				});
 
@@ -69,7 +79,7 @@ public class MailSender {
 			// Create the message
 			Message message = new MimeMessage(session);
 			// Set sender
-			message.setFrom(new InternetAddress("Luminy.annuaire@gmail.com"));
+			message.setFrom(new InternetAddress(adminMail));
 			// Set the recipients
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(to));
