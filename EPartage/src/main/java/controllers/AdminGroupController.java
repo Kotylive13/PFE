@@ -26,6 +26,9 @@ public class AdminGroupController {
 	
 	@Autowired
 	GroupService groupService;
+	
+//	@Autowired
+//	MembershipGroupService membershipGroupService;
 
 
 // Constructors ---------------------------------------------------------------

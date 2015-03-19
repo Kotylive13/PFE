@@ -6,5 +6,4 @@ import domain.MembershipGroup;
 
 public interface MembershipGroupDAO extends JpaRepository<MembershipGroup, Integer> {
 
-
 }

@@ -2,6 +2,7 @@ package domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +20,7 @@ public class Category {
 	private IdCategory idCategory = new IdCategory();
 	
 	@MapsId("group")
-	@ManyToOne
+	@ManyToOne (cascade=CascadeType.REMOVE)
 	@JoinColumn(name = "nameG")
 	private Group group;
 

@@ -65,7 +65,7 @@ public class AuthenticationController {
 		Map<String, Object> message = new HashMap<String, Object>();
 		Student studentSession = userService.findByEmailPass(email, password);
 		if(studentSession != null){
-			if(!studentSession.getStatus().equals(Status.W)){
+			if(studentSession.getStatus().equals(Status.A)){
 				session.setAttribute( "userSession", studentSession );
 			}
 		} else {
