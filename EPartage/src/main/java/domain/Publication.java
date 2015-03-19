@@ -31,7 +31,6 @@ public class Publication {
 	@Id
 	@GeneratedValue( strategy = GenerationType.AUTO )
 	@Column (name = "ID_PUB")
-	@Size (max = 11)
 	private Integer id;
 
 	@Column ( name = "TITLE" )
