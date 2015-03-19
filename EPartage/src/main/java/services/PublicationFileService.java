@@ -1,7 +1,5 @@
 package services;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +27,8 @@ public class PublicationFileService {
 		publicationFileDAO.save(publicationFile);
 	}
 
-	public List<PublicationFile> findByPublication(int parseInt) {
-		return publicationFileDAO.findByPublication(parseInt);
+	public PublicationFile find(int pub, int id) {
+		return publicationFileDAO.find(pub, id);
 	}
 	
 }

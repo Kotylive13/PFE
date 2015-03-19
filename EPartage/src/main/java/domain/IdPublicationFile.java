@@ -19,7 +19,7 @@ public class IdPublicationFile implements Serializable{
 	private Integer id;
 	
 	@Column(name = "ID_PUB", nullable = false)
-	private Integer idPublication;
+	private Integer publication;
 
 	public Integer getId() {
 		return id;
@@ -29,12 +29,12 @@ public class IdPublicationFile implements Serializable{
 		this.id = id;
 	}
 
-	public Integer getIdPublication() {
-		return idPublication;
+	public Integer getPublication() {
+		return publication;
 	}
 
-	public void setIdPublication(Integer idPublication) {
-		this.idPublication = idPublication;
+	public void setPublication(Integer publication) {
+		this.publication = publication;
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class IdPublicationFile implements Serializable{
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
-				+ ((idPublication == null) ? 0 : idPublication.hashCode());
+				+ ((publication == null) ? 0 : publication.hashCode());
 		return result;
 	}
 
@@ -61,12 +61,11 @@ public class IdPublicationFile implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (idPublication == null) {
-			if (other.idPublication != null)
+		if (publication == null) {
+			if (other.publication != null)
 				return false;
-		} else if (!idPublication.equals(other.idPublication))
+		} else if (!publication.equals(other.publication))
 			return false;
 		return true;
 	}
-
 }

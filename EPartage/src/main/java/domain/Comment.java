@@ -1,13 +1,16 @@
 package domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,6 +38,9 @@ public class Comment {
 	
 	@Column(name = "content", nullable = false, columnDefinition="Text")
 	String content;
+	
+	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER)
+	private List<CommentFile> files;
 
 	public IdComment getIdComment() {
 		return idComment;
@@ -74,5 +80,13 @@ public class Comment {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public List<CommentFile> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<CommentFile> files) {
+		this.files = files;
 	}
 }

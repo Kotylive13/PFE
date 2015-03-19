@@ -1,7 +1,5 @@
 package repositories;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,10 +13,10 @@ public interface CommentFileDAO extends JpaRepository<CommentFile, IdCommentFile
 			  " SELECT cf "
 			+ " FROM CommentFile cf " 
 			+ " WHERE cf.idCommentFile.publication = :pub AND "
-			+ " cf.idCommentFile.comment = :com "
-			+ " ORDER BY cf.idCommentFile.comment";
+			+ " cf.idCommentFile.comment = :com AND "
+			+ " cf.idCommentFile.id = :id";
 	
 	@Query(FIND_FILES_OF_COMMENT_QUERY)
-	public List<CommentFile> findByComment(@Param("pub") Integer pub, @Param("com") Integer com);
+	public CommentFile find(@Param("pub") Integer pub, @Param("com") Integer com, @Param("id") Integer id);
 
 }

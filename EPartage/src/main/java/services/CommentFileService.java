@@ -1,7 +1,5 @@
 package services;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +27,8 @@ public class CommentFileService {
 		commentFileDao.save(commentFile);
 	}
 
-	public List<CommentFile> findByComment(int pub, int com) {
-		return commentFileDao.findByComment(pub, com);
+	public CommentFile find(int pub, int com, int id) {
+		return commentFileDao.find(pub, com, id);
 	}
 	
 }

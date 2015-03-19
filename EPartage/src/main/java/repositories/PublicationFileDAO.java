@@ -1,7 +1,5 @@
 package repositories;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,10 +12,9 @@ public interface PublicationFileDAO extends JpaRepository<PublicationFile, IdPub
 	public final String FIND_FILES_OF_PUBLICATION_QUERY = 
 			  " SELECT pf "
 			+ " FROM PublicationFile pf " 
-			+ " WHERE pf.idPublicationFile.idPublication = :id "
-			+ " ORDER BY pf.idPublicationFile.id";
+			+ " WHERE pf.idPublicationFile.publication = :pub AND "
+			+ " pf.idPublicationFile.id = :id";
 	
 	@Query(FIND_FILES_OF_PUBLICATION_QUERY)
-	public List<PublicationFile> findByPublication(@Param("id") Integer id);
-
+	public PublicationFile find(@Param("pub") Integer pub, @Param("id") Integer id);
 }

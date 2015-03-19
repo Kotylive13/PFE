@@ -72,6 +72,9 @@ public class Publication {
 	
 	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
 	private List<Opinion> opinions;
+	
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	private List<PublicationFile> files;
 
 	public Integer getId() {
 		return id;
@@ -151,6 +154,14 @@ public class Publication {
 
 	public void setOpinions(List<Opinion> opinions) {
 		this.opinions = opinions;
+	}
+
+	public List<PublicationFile> getFiles() {
+		return files;
+	}
+
+	public void setFiles(List<PublicationFile> files) {
+		this.files = files;
 	}
 
 }

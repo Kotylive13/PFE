@@ -5,7 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.validation.constraints.Size;
 
 /**
@@ -18,6 +21,11 @@ public class PublicationFile {
 
 	@EmbeddedId
 	private IdPublicationFile idPublicationFile;
+	
+	@MapsId("publication")
+	@ManyToOne
+	@JoinColumn(name = "ID_PUB")
+	private Publication publication;
 	
 	/**
 	 * The file's title

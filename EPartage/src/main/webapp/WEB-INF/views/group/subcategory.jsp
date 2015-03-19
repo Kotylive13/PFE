@@ -74,8 +74,9 @@
 						<div class="contentMessage">
 							<p>${p.title}</p>
 							<p>${p.content}</p>
+							
 							<p>
-								<a href="${pageContext.request.contextPath}/publication/file.htm?id=${p.id}"  target="_blank">monFichier.pdf</a>
+								<a href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"  target="_blank">${p.files[0].title}</a>
 							</p>
 						</div>
 						<div class="footerMessage">
@@ -129,7 +130,7 @@
 								<div class="contentComment">
 									<p>${com.content}</p>
 									<p>
-										<a href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}"  target="_blank">monFichier.pdf</a>
+										<a href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"  target="_blank">${com.files[0].title}</a>
 									</p>
 								</div>
 							</div>

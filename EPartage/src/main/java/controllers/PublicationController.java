@@ -3,7 +3,6 @@ package controllers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -96,13 +95,14 @@ public class PublicationController {
 	
 	@RequestMapping("/file.htm")
 	public void file(
+			@RequestParam(value = "pub", required = false) String pub,
 			@RequestParam(value = "id", required = false) String id,
 			HttpServletResponse response) {
 		
-		List<PublicationFile> publicationFile = publicationFileService.findByPublication(Integer.parseInt(id));
+		PublicationFile publicationFile = publicationFileService.find(Integer.parseInt(pub), Integer.parseInt(id));
 		try {
 			OutputStream o = response.getOutputStream();
-			o.write(publicationFile.get(0).getFile());
+			o.write(publicationFile.getFile());
 			o.flush(); o.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -113,12 +113,16 @@ public class PublicationController {
 	public void commentFile(
 			@RequestParam(value = "pub", required = false) String pub,
 			@RequestParam(value = "com", required = false) String com,
+			@RequestParam(value = "id", required = false) String id,
 			HttpServletResponse response) {
 		
-		List<CommentFile> commentFile = commentFileService.findByComment(Integer.parseInt(pub), Integer.parseInt(com));
+		CommentFile commentFile = commentFileService.find(
+				Integer.parseInt(pub), 
+				Integer.parseInt(com), 
+				Integer.parseInt(id));
 		try {
 			OutputStream o = response.getOutputStream();
-			o.write(commentFile.get(0).getFile());
+			o.write(commentFile.getFile());
 			o.flush(); o.close();
 		} catch (IOException e) {
 			e.printStackTrace();
