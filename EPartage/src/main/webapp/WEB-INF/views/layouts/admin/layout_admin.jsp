@@ -13,7 +13,7 @@
 			<div id="navBar">
 				<tiles:insertAttribute name="navBar" />
 			</div>
-			<div id="content">
+			<div class="content">
 				<tiles:insertAttribute name="content" />
 			</div>
 		</div>

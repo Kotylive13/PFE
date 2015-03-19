@@ -9,32 +9,31 @@
 	            <p class="<c:out value="${type}"/>"><c:out value="${message}"/></p>
 	        </div>
 		</c:if>
-		<div class="content">
-			<c:if test="${!empty sessionScope.adminSession}">
-				<c:choose>
-					<c:when test="${not empty listStudents}">
-						<h1>Liste des personne en attente de validation d'inscription</h1>
-						<ul>
-							<c:forEach var="student" items="${listStudents}">
-								<li>
-									<form:form method="POST" modelAttribute="admin"
-										action="${pageContext.request.contextPath}/login_staff/waitingUsers/validateUser.htm?id=${student.id}">
-										<c:out value="${student.firstName}" />
-										<c:out value="${student.lastName}" />
-										<form:select name="groupPost" items="${groupMap}" path="" />
-										<input name="action" class="submit" type="submit" value="Valider">
-										<input name="action" class="submit" type="submit" value="Refuser">
-									</form:form>
-								</li>
-							</c:forEach>
-						</ul>
-					</c:when>
-					<c:otherwise>
-						<h1>Aucune personne en attente de validation d'inscription</h1>
-					</c:otherwise>
-				</c:choose>
-			</c:if>
-			<a href="${pageContext.request.contextPath}/login_staff/index.htm">Retour au menu</a><br/>
-		</div>
+		<c:if test="${!empty sessionScope.adminSession}">
+			<h1>Liste des personne en attente de validation d'inscription</h1>
+			<c:choose>
+				<c:when test="${not empty listStudents}">
+					<ul>
+						<c:forEach var="student" items="${listStudents}">
+							<li>
+								<form:form method="POST" modelAttribute="admin"
+									action="${pageContext.request.contextPath}/login_staff/waitingUsers/validateUser.htm?id=${student.id}">
+									<c:out value="${student.firstName}" />
+									<c:out value="${student.lastName}" />
+									<form:select name="groupPost" items="${groupMap}" path="" />
+									<input name="action" class="submit" type="submit" value="Valider">
+									<input name="action" class="submit" type="submit" value="Refuser">
+								</form:form>
+							</li>
+						</c:forEach>
+					</ul>
+				</c:when>
+				<c:otherwise>
+				<div class="information">
+					<p>Aucune personne en attente de validation d'inscription</p>
+				</div>
+				</c:otherwise>
+			</c:choose>
+		</c:if>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

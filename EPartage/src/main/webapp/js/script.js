@@ -3,7 +3,6 @@
 $('#options').hide();
 $('.postComment').hide();
 $('.comments').hide();
-$('.information > table[class="tata"]').hide();
 
 /* Permet de redimensionner automatiquement un textarea */
 
@@ -16,7 +15,7 @@ $('#options').scrollToFixed({
     marginTop: $('.header').outerHeight() + 50
 });
 
-/**/
+/* Listes de hobbies */
 $('.tokenizer').select2({
   tags: true,
   tokenSeparators: [',', ' ']
@@ -25,6 +24,8 @@ $('.tokenizer').select2({
 $('#tokenizer').change(function() {
   $('#selectedValues').val($('.tokenizer').val());
 });
+
+/* Listes de personnes avec image */
 
 $('.multipleTokens').select2({
   templateResult: formatState
@@ -65,10 +66,10 @@ function slideOptions (element, vitesse) {
 
 function slideElement (element, element2, vitesse) {
   $(element).slideToggle(vitesse);
-  if ($(element2).attr('src') == '../images/arrow-down.png'){
-    $(element2).attr('src', '../images/arrow-up.png');
+  if ($(element2).attr('src') == '/EPartage/images/arrow-down.png'){
+    $(element2).attr('src', '/EPartage/images/arrow-up.png');
   } else {
-    $(element2).attr('src', '../images/arrow-down.png');
+    $(element2).attr('src', '/EPartage/images/arrow-down.png');
   }
 }
 
