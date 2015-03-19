@@ -159,7 +159,7 @@ public class UserController {
 			@RequestParam(value = "nameG", required = false) String name) {
 		
 		if (name != null) {
-			return groupService.findGroupByName(name);
+			return groupService.findGroupByName(AsciiToHex.decode(name));
 		}
 
 		return new Group();
@@ -184,5 +184,20 @@ public class UserController {
 	public int nbOfUnconsultedMessages(HttpSession session) {
 		return messageService.getNbOfUnconsultedMessages(
 				(User) session.getAttribute("userSession"));
+	}
+	
+	@ModelAttribute("groupsUrl")
+	public Map<String, Object> getGroupsUrl (HttpSession session) {
+		User user = (User) session.getAttribute("userSession");
+		
+		Map<String, Object> groupsUrl = new HashMap<String, Object>();
+		
+		for(Group g : user.getGroups()) {
+			String nameG = g.getName();
+			String urlNameG = AsciiToHex.asciiToHex(nameG);
+			groupsUrl.put(nameG, urlNameG);
+		}
+		
+		return groupsUrl;
 	}
 }

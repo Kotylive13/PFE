@@ -9,16 +9,9 @@
 	<tiles:putAttribute name="title">
 			Espace de travail
 		</tiles:putAttribute>
-	<tiles:putAttribute name="content">
+	<tiles:putAttribute name="content">	
 
-		<p>Espace de travail</p>
-		
-		<p>Mes groupes</p>
-		<c:forEach items="${groupsList}" var="g">
-			<div><a href="${detail}?nameG=${g.name}">${g.name}</a></div>
-		</c:forEach>
-		
-	
+
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
