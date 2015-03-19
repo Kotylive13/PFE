@@ -10,8 +10,12 @@
 	<body>
 		<tiles:insertAttribute name="header" />
 		<div class="page">
-			<tiles:insertAttribute name="navBar" />
-			<tiles:insertAttribute name="content" />
+			<div id="navBar">
+				<tiles:insertAttribute name="navBar" />
+			</div>
+			<div id="content">
+				<tiles:insertAttribute name="content" />
+			</div>
 		</div>
 		<tiles:insertAttribute name="scripts" />
 	</body>

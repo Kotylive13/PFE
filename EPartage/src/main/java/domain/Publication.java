@@ -19,6 +19,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * This class corresponds to the user's publication
  * @author Koty
@@ -35,6 +37,8 @@ public class Publication {
 
 	@Column ( name = "TITLE" )
 	@Size (max = 32)
+	@NotEmpty(message = "Veuillez saisir un titre !")
+	@NotNull
 	private String title;
 	
 	@NotNull
@@ -42,10 +46,13 @@ public class Publication {
 	private Date dateP;
 	
 	@Column ( name = "CONTENT", columnDefinition="TEXT")
+	@NotEmpty(message = "Veuillez saisir un contenu !")
+	@NotNull
 	private String content;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
 	@JoinColumn (name = "author", nullable = false)
+	@NotNull
 	private User author;
 	
 	@ManyToOne
