@@ -71,6 +71,10 @@ public class SubscriptionController {
 		if (bindingResult.hasErrors()) {
 			return result;
 		}
+		if (!request.getParameter("confirmation").equals(student.getPassword()))
+			return result.addObject("errorConfirmation",
+					"Les mots de passe de concordent pas");
+		
 		student.setInscriptAppDate(new Date());
 		student.setStatus(Status.W);
 		
@@ -79,7 +83,7 @@ public class SubscriptionController {
 		String[] userHobbies = input.split(",");
 		
 		if (userHobbies[0].isEmpty())
-			return result.addObject("error",
+			return result.addObject("errorHobbies",
 					"Veuillez renseigner des centres d'intérêt");
 		
 		Set<Hobby> hobbies = new HashSet<Hobby>();		
