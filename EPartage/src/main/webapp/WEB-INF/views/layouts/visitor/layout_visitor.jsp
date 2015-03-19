@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="popup" />
 		<tiles:insertAttribute name="content" />
 		<tiles:insertAttribute name="scripts" />
 	</body>
