@@ -1,32 +1,39 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
 
 <c:url var="detail" value="/workspace/group/subcategory/detail.htm" />
 
 <tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
-			Espace de travail
+			${group.name}
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
-
-		<p>Groupe : ${group.name}</p>
-
-
-		<c:set var="nameG" value="${urlParams[group.name]}"/>		
-		<c:forEach items="${group.categories}" var="cat">
-		<div>
-			<a href="#">${cat.idCategory.name}</a>
-			<c:set var="nameC" value="${urlParams[cat.idCategory.name]}"/>
-			<c:forEach items="${cat.subcategories}" var="sub">
-				<c:set var="nameS" value="${urlParams[sub.idSubcategory.subcategory]}"/>
-				<a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}"> | ${sub.idSubcategory.subcategory}</a>	
-			</c:forEach>
+		<div class="title">
+			<img class="largePicture" src="${pageContext.request.contextPath}/workspace/group/avatar.htm?nameG=${groupsUrl[group.name]}" alt="" />
+			<p>${group.name}</p>
 		</div>
-		</c:forEach>
-		
-		<p>Description : ${group.description}</p>
+
+		<div class="menuBar">
+			<ul class="menu">
+				<c:set var="nameG" value="${urlParams[group.name]}" />
+				<c:forEach items="${group.categories}" var="cat">
+					<li><a href="#">${cat.idCategory.name}</a> <c:set var="nameC"
+							value="${urlParams[cat.idCategory.name]}" />
+						<ul>
+							<c:forEach items="${cat.subcategories}" var="sub">
+								<c:set var="nameS"
+									value="${urlParams[sub.idSubcategory.subcategory]}" />
+								<li><a
+									href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">${sub.idSubcategory.subcategory}</a></li>
+							</c:forEach>
+						</ul></li>
+				</c:forEach>
+			</ul>
+		</div>
+
+		<div class="information">
+			<p>${group.description}</p>
+		</div>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

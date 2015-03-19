@@ -50,7 +50,7 @@
 							<form:errors path="password" cssClass="error" /></td>
 						</tr>
 						<tr>
-							<td><label>Confirmation mot de passe<label></td>
+							<td><label>Confirmation mot de passe</label></td>
 							<td><input name="confirmation" type="password"/>
 							<c:if test="${!empty errorConfirmation}">
 								<span class="error"><c:out value="${errorConfirmation}"/></span>

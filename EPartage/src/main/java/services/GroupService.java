@@ -35,7 +35,5 @@ public class GroupService {
 	
 	public void modify(Group group, String nameOld){
 		groupDao.modify(group.getName(),group.getDescription(), group.getAvatar(), nameOld);
-	}
-	
-	
+	}	
 }

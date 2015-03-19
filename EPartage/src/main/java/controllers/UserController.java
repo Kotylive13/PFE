@@ -100,6 +100,21 @@ public class UserController {
 		return "group/group";
 	}
 	
+	@RequestMapping("/group/avatar.htm")
+	public void avatarGroup(
+			@RequestParam(value = "nameG", required = false) String nameG,
+			HttpServletResponse response) {
+		
+		Group group = groupService.findGroupByName(AsciiToHex.decode(nameG));
+		try {
+			OutputStream o = response.getOutputStream();
+			o.write(group.getAvatar());
+			o.flush(); o.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(value = "/group/subcategory/detail.htm", method = RequestMethod.GET)
 	public String detailSubcategory(
 			@ModelAttribute Subcategory sub,
