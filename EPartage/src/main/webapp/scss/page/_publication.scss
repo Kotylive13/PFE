@@ -1,0 +1,74 @@
+/******************************************************/
+/*                                                    */
+/*                     Publication                    */
+/*                                                    */
+/******************************************************/
+
+.publication {
+	@include center(650px);
+	margin-top: 20px;
+	&:last-child {
+		margin-bottom: 20px;	
+	}
+	.message {
+		background-color: white;
+		border: 1px solid $blue4;
+	}
+	.comment {
+		background-color: $blue1;
+		border-top: 1px solid $blue2;
+		border-right: 1px solid $blue4;
+		border-bottom: 1px solid $blue4;
+		border-left: 1px solid $blue4;
+	}
+	.message, .comment {
+		padding: 10px 20px;
+		overflow: auto;
+		.headerMessage, .headerComment {
+			.authorPicture, .author, .datePublication {
+				float: left;
+			}
+			.authorPicture img {
+				border-radius: 5px;
+			}
+			.author, .datePublication{
+				height: 30px;
+				line-height: 30px;
+			}
+			.author, .datePublication {
+				padding-left: 10px;
+			}
+			.optionsPublication {
+				float: right;
+			}
+		}
+		.contentMessage, .contentComment {
+			clear: both;
+			padding: 10px 0px;
+			p:nth-child(2), p:nth-child(3) {
+				padding-top: 10px;
+			}
+		}
+		.footerMessage {
+			p:hover {
+				color: $blue5;
+			}
+			.goodOpinion, .numGoodOpinion, .badOpinion, .numBadOpinion, .numComments {
+				float: left;
+			}
+			.numGoodOpinion, .numBadOpinion, .numComments {
+				height: 20px;
+				line-height: 20px;
+			}
+			.numGoodOpinion, .badOpinion, .numBadOpinion, .numComments {
+				padding-left: 10px;
+			}
+			.commentPublication, .sharePublication {
+				float: right;
+				height: 20px;
+				line-height: 20px;
+			}
+			.commentPublication { padding-right: 10px; }
+		}
+	}
+}

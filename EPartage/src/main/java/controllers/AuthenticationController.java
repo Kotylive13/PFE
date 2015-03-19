@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.UserService;
 import utilities.CryptPassword;
+import domain.Status;
 import domain.Student;
 
 
@@ -64,7 +65,7 @@ public class AuthenticationController {
 		Map<String, Object> message = new HashMap<String, Object>();
 		Student studentSession = userService.findByEmailPass(email, password);
 		if(studentSession != null){
-			if(!studentSession.getStatus().equals("Waiting")){
+			if(!studentSession.getStatus().equals(Status.W)){
 				session.setAttribute( "userSession", studentSession );
 			}
 		} else {

@@ -1,0 +1,104 @@
+/******************************************************/
+/*                                                    */
+/*                       Nav_bar                      */
+/*                                                    */
+/******************************************************/
+
+#navBar {
+	float: left;
+	width: $NB_width;
+	text-align: center;
+	#group, #link, #manageUsers, #manageGroups, #manageCategories {
+		margin-top: 10px;
+	}
+	#group, #link, #lightInformation, #manageUsers, #manageGroups, #manageCategories {
+		background-color: $blue3;
+		border-radius: 10px;
+		border: 1px solid $blue4;
+		overflow: hidden;
+		h1 {
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			background-color: $blue4;
+			&:hover {
+				cursor: pointer;
+			}
+			img {
+				padding: 0px;
+				margin: 0px 0px 4px 5px;
+				border: none;
+			}
+		}
+	}
+	#group, #link, #manageUsers, #manageGroups, #manageCategories {
+		border-radius: 10px;
+		ul[class="adminNavBar"] {
+			padding: 10px;
+		}
+		ul[class="userNavBar"] {
+			padding: 20px 10px 10px 10px;
+		}
+		li {
+			text-align: left;
+			width: $NB_width - 20px;
+			a {
+				@include overflowHidden;
+				display: block;
+				border-radius: 5px;
+				padding: 5px 10px;
+				&:hover {
+		      		background-color: $blue4;
+		      		color: black;
+		    	}
+			}
+		}
+		p {
+			@include overflowHidden;
+			text-align: right;
+			padding: 10px 20px;
+			a:hover {
+				color: $blue5;
+			}
+		}
+	}
+	#link {
+		p {
+			text-align: center;
+		}
+	}
+	#lightInformation {
+		h1 {
+			padding-left: 25px;
+		}
+		img {
+			margin: 20px 20px 10px 20px;
+			border-radius: 10px;
+			border: 1px solid $blue5;
+		}
+		ul {
+			width: 210px;
+			margin: 0px;
+			padding: 10px 20px 10px 20px;
+		}
+		li {
+			@include overflowHidden;
+			text-align: left;
+			padding: 5px 0px;
+  			&:first-child {
+  				padding: 0px 0px 5px 0px;
+  			}
+  			&:last-child {
+				padding: 5px 0px 0px 0px;
+  			}
+		}
+		p {
+			@include overflowHidden;
+			text-align: right;
+			padding: 10px 20px;
+			a:hover {
+				color: $blue5;
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+/******************************************************/
+/*                                                    */
+/*                         Page                       */
+/*                                                    */
+/******************************************************/
+
+.page {
+	@include center($page-width);
+    margin-top: 30px;
+	a:hover {
+		color: $blue5;
+	}
+    /*& > h1:first-child, & > p:first-child {
+        margin-top: 20px;
+    }*/
+    & > h1 {
+        @include hX (756px, 20px, 20px, 20px);
+        padding-bottom: 5px;
+        border-bottom: 1px solid $blue5;
+    }
+    & > h2 {
+        @include hX (716px, 18px, 60px, 18px);
+        padding-bottom: 5px;
+        border-bottom: 1px dashed $blue5;
+    }
+    @import "_information";
+    @import "_blocs";
+}
+
+/******************************************************/
+/*                                                    */
+/*                       Content                      */
+/*                                                    */
+/******************************************************/
+
+.content {
+	margin-left: 260px;
+    h1 {
+        @include hX (630px, 20px, 20px, 20px);
+    }
+	h2 {
+		@include hX (630px, 18px, 60px, 18px);
+	}
+    
+    @import "_title";
+    @import "_menubar";
+	@import "_listPublication";
+	@import "_post";
+	@import "_publication";
+}

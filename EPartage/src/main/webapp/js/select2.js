@@ -3983,10 +3983,10 @@ define('select2/dropdown/attachBody',[
 
     if (newDirection != null) {
       this.$dropdown
-        .removeClass('select2-dropdown--above select2-dropdown--above')
+        .removeClass('select2-dropdown--above')
         .addClass('select2-dropdown--' + newDirection);
       this.$container
-        .removeClass('select2-container--above select2-container--above')
+        .removeClass('select2-container--above')
         .addClass('select2-container--' + newDirection);
     }
 

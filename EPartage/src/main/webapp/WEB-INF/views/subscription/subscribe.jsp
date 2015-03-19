@@ -71,9 +71,11 @@
 							<td><label>Centres d'intérêt</label></td>
 							<td>							
 								<select id="tokenizer" class="tokenizer" multiple>
-									<c:forEach items="${hobbies}" var="hobby">
-								    	<option>${hobby.nameH}</option>
-									</c:forEach>
+									<c:if test="${!empty hobbies}">
+										<c:forEach items="${hobbies}" var="hobby">
+									    	<option>${hobby.nameH}</option>
+										</c:forEach>
+									</c:if>
 						        </select>
 						        <input name="hobbies" id="selectedValues" type="hidden" />	
 							</td>
@@ -82,7 +84,7 @@
 						<tr>
 							<td>	
 					        </td>
-							<td><input id="informationSubmit" type="submit"
+							<td><input id="informationSubmit" class="submit" type="submit"
 								value="S'inscrire"></td>
 						</tr>
 					</table>

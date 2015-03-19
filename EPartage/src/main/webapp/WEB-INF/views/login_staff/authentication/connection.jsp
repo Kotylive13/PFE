@@ -9,8 +9,8 @@
 				<p id="logo"><a href="">e-Partage</a></p>		
 				<form:form method="POST" modelAttribute="admin" action="${pageContext.request.contextPath}/login_staff/authentication/login.htm">
 					<input id="connection" type="submit" value="Connexion">
-				  	<form:input id="password" type="password" path="password" placeholder="Mot de passe"/>
-				  	<form:input id="login" type="text" path="login" placeholder="Login" />
+				  	<form:input id="password" tabindex="2" type="password" path="password" placeholder="Mot de passe"/>
+				  	<form:input id="login" tabindex="1" type="text" path="login" placeholder="Login" />
 				</form:form>
 				
 			</div>

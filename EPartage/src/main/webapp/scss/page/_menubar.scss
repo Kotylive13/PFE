@@ -1,0 +1,129 @@
+/******************************************************/
+/*                                                    */
+/*                      Menu Bar                      */
+/*                                                    */
+/******************************************************/
+
+$color1: #5C7CA8;
+$color1-bis: #25497C; 
+$color2: #53A492;
+$color2-bis: #1C7964;
+$color3: #83C766;
+$color3-bis: #3D851E;
+$color4: #E7BE76;
+$color4-bis: #9B6F23;
+$color5: #D96F82;
+$color5-bis: #922035;
+
+.menuBar {
+	margin-bottom: 50px;
+	padding-left: 200px;
+	border-radius: 0px 0px 10px 10px;
+	border: 1px solid $blue4;
+	background-color : $blue3;
+	.menu li {
+		display:inline-block;
+		text-align:center;
+		position:relative;
+		border-radius:8px 8px 0 0;
+	}
+	.menu ul li {
+		display:inherit;
+		border-radius:0;
+	}
+	.menu ul li:hover {
+		border-radius:0;
+	}
+	.menu ul li:last-child {
+		border-radius:0 0 8px 8px;
+	}
+	.menu ul {
+		position:absolute;
+		max-height:0;
+		left: 0;
+		right: 0;
+		overflow:hidden;
+		-moz-transition: .8s all .0s;
+		-webkit-transition: .8s all .0s;
+		transition: .8s all .0s;
+	}
+	.menu li:hover ul {
+			max-height:15em;
+	}
+	/* background des liens menus */
+	.menu li:first-child {
+		background-color: $color1;
+		background-image:-webkit-linear-gradient(top, $color1 0%, $color1-bis 100%);
+		background-image:linear-gradient(to bottom, $color1 0%, $color1-bis 100%);
+	}
+	.menu li:nth-child(2) {
+		background-color: $color2;
+		background-image: -webkit-linear-gradient(top, $color2 0%, $color2-bis 100%);
+		background-image:linear-gradient(to bottom, $color2 0%, $color2-bis 100%);
+	}
+	.menu li:nth-child(3) {
+		background-color: $color3;
+		background-image:-webkit-linear-gradient(top, $color3 0%, $color3-bis 100%);
+		background-image:linear-gradient(to bottom, $color3 0%, $color3-bis 100%);
+	}
+	.menu li:nth-child(4) {
+		background-color: $color4;
+		background-image:-webkit-linear-gradient(top, $color4 0%, $color4-bis 100%);
+		background-image:linear-gradient(to bottom, $color4 0%, $color4-bis 100%);
+	}
+	.menu li:last-child {
+		background-color: $color5;
+		background-image:-webkit-linear-gradient(top, $color5 0%, $color5-bis 100%);
+		background-image:linear-gradient(to bottom, $color5 0%, $color5-bis 100%);
+	}
+	/* background des liens sous menus */
+	.menu li:first-child li {
+		background: $color1-bis;
+	}
+	.menu li:nth-child(2) li {
+		background:$color2-bis;
+	}
+	.menu li:nth-child(3) li {
+		background: $color3-bis;
+	}
+	.menu li:nth-child(4) li {
+		background: $color4-bis;
+	}
+	.menu li:last-child li {
+		background: $color5-bis;
+	}
+	/* background des liens menus et sous menus au survol */
+	.menu li:first-child:hover, .menu li:first-child li:hover {
+		background: $color1;
+	}
+	.menu li:nth-child(2):hover, .menu li:nth-child(2) li:hover {
+		background: $color2;
+	}
+	.menu li:nth-child(3):hover, .menu li:nth-child(3) li:hover {
+		background: $color3;
+	}
+	.menu li:nth-child(4):hover, .menu li:nth-child(4) li:hover {
+		background: $color4;
+	}
+	.menu li:last-child:hover, .menu li:last-child li:hover {
+		background: $color5;
+	}
+	/* les a href */
+	.menu a {
+		text-decoration:none;
+		display:block;
+		padding:8px 32px;
+		color: white;
+		font-family:arial;
+	}
+	.menu ul a {
+		padding:8px 0;
+	}
+	.menu li:hover li a {
+		color: white;
+		text-transform:inherit;
+	}
+	.menu li:hover a, .menu li li:hover a {
+		color: black;
+	}
+}

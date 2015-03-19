@@ -79,7 +79,7 @@ public class UserController {
 	public String detailSubcategory(
 			@ModelAttribute Subcategory sub,
 			@ModelAttribute User u) {
-		
+	
 		if (sub == null || sub.getIdSubcategory().getSubcategory().isEmpty())
 			return "redirect:../../index.htm";
 	

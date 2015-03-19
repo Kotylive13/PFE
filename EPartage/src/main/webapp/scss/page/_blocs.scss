@@ -1,0 +1,52 @@
+.blocs {
+	margin:auto;
+	.bloc {
+		display: inline-block;
+		vertical-align: top;
+		width: $NB_width;
+		margin: 10px 5px 0px 5px;
+		background-color: $blue3;
+		border-radius: 10px;
+		border: 1px solid $blue4;
+		overflow: hidden;
+		h1 {
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			background-color: $blue4;
+			&:hover {
+				cursor: pointer;
+			}
+			img {
+				padding: 0px;
+				margin: 0px 0px 4px 5px;
+				border: none;
+			}
+		}
+		ul {
+			padding: 10px;
+		}
+		li {
+			text-align: left;
+			width: $NB_width - 20px;
+			a {
+				@include overflowHidden;
+				display: block;
+				border-radius: 5px;
+				padding: 5px 10px;
+				&:hover {
+		      		background-color: $blue4;
+		      		color: black;
+		    	}
+			}
+		}
+		p {
+			@include overflowHidden;
+			text-align: right;
+			padding: 10px 20px;
+			a:hover {
+				color: $blue5;
+			}
+		}
+	}
+}
