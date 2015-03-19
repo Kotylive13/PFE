@@ -24,7 +24,11 @@ public class HobbyService {
 		return hobbyDAO.findAll();
 	}
 	
-	public void save(Hobby hobby) {
-		hobbyDAO.save(hobby);
+	public Hobby save(Hobby hobby) {
+		return hobbyDAO.save(hobby);
+	}	
+	
+	public Hobby find(String hobby) {
+		return hobbyDAO.findOne(hobby);
 	}	
 }

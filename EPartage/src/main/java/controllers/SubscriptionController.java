@@ -3,7 +3,9 @@ package controllers;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -61,9 +63,9 @@ public class SubscriptionController {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribePost");
 
-		Map<String, Object> hobbies = new HashMap<String, Object>();
-		hobbies.put("hobbies", hobbyService.findAll());
-		ModelAndView result = new ModelAndView("subscription/subscribe", hobbies);
+		Map<String, Object> allHobbies = new HashMap<String, Object>();
+		allHobbies.put("hobbies", hobbyService.findAll());
+		ModelAndView result = new ModelAndView("subscription/subscribe", allHobbies);
 		
 		// Validation du model
 		if (bindingResult.hasErrors()) {
@@ -72,10 +74,24 @@ public class SubscriptionController {
 		student.setInscriptAppDate(new Date());
 		student.setStatus(Status.W);
 		
-		// store hobbies not implemented
-		//...
-		String userHobbies = request.getParameter("hobbies");
-		System.out.println(userHobbies);
+		String input = request.getParameter("hobbies");
+		input = input.replace(" ", "");
+		String[] userHobbies = input.split(",");
+		
+		if (userHobbies[0].isEmpty())
+			return result.addObject("error",
+					"Veuillez renseigner des centres d'intérêt");
+		
+		Set<Hobby> hobbies = new HashSet<Hobby>();		
+		for (String userHobby : userHobbies) {				
+			Hobby hobby = hobbyService.find(userHobby);
+			if(hobby == null) {
+				hobby = new Hobby(userHobby);
+				hobby = hobbyService.save(hobby);
+			}				
+			hobbies.add(hobby);
+		}
+		student.setHobbies(hobbies);
 
 		// show message "Votre demande d'inscription est en cours de validation"
 		userService.save(student);
@@ -92,7 +108,6 @@ public class SubscriptionController {
 								+ "A bientôt sur e-Partage !");
 		result = new ModelAndView("welcome/index");
 		return result;
-
 	}
 	
 	@ModelAttribute("hobbiesList")

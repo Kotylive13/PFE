@@ -77,7 +77,10 @@
 										</c:forEach>
 									</c:if>
 						        </select>
-						        <input name="hobbies" id="selectedValues" type="hidden" />	
+						        <input name="hobbies" id="selectedValues" type="hidden" />
+						        <c:if test="${!empty error}">
+									<span class="error"><c:out value="${error}"/></span>
+								</c:if>			
 							</td>
 						</tr>
 						
