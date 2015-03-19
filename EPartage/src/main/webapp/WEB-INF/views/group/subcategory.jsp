@@ -75,8 +75,7 @@
 							<p>${p.title}</p>
 							<p>${p.content}</p>
 							<p>
-								<a
-									href="http://upload.wikimedia.org/wikipedia/en/a/a1/Toto_Toto.jpg">monFichier.pdf</a>
+								<a href="${pageContext.request.contextPath}/publication/file.htm?id=${p.id}"  target="_blank">monFichier.pdf</a>
 							</p>
 						</div>
 						<div class="footerMessage">
@@ -130,8 +129,7 @@
 								<div class="contentComment">
 									<p>${com.content}</p>
 									<p>
-										<a
-											href="http://upload.wikimedia.org/wikipedia/en/a/a1/Toto_Toto.jpg">monFichier.pdf</a>
+										<a href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}"  target="_blank">monFichier.pdf</a>
 									</p>
 								</div>
 							</div>

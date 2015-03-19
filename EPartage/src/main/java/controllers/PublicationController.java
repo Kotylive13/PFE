@@ -1,8 +1,12 @@
 package controllers;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -17,12 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
+import services.CommentFileService;
 import services.MessageService;
+import services.PublicationFileService;
 import services.PublicationService;
 import utilities.AsciiToHex;
+import domain.CommentFile;
 import domain.Group;
 import domain.IdSubcategory;
 import domain.Publication;
+import domain.PublicationFile;
 import domain.Student;
 import domain.Subcategory;
 import domain.User;
@@ -43,6 +51,10 @@ public class PublicationController {
 	CategoryService categoryService;
 	@Autowired
 	MessageService messageService;
+	@Autowired
+	PublicationFileService publicationFileService;
+	@Autowired
+	CommentFileService commentFileService;
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit(ModelMap mapModel,
@@ -80,6 +92,37 @@ public class PublicationController {
 		publication.setSubcategory(subcategory);
 		publicationService.save(publication);
 		return new ModelAndView("redirect:/workspace/index.htm");
+	}
+	
+	@RequestMapping("/file.htm")
+	public void file(
+			@RequestParam(value = "id", required = false) String id,
+			HttpServletResponse response) {
+		
+		List<PublicationFile> publicationFile = publicationFileService.findByPublication(Integer.parseInt(id));
+		try {
+			OutputStream o = response.getOutputStream();
+			o.write(publicationFile.get(0).getFile());
+			o.flush(); o.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/comment/file.htm")
+	public void commentFile(
+			@RequestParam(value = "pub", required = false) String pub,
+			@RequestParam(value = "com", required = false) String com,
+			HttpServletResponse response) {
+		
+		List<CommentFile> commentFile = commentFileService.findByComment(Integer.parseInt(pub), Integer.parseInt(com));
+		try {
+			OutputStream o = response.getOutputStream();
+			o.write(commentFile.get(0).getFile());
+			o.flush(); o.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@ModelAttribute("student")
