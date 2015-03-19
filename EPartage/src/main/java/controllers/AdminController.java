@@ -37,6 +37,7 @@ public class AdminController {
 		System.out.println("Controller : /login_staff --- Action : /index");
 		ModelAndView result;
 		result = new ModelAndView("login_staff/index");
+		
 		return result;
 	}
 					

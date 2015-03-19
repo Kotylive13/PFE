@@ -1322,31 +1322,27 @@ img[class="largePicture"] {
   border-radius: 10px;
 }
 /* line 14, ../sass/_popup.scss */
-#popup p {
-  display: inline-block;
+#popup #messagePopup {
+  padding-left: 10px;
+  height: 20px;
 }
 /* line 17, ../sass/_popup.scss */
-#popup .messagePopup {
-  width: 95%;
+#popup #messagePopup #optionsPopup {
+  float: right;
+  margin: 5px 0px;
 }
 /* line 20, ../sass/_popup.scss */
-#popup .optionsPopup {
-  width: 2%;
-  padding-left: 10px;
-  vertical-align: top;
-}
-/* line 24, ../sass/_popup.scss */
-#popup .optionsPopup img:hover {
+#popup #messagePopup #optionsPopup:hover {
   cursor: pointer;
 }
-/* line 26, ../sass/_popup.scss */
+/* line 23, ../sass/_popup.scss */
 #popup[class="error"] {
   border: 2px solid #9a1b16;
   background-color: #ffa7a7;
   color: #9a1b16;
   border-radius: 10px;
 }
-/* line 29, ../sass/_popup.scss */
+/* line 26, ../sass/_popup.scss */
 #popup[class="success"] {
   border: 2px solid #00722d;
   background-color: #bedb89;

@@ -104,7 +104,7 @@ public class SubscriptionController {
 				.sendEmail(
 						student.getEmail(),
 						"Demande d'inscription à la plateforme collaborative e-Partage",
-						"Ch�r(e) "
+						"Cher(e) "
 								+ student.getFirstName()
 								+ ",\n"
 								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"

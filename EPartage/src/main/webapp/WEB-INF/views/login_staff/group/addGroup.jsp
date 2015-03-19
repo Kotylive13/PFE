@@ -18,9 +18,8 @@
 						</tr>
 						<tr>
 							<td><form:label path="description">Description</form:label></td>
-							<td><form:input path="description" name="description" type="text"/></td>
+							<td><form:textarea rows="10" path="description" name="description" type="text"/></td>
 						</tr>
-
 						<tr>
 							<td></td>
 							<td><input id="addGroup" class="submit" type="submit"></td>
