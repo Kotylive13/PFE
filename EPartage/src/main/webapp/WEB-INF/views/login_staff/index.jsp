@@ -11,7 +11,14 @@
 	
 		<%@ include file="/WEB-INF/views/layouts/admin/header_admin.jsp" %>
 		
-		<div class="page">
+		<c:if test="${!empty type}">
+			<div id="popup" class="<c:out value='${type}'/>">
+	            <p class="messagePopup"><c:out value="${message}"/></p>
+	            <p class="optionsPopup" onclick="slideUp('#popup');"><img class="veryExtraSmallPicture" src="<c:url value="/images/cross.png" />" alt="" /></p>
+			</div>
+		</c:if>
+		
+		<div class="page">		
 			<c:if test="${!empty sessionScope.adminSession}">
 			<h1>Panneau d'administration</h1>
 			<table class="blocs">

@@ -72,6 +72,9 @@ public class AdminAuthenticationController {
 			return result;
 		}
 		
+		result.addObject("type", "success");
+		result.addObject("message", "Connexion réussie");
+		
 		return result;
 	}
 
