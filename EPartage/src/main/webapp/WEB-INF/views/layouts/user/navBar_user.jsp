@@ -50,9 +50,9 @@
 			</h1>
 			<div id="contentGroup">
 				<c:choose>
-				    <c:when test="${!empty groups}">
+				    <c:when test="${!empty sessionScope.userSession.groups}">
 						<ul>
-							<c:forEach items="${groups}" var="group">
+							<c:forEach items="${sessionScope.userSession.groups}" var="group">
 						    	<li>${group.name}</li>
 							</c:forEach>
 						</ul>
