@@ -54,7 +54,7 @@
 
 		<div id="publications">
 			<c:forEach items="${subcategory.publications}" var="p">
-				<div id="pub_${p.id}" class="publication">
+				<div class="publication">
 					<div class="message">
 						<div class="headerMessage">
 							<a class="authorPicture" href=""><img class="smallPicture"
@@ -67,8 +67,8 @@
 								<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${p.dateP}" />
 							<P>
 							<p class="optionsPublication">
-								<img class="veryExtraSmallPicture"
-									src="<c:url value="/images/cross.png"/>" alt="" />
+								<!--<img class="veryExtraSmallPicture"
+									src="<c:url value="/images/cross.png"/>" alt="" />-->
 							</p>
 						</div>
 						<div class="contentMessage">
@@ -92,7 +92,7 @@
 							<p class="numBadOpinion">()</p>
 							<p class="numComments"
 								onclick="slideToggle('#comments_${p.id}', 'slow');">Commentaires
-								()</p>
+								(${p.comments.size()})</p>
 							<p class="sharePublication">Partager</p>
 							<p class="commentPublication"
 								onclick="slideToggle('#postComment_${p.id}', 'slow');">Commenter</p>
@@ -123,9 +123,9 @@
 										<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
 											value="${com.dateC}" />
 									<P>
-										<a class="optionsPublication" href=""><img
+										<!--<a class="optionsPublication" href=""><img
 											class="veryExtraSmallPicture"
-											src="<c:url value="/images/cross.png"/>" alt="" /></a>
+											src="<c:url value="/images/cross.png"/>" alt="" /></a>-->
 								</div>
 								<div class="contentComment">
 									<p>${com.content}</p>
