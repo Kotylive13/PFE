@@ -33,7 +33,7 @@
 					<td>
 				</tr>
 				<tr>
-					<td><form:label path="content">Fichier</form:label></td>
+					<td><form:label path="">Fichier</form:label></td>
 					<td><input type="file" name="file" id="file"></td>
 				</tr>
 				<tr>
