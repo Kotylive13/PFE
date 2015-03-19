@@ -11,6 +11,7 @@
 	<definition name="admin" template="/WEB-INF/views/layouts/admin/layout_admin.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/views/layouts/admin/header_admin.jsp" />
+		<put-attribute name="popup" value="/WEB-INF/views/layouts/popup.jsp" />
 		<put-attribute name="navBar" value="/WEB-INF/views/layouts/admin/navBar_admin.jsp" />
 		<put-attribute name="content" value="" />
 		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
@@ -20,6 +21,7 @@
 	<definition name="visitor" template="/WEB-INF/views/layouts/visitor/layout_visitor.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/views/layouts/visitor/header_visitor.jsp" />
+		<put-attribute name="popup" value="/WEB-INF/views/layouts/popup.jsp" />
 		<put-attribute name="content" value="" />
 		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
@@ -28,6 +30,7 @@
 	<definition name="user" template="/WEB-INF/views/layouts/user/layout_user.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/views/layouts/user/header_user.jsp" />
+		<put-attribute name="popup" value="/WEB-INF/views/layouts/popup.jsp" />
 		<put-attribute name="navBar" value="/WEB-INF/views/layouts/user/navBar_user.jsp" />
 		<put-attribute name="content" value="" />
 		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
