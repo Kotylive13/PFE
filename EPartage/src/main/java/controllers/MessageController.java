@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.MessageService;
 import services.UserService;
+import utilities.AsciiToHex;
+import domain.Group;
 import domain.IdMessage;
 import domain.Message;
 import domain.ReceivedMessage;
@@ -184,5 +186,20 @@ public class MessageController {
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
 		return (User) session.getAttribute("userSession");
+	}
+	
+	@ModelAttribute("groupsUrl")
+	public Map<String, Object> getGroupsUrl (HttpSession session) {
+		User user = (User) session.getAttribute("userSession");
+		
+		Map<String, Object> groupsUrl = new HashMap<String, Object>();
+		
+		for(Group g : user.getGroups()) {
+			String nameG = g.getName();
+			String urlNameG = AsciiToHex.asciiToHex(nameG);
+			groupsUrl.put(nameG, urlNameG);
+		}
+		
+		return groupsUrl;
 	}
 }
