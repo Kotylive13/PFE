@@ -17,14 +17,12 @@
 			<ul class="menu">
 				<c:set var="nameG" value="${urlParams[group.name]}" />
 				<c:forEach items="${group.categories}" var="cat">
-					<li><a href="#">${cat.idCategory.name}</a> <c:set var="nameC"
-							value="${urlParams[cat.idCategory.name]}" />
+					<li><a href="#">${cat.idCategory.name}</a> 
+						<c:set var="nameC" value="${urlParams[cat.idCategory.name]}" />
 						<ul>
 							<c:forEach items="${cat.subcategories}" var="sub">
-								<c:set var="nameS"
-									value="${urlParams[sub.idSubcategory.subcategory]}" />
-								<li><a
-									href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">${sub.idSubcategory.subcategory}</a></li>
+								<c:set var="nameS" value="${urlParams[sub.idSubcategory.subcategory]}" />
+								<li><a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">${sub.idSubcategory.subcategory}</a></li>
 							</c:forEach>
 						</ul></li>
 				</c:forEach>

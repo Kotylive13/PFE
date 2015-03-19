@@ -50,7 +50,7 @@ public class Publication {
 	@NotNull
 	private String content;
 	
-	@ManyToOne (fetch = FetchType.LAZY)
+	@ManyToOne (fetch = FetchType.EAGER)
 	@JoinColumn (name = "author", nullable = false)
 	@NotNull
 	private User author;
