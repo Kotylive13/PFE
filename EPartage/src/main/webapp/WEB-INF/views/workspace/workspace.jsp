@@ -18,7 +18,7 @@
 			<div><a href="${detail}?nameG=${g.name}">${g.name}</a></div>
 		</c:forEach>
 		
-		<a href="/EPartage/publication/edit.htm">Ajouter une publication</a>
+	
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>

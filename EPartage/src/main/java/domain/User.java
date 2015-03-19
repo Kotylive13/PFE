@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -46,12 +47,13 @@ public class User {
 	private Integer id;
 
 	@Lob
-	@Column(name = "AVATAR")
+	@Column (name = "avatar", length=100000)
+	@Basic
 	private byte[] avatar;
 
 	@Column(name = "FIRSTNAME")
 	// , nullable = false)
-	@NotEmpty(message = "Veuillez saisir votre pr�nom !")
+	@NotEmpty(message = "Veuillez saisir votre prénom !")
 	@NotNull
 	private String firstName;
 
