@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="popup" />
 		<div class="page">
 			<div id="navBar">
 				<tiles:insertAttribute name="navBar" />

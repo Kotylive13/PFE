@@ -13,8 +13,9 @@
 		
 		<c:if test="${!empty type}">
 			<div id="popup" class="<c:out value='${type}'/>">
-	            <p class="messagePopup"><c:out value="${message}"/></p>
-	            <p class="optionsPopup" onclick="slideUp('#popup');"><img class="veryExtraSmallPicture" src="<c:url value="/images/cross.png" />" alt="" /></p>
+				<p id="messagePopup"><c:out value="${message}"/>
+					<img id="optionsPopup" class="veryExtraSmallPicture" onclick="slideUp('#popup');" src="<c:url value="/images/cross.png" />" alt="" />
+				</p>
 			</div>
 		</c:if>
 		
