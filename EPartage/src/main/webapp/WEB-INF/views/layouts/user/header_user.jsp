@@ -10,7 +10,7 @@
 	  		<input id="searchButton" type="image" src="<c:url value="/images/magnifying-glass.png" />" title="Recherche">
 		</form>
 		<p id="option" onclick="slideOptions('#options', 'fast')" title="Options"><img src="<c:url value="/images/option.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_option.png" />')" onmouseout="unhover(this, '<c:url value="/images/option.png" />')" /></p>
-		<a id="messaging" href="${pageContext.request.contextPath}/message/receivedMessagesList.htm" title="Messagerie"><img src="<c:url value="/images/envelop.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_envelop.png" />')" onmouseout="unhover(this, '<c:url value="/images/envelop.png" />')" /></a>
+		<a id="shortcutMessaging" href="${pageContext.request.contextPath}/message/receivedMessagesList.htm" title="Messagerie"><img src="<c:url value="/images/envelop.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_envelop.png" />')" onmouseout="unhover(this, '<c:url value="/images/envelop.png" />')" /></a>
 		<a id="profil" href="" title="Profil"><img class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${sessionScope.userSession.id}" alt="" /></a>
 	    <p id="status" >Bienvenue ${sessionScope.userSession.firstName}</p>
 	</div>
