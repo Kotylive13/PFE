@@ -61,7 +61,7 @@ public class Publication {
 		@JoinColumn (name = "nameC", referencedColumnName = "nameC"),
 		@JoinColumn (name = "nameG", referencedColumnName = "nameG")
 	})
-	private Subcategory subcategory;
+	private Subcategory subcategory ;
 	
 	@OneToOne
 	@JoinColumn (name = "NAMEG", nullable = false, insertable = false, updatable = false)
