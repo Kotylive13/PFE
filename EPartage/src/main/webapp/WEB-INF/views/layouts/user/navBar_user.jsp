@@ -50,7 +50,7 @@
 				    <c:when test="${!empty sessionScope.userSession.groups}">
 						<ul>
 							<c:forEach items="${sessionScope.userSession.groups}" var="group">
-						    	<li>${group.name}</li>
+						    	<li><a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">${group.name}</a></li>
 							</c:forEach>
 						</ul>
 						<p>
