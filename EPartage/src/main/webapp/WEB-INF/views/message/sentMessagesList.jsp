@@ -7,7 +7,7 @@
 <c:url var="received" value="/message/receivedMessagesList.htm" />
 <c:url var="sent" value="/message/sentMessagesList.htm" />
 
-<tiles:insertDefinition name="master.page">
+<tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
 			Messages list
 		</tiles:putAttribute>

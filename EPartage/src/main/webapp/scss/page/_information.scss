@@ -1,0 +1,110 @@
+/******************************************************/
+/*                                                    */
+/*                     Information                    */
+/*                                                    */
+/******************************************************/
+
+.information, .form {
+	@include center(628px);
+	background-color: white;
+	padding: 10px 10px;
+	border-radius: 10px;
+	text-align: center;
+	border: 1px solid $blue4;
+	margin-bottom: 20px;
+	min-height: 20px;
+	.tutu {
+		display: none;
+	}
+	&:first-child {
+		margin-top: 10px;
+	}
+	tr:first-child {
+		td {
+		padding: 0px 10px 5px 10px;
+		}
+	}
+	tr, .toto tr {
+		text-align: left;
+		td, .toto td {
+			padding: 5px 10px 5px 10px;
+			label[class="css-label-radio"]:nth-child(2) {
+				padding-right: 10px;
+			}
+			label[class="css-label-checkbox"]:nth-child(2), label[class="css-label-checkbox"]:nth-child(4) {
+				padding-right: 9px;
+			}
+			input[class="error"] {
+				background-color: $red1;
+				border-color: $red3;
+			}
+			span[class="error"] {
+				color: $red3;
+			}
+			a {
+				display: block;
+			}
+		}
+	}
+	tr:last-child {
+		td {
+		padding: 5px 10px 0px 10px;
+		}
+	}
+	td:first-child {
+		width: 210px;
+		vertical-align: middle;
+	}
+	td:last-child {
+		width: 420px;
+		min-width: 420px;
+		max-width: 420px;
+		vertical-align: top;
+	}
+	input, textarea {
+		width: 97%;
+		padding: 8px 5px;
+		background-color: $blue1;
+		border: 1px solid $blue4;
+		border-radius: 5px;
+		&:focus {
+			background-color: $yellow1;
+			border-color: $yellow2;
+		}
+	}
+	textarea {
+		resize: none;
+		rows: 1;
+	}
+	p {
+		padding: 0px 10px;
+		text-align: left;
+	}
+	.submit {
+		@include button ($blue4, $blue5);
+		&:hover { @include buttonHover ($blue3, $blue5); }
+		width: auto;
+	}
+	.headerInformation {
+		.authorInformation, .optionInformation {
+			padding-bottom: 10px;
+		}
+		.authorInformation {
+			float: left;
+			width: 565px;
+		}
+		.optionInformation {
+			float: right;
+			width: 20px;
+		}
+	}
+	.table {
+		display: table;
+		.row {
+			display: table-row;
+			.cell {
+				display: table-cell;
+			}
+		}
+	}	
+}

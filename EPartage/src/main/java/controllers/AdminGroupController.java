@@ -63,9 +63,7 @@ public class AdminGroupController {
 		List<Group> listGroups = new ArrayList <Group> ();
 		
 		groupService.save(group);
-		
 		listGroups =  (List<Group>) groupService.findAll();
-
 		mapGroup.put("listGroups", listGroups);
 		
 		return new ModelAndView("/login_staff/group/listGroup", mapGroup);
@@ -126,12 +124,7 @@ public class AdminGroupController {
 	
 	
 // MODIFY GROUP ---------------------------------------------------------------
-//
-//	@RequestMapping(value = "/modifyGroup")
-//	public ModelAndView modifyGroup(@RequestParam(value="name") String name , 
-//			@ModelAttribute("group") Group group, HttpSession session, Model model) {
-		
-
+	
 	@RequestMapping(value = "/modifyGroup")
 	public ModelAndView modifyGroup(@RequestParam(value="name") String name , 
 			@ModelAttribute (value="group") Group groupNew, HttpSession session, Model model) {

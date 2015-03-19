@@ -1,0 +1,149 @@
+/******************************************************/
+/*                                                    */
+/*                       Reset                        */
+/*                                                    */
+/******************************************************/
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+a{text-decoration:none;}
+img{max-width:100%;}
+
+/******************************************************/
+/*                                                    */
+/*                       Mixins                       */
+/*                                                    */
+/******************************************************/
+
+@mixin center($width) {
+	width: $width;
+	margin: auto;
+	padding: 0;
+	left: 0;
+   	right: 0;
+}
+
+@mixin overflowHidden {
+	overflow: hidden;
+  	-o-text-overflow: ellipsis;
+  	text-overflow: ellipsis;
+}
+
+@mixin button ($bg-color, $br-color) {
+	background-color: $bg-color;
+	border: 1px solid $br-color;
+	padding: 5px 20px;
+	border-radius: 5px;
+}
+
+@mixin buttonHover ($bg-color, $br-color) {
+	background-color: $bg-color;
+	border: 1px solid $br-color;
+	cursor: pointer;
+}
+
+@mixin hX ($width, $mg-bottom, $pd-left, $ft-size) {
+	@include center($width);
+    margin-bottom: $mg-bottom;
+    padding-left: $pd-left;
+    font-size: $ft-size;
+}
+
+/******************************************************/
+/*                                                    */
+/*                  Global variables                  */
+/*                                                    */
+/******************************************************/
+
+$menu_bar_height : 50px;
+$page-width: 1200px;
+$NB_width: 250px;
+
+$blue1: #EFF9FF;
+$blue2: #E1E6FA;
+$blue3: #C4D7ED; 
+$blue4: #ABC8E2;
+$blue5: #4A6B8A;
+$blue6: #172635;
+
+$green1: #bedb89;
+$green2: #00722d;
+
+$red1: #FFCECE;
+$red2: #FFA7A7;
+$red3: #9A1B16;
+
+$yellow1: #FFEDB9;
+$yellow2: #D9C27E;
+
+/******************************************************/
+/*                                                    */
+/*                     Global tags                    */
+/*                                                    */
+/******************************************************/
+
+html {
+	min-width: $page-width;
+}
+
+body{
+	background: $blue2;
+ 	font-family: 'Open Sans', sans-serif;
+}
+img {
+		vertical-align: middle;
+	}
+a {
+	color: black;
+}
+img[class="veryExtraSmallPicture"] {
+	width: 10px;
+	height: 10px;
+}
+img[class="extraSmallPicture"] {
+	width: 20px;
+	height: 20px;
+}
+img[class="smallPicture"] {
+	width: 30px;
+	height: 30px;
+}
+img[class="mediumPicture"] {
+	width: 80px;
+	height: 80px;
+}
+img[class="largePicture"] {
+	width: 160px;
+	height: 160px;
+}
+
+/******************************************************/
+/*                                                    */
+/*                       Import                       */
+/*                                                    */
+/******************************************************/
+
+@import "header/_header";
+@import "header/_options";
+@import "page/_navbar";
+@import "page/_page";
+@import "_ribbon";
+@import "_popup";
+@import "_checkbox";
+
+
+.select2-container {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+
+  @import "select2/_multiple";
+}
+
+@import "select2/_dropdown";
+@import "select2/theme/default/_layout";

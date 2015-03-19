@@ -1,0 +1,118 @@
+/******************************************************/
+/*                                                    */
+/*                       Header                       */
+/*                                                    */
+/******************************************************/
+
+.header {
+	background: $blue5;
+	height: $menu_bar_height;
+	width: 100%;
+	color: $blue2;
+	z-index: 800;
+	box-shadow: 0px 5px 5px #888888;
+	.centerHeader {
+		@include center($page-width);
+		min-width: $page-width;
+		#logo, #searchBar, #searchButton {
+			float: left;
+		}
+		#logo {
+			width: 250px;
+			font-size: 25px;
+			text-align: center;
+			height: $menu_bar_height;
+			line-height: $menu_bar_height;
+			a {
+				color: $blue1;
+			}
+		}
+		#searchBar, #searchButton {
+			height: 26px;
+			margin: 12px 0px;
+			padding:0px 10px;
+			border: none;
+		}
+		#searchBar {
+			width: 400px;
+			background-color: white;
+			border-radius: 15px 0px 0px 15px;
+		}
+		#searchButton {
+			width: 26px;
+			background-color: white;
+			border-radius: 0px 15px 15px 0px;
+		}
+		#status, #profil, #messaging, #option, #login, #password, #forgetPassword, #connection {
+			float: right;
+		}
+		#status {
+			@include overflowHidden;
+			width: 300px;
+			height: 50px;
+			line-height: 50px;
+			text-align: right;
+			padding-right: 20px;
+			color: $blue1;
+		}
+		#profil {
+			margin: 9px 25px 9px 0px;
+			img { 
+				border-radius: 5px;
+				border: 1px solid $blue6; 
+			}
+		}
+		#messaging {
+			margin: 5px 20px 5px 0px;
+			img {
+				background-image: url("../Images/profil.jpg") no-repeat;
+				width: 40px;
+				height: 40px;
+			}
+			&:hover {
+				background : url("../Images/user.png") no-repeat;
+			}
+		}
+		#option {
+			margin: 7px 0px;
+			img {
+				width: 36px;
+				height: 36px;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+		#login, #password {
+			height: 26px;
+			margin: 12px 20px 12px 0px;
+			padding:0px 10px;
+			border: none;
+			border-radius: 5px;
+		}
+		#login {
+			width: 180px;
+		}
+		#password {
+			width: 180px;
+		}
+		#forgetPassword {
+			height: 50px;
+			line-height: 50px;
+			padding-right: 20px;
+			color: $blue1;
+		}
+		#connection {
+			margin: 12px 0px;
+			background-color: $blue4;
+			border: 1px solid $blue4;
+			padding: 3px 20px;
+			border-radius: 5px;
+			&:hover { @include buttonHover ($blue3, $blue4); }
+		}
+	}
+}
+
+.fixedHeader {
+	@extend .header;
+}

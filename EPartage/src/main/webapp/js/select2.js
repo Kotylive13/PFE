@@ -3933,7 +3933,7 @@ define('select2/dropdown/attachBody',[
     var $window = $(window);
 
     var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
+    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--above');
 
     var newDirection = null;
 
@@ -3967,26 +3967,26 @@ define('select2/dropdown/attachBody',[
     };
 
     if (!isCurrentlyAbove && !isCurrentlyBelow) {
-      newDirection = 'below';
+      newDirection = 'above';
     }
 
     if (!enoughRoomBelow && enoughRoomAbove && !isCurrentlyAbove) {
       newDirection = 'above';
     } else if (!enoughRoomAbove && enoughRoomBelow && isCurrentlyAbove) {
-      newDirection = 'below';
+      newDirection = 'above';
     }
 
     if (newDirection == 'above' ||
-      (isCurrentlyAbove && newDirection !== 'below')) {
+      (isCurrentlyAbove && newDirection !== 'above')) {
       css.top = container.top - dropdown.height;
     }
 
     if (newDirection != null) {
       this.$dropdown
-        .removeClass('select2-dropdown--below select2-dropdown--above')
+        .removeClass('select2-dropdown--above')
         .addClass('select2-dropdown--' + newDirection);
       this.$container
-        .removeClass('select2-container--below select2-container--above')
+        .removeClass('select2-container--above')
         .addClass('select2-container--' + newDirection);
     }
 

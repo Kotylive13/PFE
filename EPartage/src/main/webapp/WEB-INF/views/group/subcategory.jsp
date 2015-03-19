@@ -5,15 +5,16 @@
 
 <c:url var="detail" value="/workspace/group/subcategory/detail.htm" />
 
-<tiles:insertDefinition name="master.page">
+<tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
 			Espace de travail
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
-
+	
+		<c:set var="group" value="${subcategory.group}"/>
 		<p>Groupe : ${group.name}</p>
-
-		<c:set var="nameG" value="${group.name}"/>		
+				
+		<c:set var="nameG" value="${group.name}"/>
 		<c:forEach items="${group.categories}" var="cat">
 		<div>
 			<a href="#">${cat.idCategory.name}</a>

@@ -16,11 +16,21 @@
 		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
 	
-	<!-- User -->
-	<definition name="master.page" template="/WEB-INF/views/layouts/layout.jsp">
+	<!-- Visitor -->
+	<definition name="visitor" template="/WEB-INF/views/layouts/visitor/layout_visitor.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/master-page/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/visitor/header_visitor.jsp" />
 		<put-attribute name="content" value="" />
+		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
+	</definition>
+	
+	<!-- User -->
+	<definition name="user" template="/WEB-INF/views/layouts/user/layout_user.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/user/header_user.jsp" />
+		<put-attribute name="navBar" value="/WEB-INF/views/layouts/user/navBar_user.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
 	
 </tiles-definitions>

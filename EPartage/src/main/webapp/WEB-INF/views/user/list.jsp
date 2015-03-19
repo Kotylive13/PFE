@@ -2,7 +2,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
-<tiles:insertDefinition name="master.page">
+<tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
 			Liste des utilisateurs
 		</tiles:putAttribute>

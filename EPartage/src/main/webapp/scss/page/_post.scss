@@ -1,0 +1,71 @@
+/******************************************************/
+/*                                                    */
+/*                        Post                        */
+/*                                                    */
+/******************************************************/
+
+.post {
+	@include center(648px);
+	background-color: white;
+	border: 1px solid $blue4;
+	.contentPost {
+		padding: 10px 10px 0px 10px;
+		.titlePost {
+			border-bottom: 1px solid $blue3;
+			&.error {
+					background-color: $red1;
+					border-color: $red3;
+			}
+		}
+		span[class="error"] {
+			color: $red3;
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+		input, textarea {
+			width: 98%;
+			padding: 5px 5px;
+			border: none;
+			overflow-y: visible;
+		}
+		.messagePost {
+			margin: 0px;
+			resize: none;
+			&.error {
+					background-color: $red1;
+					border-color: $red3;
+			}
+		}
+	}
+	.footerPost {
+		background-color: $blue1;
+		height: 40px;
+		border-top: 1px solid $blue3;
+		.fileUploadPost {
+			height: 30px;
+			width: 500px;
+			margin-top: 5px;
+			margin-left: 15px;
+		}
+		.submitPost {
+			@include button ($blue4, $blue5);
+			&:hover { @include buttonHover ($blue3, $blue5); }
+			float: right;
+			margin-top: 5px;
+			margin-right: 15px;
+		}
+	}
+}
+
+.postPublication {
+	@extend .post;
+	margin-top: 20px;
+}
+
+.postComment {
+	@extend .post;
+	border-top: 1px solid $blue2;
+	border-right: 1px solid $blue4;
+	border-bottom: 1px solid $blue4;
+	border-left: 1px solid $blue4;
+}

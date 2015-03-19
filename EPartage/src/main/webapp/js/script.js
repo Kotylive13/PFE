@@ -20,14 +20,18 @@ $('#options').scrollToFixed({
 $('.tokenizer').select2({
   tags: true,
   tokenSeparators: [',', ' ']
-})
+});
 
-$('.multiple-tokens').select2({
+$('#tokenizer').change(function() {
+  $('#selectedValues').val($('.tokenizer').val());
+});
+
+$('.multipleTokens').select2({
   templateResult: formatState
 });
 
-$('#selector').change(function() {
-  $('#selectedValues').val($('.tokenizer').val());
+$('#multipleTokens').change(function() {
+  $('#selectedValues').val($(".multipleTokens").val());
 });
 
 function hover(element, src) {
@@ -82,7 +86,7 @@ function slideElement2 (element, element2, vitesse) {
 function formatState (state) {
   if (!state.id) { return state.text; }
   var $state = $(
-    '<span><img src="../Images/logo.png" /> ' + state.text + '</span>'
+    '<span>' + state.text + '</span>'
   );
   return $state;
 };
