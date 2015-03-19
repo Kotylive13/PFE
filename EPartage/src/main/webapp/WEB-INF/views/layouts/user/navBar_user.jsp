@@ -16,12 +16,13 @@
 					alt="" />
 				</a>
 				<ul>
-					<li>Année : Master 2 ?</li>
-					<li>Parcours : ${sessionScope.userSession.promo}</li>
-					<li>Université : Luminy</li>
-					<li>E-mail : ${sessionScope.userSession.email}</li>
+					<li>Numéro étudiant : ${sessionScope.userSession.numStudent}</li>
 					<li>Date de naissance : <fmt:formatDate pattern="dd/MM/yyyy"
 						value="${sessionScope.userSession.birthDate}" /></li>
+					<li>E-mail : ${sessionScope.userSession.email}</li>
+					<li>Année d'inscription à l'université : ${sessionScope.userSession.inscriptUnivDate}</li>
+					<li>Promotion : ${sessionScope.userSession.promo}</li>
+					<li>Date d'inscription à l'application : ${sessionScope.userSession.inscriptAppDate}</li>
 				</ul>
 				<p>
 					<a href="">Modifier</a>
@@ -35,10 +36,10 @@
 				src="<c:url value="/images/arrow-up.png"/>" alt="" />
 		    </h1>
 		    <div id="contentMessaging">
-			    <ul class="withoutTop">
-			    	<li><a href="${pageContext.request.contextPath}/login_staff/index.htm">Nouveau message</a></li>
-			    	<li><a href="${pageContext.request.contextPath}/login_staff/index.htm">Boîte de réception (${nbOfUnconsultedMessages})</a></li>
-			    	<li><a href="${pageContext.request.contextPath}/login_staff/index.htm">Boîte d'envoi</a></li>
+			    <ul>
+			    	<li><a href="${pageContext.request.contextPath}/message/newmessage.htm">Nouveau message</a></li>
+			    	<li><a href="${pageContext.request.contextPath}/message/receivedMessagesList.htm">Boîte de réception (${nbOfUnconsultedMessages})</a></li>
+			    	<li><a href="${pageContext.request.contextPath}/message/sentMessagesList.htm">Boîte d'envoi</a></li>
 			   	</ul>
 			</div>
 		</div>
@@ -48,21 +49,30 @@
 				src="<c:url value="/images/arrow-up.png"/>" alt="" />
 			</h1>
 			<div id="contentGroup">
-				<ul class="withTop">
-					<li><a href="">M2 ISL</a></li>
-					<li><a href="">Aix Marseille Université</a></li>
-					<li><a href="">Les nights codeurs</a></li>
-					<li><a href="">Junior Aix-Marseille</a></li>
-				</ul>
-				<p>
-					<a href="">Voir tout</a>
-				</p>
+				<c:choose>
+				    <c:when test="${!empty groups}">
+						<ul>
+							<c:forEach items="${groups}" var="group">
+						    	<li>${group.name}</li>
+							</c:forEach>
+						</ul>
+						<p>
+							<a href="">Voir tout</a>
+						</p>
+					</c:when>
+					<c:otherwise>
+				        <p>Aucun groupe</p>
+				    </c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div id="link">
-			<h1 onclick="slideToggle('#contentLink');">Liens</h1>
+			<h1 onclick="slideElement('#contentLink', '#chevronLink', 'slow');">
+				Liens<img id="chevronLink" class="extraSmallPicture"
+				src="<c:url value="/images/arrow-up.png"/>" alt="" />
+			</h1>
 			<div id="contentLink">
-				<ul class="withTop">
+				<ul>
 					<li><a href="">Contact</a></li>
 				</ul>
 				<p>Copyright e-Partage 2015</p>
