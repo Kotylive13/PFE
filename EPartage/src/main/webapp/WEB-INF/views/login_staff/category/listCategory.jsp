@@ -24,6 +24,9 @@
 											<td width=150><c:out value="${category.idCategory.group}" /></td>
 											<td width=150><c:out value="${category.idCategory.name}" /></td>
 											<td width=100><input name="action" type="submit" value="Supprimer"></td>
+											<td width=100><input name="action" type="submit" value="Voir les sous-categories"></td>
+											<td width=100><input name="action" type="submit" value="Ajouter sous-categorie"></td>
+											
 										</tr>
 								</form:form>
 							</table>						

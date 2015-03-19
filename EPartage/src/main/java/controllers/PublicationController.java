@@ -15,9 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.PublicationService;
-import domain.IdPublicationFile;
 import domain.Publication;
-import domain.PublicationFile;
 import domain.Student;
 import domain.User;
 

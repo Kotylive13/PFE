@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -72,7 +71,7 @@ public class AdminWaitingUsersController {
 		
 		Map<String, Object> errorMessages = new HashMap<String, Object>();
 		model.addAttribute("admin", session.getAttribute("adminSession"));
-		List <Group> listGroup = new ArrayList<Group>();
+//		List <Group> listGroup = new ArrayList<Group>();
 		
 		
 		Student student = adminService.findStudentById(id);

@@ -2,6 +2,7 @@ package domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,18 +21,18 @@ public class Subcategory {
 	private IdSubcategory idSubcategory = new IdSubcategory();
 	
 	@MapsId("group")
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "nameG")
 	private Group group;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumns({
 		@JoinColumn(name = "nameC", referencedColumnName = "nameC", insertable = false, updatable = false),
 		@JoinColumn(name = "nameG", referencedColumnName = "nameG", insertable = false, updatable = false)
 	})
 	private Category category;
 	
-	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Publication> publications;
 
 	public IdSubcategory getIdSubcategory() {

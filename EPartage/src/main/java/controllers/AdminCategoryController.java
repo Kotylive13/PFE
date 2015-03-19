@@ -21,9 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
 import services.GroupService;
+import services.SubcategoryService;
 import domain.Category;
 import domain.Group;
 import domain.IdCategory;
+import domain.Subcategory;
 
 @Controller
 @RequestMapping("/login_staff/category")
@@ -35,6 +37,9 @@ public class AdminCategoryController {
 	
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	SubcategoryService subcategoryService;
 	
 
 // Constructors ---------------------------------------------------------------
@@ -101,18 +106,31 @@ public class AdminCategoryController {
 		List<Category> listCategory = new ArrayList <Category>();
 		
 //		Map<String, Category> mapCategoryModify = new HashMap<String, Category>();
-		
-		
-		
-		
 
 		Category category = categoryService.findByNameAndGroup(nameCategory, groupCategory);
-		
-		
-		
+
 		if (action.equals("Supprimer")) {
 			categoryService.delete(category);
 		} 
+		else if (action.equals("Ajouter sous-categorie")) {
+			
+			Map<String, String> mapGroupCategory = new HashMap<String, String>();
+			
+			mapGroupCategory.put("group", groupCategory);
+			mapGroupCategory.put("category", nameCategory);
+			
+			return new ModelAndView("login_staff/subcategory/addSubcategory", mapGroupCategory);
+		}
+		else if (action.equals("Voir les sous-categories")){
+			//TODO
+			
+			Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+			List<Subcategory> listSubcategory = subcategoryService.findByGroupAndCategory(groupCategory, nameCategory);
+			
+			mapSubcategory.put("listSubcategory", listSubcategory);
+			
+			return new ModelAndView("login_staff/subcategory/listSubcategory", mapSubcategory);
+		}
 		else {
 			System.out.println("Error action not exist");
 		}
@@ -174,6 +192,11 @@ public class AdminCategoryController {
 		}
 
 		return new Category();
+	}
+	
+	@ModelAttribute("subcategory")
+	public Subcategory newSubcategory() {
+		return new Subcategory();
 	}
 	
 }
