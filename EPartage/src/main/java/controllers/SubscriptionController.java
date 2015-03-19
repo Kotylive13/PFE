@@ -73,7 +73,7 @@ public class SubscriptionController {
 		}
 		if (!request.getParameter("confirmation").equals(student.getPassword()))
 			return result.addObject("errorConfirmation",
-					"Les mots de passe de concordent pas");
+					"Les mots de passe ne concordent pas");
 		
 		student.setInscriptAppDate(new Date());
 		student.setStatus(Status.W);
