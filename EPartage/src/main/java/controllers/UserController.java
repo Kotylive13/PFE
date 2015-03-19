@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import services.CategoryService;
 import services.GroupService;
+import services.MessageService;
 import services.UserService;
 import domain.Group;
 import domain.IdSubcategory;
@@ -35,6 +36,9 @@ public class UserController {
 	
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	MessageService messageService;
 
 	public UserController() {
 		super();
@@ -131,5 +135,10 @@ public class UserController {
 	public User getUser (HttpSession session) {
 		return (User) session.getAttribute("userSession");
 	}
-
+	
+	@ModelAttribute("nbOfUnconsultedMessages")
+	public int nbOfUnconsultedMessages(HttpSession session) {
+		return messageService.getNbOfUnconsultedMessages(
+				(User) session.getAttribute("userSession"));
+	}
 }
