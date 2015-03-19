@@ -2,13 +2,17 @@ package controllers;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +22,8 @@ import services.CategoryService;
 import services.GroupService;
 import services.MessageService;
 import services.UserService;
+import utilities.AsciiToHex;
+import domain.Category;
 import domain.Group;
 import domain.IdSubcategory;
 import domain.Student;
@@ -64,17 +70,32 @@ public class UserController {
 		}
 	}
 	
-	
 	@RequestMapping(value = "/group/detail.htm", method = RequestMethod.GET)
 	public String detailGroup(
 			@ModelAttribute Group g,
-			@ModelAttribute User u) {	
+			@ModelAttribute User u,
+			Model model) {	
 		
 		if (g == null || g.getName().isEmpty())
 			return "redirect:../index.htm";
 		
 		if (!u.getGroups().contains(g))
 			return "redirect:../index.htm";
+		
+		Map<String, Object> urlParams = new HashMap<String, Object>();
+		
+		String nameG = AsciiToHex.asciiToHex(g.getName());
+		urlParams.put(g.getName(), nameG);
+		for (Category cat : g.getCategories()) {
+			String nameC = AsciiToHex.asciiToHex(cat.getIdCategory().getName());
+			urlParams.put(cat.getIdCategory().getName(), nameC);
+			for (Subcategory sub : cat.getSubcategories()) {
+				String nameS = AsciiToHex.asciiToHex(sub.getIdSubcategory().getSubcategory());
+				urlParams.put(sub.getIdSubcategory().getSubcategory(), nameS);
+			}
+		}
+		
+		model.addAttribute("urlParams", urlParams);
 
 		return "group/group";
 	}
@@ -82,13 +103,36 @@ public class UserController {
 	@RequestMapping(value = "/group/subcategory/detail.htm", method = RequestMethod.GET)
 	public String detailSubcategory(
 			@ModelAttribute Subcategory sub,
-			@ModelAttribute User u) {
-	
+			@ModelAttribute User u,
+			Model model) throws UnsupportedEncodingException {
+		
 		if (sub == null || sub.getIdSubcategory().getSubcategory().isEmpty())
 			return "redirect:../../index.htm";
 	
 		if (!u.getGroups().contains(sub.getGroup()))
 			return "redirect:../../index.htm";
+		
+		Map<String, Object> urlParams = new HashMap<String, Object>();
+		
+		String nameG = sub.getIdSubcategory().getGroup();
+		String urlNameG = AsciiToHex.asciiToHex(nameG);
+		urlParams.put(nameG, urlNameG);
+		
+		for (Category cat : sub.getGroup().getCategories()) {
+			
+			String nameC = cat.getIdCategory().getName();
+			String urlNameC = AsciiToHex.asciiToHex(nameC);
+			urlParams.put(nameC, urlNameC);
+			
+			for (Subcategory s : cat.getSubcategories()) {
+				
+				String nameS = s.getIdSubcategory().getSubcategory();
+				String urlNameS = AsciiToHex.asciiToHex(nameS);
+				urlParams.put(nameS, urlNameS);
+			}
+		}
+		
+		model.addAttribute("urlParams", urlParams);
 
 		return "group/subcategory";
 	}
@@ -101,9 +145,9 @@ public class UserController {
 		
 		if (nameG != null && nameC != null && nameS != null) {
 			IdSubcategory idSubcategory = new IdSubcategory();
-			idSubcategory.setGroup(nameG);
-			idSubcategory.setCategory(nameC);
-			idSubcategory.setSubcategory(nameS);
+			idSubcategory.setGroup(AsciiToHex.decode(nameG));
+			idSubcategory.setCategory(AsciiToHex.decode(nameC));
+			idSubcategory.setSubcategory(AsciiToHex.decode(nameS));
 			return categoryService.findOne(idSubcategory);
 		}
 
@@ -112,7 +156,7 @@ public class UserController {
 	
 	@ModelAttribute("group")
 	public Group newGroup(
-			@RequestParam(value = "name", required = false) String name) {
+			@RequestParam(value = "nameG", required = false) String name) {
 		
 		if (name != null) {
 			return groupService.findGroupByName(name);

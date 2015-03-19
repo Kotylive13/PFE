@@ -14,14 +14,14 @@
 		<p>Groupe : ${group.name}</p>
 
 
-		<c:set var="nameG" value="${group.name}"/>		
+		<c:set var="nameG" value="${urlParams[group.name]}"/>		
 		<c:forEach items="${group.categories}" var="cat">
 		<div>
 			<a href="#">${cat.idCategory.name}</a>
-			<c:set var="nameC" value="${cat.idCategory.name}"/>
+			<c:set var="nameC" value="${urlParams[cat.idCategory.name]}"/>
 			<c:forEach items="${cat.subcategories}" var="sub">
-				<c:set var="nameS" value="${sub.idSubcategory.subcategory}"/>
-				<a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}"> | ${nameS}</a>	
+				<c:set var="nameS" value="${urlParams[sub.idSubcategory.subcategory]}"/>
+				<a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}"> | ${sub.idSubcategory.subcategory}</a>	
 			</c:forEach>
 		</div>
 		</c:forEach>

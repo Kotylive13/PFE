@@ -182,7 +182,7 @@ img[class="largePicture"] {
   border-radius: 0px 15px 15px 0px;
 }
 /* line 46, ../sass/header/_header.scss */
-.header .centerHeader #status, .fixedHeader .centerHeader #status, .header .centerHeader #profil, .fixedHeader .centerHeader #profil, .header .centerHeader #messaging, .fixedHeader .centerHeader #messaging, .header .centerHeader #option, .fixedHeader .centerHeader #option, .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password, .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword, .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
+.header .centerHeader #status, .fixedHeader .centerHeader #status, .header .centerHeader #profil, .fixedHeader .centerHeader #profil, .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging, .header .centerHeader #option, .fixedHeader .centerHeader #option, .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password, .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword, .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   float: right;
 }
 /* line 49, ../sass/header/_header.scss */
@@ -207,17 +207,17 @@ img[class="largePicture"] {
   border: 1px solid #172635;
 }
 /* line 65, ../sass/header/_header.scss */
-.header .centerHeader #messaging, .fixedHeader .centerHeader #messaging {
+.header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging {
   margin: 5px 20px 5px 0px;
 }
 /* line 67, ../sass/header/_header.scss */
-.header .centerHeader #messaging img, .fixedHeader .centerHeader #messaging img {
+.header .centerHeader #shortcutMessaging img, .fixedHeader .centerHeader #shortcutMessaging img {
   background-image: url("../Images/profil.jpg") no-repeat;
   width: 40px;
   height: 40px;
 }
 /* line 72, ../sass/header/_header.scss */
-.header .centerHeader #messaging:hover, .fixedHeader .centerHeader #messaging:hover {
+.header .centerHeader #shortcutMessaging:hover, .fixedHeader .centerHeader #shortcutMessaging:hover {
   background: url("../Images/user.png") no-repeat;
 }
 /* line 76, ../sass/header/_header.scss */
@@ -314,52 +314,53 @@ img[class="largePicture"] {
   text-align: center;
 }
 /* line 11, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
-  margin-top: 10px;
-}
-/* line 14, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #lightInformation, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
+#navBar #lightInformation, #navBar #messaging, #navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   background-color: #c4d7ed;
   border-radius: 10px;
   border: 1px solid #abc8e2;
   overflow: hidden;
 }
-/* line 19, ../sass/page/_navbar.scss */
-#navBar #group h1, #navBar #link h1, #navBar #lightInformation h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
+/* line 16, ../sass/page/_navbar.scss */
+#navBar #lightInformation h1, #navBar #messaging h1, #navBar #group h1, #navBar #link h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
-/* line 24, ../sass/page/_navbar.scss */
-#navBar #group h1:hover, #navBar #link h1:hover, #navBar #lightInformation h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover, #navBar #manageCategories h1:hover {
+/* line 21, ../sass/page/_navbar.scss */
+#navBar #lightInformation h1:hover, #navBar #messaging h1:hover, #navBar #group h1:hover, #navBar #link h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover, #navBar #manageCategories h1:hover {
   cursor: pointer;
 }
-/* line 27, ../sass/page/_navbar.scss */
-#navBar #group h1 img, #navBar #link h1 img, #navBar #lightInformation h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img, #navBar #manageCategories h1 img {
-  padding: 0px;
-  margin: 0px 0px 4px 5px;
+/* line 24, ../sass/page/_navbar.scss */
+#navBar #lightInformation h1 img, #navBar #messaging h1 img, #navBar #group h1 img, #navBar #link h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img, #navBar #manageCategories h1 img {
+  float: right;
+  margin: 10px 20px 10px 0px;
+  padding: 0;
   border: none;
 }
-/* line 34, ../sass/page/_navbar.scss */
-#navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
+/* line 32, ../sass/page/_navbar.scss */
+#navBar #messaging, #navBar #group, #navBar #link, #navBar #manageGroups, #navBar #manageCategories {
+  margin-top: 10px;
+}
+/* line 35, ../sass/page/_navbar.scss */
+#navBar #messaging, #navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   border-radius: 10px;
 }
-/* line 36, ../sass/page/_navbar.scss */
-#navBar #group ul[class="adminNavBar"], #navBar #link ul[class="adminNavBar"], #navBar #manageUsers ul[class="adminNavBar"], #navBar #manageGroups ul[class="adminNavBar"], #navBar #manageCategories ul[class="adminNavBar"] {
+/* line 37, ../sass/page/_navbar.scss */
+#navBar #messaging h1, #navBar #group h1, #navBar #link h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
+  padding-left: 40px;
+}
+/* line 40, ../sass/page/_navbar.scss */
+#navBar #messaging ul, #navBar #group ul, #navBar #link ul, #navBar #manageUsers ul, #navBar #manageGroups ul, #navBar #manageCategories ul {
   padding: 10px;
 }
-/* line 39, ../sass/page/_navbar.scss */
-#navBar #group ul[class="userNavBar"], #navBar #link ul[class="userNavBar"], #navBar #manageUsers ul[class="userNavBar"], #navBar #manageGroups ul[class="userNavBar"], #navBar #manageCategories ul[class="userNavBar"] {
-  padding: 20px 10px 10px 10px;
-}
-/* line 42, ../sass/page/_navbar.scss */
-#navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li, #navBar #manageCategories li {
+/* line 43, ../sass/page/_navbar.scss */
+#navBar #messaging li, #navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li, #navBar #manageCategories li {
   text-align: left;
   width: 230px;
 }
-/* line 45, ../sass/page/_navbar.scss */
-#navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a, #navBar #manageCategories li a {
+/* line 46, ../sass/page/_navbar.scss */
+#navBar #messaging li a, #navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a, #navBar #manageCategories li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -367,44 +368,56 @@ img[class="largePicture"] {
   border-radius: 5px;
   padding: 5px 10px;
 }
-/* line 50, ../sass/page/_navbar.scss */
-#navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover, #navBar #manageCategories li a:hover {
+/* line 51, ../sass/page/_navbar.scss */
+#navBar #messaging li a:hover, #navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover, #navBar #manageCategories li a:hover {
   background-color: #abc8e2;
   color: black;
 }
-/* line 56, ../sass/page/_navbar.scss */
-#navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p, #navBar #manageCategories p {
+/* line 57, ../sass/page/_navbar.scss */
+#navBar #messaging > #contentGroup p:first-child, #navBar #group > #contentGroup p:first-child, #navBar #link > #contentGroup p:first-child, #navBar #manageUsers > #contentGroup p:first-child, #navBar #manageGroups > #contentGroup p:first-child, #navBar #manageCategories > #contentGroup p:first-child {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: left;
+  padding: 10px 20px;
+}
+/* line 61, ../sass/page/_navbar.scss */
+#navBar #messaging > #contentGroup p:first-child a:hover, #navBar #group > #contentGroup p:first-child a:hover, #navBar #link > #contentGroup p:first-child a:hover, #navBar #manageUsers > #contentGroup p:first-child a:hover, #navBar #manageGroups > #contentGroup p:first-child a:hover, #navBar #manageCategories > #contentGroup p:first-child a:hover {
+  color: #4a6b8a;
+}
+/* line 65, ../sass/page/_navbar.scss */
+#navBar #messaging p, #navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p, #navBar #manageCategories p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   text-align: right;
-  padding: 10px 20px;
+  padding: 0px 20px 10px 20px;
 }
-/* line 60, ../sass/page/_navbar.scss */
-#navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover, #navBar #manageCategories p a:hover {
+/* line 69, ../sass/page/_navbar.scss */
+#navBar #messaging p a:hover, #navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover, #navBar #manageCategories p a:hover {
   color: #4a6b8a;
 }
-/* line 66, ../sass/page/_navbar.scss */
+/* line 75, ../sass/page/_navbar.scss */
 #navBar #link p {
   text-align: center;
 }
-/* line 71, ../sass/page/_navbar.scss */
+/* line 80, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1 {
-  padding-left: 25px;
+  padding-left: 40px;
 }
-/* line 74, ../sass/page/_navbar.scss */
+/* line 83, ../sass/page/_navbar.scss */
 #navBar #lightInformation img {
   margin: 20px 20px 10px 20px;
   border-radius: 10px;
   border: 1px solid #4a6b8a;
 }
-/* line 79, ../sass/page/_navbar.scss */
+/* line 88, ../sass/page/_navbar.scss */
 #navBar #lightInformation ul {
   width: 210px;
   margin: 0px;
   padding: 10px 20px 10px 20px;
 }
-/* line 84, ../sass/page/_navbar.scss */
+/* line 93, ../sass/page/_navbar.scss */
 #navBar #lightInformation li {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -412,15 +425,15 @@ img[class="largePicture"] {
   text-align: left;
   padding: 5px 0px;
 }
-/* line 88, ../sass/page/_navbar.scss */
+/* line 97, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:first-child {
   padding: 0px 0px 5px 0px;
 }
-/* line 91, ../sass/page/_navbar.scss */
+/* line 100, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:last-child {
   padding: 5px 0px 0px 0px;
 }
-/* line 95, ../sass/page/_navbar.scss */
+/* line 104, ../sass/page/_navbar.scss */
 #navBar #lightInformation p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -428,7 +441,7 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 99, ../sass/page/_navbar.scss */
+/* line 108, ../sass/page/_navbar.scss */
 #navBar #lightInformation p a:hover {
   color: #4a6b8a;
 }
@@ -722,7 +735,74 @@ img[class="largePicture"] {
   /*                                                    */
   /******************************************************/
 }
-/* line 38, ../sass/page/_page.scss */
+/* line 1, ../sass/page/_blocs.scss */
+.content .blocs {
+  margin: auto;
+}
+/* line 3, ../sass/page/_blocs.scss */
+.content .blocs .bloc {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  margin: 10px 5px 0px 5px;
+  background-color: #c4d7ed;
+  border-radius: 10px;
+  border: 1px solid #abc8e2;
+  overflow: hidden;
+}
+/* line 12, ../sass/page/_blocs.scss */
+.content .blocs .bloc h1 {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background-color: #abc8e2;
+}
+/* line 17, ../sass/page/_blocs.scss */
+.content .blocs .bloc h1:hover {
+  cursor: pointer;
+}
+/* line 20, ../sass/page/_blocs.scss */
+.content .blocs .bloc h1 img {
+  padding: 0px;
+  margin: 0px 0px 4px 5px;
+  border: none;
+}
+/* line 26, ../sass/page/_blocs.scss */
+.content .blocs .bloc ul {
+  padding: 10px;
+}
+/* line 29, ../sass/page/_blocs.scss */
+.content .blocs .bloc li {
+  text-align: left;
+  width: 230px;
+}
+/* line 32, ../sass/page/_blocs.scss */
+.content .blocs .bloc li a {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: block;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+/* line 37, ../sass/page/_blocs.scss */
+.content .blocs .bloc li a:hover {
+  background-color: #abc8e2;
+  color: black;
+}
+/* line 43, ../sass/page/_blocs.scss */
+.content .blocs .bloc p {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: right;
+  padding: 10px 20px;
+}
+/* line 47, ../sass/page/_blocs.scss */
+.content .blocs .bloc p a:hover {
+  color: #4a6b8a;
+}
+/* line 39, ../sass/page/_page.scss */
 .content h1 {
   width: 630px;
   margin: auto;
@@ -732,10 +812,12 @@ img[class="largePicture"] {
   margin-bottom: 20px;
   padding-left: 20px;
   font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #4a6b8a;
 }
-/* line 41, ../sass/page/_page.scss */
+/* line 44, ../sass/page/_page.scss */
 .content h2 {
-  width: 630px;
+  width: 590px;
   margin: auto;
   padding: 0;
   left: 0;
@@ -743,6 +825,8 @@ img[class="largePicture"] {
   margin-bottom: 18px;
   padding-left: 60px;
   font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #4a6b8a;
 }
 /* line 7, ../sass/page/_title.scss */
 .content .title {
@@ -1413,7 +1497,7 @@ label.css-label-checkbox {
 /* line 15, ../sass/select2/_dropdown.scss */
 .select2-results {
   display: block;
-  width: 100%;
+  width: 420px;
 }
 
 /* line 20, ../sass/select2/_dropdown.scss */

@@ -4,7 +4,7 @@
 
 <div class="fixedHeader">
 	<div class="centerHeader">
-		<p id="logo"><a href="" title="accueil">e-Partage</a></p>
+		<p id="logo"><a href="${pageContext.request.contextPath}/login_staff/index.htm" title="accueil">e-Partage</a></p>
 		<form id="searchForm" method="post" action="">
 	  		<input id="searchBar" type="text" placeholder="Chercher des personnes, des groupes ou d'autres choses"/>
 	  		<input id="searchButton" type="image" src="<c:url value="/images/magnifying-glass.png" />" title="Recherche">

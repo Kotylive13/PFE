@@ -6,31 +6,27 @@
 
 	<tiles:putAttribute name="content">
 		<c:if test="${!empty sessionScope.adminSession}">
-			<div class="content">
-				<h1>Ajout d'un groupe</h1>
-				<div class="form">
-					<form:form id="addGroup" method="POST" modelAttribute="group" 
-	 					action="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">
-	
-						<table>
-							<tr>
-								<td><form:label path="name">Nom du groupe</form:label></td>
-								<td><form:input path="name" name="name" type="text"/></td>
-							</tr>
-							<tr>
-								<td><form:label path="description">Description</form:label></td>
-								<td><form:input path="description" name="description" type="text"/></td>
-							</tr>
-	
-							<tr>
-								<td></td>
-								<td><input id="addGroup" class="submit" type="submit"></td>
-							</tr>
-						</table>
-					</form:form>
-				</div>
-				
-				<a href="${pageContext.request.contextPath}/login_staff/index.htm">Retour au menu</a><br/>
+			<h1>Ajout d'un groupe</h1>
+			<div class="form">
+				<form:form id="addGroup" method="POST" modelAttribute="group" 
+ 					action="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">
+
+					<table>
+						<tr>
+							<td><form:label path="name">Nom du groupe</form:label></td>
+							<td><form:input path="name" name="name" type="text"/></td>
+						</tr>
+						<tr>
+							<td><form:label path="description">Description</form:label></td>
+							<td><form:input path="description" name="description" type="text"/></td>
+						</tr>
+
+						<tr>
+							<td></td>
+							<td><input id="addGroup" class="submit" type="submit"></td>
+						</tr>
+					</table>
+				</form:form>
 			</div>
 		</c:if>
 	</tiles:putAttribute>
