@@ -70,19 +70,19 @@ public class MessageController {
 			
 			String input = request.getParameter("receiversList");
 			input = input.replace(" ", "");
-			String[] emails = input.split(",");
+			String[] userIds = input.split(",");
 			
-			if (emails[0].isEmpty() || emails.length > 100)
+			if (userIds[0].isEmpty() || userIds.length > 100)
 				return result.addObject("error",
 						"Le nombre de destinataire doit être compris entre 1 et 100");
 			
 			List<User> receivers = new ArrayList<User>();
 			List<String> badReceivers = new ArrayList<String>();
 			
-			for (String email : emails) {
-				User receiver = userService.findByLogin(email);
+			for (String userId : userIds) {				
+				User receiver = userService.find(Integer.parseInt(userId));
 				if(receiver == null)
-					badReceivers.add(email);
+					badReceivers.add(userId);
 				else
 					receivers.add(receiver);
 			}

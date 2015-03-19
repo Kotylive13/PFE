@@ -1,7 +1,10 @@
 package controllers;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +44,22 @@ public class UserController {
 	public String index() {
 		return "workspace/workspace";
 	}
+	
+	@RequestMapping("/avatar.htm")
+	public void avatar(
+			@RequestParam(value = "id", required = false) String id,
+			HttpServletResponse response) {
+		
+		User user = userService.find(Integer.parseInt(id));
+		try {
+			OutputStream o = response.getOutputStream();
+			o.write(user.getAvatar());
+			o.flush(); o.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	@RequestMapping(value = "/group/detail.htm", method = RequestMethod.GET)
 	public String detailGroup(

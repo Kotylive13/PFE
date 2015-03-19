@@ -38,6 +38,10 @@ public class UserService {
 		user.setPassword(CryptPassword.getCryptString(user.getPassword()));
 		userDao.save(user);
 	}
+
+	public User find(int userId) {
+		return userDao.findOne(userId);	
+	}
 	
 	/*public boolean exists(User user){
 		return userDao.exists(user.getId());

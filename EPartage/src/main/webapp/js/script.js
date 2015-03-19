@@ -86,7 +86,7 @@ function slideElement2 (element, element2, vitesse) {
 function formatState (state) {
   if (!state.id) { return state.text; }
   var $state = $(
-    '<span>' + state.text + '</span>'
+    '<span><img src="/EPartage/workspace/avatar.htm?id='+state.id+'"/>'+state.text+'</span>'
   );
   return $state;
 };

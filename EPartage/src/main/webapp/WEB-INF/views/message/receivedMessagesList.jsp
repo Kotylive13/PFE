@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<c:url var="newmess" value="/message/newmessage.htm" />
 <c:url var="detail" value="/message/detail.htm" />
 <c:url var="received" value="/message/receivedMessagesList.htm" />
 <c:url var="sent" value="/message/sentMessagesList.htm" />
@@ -15,6 +16,7 @@
 
 		<h1>Boite de réception</h1>
 		
+		<a href="${newmess}">Nouveau | </a>
 		<a href="${received}">Réception(${nbOfUnconsultedMessages}) | </a>
 		<a href="${sent}">Envoyés</a>
 

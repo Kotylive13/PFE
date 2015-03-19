@@ -25,7 +25,7 @@
 					<td>
 						<select id="multipleTokens" class="multipleTokens" multiple="multiple" >
 							<c:forEach items="${users}" var="user">
-								<option value="<c:out value="${user.email}"/>">${user.firstName} ${user.lastName}</option>
+								<option value="<c:out value="${user.id}"/>">${user.firstName} ${user.lastName}</option>
 							</c:forEach>
  						</select>
  						<input name="receiversList" id="selectedValues" type="hidden" />
