@@ -13,22 +13,19 @@
 
 		<c:set var="group" value="${subcategory.group}" />
 		<p>Groupe : ${group.name}</p>
-
-		<c:set var="nameG" value="${group.name}" />
+				
+		<c:set var="nameG" value="${urlParams[group.name]}"/>		
 		<c:forEach items="${group.categories}" var="cat">
-			<div>
-				<a href="#">${cat.idCategory.name}</a>
-				<c:set var="nameC" value="${cat.idCategory.name}" />
-				<c:forEach items="${cat.subcategories}" var="sub">
-					<c:set var="nameS" value="${sub.idSubcategory.subcategory}" />
-					<a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">
-						| ${nameS}</a>
-					
-					<a
-						href="/EPartage/publication/edit.htm?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">Ajouter
-						une publication dans la sous catégorie ${nameS}</a>
-				</c:forEach>
-			</div>
+		<div>
+			<a href="#">${cat.idCategory.name}</a>
+			<c:set var="nameC" value="${urlParams[cat.idCategory.name]}"/>
+			<c:forEach items="${cat.subcategories}" var="sub">
+				<c:set var="nameS" value="${urlParams[sub.idSubcategory.subcategory]}"/>
+				<a href="${detail}?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}"> | ${sub.idSubcategory.subcategory}</a>
+				<a href="/EPartage/publication/edit.htm?nameG=${nameG}&nameC=${nameC}&nameS=${nameS}">Ajouter
+					une publication dans la sous catégorie ${sub.idSubcategory.subcategory}</a>	
+			</c:forEach>
+		</div>
 		</c:forEach>
 
 		<p>Liste des publications</p>
@@ -39,8 +36,6 @@
 				<div>${com.content}</div>
 			</c:forEach>
 		</c:forEach>
-
-
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
