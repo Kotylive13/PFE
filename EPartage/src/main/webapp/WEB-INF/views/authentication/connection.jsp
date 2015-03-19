@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp" %>
 
-
 <tiles:insertDefinition name="master.page">
 	<tiles:putAttribute name="title">Authentification</tiles:putAttribute>
 	<tiles:putAttribute name="content">

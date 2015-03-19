@@ -26,11 +26,4 @@ public interface GroupDAO extends JpaRepository<Group, Integer> {
 	@Query(FIND_BY_NAME_QUERY)
 	public Group findGroupByName(@Param("name") String name);
 
-// ADD_USER_BY_NAME_QUERY ---------------------------------------------------------
-	
-		public final static String ADD_USER_BY_NAME_QUERY =  "INSERT INTO MembershipGroup (id, nameG) VALUES (:id_u, :nameG)";
-		
-		@Query(value= ADD_USER_BY_NAME_QUERY, nativeQuery = true)
-		public void addUser(@Param("id_u") Integer id_u, @Param("nameG") String nameG);	
-	
 }

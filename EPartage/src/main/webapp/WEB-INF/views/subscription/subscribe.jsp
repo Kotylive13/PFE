@@ -67,13 +67,22 @@
 							<td><form:input path="phone" /></td>
 							<td><form:errors path="phone" cssClass="error" /></td>
 						</tr>
+						
 						<tr>
-							<td><form:label path="">Centres d'intêret</form:label></td>
-							<td><form:checkboxes items="${hobbiesList}" path="" /></td>
-							
+							<td><label>Centres d'intérêt</label></td>
+							<td>							
+								<select id="tokenizer" class="tokenizer" multiple>
+									<c:forEach items="${hobbies}" var="hobby">
+								    	<option>${hobby.nameH}</option>
+									</c:forEach>
+						        </select>
+						        <input name="hobbies" id="selectedValues" type="hidden" />	
+							</td>
 						</tr>
+						
 						<tr>
-							<td></td>
+							<td>	
+					        </td>
 							<td><input id="informationSubmit" type="submit"
 								value="S'inscrire"></td>
 						</tr>

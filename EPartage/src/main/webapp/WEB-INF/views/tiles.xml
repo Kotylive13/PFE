@@ -7,15 +7,19 @@
        
 <tiles-definitions>
 
-	<definition name="master.page" template="/WEB-INF/views/master-page/layout.jsp">
+	<!-- Administrator -->
+	<definition name="admin" template="/WEB-INF/views/layouts/admin/layout_admin.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/master-page/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/layouts/admin/header_admin.jsp" />
+		<put-attribute name="navBar" value="/WEB-INF/views/layouts/admin/navBar_admin.jsp" />
 		<put-attribute name="content" value="" />
+		<put-attribute name="scripts" value="/WEB-INF/views/layouts/scripts.jsp" />
 	</definition>
 	
-	<definition name="masterAdmin.page" template="/WEB-INF/views/master-page/layout.jsp">
+	<!-- User -->
+	<definition name="master.page" template="/WEB-INF/views/layouts/layout.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/master-page/header_admin.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/master-page/header.jsp" />
 		<put-attribute name="content" value="" />
 	</definition>
 	
