@@ -50,6 +50,14 @@
 							<form:errors path="password" cssClass="error" /></td>
 						</tr>
 						<tr>
+							<td><label>Confirmation mot de passe<label></td>
+							<td><input name="confirmation" type="password"/>
+							<c:if test="${!empty errorConfirmation}">
+								<span class="error"><c:out value="${errorConfirmation}"/></span>
+							</c:if>	
+							</td>
+						</tr>
+						<tr>
 							<td><form:label path="adress">Adresse</form:label></td>
 							<td><form:input path="adress" type="text" />
 							<form:errors path="adress" cssClass="error" /></td>
@@ -77,7 +85,10 @@
 										</c:forEach>
 									</c:if>
 						        </select>
-						        <input name="hobbies" id="selectedValues" type="hidden" />	
+						        <input name="hobbies" id="selectedValues" type="hidden" />
+						        <c:if test="${!empty errorHobbies}">
+									<span class="error"><c:out value="${errorHobbies}"/></span>
+								</c:if>			
 							</td>
 						</tr>
 						

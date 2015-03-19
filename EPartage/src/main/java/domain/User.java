@@ -104,7 +104,7 @@ public class User {
 		      name="UserHobby",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
-	private Set<Hobby> hobbys;
+	private Set<Hobby> hobbies;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -218,12 +218,12 @@ public class User {
 		this.professionnalPeriods = professionnalPeriods;
 	}
 
-	public Set<Hobby> getHobbys() {
-		return hobbys;
+	public Set<Hobby> getHobbies() {
+		return hobbies;
 	}
 
-	public void setHobbys(Set<Hobby> hobbys) {
-		this.hobbys = hobbys;
+	public void setHobbies(Set<Hobby> hobbies) {
+		this.hobbies = hobbies;
 	}
 
 	public List<Group> getGroups() {
