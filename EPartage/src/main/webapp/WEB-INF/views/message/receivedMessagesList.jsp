@@ -10,7 +10,7 @@
 
 <tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
-			Messages list
+			Boite de réception
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
