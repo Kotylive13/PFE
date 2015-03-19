@@ -10,10 +10,11 @@
 			Espace de travail
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
-
+	
+		<c:set var="group" value="${subcategory.group}"/>
 		<p>Groupe : ${group.name}</p>
-
-		<c:set var="nameG" value="${group.name}"/>		
+				
+		<c:set var="nameG" value="${group.name}"/>
 		<c:forEach items="${group.categories}" var="cat">
 		<div>
 			<a href="#">${cat.idCategory.name}</a>
