@@ -67,12 +67,12 @@ public class User {
 	private String adress;
 
 	@Column(name = "PHONE")
-	@Length(min = 10, max = 10, message = "Veuillez saisir un num�ro de t�l�phone valide !")
+	@Length(min = 10, max = 10, message = "Veuillez saisir un numéro de téléphone valide !")
 	private String phone;
 
 	@Column(name = "BIRTHDATE")
 	@Temporal(TemporalType.DATE)
-	@Past(message = "Veuillez saisir une date dans le pass� !")
+	@Past(message = "Veuillez saisir une date dans le passé !")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@NotNull(message = "Veuillez saisir votre date de naissance !")
 	private Date birthDate;
@@ -86,8 +86,8 @@ public class User {
 	private String password;
 
 	@Column(name = "EMAIL", nullable = false, unique = true)
-	@Email(message = "Veuillez saisir une adresse �lectronique valide !")
-	@NotEmpty(message = "Veuillez saisir votre adresse �lectronique !")
+	@Email(message = "Veuillez saisir une adresse électronique valide !")
+	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
 	private String email;
 
 	@Column(name = "STATUS")

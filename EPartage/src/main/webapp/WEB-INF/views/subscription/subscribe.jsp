@@ -40,13 +40,12 @@
 						</tr>
 						<tr>
 							<td><form:label path="email">E-mail</form:label></td>
-							<td><form:input path="email"
-									placeholder="Ex : name@mail.com" type="text" />
+							<td><form:input path="email" type="text" />
 							<form:errors path="email" cssClass="error" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="password">Mot de passe</form:label></td>
-							<td><form:password path="password" />
+							<td><form:password path="password" name="password" />
 							<form:errors path="password" cssClass="error" /></td>
 						</tr>
 						<tr>
@@ -54,7 +53,7 @@
 							<td><input name="confirmation" type="password"/>
 							<c:if test="${!empty errorConfirmation}">
 								<span class="error"><c:out value="${errorConfirmation}"/></span>
-							</c:if>	
+							</c:if>
 							</td>
 						</tr>
 						<tr>

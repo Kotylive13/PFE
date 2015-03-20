@@ -21,7 +21,7 @@
 		
 		<div class="page">		
 			<c:if test="${!empty sessionScope.adminSession}">
-			<h1>Panneau d'administration</h1>
+			<h1 class="large">Panneau d'administration</h1>
 			<table class="blocs">
 				<tr>
 					<td class="bloc">
