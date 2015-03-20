@@ -32,7 +32,7 @@
 										title="${m.author.firstName} ${m.author.lastName}" />
 								</td>
 								<td>
-									<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">${fn:substring(m.content, 0, 100)}</a>
+									<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">${fn:substring(m.content, 0, 80)}</a>
 								</td>
 								<td>
 									<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${m.idMessage.dateM}" />
