@@ -34,16 +34,18 @@
 		</div>
 
 		<div class="postPublication">
-			<form:form id="postPublicationForm"  modelAttribute="maPublication" method="post" action="${pageContext.request.contextPath}/publication/edit.htm">
+			<form:form id="postPublicationForm" modelAttribute="publication"
+				method="post" enctype="multipart/form-data"
+				action="${pageContext.request.contextPath}/publication/edit.htm?nameS=${urlParams[subcategory.idSubcategory.subcategory]}&nameG=${urlParams[subcategory.idSubcategory.group]}&nameC=${urlParams[subcategory.idSubcategory.category]}">
 				<div class="contentPost">
-					<form:input name="titlePostPublication" class="titlePost" type="text"
-						placeholder="Titre" path="title" />
-					<form:textarea path="content" name="messagePostPublication" class="messagePost"
-						placeholder="Exprimez-vous" />
+					<form:input name="titlePostPublication" class="titlePost"
+						type="text" placeholder="Titre" path="title" />
+					<form:textarea path="content" name="messagePostPublication"
+						class="messagePost" placeholder="Exprimez-vous" />
 				</div>
 				<div class="footerPost">
-					<input class="fileUploadPost" type="file" /> 
-					<input class="submitPost" type="submit" value="Publier">
+					<form:input class="fileUploadPost" type="file" name="file" path="file"/> <input
+						class="submitPost" type="submit" value="Publier">
 				</div>
 			</form:form>
 		</div>
@@ -70,9 +72,11 @@
 						<div class="contentMessage">
 							<p>${p.title}</p>
 							<p>${p.content}</p>
-							
+
 							<p>
-								<a href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"  target="_blank">${p.files[0].title}</a>
+								<a
+									href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
+									target="_blank">${p.files[0].title}</a>
 							</p>
 						</div>
 						<div class="footerMessage">
@@ -126,7 +130,9 @@
 								<div class="contentComment">
 									<p>${com.content}</p>
 									<p>
-										<a href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"  target="_blank">${com.files[0].title}</a>
+										<a
+											href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"
+											target="_blank">${com.files[0].title}</a>
 									</p>
 								</div>
 							</div>

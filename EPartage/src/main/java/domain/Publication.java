@@ -115,6 +115,9 @@ public class Publication {
 	public void setAuthor(User author) {
 		this.author = author;
 	}
+	
+	
+
 
 //	public Category getCategory() {
 //		return category;
