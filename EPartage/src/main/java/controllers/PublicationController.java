@@ -55,7 +55,7 @@ public class PublicationController {
 	@Autowired
 	CommentFileService commentFileService;
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit(ModelMap mapModel,
 			@RequestParam(value = "nameG", required = true) String nameG,
 			@RequestParam(value = "nameC", required = true) String nameC,
@@ -71,25 +71,26 @@ public class PublicationController {
 		mapModel.addAttribute("subcategory", sub);
 		mapModel.addAttribute("publication", new Publication());
 		return result;
-	}
+	}*/
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public ModelAndView save(@Valid @ModelAttribute Publication publication,
+	public ModelAndView save(/*@Valid @ModelAttribute Publication publication,
 			@ModelAttribute Subcategory subcategory,
-			BindingResult bindingResult, HttpSession session) {
+			BindingResult bindingResult, HttpSession session*/) {
+		
+		
 
-		System.out
-				.println("Controller : /PublicationController --- Action : /save");
+		System.out.println("Controller : /PublicationController --- Action : /save");
 
 		ModelAndView result = new ModelAndView("publication/edit");
 		// Validating model
-		if (bindingResult.hasErrors()) {
+		/*if (bindingResult.hasErrors()) {
 			return result;
 		}
 		User user = (User) session.getAttribute("userSession");
 		publication.setAuthor(user);
 		publication.setSubcategory(subcategory);
-		publicationService.save(publication);
+		publicationService.save(publication);*/
 		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 	
@@ -159,4 +160,12 @@ public class PublicationController {
 		
 		return groupsUrl;
 	}
+	
+	@ModelAttribute("maPublication")
+	public Publication newPub(){
+		return new Publication();
+	}
+	
+	
+	
 }

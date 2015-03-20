@@ -33,23 +33,19 @@
 			</ul>
 		</div>
 
-		<a
-			href="/EPartage/publication/edit.htm?nameG=${param['nameG']}&nameC=${param['nameC']}&nameS=${param['nameS']}">
-			Ajouter une publication</a>
-
 		<div class="postPublication">
-			<form id="postPublicationForm" method="post" action="">
+			<form:form id="postPublicationForm"  modelAttribute="maPublication" method="post" action="${pageContext.request.contextPath}/publication/edit.htm">
 				<div class="contentPost">
-					<input name="titlePostPublication" class="titlePost" type="text"
-						placeholder="Titre" />
-					<textarea name="messagePostPublication" class="messagePost"
-						placeholder="Exprimez-vous"></textarea>
+					<form:input name="titlePostPublication" class="titlePost" type="text"
+						placeholder="Titre" path="title" />
+					<form:textarea path="content" name="messagePostPublication" class="messagePost"
+						placeholder="Exprimez-vous" />
 				</div>
 				<div class="footerPost">
-					<input class="fileUploadPost" type="file" /> <input
-						class="submitPost" type="submit" value="Publier">
+					<input class="fileUploadPost" type="file" /> 
+					<input class="submitPost" type="submit" value="Publier">
 				</div>
-			</form>
+			</form:form>
 		</div>
 
 		<div id="publications">

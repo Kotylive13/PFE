@@ -25,6 +25,7 @@ import utilities.AsciiToHex;
 import domain.Category;
 import domain.Group;
 import domain.IdSubcategory;
+import domain.Publication;
 import domain.Student;
 import domain.Subcategory;
 import domain.User;
@@ -186,5 +187,10 @@ public class GroupController {
 		}
 		
 		return groupsUrl;
+	}
+	
+	@ModelAttribute("maPublication")
+	public Publication newPub(){
+		return new Publication();
 	}
 }
