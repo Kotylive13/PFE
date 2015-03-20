@@ -61,6 +61,7 @@ public class AuthenticationController {
 			Model model) {
 		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
+		ModelAndView result;
 		password = CryptPassword.getCryptString(password);
 		Map<String, Object> message = new HashMap<String, Object>();
 		Student studentSession = userService.findByEmailPass(email, password);
@@ -73,15 +74,18 @@ public class AuthenticationController {
 			message.put("type", "error");
 	    	message.put("message", "Le login ou le mot de passe n'est pas correct.");
 	    	Student student = new Student();
-			ModelAndView result;
 			result = new ModelAndView("authentication/connection", message);
 			model.addAttribute("student", student);
 			return result;
 		}
 	
 		System.out.println(studentSession.getFirstName());
+		
+		message.put("type", "success");
+    	message.put("message", "Connexion réussie");
+		result = new ModelAndView("redirect:/workspace/index.htm", message);
 
-		return new ModelAndView("redirect:/workspace/index.htm");
+		return result;
 	}
 
 	/**

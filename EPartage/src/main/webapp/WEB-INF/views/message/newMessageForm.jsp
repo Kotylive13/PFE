@@ -32,7 +32,7 @@
 	 						</select>
 	 						<input name="receiversList" id="selectedValues" type="hidden" />
 	 						<c:if test="${!empty error}">
-								<c:out value="${error}"/>
+								<span id="content.errors" class="error"><c:out value="${error}"/></span>
 							</c:if>	
 	 					</td>	
 					</tr>

@@ -459,9 +459,6 @@ img[class="largePicture"] {
   left: 0;
   right: 0;
   margin-top: 30px;
-  /*& > h1:first-child, & > p:first-child {
-      margin-top: 20px;
-  }*/
   /******************************************************/
   /*                                                    */
   /*                     Information                    */
@@ -472,9 +469,9 @@ img[class="largePicture"] {
 .page a:hover {
   color: #4a6b8a;
 }
-/* line 16, ../sass/page/_page.scss */
+/* line 13, ../sass/page/_page.scss */
 .page > h1 {
-  width: 756px;
+  width: 626px;
   margin: auto;
   padding: 0;
   left: 0;
@@ -485,8 +482,32 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px solid #4a6b8a;
 }
+/* line 18, ../sass/page/_page.scss */
+.page > h1[class="large"] {
+  width: 756px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+}
 /* line 21, ../sass/page/_page.scss */
 .page > h2 {
+  width: 586px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 18px;
+  padding-left: 60px;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #4a6b8a;
+}
+/* line 26, ../sass/page/_page.scss */
+.page > h2[class="large"] {
   width: 716px;
   margin: auto;
   padding: 0;
@@ -494,9 +515,7 @@ img[class="largePicture"] {
   right: 0;
   margin-bottom: 18px;
   padding-left: 60px;
-  font-size: 18px;
-  padding-bottom: 5px;
-  border-bottom: 1px dashed #4a6b8a;
+  font-size: 20px;
 }
 /* line 7, ../sass/page/_information.scss */
 .page .information, .page .form {
@@ -733,7 +752,7 @@ img[class="largePicture"] {
 /*                       Content                      */
 /*                                                    */
 /******************************************************/
-/* line 36, ../sass/page/_page.scss */
+/* line 39, ../sass/page/_page.scss */
 .content {
   margin-left: 260px;
   /******************************************************/
@@ -834,7 +853,7 @@ img[class="largePicture"] {
 .content .blocs .bloc p a:hover {
   color: #4a6b8a;
 }
-/* line 39, ../sass/page/_page.scss */
+/* line 42, ../sass/page/_page.scss */
 .content h1 {
   width: 630px;
   margin: auto;
@@ -847,7 +866,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px solid #4a6b8a;
 }
-/* line 44, ../sass/page/_page.scss */
+/* line 47, ../sass/page/_page.scss */
 .content h1[class="large"] {
   width: 920px;
   margin: auto;
@@ -857,10 +876,8 @@ img[class="largePicture"] {
   margin-bottom: 20px;
   padding-left: 20px;
   font-size: 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #4a6b8a;
 }
-/* line 49, ../sass/page/_page.scss */
+/* line 50, ../sass/page/_page.scss */
 .content h2 {
   width: 590px;
   margin: auto;
@@ -873,7 +890,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px dashed #4a6b8a;
 }
-/* line 54, ../sass/page/_page.scss */
+/* line 55, ../sass/page/_page.scss */
 .content h2[class="large"] {
   width: 880px;
   margin: auto;
@@ -883,8 +900,6 @@ img[class="largePicture"] {
   margin-bottom: 18px;
   padding-left: 60px;
   font-size: 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px dashed #4a6b8a;
 }
 /* line 7, ../sass/page/_title.scss */
 .content .title {
