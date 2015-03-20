@@ -88,7 +88,7 @@ public class PublicationController {
 
 		publicationService.constructAndSave(publication);
 
-		return new ModelAndView("redirect:/workspace/group/detail.htm");
+		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 
 	@RequestMapping("/file.htm")
