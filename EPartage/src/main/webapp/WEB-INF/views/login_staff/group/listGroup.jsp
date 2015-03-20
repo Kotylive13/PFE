@@ -14,7 +14,7 @@
 						<c:forEach var="group" items="${listGroups}">
 							<li class="information">
 								<div class="headerInformation">
-									<img id="avatar" class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${group.avatar}"
+									<img id="avatar" class="smallPicture" src="${pageContext.request.contextPath}/workspace/group/avatar.htm?nameG=${groupsUrl[group.name]}"
 										title="${group.name}" />
 									<p class="author">
 										${group.name}

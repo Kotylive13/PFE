@@ -82,7 +82,10 @@ public class AdminCategoryController {
 
 		categoryService.save(category);
 		
-		return new ModelAndView("/login_staff/index");
+		model.addAttribute("type", "success");
+		model.addAttribute("message", "La catégorie a bien été ajoutée");
+		
+		return new ModelAndView("/login_staff/category/listCategory");
 	}
 	
 // MANAGEMENT CATEGORY --------------------------------------------------------

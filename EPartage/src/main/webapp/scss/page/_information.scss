@@ -11,11 +11,8 @@
 	border-radius: 10px;
 	text-align: center;
 	border: 1px solid $blue4;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	min-height: 20px;
-	.tutu {
-		display: none;
-	}
 	&:first-child {
 		margin-top: 10px;
 	}
@@ -24,9 +21,9 @@
 		padding: 0px 10px 5px 10px;
 		}
 	}
-	tr, .toto tr {
+	tr {
 		text-align: left;
-		td, .toto td {
+		td {
 			padding: 5px 10px 5px 10px;
 			label[class="css-label-radio"]:nth-child(2) {
 				padding-right: 10px;
@@ -42,7 +39,7 @@
 				color: $red3;
 			}
 			a {
-				display: block;
+				display: inline;
 			}
 		}
 	}
@@ -53,6 +50,10 @@
 	}
 	td:first-child {
 		width: 210px;
+		vertical-align: middle;
+	}
+	td:first-child[class="smallMarge"] {
+		width: 50px;
 		vertical-align: middle;
 	}
 	td:last-child {
@@ -80,31 +81,45 @@
 		padding: 0px 10px;
 		text-align: left;
 	}
+	p[class="contentMessage"] {
+		margin: 20px 0px;
+	}
 	.submit {
 		@include button ($blue4, $blue5);
 		&:hover { @include buttonHover ($blue3, $blue5); }
 		width: auto;
 	}
 	.headerInformation {
-		.authorInformation, .optionInformation {
-			padding-bottom: 10px;
+		text-align: left;
+		#avatar, .author, .optionInformation {
+			display: inline;
 		}
-		.authorInformation {
-			float: left;
-			width: 565px;
+		#avatar {
+			margin-left: 10px;
+			border-radius: 5px;
 		}
 		.optionInformation {
 			float: right;
-			width: 20px;
-		}
-	}
-	.table {
-		display: table;
-		.row {
-			display: table-row;
-			.cell {
-				display: table-cell;
+			margin-right: 10px;
+			margin-top: 5px;
+			&:hover {
+				cursor: pointer;
 			}
 		}
-	}	
+	}
+
+	.contentInformation {
+		.margin {
+			padding-top: 10px;
+		}
+	}
+}
+
+.messagingOptions {
+	@include center(940px);
+	.submit {
+		@include button ($blue4, $blue5);
+		&:hover { @include buttonHover ($blue3, $blue5); }
+		width: auto;
+	}
 }

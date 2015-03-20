@@ -1,15 +1,15 @@
 /******************************************************/
 /*                                                    */
-/*                  Liste Publication                 */
+/*                  Liste Messages                    */
 /*                                                    */
 /******************************************************/
 
-.listPublication{
-	$width-listPublication: 940px;
-	@include center($width-listPublication);
+.listMessage{
+	$width-listMessage: 940px;
+	@include center($width-listMessage);
 	background-color: $blue1;
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	table {
 		width: 100%;
 		text-align: left;
@@ -25,6 +25,8 @@
 			a:hover { color: $red3; }
 		}		
 		td{
+			height: 30px;
+			line-height: 30px;
 			padding: 5px 10px;
 			border: 1px solid $blue4;
 			p {
@@ -33,40 +35,26 @@
 		}
 		td:first-child {
 			@include overflowHidden;
-			width: 20px;
-			max-width: 20px;
-			text-align: center;
-		}
-		td:nth-child(2) {
-			width: 120px;
-			max-width: 120px;
-			@include overflowHidden;
-			text-align: center;
-		}
-		td:nth-child(3) {
-			width: 60px;
-			max-width: 60px;
-			text-align: center;
-		}
-		td:nth-child(4) {
-			width: 400px;
-			max-width: 400px;
-		}
-		td:nth-child(5) {
 			width: 30px;
 			max-width: 30px;
-			text-align: center;
+			text-align: left;
+		}
+		td:nth-child(2) {
+			width: 660px;
+			max-width: 660px;
+			@include overflowHidden;
+			text-align: left;
 		}
 		td:last-child {
-			width: 20px;
-			max-width: 20px;
+			width: 190px;
+			max-width: 190px;
 			text-align: center;
 		}
-		.odd {
-			background-color: $blue1;
-		}
-		.peer {
+		.read {
 			background-color: white;
+		}
+		.notRead {
+			background-color: $blue1;
 		}
 		img {
 			border-radius: 5px;

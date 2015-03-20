@@ -13,18 +13,10 @@
 			alt="" />
 		</a>
 		<ul>
-			<li>Numéro étudiant :
-				<c:choose>
-					<c:when test="${!empty sessionScope.userSession.numStudent}" >
-						${sessionScope.userSession.numStudent}
-					</c:when>
-					<c:otherwise>
-						A compléter
-					</c:otherwise>
-				</c:choose>
-			</li>
+			<li>Numéro étudiant : ${sessionScope.userSession.numStudent}</li>
 			<li>Date de naissance : <fmt:formatDate pattern="dd/MM/yyyy"
-				value="${sessionScope.userSession.birthDate}" /></li>
+				value="${sessionScope.userSession.birthDate}" />
+			</li>
 			<li>E-mail : ${sessionScope.userSession.email}</li>
 			<li>Année d'inscription à l'université : ${sessionScope.userSession.inscriptUnivDate}</li>
 			<li>Promotion : ${sessionScope.userSession.promo}</li>
