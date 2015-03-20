@@ -1,7 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
 
 <c:url var="newmess" value="/message/newmessage.htm" />
 <c:url var="detail" value="/message/detail.htm" />
@@ -9,38 +7,56 @@
 <c:url var="sent" value="/message/sentMessagesList.htm" />
 
 <tiles:insertDefinition name="user">
-	<tiles:putAttribute name="title">
-			Boite de réception
-		</tiles:putAttribute>
+	<tiles:putAttribute name="title">Boîte de réception</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
-		<h1>Boite de réception</h1>
+		<h1 class="large">Messagerie</h1>
+		<h2 class="large">Messages reçus</h2>
 		
-		<a href="${newmess}">Nouveau | </a>
-		<a href="${received}">Réception(${nbOfUnconsultedMessages}) | </a>
-		<a href="${sent}">Envoyés</a>
-
-		<h2>Messages reçus</h2>
+		<%@ include file="/WEB-INF/views/layouts/user/messagingOptions.jsp"%>
 		
-		<ul>
-			<c:forEach items="${receivedMessages}" var="rm">
-				<c:set var="m" value="${rm.message}"/>
-				<li>
-					<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">
-						${m.idMessage.dateM} : 
-					</a>
-					${m.content} : ${m.author.firstName} ${m.author.lastName} :
+		<div class="listMessage">
+			<table>
+				<tr>
+					<td><img class="smallPicture" src="<c:url value='/images/user.png' />" alt="" title="Avatar"/></td>
+					<td>Message</td>
+					<td>Date de publication</td>
+				</tr>
+				<c:forEach items="${receivedMessages}" var="rm">
 					<c:choose>
-					<c:when test="${rm.isConsulted()}">
-						Lu
-					</c:when>
-					<c:otherwise>
-						Non lu
-					</c:otherwise>
-				</c:choose>
-				</li>
-			</c:forEach>
-			</ul>
-
+						<c:when test="${rm.isConsulted()}">
+							<tr class="read">
+								<c:set var="m" value="${rm.message}"/>
+								<td>
+									<img class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${m.author.id}"
+										title="${m.author.firstName} ${m.author.lastName}" />
+								</td>
+								<td>
+									<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">${fn:substring(m.content, 0, 100)}</a>
+								</td>
+								<td>
+									<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${m.idMessage.dateM}" />
+								</td>
+							</tr>
+						</c:when>
+						<c:otherwise>
+							<tr class="notRead">
+								<c:set var="m" value="${rm.message}"/>
+								<td>
+									<img class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${m.author.id}"
+										title="${m.author.firstName} ${m.author.lastName}" />
+								</td>
+								<td>
+									<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">${m.content}</a>
+								</td>
+								<td>
+									${m.idMessage.dateM}
+								</td>
+							</tr>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</table>
+		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

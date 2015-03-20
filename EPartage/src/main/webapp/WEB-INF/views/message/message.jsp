@@ -1,32 +1,39 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/include.jsp"%>
 
 <c:url var="received" value="/message/receivedMessagesList.htm" />
 <c:url var="sent" value="/message/sentMessagesList.htm" />
 
 <tiles:insertDefinition name="user">
-	<tiles:putAttribute name="title">
-			Messages list
-		</tiles:putAttribute>
+	<tiles:putAttribute name="title">Détails message</tiles:putAttribute>
+	
 	<tiles:putAttribute name="content">
-
-		<h1>Boite de réception</h1>
-		
-		<a href="${received}">Réception(${nbOfUnconsultedMessages}) | </a>
-		<a href="${sent}">Envoyés</a>
-		
+	
+		<h1>Messagerie</h1>
 		<h2>Détail message</h2>
-		
-		<p>De : ${message.author.firstName} ${message.author.lastName}</p>
-		<p>A :
-		<c:forEach items="${message.receivers}" var="r">
-			${r.firstName} ${r.lastName} 
-		</c:forEach>
-		</p>
-		<p>Date : ${message.idMessage.dateM}</p>
-		<p>Contenu : ${message.content}</p>
+			
+		<div class="information">
+			<table>
+				<tr>
+					<td class="smallMarge">De :</td>
+					<td>${message.author.firstName} ${message.author.lastName}</td>
+				</tr>
+				<tr>
+					<td class="smallMarge">À :</td>
+					<td>
+						<c:forEach items="${message.receivers}" var="r">
+							${r.firstName} ${r.lastName}; 
+						</c:forEach></td>
+				</tr>
+				<tr>
+					<td class="smallMarge">Date :</td>
+					<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${message.idMessage.dateM}" /></td>
+				</tr>
+			</table>
+			<p class="contentMessage">${message.content}</p>
+			<a href="${pageContext.request.contextPath}/message/receivedMessagesList.htm"><button type="button" class="submit">Retour</button></a>
+		</div>
 
 	</tiles:putAttribute>
+
 </tiles:insertDefinition>

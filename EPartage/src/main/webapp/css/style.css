@@ -514,63 +514,64 @@ img[class="largePicture"] {
   min-height: 20px;
 }
 /* line 16, ../sass/page/_information.scss */
-.page .information .tutu, .page .form .tutu {
-  display: none;
-}
-/* line 19, ../sass/page/_information.scss */
 .page .information:first-child, .page .form:first-child {
   margin-top: 10px;
 }
-/* line 23, ../sass/page/_information.scss */
+/* line 20, ../sass/page/_information.scss */
 .page .information tr:first-child td, .page .form tr:first-child td {
   padding: 0px 10px 5px 10px;
 }
-/* line 27, ../sass/page/_information.scss */
-.page .information tr, .page .information .toto tr, .page .form tr, .page .form .toto tr {
+/* line 24, ../sass/page/_information.scss */
+.page .information tr, .page .form tr {
   text-align: left;
 }
-/* line 29, ../sass/page/_information.scss */
-.page .information tr td, .page .information tr .toto td, .page .information .toto tr td, .page .information .toto tr .toto td, .page .form tr td, .page .form tr .toto td, .page .form .toto tr td, .page .form .toto tr .toto td {
+/* line 26, ../sass/page/_information.scss */
+.page .information tr td, .page .form tr td {
   padding: 5px 10px 5px 10px;
 }
-/* line 31, ../sass/page/_information.scss */
-.page .information tr td label[class="css-label-radio"]:nth-child(2), .page .information tr .toto td label[class="css-label-radio"]:nth-child(2), .page .information .toto tr td label[class="css-label-radio"]:nth-child(2), .page .information .toto tr .toto td label[class="css-label-radio"]:nth-child(2), .page .form tr td label[class="css-label-radio"]:nth-child(2), .page .form tr .toto td label[class="css-label-radio"]:nth-child(2), .page .form .toto tr td label[class="css-label-radio"]:nth-child(2), .page .form .toto tr .toto td label[class="css-label-radio"]:nth-child(2) {
+/* line 28, ../sass/page/_information.scss */
+.page .information tr td label[class="css-label-radio"]:nth-child(2), .page .form tr td label[class="css-label-radio"]:nth-child(2) {
   padding-right: 10px;
 }
-/* line 34, ../sass/page/_information.scss */
-.page .information tr td label[class="css-label-checkbox"]:nth-child(2), .page .information tr td label[class="css-label-checkbox"]:nth-child(4), .page .information tr .toto td label[class="css-label-checkbox"]:nth-child(2), .page .information tr .toto td label[class="css-label-checkbox"]:nth-child(4), .page .information .toto tr td label[class="css-label-checkbox"]:nth-child(2), .page .information .toto tr td label[class="css-label-checkbox"]:nth-child(4), .page .information .toto tr .toto td label[class="css-label-checkbox"]:nth-child(2), .page .information .toto tr .toto td label[class="css-label-checkbox"]:nth-child(4), .page .form tr td label[class="css-label-checkbox"]:nth-child(2), .page .form tr td label[class="css-label-checkbox"]:nth-child(4), .page .form tr .toto td label[class="css-label-checkbox"]:nth-child(2), .page .form tr .toto td label[class="css-label-checkbox"]:nth-child(4), .page .form .toto tr td label[class="css-label-checkbox"]:nth-child(2), .page .form .toto tr td label[class="css-label-checkbox"]:nth-child(4), .page .form .toto tr .toto td label[class="css-label-checkbox"]:nth-child(2), .page .form .toto tr .toto td label[class="css-label-checkbox"]:nth-child(4) {
+/* line 31, ../sass/page/_information.scss */
+.page .information tr td label[class="css-label-checkbox"]:nth-child(2), .page .information tr td label[class="css-label-checkbox"]:nth-child(4), .page .form tr td label[class="css-label-checkbox"]:nth-child(2), .page .form tr td label[class="css-label-checkbox"]:nth-child(4) {
   padding-right: 9px;
 }
-/* line 37, ../sass/page/_information.scss */
-.page .information tr td input[class="error"], .page .information tr .toto td input[class="error"], .page .information .toto tr td input[class="error"], .page .information .toto tr .toto td input[class="error"], .page .form tr td input[class="error"], .page .form tr .toto td input[class="error"], .page .form .toto tr td input[class="error"], .page .form .toto tr .toto td input[class="error"] {
+/* line 34, ../sass/page/_information.scss */
+.page .information tr td input[class="error"], .page .form tr td input[class="error"] {
   background-color: #ffcece;
   border-color: #9a1b16;
 }
-/* line 41, ../sass/page/_information.scss */
-.page .information tr td span[class="error"], .page .information tr .toto td span[class="error"], .page .information .toto tr td span[class="error"], .page .information .toto tr .toto td span[class="error"], .page .form tr td span[class="error"], .page .form tr .toto td span[class="error"], .page .form .toto tr td span[class="error"], .page .form .toto tr .toto td span[class="error"] {
+/* line 38, ../sass/page/_information.scss */
+.page .information tr td span[class="error"], .page .form tr td span[class="error"] {
   color: #9a1b16;
 }
-/* line 44, ../sass/page/_information.scss */
-.page .information tr td a, .page .information tr .toto td a, .page .information .toto tr td a, .page .information .toto tr .toto td a, .page .form tr td a, .page .form tr .toto td a, .page .form .toto tr td a, .page .form .toto tr .toto td a {
-  display: block;
+/* line 41, ../sass/page/_information.scss */
+.page .information tr td a, .page .form tr td a {
+  display: inline;
 }
-/* line 50, ../sass/page/_information.scss */
+/* line 47, ../sass/page/_information.scss */
 .page .information tr:last-child td, .page .form tr:last-child td {
   padding: 5px 10px 0px 10px;
 }
-/* line 54, ../sass/page/_information.scss */
+/* line 51, ../sass/page/_information.scss */
 .page .information td:first-child, .page .form td:first-child {
   width: 210px;
   vertical-align: middle;
 }
-/* line 58, ../sass/page/_information.scss */
+/* line 55, ../sass/page/_information.scss */
+.page .information td:first-child[class="smallMarge"], .page .form td:first-child[class="smallMarge"] {
+  width: 45px;
+  vertical-align: middle;
+}
+/* line 59, ../sass/page/_information.scss */
 .page .information td:last-child, .page .form td:last-child {
   width: 420px;
   min-width: 420px;
   max-width: 420px;
   vertical-align: top;
 }
-/* line 64, ../sass/page/_information.scss */
+/* line 65, ../sass/page/_information.scss */
 .page .information input, .page .information textarea, .page .form input, .page .form textarea {
   width: 97%;
   padding: 8px 5px;
@@ -578,22 +579,26 @@ img[class="largePicture"] {
   border: 1px solid #abc8e2;
   border-radius: 5px;
 }
-/* line 70, ../sass/page/_information.scss */
+/* line 71, ../sass/page/_information.scss */
 .page .information input:focus, .page .information textarea:focus, .page .form input:focus, .page .form textarea:focus {
   background-color: #ffedb9;
   border-color: #d9c27e;
 }
-/* line 75, ../sass/page/_information.scss */
+/* line 76, ../sass/page/_information.scss */
 .page .information textarea, .page .form textarea {
   resize: none;
   rows: 1;
 }
-/* line 79, ../sass/page/_information.scss */
+/* line 80, ../sass/page/_information.scss */
 .page .information p, .page .form p {
   padding: 0px 10px;
   text-align: left;
 }
-/* line 83, ../sass/page/_information.scss */
+/* line 84, ../sass/page/_information.scss */
+.page .information p[class="contentMessage"], .page .form p[class="contentMessage"] {
+  margin: 20px 0px;
+}
+/* line 87, ../sass/page/_information.scss */
 .page .information .submit, .page .form .submit {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
@@ -601,37 +606,59 @@ img[class="largePicture"] {
   border-radius: 5px;
   width: auto;
 }
-/* line 85, ../sass/page/_information.scss */
+/* line 89, ../sass/page/_information.scss */
 .page .information .submit:hover, .page .form .submit:hover {
   background-color: #c4d7ed;
   border: 1px solid #4a6b8a;
   cursor: pointer;
 }
-/* line 89, ../sass/page/_information.scss */
+/* line 93, ../sass/page/_information.scss */
 .page .information .headerInformation .authorInformation, .page .information .headerInformation .optionInformation, .page .form .headerInformation .authorInformation, .page .form .headerInformation .optionInformation {
   padding-bottom: 10px;
 }
-/* line 92, ../sass/page/_information.scss */
+/* line 96, ../sass/page/_information.scss */
 .page .information .headerInformation .authorInformation, .page .form .headerInformation .authorInformation {
   float: left;
   width: 565px;
 }
-/* line 96, ../sass/page/_information.scss */
+/* line 100, ../sass/page/_information.scss */
 .page .information .headerInformation .optionInformation, .page .form .headerInformation .optionInformation {
   float: right;
   width: 20px;
 }
-/* line 101, ../sass/page/_information.scss */
+/* line 105, ../sass/page/_information.scss */
 .page .information .table, .page .form .table {
   display: table;
 }
-/* line 103, ../sass/page/_information.scss */
+/* line 107, ../sass/page/_information.scss */
 .page .information .table .row, .page .form .table .row {
   display: table-row;
 }
-/* line 105, ../sass/page/_information.scss */
+/* line 109, ../sass/page/_information.scss */
 .page .information .table .row .cell, .page .form .table .row .cell {
   display: table-cell;
+}
+/* line 116, ../sass/page/_information.scss */
+.page .messagingOptions {
+  width: 940px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+}
+/* line 118, ../sass/page/_information.scss */
+.page .messagingOptions .submit {
+  background-color: #abc8e2;
+  border: 1px solid #4a6b8a;
+  padding: 5px 20px;
+  border-radius: 5px;
+  width: auto;
+}
+/* line 120, ../sass/page/_information.scss */
+.page .messagingOptions .submit:hover {
+  background-color: #c4d7ed;
+  border: 1px solid #4a6b8a;
+  cursor: pointer;
 }
 /* line 1, ../sass/page/_blocs.scss */
 .page .blocs {
@@ -726,6 +753,11 @@ img[class="largePicture"] {
   /******************************************************/
   /******************************************************/
   /*                                                    */
+  /*                  Liste Messages                    */
+  /*                                                    */
+  /******************************************************/
+  /******************************************************/
+  /*                                                    */
   /*                        Post                        */
   /*                                                    */
   /******************************************************/
@@ -816,6 +848,19 @@ img[class="largePicture"] {
   border-bottom: 1px solid #4a6b8a;
 }
 /* line 44, ../sass/page/_page.scss */
+.content h1[class="large"] {
+  width: 920px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #4a6b8a;
+}
+/* line 49, ../sass/page/_page.scss */
 .content h2 {
   width: 590px;
   margin: auto;
@@ -824,7 +869,20 @@ img[class="largePicture"] {
   right: 0;
   margin-bottom: 18px;
   padding-left: 60px;
-  font-size: 18px;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #4a6b8a;
+}
+/* line 54, ../sass/page/_page.scss */
+.content h2[class="large"] {
+  width: 880px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 18px;
+  padding-left: 60px;
+  font-size: 20px;
   padding-bottom: 5px;
   border-bottom: 1px dashed #4a6b8a;
 }
@@ -1028,16 +1086,14 @@ img[class="largePicture"] {
 }
 /* line 27, ../sass/page/_listPublication.scss */
 .content .listPublication table td {
-  height: 30px;
-  line-height: 30px;
   padding: 5px 10px;
   border: 1px solid #abc8e2;
 }
-/* line 32, ../sass/page/_listPublication.scss */
+/* line 30, ../sass/page/_listPublication.scss */
 .content .listPublication table td p {
   display: inline-block;
 }
-/* line 36, ../sass/page/_listPublication.scss */
+/* line 34, ../sass/page/_listPublication.scss */
 .content .listPublication table td:first-child {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -1046,7 +1102,7 @@ img[class="largePicture"] {
   max-width: 20px;
   text-align: center;
 }
-/* line 42, ../sass/page/_listPublication.scss */
+/* line 40, ../sass/page/_listPublication.scss */
 .content .listPublication table td:nth-child(2) {
   width: 120px;
   max-width: 120px;
@@ -1055,39 +1111,122 @@ img[class="largePicture"] {
   text-overflow: ellipsis;
   text-align: center;
 }
-/* line 48, ../sass/page/_listPublication.scss */
+/* line 46, ../sass/page/_listPublication.scss */
 .content .listPublication table td:nth-child(3) {
   width: 60px;
   max-width: 60px;
   text-align: center;
 }
-/* line 53, ../sass/page/_listPublication.scss */
+/* line 51, ../sass/page/_listPublication.scss */
 .content .listPublication table td:nth-child(4) {
   width: 400px;
   max-width: 400px;
 }
-/* line 57, ../sass/page/_listPublication.scss */
+/* line 55, ../sass/page/_listPublication.scss */
 .content .listPublication table td:nth-child(5) {
   width: 30px;
   max-width: 30px;
   text-align: center;
 }
-/* line 62, ../sass/page/_listPublication.scss */
+/* line 60, ../sass/page/_listPublication.scss */
 .content .listPublication table td:last-child {
   width: 20px;
   max-width: 20px;
   text-align: center;
 }
-/* line 67, ../sass/page/_listPublication.scss */
+/* line 65, ../sass/page/_listPublication.scss */
 .content .listPublication table .odd {
   background-color: #eff9ff;
 }
-/* line 70, ../sass/page/_listPublication.scss */
+/* line 68, ../sass/page/_listPublication.scss */
 .content .listPublication table .peer {
   background-color: white;
 }
-/* line 73, ../sass/page/_listPublication.scss */
+/* line 71, ../sass/page/_listPublication.scss */
 .content .listPublication table img {
+  border-radius: 5px;
+}
+/* line 7, ../sass/page/_listMessage.scss */
+.content .listMessage {
+  width: 940px;
+  margin: auto;
+  padding: 0;
+  left: 0;
+  right: 0;
+  background-color: #eff9ff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 13, ../sass/page/_listMessage.scss */
+.content .listMessage table {
+  width: 100%;
+  text-align: left;
+}
+/* line 16, ../sass/page/_listMessage.scss */
+.content .listMessage table tr:first-child {
+  background-color: #abc8e2;
+}
+/* line 18, ../sass/page/_listMessage.scss */
+.content .listMessage table tr:first-child:hover {
+  background-color: #abc8e2;
+}
+/* line 22, ../sass/page/_listMessage.scss */
+.content .listMessage table tr {
+  border: 1px solid #abc8e2;
+}
+/* line 24, ../sass/page/_listMessage.scss */
+.content .listMessage table tr:hover {
+  background-color: #ffedb9;
+}
+/* line 25, ../sass/page/_listMessage.scss */
+.content .listMessage table tr a:hover {
+  color: #9a1b16;
+}
+/* line 27, ../sass/page/_listMessage.scss */
+.content .listMessage table td {
+  height: 30px;
+  line-height: 30px;
+  padding: 5px 10px;
+  border: 1px solid #abc8e2;
+}
+/* line 32, ../sass/page/_listMessage.scss */
+.content .listMessage table td p {
+  display: inline-block;
+}
+/* line 36, ../sass/page/_listMessage.scss */
+.content .listMessage table td:first-child {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 30px;
+  max-width: 30px;
+  text-align: left;
+}
+/* line 42, ../sass/page/_listMessage.scss */
+.content .listMessage table td:nth-child(2) {
+  width: 660px;
+  max-width: 660px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+/* line 48, ../sass/page/_listMessage.scss */
+.content .listMessage table td:last-child {
+  width: 190px;
+  max-width: 190px;
+  text-align: center;
+}
+/* line 53, ../sass/page/_listMessage.scss */
+.content .listMessage table .read {
+  background-color: white;
+}
+/* line 56, ../sass/page/_listMessage.scss */
+.content .listMessage table .notRead {
+  background-color: #eff9ff;
+}
+/* line 59, ../sass/page/_listMessage.scss */
+.content .listMessage table img {
   border-radius: 5px;
 }
 /* line 7, ../sass/page/_post.scss */
@@ -1493,7 +1632,7 @@ label.css-label-checkbox {
 /* line 15, ../sass/select2/_dropdown.scss */
 .select2-results {
   display: block;
-  width: 420px;
+  width: 418px;
 }
 
 /* line 20, ../sass/select2/_dropdown.scss */
