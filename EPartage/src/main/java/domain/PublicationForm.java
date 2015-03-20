@@ -18,6 +18,18 @@ public class PublicationForm {
 	private User author;
 
 	private byte[] file;
+	
+	private String fileTile;
+	
+	
+
+	public String getFileTile() {
+		return fileTile;
+	}
+
+	public void setFileTile(String fileTile) {
+		this.fileTile = fileTile;
+	}
 
 	public PublicationForm() {
 

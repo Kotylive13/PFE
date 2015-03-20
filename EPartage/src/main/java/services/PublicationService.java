@@ -45,14 +45,16 @@ public class PublicationService {
 		p.setDateP(pf.getDateP());
 		p.setSubcategory(pf.getSubcategory());
 		p.setTitle(pf.getTitle());
-		
+		p.setContent(pf.getContent());
 		int idPub = publicationDAO.save(p).getId();
 		
 		PublicationFile pubFile = new PublicationFile();
 		IdPublicationFile idpf = new IdPublicationFile();
 		idpf.setPublication(idPub);
+		pubFile.setTitle(pf.getFileTile());
 		pubFile.setIdPublicationFile(idpf);
 		pubFile.setFile(pf.getFile());
+		pubFile.setPublication(p);
 		
 		publicationFileDAO.save(pubFile);
 		

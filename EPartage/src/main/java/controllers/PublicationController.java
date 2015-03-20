@@ -81,6 +81,7 @@ public class PublicationController {
 		// save file
 		try {
 			publication.setFile(file.getBytes());
+			publication.setFileTile(file.getName());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

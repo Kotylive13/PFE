@@ -27,6 +27,7 @@ public class PublicationFile {
 	@JoinColumn(name = "ID_PUB")
 	private Publication publication;
 	
+
 	/**
 	 * The file's title
 	 */
@@ -63,5 +64,13 @@ public class PublicationFile {
 
 	public void setFile(byte[] file) {
 		this.file = file;
+	}
+	
+	public Publication getPublication() {
+		return publication;
+	}
+
+	public void setPublication(Publication publication) {
+		this.publication = publication;
 	}
 }
