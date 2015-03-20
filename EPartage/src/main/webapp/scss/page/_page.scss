@@ -10,18 +10,21 @@
 	a:hover {
 		color: $blue5;
 	}
-    /*& > h1:first-child, & > p:first-child {
-        margin-top: 20px;
-    }*/
     & > h1 {
-        @include hX (756px, 20px, 20px, 20px);
+        @include hX (626px, 20px, 20px, 20px);
         padding-bottom: 5px;
         border-bottom: 1px solid $blue5;
     }
+    & > h1[class="large"] {
+        @include hX (756px, 20px, 20px, 20px);
+    }
     & > h2 {
-        @include hX (716px, 18px, 60px, 18px);
+        @include hX (586px, 18px, 60px, 20px);
         padding-bottom: 5px;
         border-bottom: 1px dashed $blue5;
+    }
+    & > h2[class="large"] {
+        @include hX (716px, 18px, 60px, 20px);
     }
     @import "_information";
     @import "_blocs";
@@ -34,17 +37,29 @@
 /******************************************************/
 
 .content {
+    @import "_blocs";
 	margin-left: 260px;
     h1 {
         @include hX (630px, 20px, 20px, 20px);
+        padding-bottom: 5px;
+        border-bottom: 1px solid $blue5;
+    }
+    h1[class="large"] {
+        @include hX (920px, 20px, 20px, 20px);
     }
 	h2 {
-		@include hX (630px, 18px, 60px, 18px);
+		@include hX (590px, 18px, 60px, 20px);
+        padding-bottom: 5px;
+        border-bottom: 1px dashed $blue5;
 	}
+    h2[class="large"] {
+        @include hX (880px, 18px, 60px, 20px);
+    }
     
     @import "_title";
     @import "_menubar";
 	@import "_listPublication";
+    @import "_listMessage";
 	@import "_post";
 	@import "_publication";
 }

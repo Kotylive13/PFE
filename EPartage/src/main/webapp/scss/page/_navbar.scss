@@ -8,10 +8,7 @@
 	float: left;
 	width: $NB_width;
 	text-align: center;
-	#group, #link, #manageUsers, #manageGroups, #manageCategories {
-		margin-top: 10px;
-	}
-	#group, #link, #lightInformation, #manageUsers, #manageGroups, #manageCategories {
+	#lightInformation, #messaging, #group, #link, #manageUsers, #manageGroups, #manageCategories {
 		background-color: $blue3;
 		border-radius: 10px;
 		border: 1px solid $blue4;
@@ -25,19 +22,23 @@
 				cursor: pointer;
 			}
 			img {
-				padding: 0px;
-				margin: 0px 0px 4px 5px;
+				float: right;
+				margin: 10px 20px 10px 0px;
+				padding: 0;
 				border: none;
 			}
 		}
 	}
-	#group, #link, #manageUsers, #manageGroups, #manageCategories {
+	#messaging, #group, #link, #manageGroups, #manageCategories {
+		margin-top: 10px;
+	}
+	#messaging, #group, #link, #manageUsers, #manageGroups, #manageCategories {
 		border-radius: 10px;
-		ul[class="adminNavBar"] {
-			padding: 10px;
+		h1 {
+			padding-left: 40px;
 		}
-		ul[class="userNavBar"] {
-			padding: 20px 10px 10px 10px;
+		ul {
+			padding: 10px;
 		}
 		li {
 			text-align: left;
@@ -53,10 +54,18 @@
 		    	}
 			}
 		}
+		& > #contentGroup p:first-child {
+			@include overflowHidden;
+			text-align: left;
+			padding: 10px 20px;
+			a:hover {
+				color: $blue5;
+			}
+		}
 		p {
 			@include overflowHidden;
 			text-align: right;
-			padding: 10px 20px;
+			padding: 0px 20px 10px 20px;
 			a:hover {
 				color: $blue5;
 			}
@@ -69,7 +78,7 @@
 	}
 	#lightInformation {
 		h1 {
-			padding-left: 25px;
+			padding-left: 40px;
 		}
 		img {
 			margin: 20px 20px 10px 20px;

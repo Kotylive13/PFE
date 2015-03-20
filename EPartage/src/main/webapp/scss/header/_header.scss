@@ -43,7 +43,7 @@
 			background-color: white;
 			border-radius: 0px 15px 15px 0px;
 		}
-		#status, #profil, #messaging, #option, #login, #password, #forgetPassword, #connection {
+		#status, #profil, #shortcutMessaging, #option, #login, #password, #forgetPassword, #connection {
 			float: right;
 		}
 		#status {
@@ -62,7 +62,7 @@
 				border: 1px solid $blue6; 
 			}
 		}
-		#messaging {
+		#shortcutMessaging {
 			margin: 5px 20px 5px 0px;
 			img {
 				background-image: url("../Images/profil.jpg") no-repeat;

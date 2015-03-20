@@ -11,17 +11,14 @@
 	margin-top: 20px;
 	padding: 10px 10px;
 	border-radius: 10px;
-	p {
-		display: inline-block;
-	}
-	.messagePopup {
-		width: 95%;
-	}
-	.optionsPopup {
-		width: 2%;
+	#messagePopup {
 		padding-left: 10px;
-		vertical-align: top;
-		img:hover { cursor: pointer; }
+		height: 20px;
+		#optionsPopup {
+			float: right;
+			margin: 5px 0px;
+			&:hover { cursor: pointer; }
+		}
 	}
 	&[class="error"] {
 		@include popup($red2, $red3);
