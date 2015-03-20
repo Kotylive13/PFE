@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -42,6 +43,8 @@ public class Message {
 	private List<User> receivers;
 
 	@Column(name = "content")
+	@Pattern(regexp = "^[a-zA-Z0-9ÀÂÇÈÉÊËÎÔÙÛàâçèéêëîôöùû\\.\\?\\!\\,\\;\\:\\(\\)\\[\\]\"\\-\\/\\{\\}]*$", 
+		message = "Seul les caractères alphanumériques et de ponctuation sont admis")
 	@Size (min = 2, max = 2048, message = "Le message doit contenir entre 2 et 2048 caractères")
 	private String content;
 
