@@ -3,6 +3,7 @@
 $('#options').hide();
 $('.postComment').hide();
 $('.comments').hide();
+$('.contentInformation').hide();
 
 /* Permet de redimensionner automatiquement un textarea */
 
@@ -70,17 +71,6 @@ function slideElement (element, element2, vitesse) {
     $(element2).attr('src', '/EPartage/images/arrow-up.png');
   } else {
     $(element2).attr('src', '/EPartage/images/arrow-down.png');
-  }
-}
-
-function slideElement2 (element, element2, vitesse) {
-  
-  if ($(element2).attr('src') == '../images/arrow-down.png'){
-    $(element2).attr('src', '../images/arrow-up.png');
-    $(element).fadeIn('600');
-  } else {
-    $(element2).attr('src', '../images/arrow-down.png');
-    $(element).fadeOut('600');
   }
 }
 

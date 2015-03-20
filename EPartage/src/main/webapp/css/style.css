@@ -631,33 +631,34 @@ img[class="largePicture"] {
   border: 1px solid #4a6b8a;
   cursor: pointer;
 }
-/* line 93, ../sass/page/_information.scss */
-.page .information .headerInformation .authorInformation, .page .information .headerInformation .optionInformation, .page .form .headerInformation .authorInformation, .page .form .headerInformation .optionInformation {
-  padding-bottom: 10px;
+/* line 92, ../sass/page/_information.scss */
+.page .information .headerInformation, .page .form .headerInformation {
+  text-align: left;
 }
-/* line 96, ../sass/page/_information.scss */
-.page .information .headerInformation .authorInformation, .page .form .headerInformation .authorInformation {
-  float: left;
-  width: 565px;
+/* line 94, ../sass/page/_information.scss */
+.page .information .headerInformation #avatar, .page .information .headerInformation .author, .page .information .headerInformation .optionInformation, .page .form .headerInformation #avatar, .page .form .headerInformation .author, .page .form .headerInformation .optionInformation {
+  display: inline;
 }
-/* line 100, ../sass/page/_information.scss */
+/* line 97, ../sass/page/_information.scss */
+.page .information .headerInformation #avatar, .page .form .headerInformation #avatar {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+/* line 101, ../sass/page/_information.scss */
 .page .information .headerInformation .optionInformation, .page .form .headerInformation .optionInformation {
   float: right;
-  width: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 /* line 105, ../sass/page/_information.scss */
-.page .information .table, .page .form .table {
-  display: table;
+.page .information .headerInformation .optionInformation:hover, .page .form .headerInformation .optionInformation:hover {
+  cursor: pointer;
 }
-/* line 107, ../sass/page/_information.scss */
-.page .information .table .row, .page .form .table .row {
-  display: table-row;
+/* line 112, ../sass/page/_information.scss */
+.page .information .contentInformation .margin, .page .form .contentInformation .margin {
+  padding-top: 10px;
 }
-/* line 109, ../sass/page/_information.scss */
-.page .information .table .row .cell, .page .form .table .row .cell {
-  display: table-cell;
-}
-/* line 116, ../sass/page/_information.scss */
+/* line 118, ../sass/page/_information.scss */
 .page .messagingOptions {
   width: 940px;
   margin: auto;
@@ -665,7 +666,7 @@ img[class="largePicture"] {
   left: 0;
   right: 0;
 }
-/* line 118, ../sass/page/_information.scss */
+/* line 120, ../sass/page/_information.scss */
 .page .messagingOptions .submit {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
@@ -673,7 +674,7 @@ img[class="largePicture"] {
   border-radius: 5px;
   width: auto;
 }
-/* line 120, ../sass/page/_information.scss */
+/* line 122, ../sass/page/_information.scss */
 .page .messagingOptions .submit:hover {
   background-color: #c4d7ed;
   border: 1px solid #4a6b8a;

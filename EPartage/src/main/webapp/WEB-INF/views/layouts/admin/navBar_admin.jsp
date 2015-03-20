@@ -5,7 +5,7 @@
 	<h1	onclick="slideElement('#contentManageUsers', '#chevronManageUsers', 'slow');">
 		Gestion des utilisateurs
 		<img id="chevronManageUsers" class="extraSmallPicture"
-		src="<c:url value="/images/arrow-up.png"/>" alt="" />
+		src="<c:url value="/images/arrow-up.png"/>" />
 	</h1>
 	<div id="contentManageUsers">
 		<ul class="adminNavBar">
@@ -19,7 +19,7 @@
 	<h1	onclick="slideElement('#contentManageGroups', '#chevronManageGroups', 'slow');">
 		Gestion des groupes
 		<img id="chevronManageGroups" class="extraSmallPicture"
-		src="<c:url value="/images/arrow-up.png"/>" alt="" />
+		src="<c:url value="/images/arrow-up.png"/>" />
 	</h1>
 	<div id="contentManageGroups">
 		<ul class="adminNavBar">
@@ -36,7 +36,7 @@
 	<h1	onclick="slideElement('#contentManageCategories', '#chevronManageCategories', 'slow');">
 		Gestion des catégories
 		<img id="chevronManageCategories" class="extraSmallPicture"
-		src="<c:url value="/images/arrow-up.png"/>" alt="" />
+		src="<c:url value="/images/arrow-up.png"/>" />
 	</h1>
 	<div id="contentManageCategories">
 		<ul class="adminNavBar">
