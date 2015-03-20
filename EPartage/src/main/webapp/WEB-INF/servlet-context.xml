@@ -98,11 +98,11 @@
 			<mvc:mapping path="/workspace/*" />
 			<mvc:mapping path="/message/*" />
 			<mvc:mapping path="/publication/*" />
-			<bean class="interceptors.UnauthenticatedInterceptor" />
+			<bean class="interceptors.UnauthenticatedUserInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/authentication/connection.htm" />
-			<bean class="interceptors.AuthenticatedInterceptor" />
+			<bean class="interceptors.AuthenticatedUserInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import domain.User;
 
-public class AuthenticatedInterceptor extends HandlerInterceptorAdapter {
+public class AuthenticatedUserInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request,
