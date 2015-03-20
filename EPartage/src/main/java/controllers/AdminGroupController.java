@@ -49,6 +49,7 @@ public class AdminGroupController {
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		System.out.println("Controller : /AdminGroupController --- Action : /addGroup GET");
 		model.addAttribute("group", new Group());
+
 		return new ModelAndView("/login_staff/group/addGroup");
 	}
 	
@@ -68,6 +69,9 @@ public class AdminGroupController {
 		groupService.save(group);
 		listGroups =  (List<Group>) groupService.findAll();
 		mapGroup.put("listGroups", listGroups);
+		
+		model.addAttribute("type", "success");
+		model.addAttribute("message", "Le groupe a bien été ajouté");
 		
 		return new ModelAndView("/login_staff/group/listGroup", mapGroup);
 	}
@@ -122,6 +126,10 @@ public class AdminGroupController {
 		
 		listGroup = (List<Group>) groupService.findAll();
 		mapGroup.put("listGroups", listGroup);
+		
+		model.addAttribute("type", "success");
+		model.addAttribute("message", "Le groupe a bien été supprimé");
+		
 		return new ModelAndView("login_staff/group/listGroup", mapGroup);
 	}
 	

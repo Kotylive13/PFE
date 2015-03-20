@@ -17,6 +17,9 @@
 
 		<div class="menuBar">
 			<ul class="menu">
+				<li>
+					<a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">Description</a>
+				</li>
 				<c:set var="nameG" value="${urlParams[group.name]}" />
 				<c:forEach items="${group.categories}" var="cat">
 					<li><a href="#">${cat.idCategory.name}</a> <c:set var="nameC"
