@@ -21,11 +21,11 @@ public class Subcategory {
 	private IdSubcategory idSubcategory = new IdSubcategory();
 	
 	@MapsId("group")
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "nameG")
 	private Group group;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumns({
 		@JoinColumn(name = "nameC", referencedColumnName = "nameC", insertable = false, updatable = false),
 		@JoinColumn(name = "nameG", referencedColumnName = "nameG", insertable = false, updatable = false)

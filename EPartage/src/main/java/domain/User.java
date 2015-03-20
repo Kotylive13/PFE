@@ -107,7 +107,7 @@ public class User {
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbies;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@JoinTable(
 		      name="MembershipGroup",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},

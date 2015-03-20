@@ -18,7 +18,7 @@
 								
 								<form:form method="POST"
 									modelAttribute="subcategory"
-									action="${pageContext.request.contextPath}/login_staff/subcategory/managementSubcategory.htm">
+									action="${pageContext.request.contextPath}/login_staff/subcategory/managementSubcategory.htm?subcategory=${subcategory.idSubcategory.subcategory}&group=${subcategory.idSubcategory.group}&category=${subcategory.idSubcategory.category}">
 									<tr>
 										<td width=150><c:out value="${subcategory.idSubcategory.subcategory}" /></td>
 										
@@ -26,7 +26,7 @@
 										
 										<td width=150><c:out value="${subcategory.idSubcategory.category}" /></td>
 										
-<!-- 										<td width=100><input name="action" type="submit" value="Supprimer"></td> -->
+										<td width=100><input name="action" type="submit" value="Supprimer"></td>
 									</tr>
 								</form:form>
 							</table>						

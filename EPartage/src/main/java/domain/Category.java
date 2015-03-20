@@ -20,11 +20,11 @@ public class Category {
 	private IdCategory idCategory = new IdCategory();
 	
 	@MapsId("group")
-	@ManyToOne (cascade=CascadeType.REMOVE)
+	@ManyToOne ()
 	@JoinColumn(name = "nameG")
 	private Group group;
 
-	@OneToMany(mappedBy="category", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="category", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<Subcategory> subcategories;
 
 	

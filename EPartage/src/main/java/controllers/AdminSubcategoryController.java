@@ -78,6 +78,7 @@ public class AdminSubcategoryController {
 
 		System.out
 				.println("Controller : /AdminCategory --- Action : /addCategory POST");
+		System.out.println(category + " : catégorie " + groupname + " : groupName");
 		subcategory.setCategory(categoryService.findByNameAndGroup(category, groupname));
 		subcategory.setGroup(groupService.findGroupByName(groupname));
 		IdSubcategory idSubcategory = new IdSubcategory();
@@ -93,38 +94,42 @@ public class AdminSubcategoryController {
 	
 // MANAGEMENT GROUP ---------------------------------------------------------------
 
-//	@RequestMapping(value = "/managementSubcategory")
-//	public ModelAndView managementGroup(
-//			@RequestParam String action,
-//			@Valid @ModelAttribute (value = "subcategory") Subcategory subcategory,
-//			HttpSession session, 
-//			Model model) {
-//
-//		if(session.getAttribute("adminSession") == null) {
-//			System.out.println("Error Admin Session is Null");
-//			return new ModelAndView("/authentication/connection");
-//		}
-//		model.addAttribute("admin", session.getAttribute("adminSession"));
-//
-//		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
-//		
-//		if (action.equals("Supprimer")) {
-//			subcategory.setCategory(categoryService.findByNameAndGroup(subcategory.getIdSubcategory().getCategory(), subcategory.getIdSubcategory().getGroup()));
-//			subcategory.setGroup(groupService.findGroupByName(subcategory.getIdSubcategory().getGroup()));
-//			subcategoryService.delete(subcategory);
-//		} 
-//		else {
-//			System.out.println("Error action not exist");
-//		}
-//
-//		List<Subcategory> listSubcategory = 
-//				subcategoryService.findByGroupAndCategory(subcategory.getIdSubcategory().getGroup(), 
-//						subcategory.getIdSubcategory().getCategory() );
-//		
-//		mapSubcategory.put("listSubcategory", listSubcategory);
-//		
-//		return new ModelAndView("login_staff/subcategory/listSubcategory", mapSubcategory);
-//	}
+	@RequestMapping(value = "/managementSubcategory")
+	public ModelAndView managementGroup(
+			@RequestParam String action,
+			@RequestParam (value = "subcategory") String subcategory,
+			@RequestParam (value = "category") String category,
+			@RequestParam (value = "group") String group,
+			HttpSession session, 
+			Model model) {
+
+		if(session.getAttribute("adminSession") == null) {
+			System.out.println("Error Admin Session is Null");
+			return new ModelAndView("/authentication/connection");
+		}
+		model.addAttribute("admin", session.getAttribute("adminSession"));
+
+		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+		
+		if (action.equals("Supprimer")) {
+			IdSubcategory idSubcategory = new IdSubcategory();
+			idSubcategory.setCategory(category);
+			idSubcategory.setGroup(group);
+			idSubcategory.setSubcategory(subcategory);
+			Subcategory deleteSubcategory = subcategoryService.findOne(idSubcategory);
+			subcategoryService.delete(deleteSubcategory);
+		} 
+		else {
+			System.out.println("Error action not exist");
+		}
+
+		List<Subcategory> listSubcategory = 
+				subcategoryService.findByGroupAndCategory(group, category);
+		
+		mapSubcategory.put("listSubcategory", listSubcategory);
+		
+		return new ModelAndView("login_staff/subcategory/listSubcategory", mapSubcategory);
+	}
 	
 //	@ModelAttribute("subcategory")
 //	public Subcategory newSubcategory(

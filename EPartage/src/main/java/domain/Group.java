@@ -32,7 +32,7 @@ public class Group {
 	@Column(name = "description", columnDefinition="TEXT")
 	private String description;
 	
-	@OneToMany(mappedBy="group", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="group", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Category> categories;
 
 	@ManyToMany (mappedBy = "groups", cascade=CascadeType.ALL)
