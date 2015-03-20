@@ -91,6 +91,19 @@
          <property name="maxUploadSize" value="1000000" />
 
     </bean>
-	
+    
+    <!-- Interceptors -->
+    <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/workspace/*" />
+			<mvc:mapping path="/message/*" />
+			<mvc:mapping path="/publication/*" />
+			<bean class="interceptors.UnauthenticatedInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/authentication/connection.htm" />
+			<bean class="interceptors.AuthenticatedInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
