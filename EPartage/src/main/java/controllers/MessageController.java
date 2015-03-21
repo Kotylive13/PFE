@@ -117,20 +117,24 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-	public String detailMessage(
+	public ModelAndView detailMessage(
 			@ModelAttribute Message m, 
 			@ModelAttribute User u,
 			HttpSession session) {
 		
+		ModelAndView result = new ModelAndView("message/receivedMessagesList");
+		
 		if (m == null || m.getAuthor() == null)
-			return "message/receivedMessagesList";
+			return result;
 				
 		if (!m.getAuthor().equals(u) && !m.getReceivers().contains(u))
-			return "message/receivedMessagesList";
+			return result;
 		
+		result = new ModelAndView("message/message");
 		messageService.setConsultedMessage(u, m, true);
+		result.addObject("nbOfUnconsultedMessages", nbOfUnconsultedMessages(session));
 		
-		return "message/message";
+		return result;
 	}
 	
 	@ModelAttribute("message")
