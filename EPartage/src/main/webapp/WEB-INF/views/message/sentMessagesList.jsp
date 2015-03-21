@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
+<c:url var="newmess" value="/message/newmessage.htm" />
 <c:url var="detail" value="/message/detail.htm" />
 <c:url var="received" value="/message/receivedMessagesList.htm" />
 <c:url var="sent" value="/message/sentMessagesList.htm" />
