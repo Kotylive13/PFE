@@ -5,7 +5,7 @@
 
 <tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">
-			${group.name}
+			${group.name} - Description
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="title">
