@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.GroupService;
+import utilities.AsciiToHex;
 import domain.Group;
 
 @Controller
@@ -164,5 +165,19 @@ public class AdminGroupController {
 		mapGroup.put("listGroups", (List<Group>) groupService.findAll());
 		
 		return new ModelAndView("login_staff/group/listGroup", mapGroup);
+	}
+	
+	@ModelAttribute("groupsUrl")
+	public Map<String, Object> getGroupsUrl (HttpSession session) {
+		
+		Map<String, Object> groupsUrl = new HashMap<String, Object>();
+		
+		for(Group g : groupService.findAll()) {
+			String nameG = g.getName();
+			String urlNameG = AsciiToHex.asciiToHex(nameG);
+			groupsUrl.put(nameG, urlNameG);
+		}
+		
+		return groupsUrl;
 	}
 }

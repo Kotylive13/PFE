@@ -96,6 +96,8 @@
     <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/workspace/*" />
+			<mvc:mapping path="/workspace/group/*" />
+			<mvc:mapping path="/workspace/group/subcategory/*" />
 			<mvc:mapping path="/message/*" />
 			<mvc:mapping path="/publication/*" />
 			<bean class="interceptors.UnauthenticatedUserInterceptor" />
