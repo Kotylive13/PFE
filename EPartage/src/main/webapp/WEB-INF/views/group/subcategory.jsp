@@ -17,8 +17,8 @@
 
 		<div class="menuBar">
 			<ul class="menu">
-				<li>
-					<a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">Description</a>
+				<li><a
+					href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">Description</a>
 				</li>
 				<c:set var="nameG" value="${urlParams[group.name]}" />
 				<c:forEach items="${group.categories}" var="cat">
@@ -43,12 +43,14 @@
 				<div class="contentPost">
 					<form:input name="titlePostPublication" class="titlePost"
 						type="text" placeholder="Titre" path="title" />
+					<form:errors path="title" cssClass="error" />
 					<form:textarea path="content" name="messagePostPublication"
 						class="messagePost" placeholder="Exprimez-vous" />
+					<form:errors path="content" cssClass="error" />
 				</div>
 				<div class="footerPost">
-					<form:input class="fileUploadPost" type="file" name="file" path="file"/> <input
-						class="submitPost" type="submit" value="Publier">
+					<form:input class="fileUploadPost" type="file" name="file" path="file"/>
+					<input class="submitPost" type="submit" value="Publier">
 				</div>
 			</form:form>
 		</div>

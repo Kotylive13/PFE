@@ -4,22 +4,33 @@ import java.util.Date;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+
+/**
+ * Class for publications with only one file (used as a model atributte for new publications)
+ * @author Asma
+ *
+ */
 public class PublicationForm {
 
-	@NotBlank
+	@NotBlank(message = "Veuillez saisir un titre !")
 	private String title;
-	@NotBlank
+
 	private Date dateP;
-	@NotBlank
+	
+	@NotBlank(message = "Veuillez saisir un contenu !")
 	private String content;
-	@NotBlank
+
+	
 	private Subcategory subcategory;
-	@NotBlank
+
+	
 	private User author;
 
+	@SuppressWarnings(value = { "" })
 	private byte[] file;
-	
+
 	private String fileTile;
+	
 	
 	
 

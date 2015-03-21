@@ -13,11 +13,14 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
@@ -28,9 +31,7 @@ import services.PublicationService;
 import utilities.AsciiToHex;
 import domain.CommentFile;
 import domain.Group;
-import domain.IdPublicationFile;
 import domain.IdSubcategory;
-import domain.Publication;
 import domain.PublicationFile;
 import domain.PublicationForm;
 import domain.Student;
@@ -61,13 +62,16 @@ public class PublicationController {
 	public ModelAndView save(
 			@Valid @ModelAttribute PublicationForm publication,
 			BindingResult bindingResult, HttpSession session,
-			@RequestParam("file") MultipartFile file,
+			@RequestParam(required = false) MultipartFile file,
 			@RequestParam(required = true) String nameC,
 			@RequestParam(required = true) String nameG,
 			@RequestParam(required = true) String nameS) {
 
 		System.out
 				.println("Controller : /PublicationController --- Action : /save");
+		ModelAndView result = new ModelAndView(
+				"redirect:/workspace/group/subcategory/detail.htm?nameG="
+						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
 
 		User user = (User) session.getAttribute("userSession");
 		publication.setAuthor(user);
@@ -77,18 +81,31 @@ public class PublicationController {
 		idSubcategory.setCategory(AsciiToHex.decode(nameC));
 		idSubcategory.setSubcategory(AsciiToHex.decode(nameS));
 		publication.setSubcategory(categoryService.findOne(idSubcategory));
-
+		
+		
+		
 		// save file
-		try {
-			publication.setFile(file.getBytes());
-			publication.setFileTile(file.getName());
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (!file.isEmpty()) {
+			try {
+				publication.setFile(file.getBytes());
+				publication.setFileTile(file.getOriginalFilename());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else{
+			publication.setFile(null);
 		}
-
+		// Validating model
+		if (bindingResult.hasErrors() ) {
+			System.out.println(bindingResult.getAllErrors());
+			result.addObject("publication", publication);
+			return result;
+		}
+		
+		
 		publicationService.constructAndSave(publication);
 
-		return new ModelAndView("redirect:/workspace/index.htm");
+		return result;
 	}
 
 	@RequestMapping("/file.htm")
@@ -163,5 +180,12 @@ public class PublicationController {
 	public PublicationForm newPublicatin() {
 		return new PublicationForm();
 	}
+	
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+	    binder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
+	}
+	
 
 }
