@@ -48,9 +48,9 @@
 	</h1>
 			<div id="contentGroup">
 				<c:choose>
-				    <c:when test="${!empty sessionScope.userSession.groups}">
+				    <c:when test="${!empty groupsList}">
 						<ul>
-							<c:forEach items="${sessionScope.userSession.groups}" var="group">
+							<c:forEach items="${groupsList}" var="group">
 						    	<li><a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">${group.name}</a></li>
 							</c:forEach>
 						</ul>

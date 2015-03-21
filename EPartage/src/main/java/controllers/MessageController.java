@@ -158,18 +158,6 @@ public class MessageController {
 				(User) session.getAttribute("userSession"));
 	}
 	
-//	@ModelAttribute("consultedMessages")
-//	public Collection<Message> consultedMessages(HttpSession session) {
-//		return messageService.findAllReceivedMessages(
-//				(User) session.getAttribute("userSession"), true);
-//	}
-//	
-//	@ModelAttribute("unconsultedMessages")
-//	public Collection<Message> unconsultedMessages(HttpSession session) {
-//		return messageService.findAllReceivedMessages(
-//				(User) session.getAttribute("userSession"), false);
-//	}
-	
 	@ModelAttribute("receivedMessages")
 	public Collection<ReceivedMessage> receivedMessages(HttpSession session) {
 		return messageService.findAllReceivedMessages(
@@ -189,12 +177,21 @@ public class MessageController {
 	
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
-		return (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		return userService.findByLogin(userSession.getEmail());
+	}
+	
+	@ModelAttribute("groupsList")
+	public Collection<Group> getUserGroups(HttpSession session) {
+		User userSession = (User) session.getAttribute("userSession");
+		userService.findByLogin(userSession.getEmail());
+		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
-		User user = (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		User user = userService.findByLogin(userSession.getEmail());
 		
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
 		

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import services.CategoryService;
 import services.GroupService;
 import services.MessageService;
+import services.UserService;
 import utilities.AsciiToHex;
 import domain.Category;
 import domain.Group;
@@ -34,6 +35,9 @@ import domain.User;
 @RequestMapping("/workspace/group")
 public class GroupController {
 
+	@Autowired
+	UserService userService;
+	
 	@Autowired
 	GroupService groupService;
 	
@@ -155,28 +159,15 @@ public class GroupController {
 	
 	@ModelAttribute("groupsList")
 	public Collection<Group> getUserGroups(HttpSession session) {
-		return ((User) session.getAttribute("userSession")).getGroups();
-	}
-	
-	@ModelAttribute("student")
-	public Student getStudent (HttpSession session) {
-		return (Student) session.getAttribute("userSession");
-	}
-	
-	@ModelAttribute("user")
-	public User getUser (HttpSession session) {
-		return (User) session.getAttribute("userSession");
-	}
-	
-	@ModelAttribute("nbOfUnconsultedMessages")
-	public int nbOfUnconsultedMessages(HttpSession session) {
-		return messageService.getNbOfUnconsultedMessages(
-				(User) session.getAttribute("userSession"));
+		User userSession = (User) session.getAttribute("userSession");
+		userService.findByLogin(userSession.getEmail());
+		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
-		User user = (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		User user = userService.findByLogin(userSession.getEmail());
 		
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
 		
@@ -187,6 +178,23 @@ public class GroupController {
 		}
 		
 		return groupsUrl;
+	}
+	
+	@ModelAttribute("student")
+	public Student getStudent (HttpSession session) {
+		return (Student) session.getAttribute("userSession");
+	}
+	
+	@ModelAttribute("user")
+	public User getUser (HttpSession session) {
+		User userSession = (User) session.getAttribute("userSession");
+		return userService.findByLogin(userSession.getEmail());
+	}
+	
+	@ModelAttribute("nbOfUnconsultedMessages")
+	public int nbOfUnconsultedMessages(HttpSession session) {
+		return messageService.getNbOfUnconsultedMessages(
+				(User) session.getAttribute("userSession"));
 	}
 	
 	@ModelAttribute("publication")

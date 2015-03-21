@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +69,8 @@ public class UserController {
 	
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
-		return (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		return userService.findByLogin(userSession.getEmail());
 	}
 	
 	@ModelAttribute("nbOfUnconsultedMessages")
@@ -77,9 +79,17 @@ public class UserController {
 				(User) session.getAttribute("userSession"));
 	}
 	
+	@ModelAttribute("groupsList")
+	public Collection<Group> getUserGroups(HttpSession session) {
+		User userSession = (User) session.getAttribute("userSession");
+		userService.findByLogin(userSession.getEmail());
+		return userService.findByLogin(userSession.getEmail()).getGroups();
+	}
+	
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
-		User user = (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		User user = userService.findByLogin(userSession.getEmail());
 		
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
 		
