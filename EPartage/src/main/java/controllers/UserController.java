@@ -2,7 +2,10 @@ package controllers;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import services.MessageService;
 import services.UserService;
 import utilities.AsciiToHex;
+import domain.Category;
 import domain.Group;
+import domain.Publication;
 import domain.Student;
+import domain.Subcategory;
 import domain.User;
 
 @Controller
@@ -36,7 +42,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/index.htm")
-	public String index() {
+	public String index(HttpSession session) {		
 		return "workspace/workspace";
 	}
 	
@@ -84,5 +90,22 @@ public class UserController {
 		}
 		
 		return groupsUrl;
+	}
+	
+	@ModelAttribute("allPublications")
+	public List<Publication> getAllPublications(HttpSession session) {
+
+		User userSession = (User) session.getAttribute("userSession");
+		User user = userService.findByLogin(userSession.getEmail());
+		List<Publication> publications = new ArrayList<Publication>();
+		
+		for(Group group : user.getGroups())
+			for(Category category : group.getCategories())
+				for(Subcategory subcategory : category.getSubcategories())
+					publications.addAll(subcategory.getPublications());
+
+		Collections.sort(publications);
+		
+		return publications;
 	}
 }

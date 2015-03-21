@@ -28,7 +28,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 
 @Entity
-public class Publication {
+public class Publication implements Comparable<Publication>{
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.AUTO )
@@ -165,6 +165,11 @@ public class Publication {
 
 	public void setFiles(List<PublicationFile> files) {
 		this.files = files;
+	}
+
+	@Override
+	public int compareTo(Publication p) {
+		return p.dateP.compareTo(this.dateP);
 	}
 
 }
