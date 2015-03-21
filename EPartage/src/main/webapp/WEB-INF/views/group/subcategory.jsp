@@ -17,8 +17,8 @@
 
 		<div class="menuBar">
 			<ul class="menu">
-				<li>
-					<a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">Description</a>
+				<li><a
+					href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">Description</a>
 				</li>
 				<c:set var="nameG" value="${urlParams[group.name]}" />
 				<c:forEach items="${group.categories}" var="cat">
@@ -47,102 +47,119 @@
 						class="messagePost" placeholder="Exprimez-vous" />
 				</div>
 				<div class="footerPost">
-					<form:input class="fileUploadPost" type="file" name="file" path="file"/> <input
-						class="submitPost" type="submit" value="Publier">
+					<form:input class="fileUploadPost" type="file" name="file"
+						path="file" />
+					<input class="submitPost" type="submit" value="Publier">
 				</div>
 			</form:form>
 		</div>
 
 		<div id="publications">
-			<c:forEach items="${subcategory.publications}" var="p">
-				<div class="publication">
-					<div class="message">
-						<div class="headerMessage">
-							<a class="authorPicture" href=""><img class="smallPicture"
-								src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
-								alt="" /></a>
-							<p class="author">
-								<a href="">${p.author.firstName} ${p.author.lastName}</a>
-							</p>
-							<p class="datePublication">
-								<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${p.dateP}" />
-							<P>
-							<p class="optionsPublication">
-								<!--<img class="veryExtraSmallPicture"
-									src="<c:url value="/images/cross.png"/>" alt="" />-->
-							</p>
-						</div>
-						<div class="contentMessage">
-							<p>${p.title}</p>
-							<p>${p.content}</p>
-
-							<p>
-								<a
-									href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
-									target="_blank">${p.files[0].title}</a>
-							</p>
-						</div>
-						<div class="footerMessage">
-							<p class="goodOpinion" title="Opinion positive">
-								<img class="extraSmallPicture"
-									src="<c:url value="/images/thumb_up.png"/>" alt="" />
-							</p>
-							<p class="numGoodOpinion">()</p>
-							<p class="badOpinion" title="Opinion négative">
-								<img class="extraSmallPicture"
-									src="<c:url value="/images/thumb_down.png"/>" alt="" />
-							</p>
-							<p class="numBadOpinion">()</p>
-							<p class="numComments"
-								onclick="slideToggle('#comments_${p.id}', 'slow');">Commentaires
-								(${p.comments.size()})</p>
-							<p class="sharePublication">Partager</p>
-							<p class="commentPublication"
-								onclick="slideToggle('#postComment_${p.id}', 'slow');">Commenter</p>
-						</div>
-					</div>
-					<div id="postComment_${p.id}" class="postComment">
-						<form>
-							<div class="contentPost">
-								<textarea id="" class="messagePost" placeholder="Exprimez-vous"></textarea>
-							</div>
-							<div class="footerPost">
-								<input id="" class="fileUploadPost" type="file" /> <input id=""
-									class="submitPost" type="submit" value="Publier">
-							</div>
-						</form>
-					</div>
-					<div id="comments_${p.id}" class="comments">
-						<c:forEach items="${p.comments}" var="com">
-							<div class="comment">
-								<div class="headerComment">
+			<c:choose>
+				<c:when test="${subcategory.publications.size() > 0}">
+					<c:set var="size" value="${subcategory.publications.size()-1}" />
+					<c:forEach var="i" begin="0" end="${size}" step="1"
+						varStatus="loop">
+						<c:set var="p" value="${subcategory.publications.get(size-i)}" />
+						<div class="publication">
+							<div class="message">
+								<div class="headerMessage">
 									<a class="authorPicture" href=""><img class="smallPicture"
-										src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${com.author.id}"
+										src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
 										alt="" /></a>
 									<p class="author">
-										<a href="">${com.author.firstName} ${com.author.lastName}</a>
+										<a href="">${p.author.firstName} ${p.author.lastName}</a>
 									</p>
 									<p class="datePublication">
 										<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
-											value="${com.dateC}" />
+											value="${p.dateP}" />
 									<P>
-										<!--<a class="optionsPublication" href=""><img
-											class="veryExtraSmallPicture"
-											src="<c:url value="/images/cross.png"/>" alt="" /></a>-->
-								</div>
-								<div class="contentComment">
-									<p>${com.content}</p>
-									<p>
-										<a
-											href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"
-											target="_blank">${com.files[0].title}</a>
+									<p class="optionsPublication">
+										<!--<img class="veryExtraSmallPicture"
+									src="<c:url value="/images/cross.png"/>" alt="" />-->
 									</p>
 								</div>
+								<div class="contentMessage">
+									<p>${p.title}</p>
+									<p>${p.content}</p>
+
+									<p>
+										<a
+											href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
+											target="_blank">${p.files[0].title}</a>
+									</p>
+								</div>
+								<div class="footerMessage">
+									<p class="goodOpinion" title="Opinion positive">
+										<img class="extraSmallPicture"
+											src="<c:url value="/images/thumb_up.png"/>" alt="" />
+									</p>
+									<p class="numGoodOpinion">()</p>
+									<p class="badOpinion" title="Opinion négative">
+										<img class="extraSmallPicture"
+											src="<c:url value="/images/thumb_down.png"/>" alt="" />
+									</p>
+									<p class="numBadOpinion">()</p>
+									<p class="numComments"
+										onclick="slideToggle('#comments_${p.id}', 'slow');">Commentaires
+										(${p.comments.size()})</p>
+									<p class="sharePublication">Partager</p>
+									<p class="commentPublication"
+										onclick="slideToggle('#postComment_${p.id}', 'slow');">Commenter</p>
+								</div>
 							</div>
-						</c:forEach>
+							<div id="postComment_${p.id}" class="postComment">
+								<form>
+									<div class="contentPost">
+										<textarea id="" class="messagePost"
+											placeholder="Exprimez-vous"></textarea>
+									</div>
+									<div class="footerPost">
+										<input id="" class="fileUploadPost" type="file" /> <input
+											id="" class="submitPost" type="submit" value="Publier">
+									</div>
+								</form>
+							</div>
+							<div id="comments_${p.id}" class="comments">
+								<c:forEach items="${p.comments}" var="com">
+									<div class="comment">
+										<div class="headerComment">
+											<a class="authorPicture" href=""><img
+												class="smallPicture"
+												src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${com.author.id}"
+												alt="" /></a>
+											<p class="author">
+												<a href="">${com.author.firstName}
+													${com.author.lastName}</a>
+											</p>
+											<p class="datePublication">
+												<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
+													value="${com.dateC}" />
+											<P>
+												<!--<a class="optionsPublication" href=""><img
+											class="veryExtraSmallPicture"
+											src="<c:url value="/images/cross.png"/>" alt="" /></a>-->
+										</div>
+										<div class="contentComment">
+											<p>${com.content}</p>
+											<p>
+												<a
+													href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"
+													target="_blank">${com.files[0].title}</a>
+											</p>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div class="information">
+						<p>Aucune publication</p>
 					</div>
-				</div>
-			</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
