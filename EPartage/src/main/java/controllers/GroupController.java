@@ -160,7 +160,6 @@ public class GroupController {
 	@ModelAttribute("groupsList")
 	public Collection<Group> getUserGroups(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
-		userService.findByLogin(userSession.getEmail());
 		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
