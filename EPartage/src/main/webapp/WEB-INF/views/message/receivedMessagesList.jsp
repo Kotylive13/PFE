@@ -50,7 +50,7 @@
 									<a href="${detail}?id=${m.idMessage.sender}&date=${m.idMessage.dateM.getTime()}">${m.content}</a>
 								</td>
 								<td>
-									${m.idMessage.dateM}
+									<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${m.idMessage.dateM}" />
 								</td>
 							</tr>
 						</c:otherwise>
