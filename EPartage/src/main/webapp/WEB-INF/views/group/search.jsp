@@ -12,7 +12,9 @@
 		
 		<c:choose>
 		    <c:when test="${empty groups}">
-		        <p>Aucun groupe ne correspond à la recherche.</p>
+		    	<div class="information">
+					<p>Aucun groupe ne correspond à la recherche.</p>
+				</div>
 		    </c:when>
 		    <c:otherwise>		        
 				<div class="listMessage">
