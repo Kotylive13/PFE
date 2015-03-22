@@ -86,6 +86,8 @@ public class AdminCategoryController {
 		model.addAttribute("message", "La catégorie a bien été ajoutée");
 		
 		return new ModelAndView("/login_staff/category/listCategory");
+		
+		//return new ModelAndView("/login_staff/index"); Ce qu'il y avait de base !!!!!
 	}
 	
 // MANAGEMENT CATEGORY --------------------------------------------------------

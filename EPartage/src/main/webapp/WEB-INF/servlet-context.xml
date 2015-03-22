@@ -93,7 +93,7 @@
     </bean>
     
     <!-- Interceptors -->
-    <mvc:interceptors>
+    <!--<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/workspace/*" />
 			<mvc:mapping path="/workspace/group/*" />
@@ -106,6 +106,6 @@
 			<mvc:mapping path="/authentication/connection.htm" />
 			<bean class="interceptors.AuthenticatedUserInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors>-->
 
 </beans>

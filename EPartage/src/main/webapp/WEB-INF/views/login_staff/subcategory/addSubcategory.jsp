@@ -21,15 +21,11 @@
 							<td></td>
 							<td>
 								<input class="submit" type="submit">
-								<a href="${pageContext.request.contextPath}/login_staff/index.htm"><button type="button" class="submit">Annuler</button></a>
+								<a href="${pageContext.request.contextPath}/login_staff/category/listCategory.htm"><button type="button" class="submit">Annuler</button></a>
 							</td>
 						</tr>
 					</table>
 				</form:form>
-			</div>
-			
-			<div class="information">
-			<a href="${pageContext.request.contextPath}/login_staff/category/listCategory.htm"><button type="button" class="submit">Précédent</button></a>
 			</div>
 		</c:if>
 

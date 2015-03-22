@@ -133,7 +133,7 @@ img[class="largePicture"] {
 /*                       Header                       */
 /*                                                    */
 /******************************************************/
-/* line 7, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 7, ../sass/header/_header.scss */
 .header, .fixedHeader {
   background: #4a6b8a;
   height: 50px;
@@ -142,7 +142,7 @@ img[class="largePicture"] {
   z-index: 800;
   box-shadow: 0px 5px 5px #888888;
 }
-/* line 14, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 14, ../sass/header/_header.scss */
 .header .centerHeader, .fixedHeader .centerHeader {
   width: 1200px;
   margin: auto;
@@ -151,11 +151,11 @@ img[class="largePicture"] {
   right: 0;
   min-width: 1200px;
 }
-/* line 17, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 17, ../sass/header/_header.scss */
 .header .centerHeader #logo, .fixedHeader .centerHeader #logo, .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar, .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   float: left;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 20, ../sass/header/_header.scss */
 .header .centerHeader #logo, .fixedHeader .centerHeader #logo {
   width: 250px;
   font-size: 25px;
@@ -163,34 +163,34 @@ img[class="largePicture"] {
   height: 50px;
   line-height: 50px;
 }
-/* line 26, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 26, ../sass/header/_header.scss */
 .header .centerHeader #logo a, .fixedHeader .centerHeader #logo a {
   color: #eff9ff;
 }
-/* line 30, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 30, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar, .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   height: 26px;
   margin: 12px 0px;
   padding: 0px 10px;
   border: none;
 }
-/* line 36, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 36, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar {
   width: 400px;
   background-color: white;
   border-radius: 15px 0px 0px 15px;
 }
-/* line 41, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 41, ../sass/header/_header.scss */
 .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   width: 26px;
   background-color: white;
   border-radius: 0px 15px 15px 0px;
 }
-/* line 46, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 46, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status, .header .centerHeader #profil, .fixedHeader .centerHeader #profil, .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging, .header .centerHeader #option, .fixedHeader .centerHeader #option, .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password, .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword, .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   float: right;
 }
-/* line 49, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 49, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -202,43 +202,43 @@ img[class="largePicture"] {
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 58, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 58, ../sass/header/_header.scss */
 .header .centerHeader #profil, .fixedHeader .centerHeader #profil {
   margin: 9px 25px 9px 0px;
 }
-/* line 60, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 60, ../sass/header/_header.scss */
 .header .centerHeader #profil img, .fixedHeader .centerHeader #profil img {
   border-radius: 5px;
   border: 1px solid #172635;
 }
-/* line 65, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 65, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging {
   margin: 5px 20px 5px 0px;
 }
-/* line 67, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 67, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging img, .fixedHeader .centerHeader #shortcutMessaging img {
   background-image: url("../Images/profil.jpg") no-repeat;
   width: 40px;
   height: 40px;
 }
-/* line 72, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 72, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging:hover, .fixedHeader .centerHeader #shortcutMessaging:hover {
   background: url("../Images/user.png") no-repeat;
 }
-/* line 76, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 76, ../sass/header/_header.scss */
 .header .centerHeader #option, .fixedHeader .centerHeader #option {
   margin: 7px 0px;
 }
-/* line 78, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 78, ../sass/header/_header.scss */
 .header .centerHeader #option img, .fixedHeader .centerHeader #option img {
   width: 36px;
   height: 36px;
 }
-/* line 81, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 81, ../sass/header/_header.scss */
 .header .centerHeader #option img:hover, .fixedHeader .centerHeader #option img:hover {
   cursor: pointer;
 }
-/* line 86, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 86, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password {
   height: 26px;
   margin: 12px 20px 12px 0px;
@@ -246,22 +246,22 @@ img[class="largePicture"] {
   border: none;
   border-radius: 5px;
 }
-/* line 93, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 93, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login {
   width: 180px;
 }
-/* line 96, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 96, ../sass/header/_header.scss */
 .header .centerHeader #password, .fixedHeader .centerHeader #password {
   width: 180px;
 }
-/* line 99, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 99, ../sass/header/_header.scss */
 .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword {
   height: 50px;
   line-height: 50px;
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 105, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 105, ../sass/header/_header.scss */
 .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   margin: 12px 0px;
   background-color: #abc8e2;
@@ -269,7 +269,7 @@ img[class="largePicture"] {
   padding: 3px 20px;
   border-radius: 5px;
 }
-/* line 111, C:/wamp/www/e-etudPartage/sass/header/_header.scss */
+/* line 111, ../sass/header/_header.scss */
 .header .centerHeader #connection:hover, .fixedHeader .centerHeader #connection:hover {
   background-color: #c4d7ed;
   border: 1px solid #abc8e2;
@@ -281,13 +281,13 @@ img[class="largePicture"] {
 /*                       Options                      */
 /*                                                    */
 /******************************************************/
-/* line 7, C:/wamp/www/e-etudPartage/sass/header/_options.scss */
+/* line 7, ../sass/header/_options.scss */
 #options {
   background-color: #abc8e2;
   margin-top: 0.1px;
   width: 100%;
 }
-/* line 11, C:/wamp/www/e-etudPartage/sass/header/_options.scss */
+/* line 11, ../sass/header/_options.scss */
 #options #optionsCenter {
   width: 1200px;
   margin: auto;
@@ -298,11 +298,11 @@ img[class="largePicture"] {
   height: 30px;
   line-height: 30px;
 }
-/* line 16, C:/wamp/www/e-etudPartage/sass/header/_options.scss */
+/* line 16, ../sass/header/_options.scss */
 #options #optionsCenter #createGroup, #options #optionsCenter #deconnection {
   display: inline-block;
 }
-/* line 19, C:/wamp/www/e-etudPartage/sass/header/_options.scss */
+/* line 19, ../sass/header/_options.scss */
 #options #optionsCenter #createGroup {
   margin-right: 20px;
 }
@@ -312,59 +312,59 @@ img[class="largePicture"] {
 /*                       Nav_bar                      */
 /*                                                    */
 /******************************************************/
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 7, ../sass/page/_navbar.scss */
 #navBar {
   float: left;
   width: 250px;
   text-align: center;
 }
-/* line 11, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 11, ../sass/page/_navbar.scss */
 #navBar #lightInformation, #navBar #messaging, #navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   background-color: #c4d7ed;
   border-radius: 10px;
   border: 1px solid #abc8e2;
   overflow: hidden;
 }
-/* line 16, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 16, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1, #navBar #messaging h1, #navBar #group h1, #navBar #link h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
-/* line 21, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 21, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1:hover, #navBar #messaging h1:hover, #navBar #group h1:hover, #navBar #link h1:hover, #navBar #manageUsers h1:hover, #navBar #manageGroups h1:hover, #navBar #manageCategories h1:hover {
   cursor: pointer;
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 24, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1 img, #navBar #messaging h1 img, #navBar #group h1 img, #navBar #link h1 img, #navBar #manageUsers h1 img, #navBar #manageGroups h1 img, #navBar #manageCategories h1 img {
   float: right;
   margin: 10px 20px 10px 0px;
   padding: 0;
   border: none;
 }
-/* line 32, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 32, ../sass/page/_navbar.scss */
 #navBar #messaging, #navBar #group, #navBar #link, #navBar #manageGroups, #navBar #manageCategories {
   margin-top: 10px;
 }
-/* line 35, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 35, ../sass/page/_navbar.scss */
 #navBar #messaging, #navBar #group, #navBar #link, #navBar #manageUsers, #navBar #manageGroups, #navBar #manageCategories {
   border-radius: 10px;
 }
-/* line 37, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 37, ../sass/page/_navbar.scss */
 #navBar #messaging h1, #navBar #group h1, #navBar #link h1, #navBar #manageUsers h1, #navBar #manageGroups h1, #navBar #manageCategories h1 {
   padding-left: 40px;
 }
-/* line 40, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 40, ../sass/page/_navbar.scss */
 #navBar #messaging ul, #navBar #group ul, #navBar #link ul, #navBar #manageUsers ul, #navBar #manageGroups ul, #navBar #manageCategories ul {
   padding: 10px;
 }
-/* line 43, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 43, ../sass/page/_navbar.scss */
 #navBar #messaging li, #navBar #group li, #navBar #link li, #navBar #manageUsers li, #navBar #manageGroups li, #navBar #manageCategories li {
   text-align: left;
   width: 230px;
 }
-/* line 46, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 46, ../sass/page/_navbar.scss */
 #navBar #messaging li a, #navBar #group li a, #navBar #link li a, #navBar #manageUsers li a, #navBar #manageGroups li a, #navBar #manageCategories li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -373,12 +373,12 @@ img[class="largePicture"] {
   border-radius: 5px;
   padding: 5px 10px;
 }
-/* line 51, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 51, ../sass/page/_navbar.scss */
 #navBar #messaging li a:hover, #navBar #group li a:hover, #navBar #link li a:hover, #navBar #manageUsers li a:hover, #navBar #manageGroups li a:hover, #navBar #manageCategories li a:hover {
   background-color: #abc8e2;
   color: black;
 }
-/* line 57, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 57, ../sass/page/_navbar.scss */
 #navBar #messaging > #contentGroup p:first-child, #navBar #group > #contentGroup p:first-child, #navBar #link > #contentGroup p:first-child, #navBar #manageUsers > #contentGroup p:first-child, #navBar #manageGroups > #contentGroup p:first-child, #navBar #manageCategories > #contentGroup p:first-child {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -386,11 +386,11 @@ img[class="largePicture"] {
   text-align: left;
   padding: 10px 20px;
 }
-/* line 61, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 61, ../sass/page/_navbar.scss */
 #navBar #messaging > #contentGroup p:first-child a:hover, #navBar #group > #contentGroup p:first-child a:hover, #navBar #link > #contentGroup p:first-child a:hover, #navBar #manageUsers > #contentGroup p:first-child a:hover, #navBar #manageGroups > #contentGroup p:first-child a:hover, #navBar #manageCategories > #contentGroup p:first-child a:hover {
   color: #4a6b8a;
 }
-/* line 65, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 65, ../sass/page/_navbar.scss */
 #navBar #messaging p, #navBar #group p, #navBar #link p, #navBar #manageUsers p, #navBar #manageGroups p, #navBar #manageCategories p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -398,31 +398,31 @@ img[class="largePicture"] {
   text-align: right;
   padding: 0px 20px 10px 20px;
 }
-/* line 69, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 69, ../sass/page/_navbar.scss */
 #navBar #messaging p a:hover, #navBar #group p a:hover, #navBar #link p a:hover, #navBar #manageUsers p a:hover, #navBar #manageGroups p a:hover, #navBar #manageCategories p a:hover {
   color: #4a6b8a;
 }
-/* line 75, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 75, ../sass/page/_navbar.scss */
 #navBar #link p {
   text-align: center;
 }
-/* line 80, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 80, ../sass/page/_navbar.scss */
 #navBar #lightInformation h1 {
   padding-left: 40px;
 }
-/* line 83, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 83, ../sass/page/_navbar.scss */
 #navBar #lightInformation img {
   margin: 20px 20px 10px 20px;
   border-radius: 10px;
   border: 1px solid #4a6b8a;
 }
-/* line 88, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 88, ../sass/page/_navbar.scss */
 #navBar #lightInformation ul {
   width: 210px;
   margin: 0px;
   padding: 10px 20px 10px 20px;
 }
-/* line 93, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 93, ../sass/page/_navbar.scss */
 #navBar #lightInformation li {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -430,15 +430,15 @@ img[class="largePicture"] {
   text-align: left;
   padding: 5px 0px;
 }
-/* line 97, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 97, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:first-child {
   padding: 0px 0px 5px 0px;
 }
-/* line 100, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 100, ../sass/page/_navbar.scss */
 #navBar #lightInformation li:last-child {
   padding: 5px 0px 0px 0px;
 }
-/* line 104, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 104, ../sass/page/_navbar.scss */
 #navBar #lightInformation p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -446,7 +446,7 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 108, C:/wamp/www/e-etudPartage/sass/page/_navbar.scss */
+/* line 108, ../sass/page/_navbar.scss */
 #navBar #lightInformation p a:hover {
   color: #4a6b8a;
 }
@@ -456,7 +456,7 @@ img[class="largePicture"] {
 /*                         Page                       */
 /*                                                    */
 /******************************************************/
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 7, ../sass/page/_page.scss */
 .page {
   width: 1200px;
   margin: auto;
@@ -470,11 +470,11 @@ img[class="largePicture"] {
   /*                                                    */
   /******************************************************/
 }
-/* line 10, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 10, ../sass/page/_page.scss */
 .page a:hover {
   color: #4a6b8a;
 }
-/* line 13, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 13, ../sass/page/_page.scss */
 .page > h1 {
   width: 626px;
   margin: auto;
@@ -487,7 +487,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px solid #4a6b8a;
 }
-/* line 18, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 18, ../sass/page/_page.scss */
 .page > h1[class="large"] {
   width: 756px;
   margin: auto;
@@ -499,7 +499,7 @@ img[class="largePicture"] {
   font-size: 20px;
   padding-bottom: 5px;
 }
-/* line 22, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 22, ../sass/page/_page.scss */
 .page > h2 {
   width: 586px;
   margin: auto;
@@ -512,7 +512,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px dashed #4a6b8a;
 }
-/* line 27, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 27, ../sass/page/_page.scss */
 .page > h2[class="large"] {
   width: 716px;
   margin: auto;
@@ -524,7 +524,7 @@ img[class="largePicture"] {
   font-size: 20px;
   padding-bottom: 5px;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 7, ../sass/page/_information.scss */
 .page .information, .page .form {
   width: 628px;
   margin: auto;
@@ -539,65 +539,65 @@ img[class="largePicture"] {
   margin-bottom: 10px;
   min-height: 20px;
 }
-/* line 16, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 16, ../sass/page/_information.scss */
 .page .information:first-child, .page .form:first-child {
   margin-top: 10px;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 20, ../sass/page/_information.scss */
 .page .information tr:first-child td, .page .form tr:first-child td {
   padding: 0px 10px 5px 10px;
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 24, ../sass/page/_information.scss */
 .page .information tr, .page .form tr {
   text-align: left;
 }
-/* line 26, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 26, ../sass/page/_information.scss */
 .page .information tr td, .page .form tr td {
   padding: 5px 10px 5px 10px;
 }
-/* line 28, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 28, ../sass/page/_information.scss */
 .page .information tr td label[class="css-label-radio"]:nth-child(2), .page .form tr td label[class="css-label-radio"]:nth-child(2) {
   padding-right: 10px;
 }
-/* line 31, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 31, ../sass/page/_information.scss */
 .page .information tr td label[class="css-label-checkbox"]:nth-child(2), .page .information tr td label[class="css-label-checkbox"]:nth-child(4), .page .form tr td label[class="css-label-checkbox"]:nth-child(2), .page .form tr td label[class="css-label-checkbox"]:nth-child(4) {
   padding-right: 9px;
 }
-/* line 34, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 34, ../sass/page/_information.scss */
 .page .information tr td input[class="error"], .page .form tr td input[class="error"] {
   background-color: #ffcece;
   border-color: #9a1b16;
 }
-/* line 38, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 38, ../sass/page/_information.scss */
 .page .information tr td span[class="error"], .page .form tr td span[class="error"] {
   color: #9a1b16;
 }
-/* line 41, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 41, ../sass/page/_information.scss */
 .page .information tr td a, .page .form tr td a {
   display: inline;
 }
-/* line 47, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 47, ../sass/page/_information.scss */
 .page .information tr:last-child td, .page .form tr:last-child td {
   padding: 5px 10px 0px 10px;
 }
-/* line 51, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 51, ../sass/page/_information.scss */
 .page .information td:first-child, .page .form td:first-child {
   width: 210px;
   vertical-align: middle;
 }
-/* line 55, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 55, ../sass/page/_information.scss */
 .page .information td:first-child[class="smallMarge"], .page .form td:first-child[class="smallMarge"] {
   width: 50px;
   vertical-align: middle;
 }
-/* line 59, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 59, ../sass/page/_information.scss */
 .page .information td:last-child, .page .form td:last-child {
   width: 420px;
   min-width: 420px;
   max-width: 420px;
   vertical-align: top;
 }
-/* line 65, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 65, ../sass/page/_information.scss */
 .page .information input, .page .information textarea, .page .form input, .page .form textarea {
   width: 97%;
   padding: 8px 5px;
@@ -605,26 +605,26 @@ img[class="largePicture"] {
   border: 1px solid #abc8e2;
   border-radius: 5px;
 }
-/* line 71, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 71, ../sass/page/_information.scss */
 .page .information input:focus, .page .information textarea:focus, .page .form input:focus, .page .form textarea:focus {
   background-color: #ffedb9;
   border-color: #d9c27e;
 }
-/* line 76, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 76, ../sass/page/_information.scss */
 .page .information textarea, .page .form textarea {
   resize: none;
   rows: 1;
 }
-/* line 80, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 80, ../sass/page/_information.scss */
 .page .information p, .page .form p {
   padding: 0px 10px;
   text-align: left;
 }
-/* line 84, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 84, ../sass/page/_information.scss */
 .page .information p[class="contentMessage"], .page .form p[class="contentMessage"] {
   margin: 20px 0px;
 }
-/* line 87, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 87, ../sass/page/_information.scss */
 .page .information .submit, .page .form .submit {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
@@ -632,66 +632,66 @@ img[class="largePicture"] {
   border-radius: 5px;
   width: auto;
 }
-/* line 89, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 89, ../sass/page/_information.scss */
 .page .information .submit:hover, .page .form .submit:hover {
   background-color: #c4d7ed;
   border: 1px solid #4a6b8a;
   cursor: pointer;
 }
-/* line 92, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 92, ../sass/page/_information.scss */
 .page .information .headerInformation, .page .form .headerInformation {
   text-align: left;
 }
-/* line 94, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 94, ../sass/page/_information.scss */
 .page .information .headerInformation #avatar, .page .information .headerInformation .author, .page .information .headerInformation .optionInformation, .page .form .headerInformation #avatar, .page .form .headerInformation .author, .page .form .headerInformation .optionInformation {
   display: inline;
 }
-/* line 97, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 97, ../sass/page/_information.scss */
 .page .information .headerInformation #avatar, .page .form .headerInformation #avatar {
   margin-left: 10px;
   border-radius: 5px;
 }
-/* line 101, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 101, ../sass/page/_information.scss */
 .page .information .headerInformation .optionInformation, .page .form .headerInformation .optionInformation {
   float: right;
   margin-right: 10px;
   margin-top: 5px;
 }
-/* line 105, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 105, ../sass/page/_information.scss */
 .page .information .headerInformation .optionInformation:hover, .page .form .headerInformation .optionInformation:hover {
   cursor: pointer;
 }
-/* line 112, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
+/* line 112, ../sass/page/_information.scss */
 .page .information .contentInformation .margin, .page .form .contentInformation .margin {
   padding-top: 10px;
 }
-/* line 118, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
-.page .messagingOptions {
+/* line 118, ../sass/page/_information.scss */
+.page .toolbar {
   width: 940px;
   margin: auto;
   padding: 0;
   left: 0;
   right: 0;
 }
-/* line 120, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
-.page .messagingOptions .submit {
+/* line 120, ../sass/page/_information.scss */
+.page .toolbar .submit {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
   padding: 5px 20px;
   border-radius: 5px;
   width: auto;
 }
-/* line 122, C:/wamp/www/e-etudPartage/sass/page/_information.scss */
-.page .messagingOptions .submit:hover {
+/* line 122, ../sass/page/_information.scss */
+.page .toolbar .submit:hover {
   background-color: #c4d7ed;
   border: 1px solid #4a6b8a;
   cursor: pointer;
 }
-/* line 1, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 1, ../sass/page/_blocs.scss */
 .page .blocs {
   margin: auto;
 }
-/* line 3, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 3, ../sass/page/_blocs.scss */
 .page .blocs .bloc {
   display: inline-block;
   vertical-align: top;
@@ -702,33 +702,33 @@ img[class="largePicture"] {
   border: 1px solid #abc8e2;
   overflow: hidden;
 }
-/* line 12, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 12, ../sass/page/_blocs.scss */
 .page .blocs .bloc h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
-/* line 17, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 17, ../sass/page/_blocs.scss */
 .page .blocs .bloc h1:hover {
   cursor: pointer;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 20, ../sass/page/_blocs.scss */
 .page .blocs .bloc h1 img {
   padding: 0px;
   margin: 0px 0px 4px 5px;
   border: none;
 }
-/* line 26, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 26, ../sass/page/_blocs.scss */
 .page .blocs .bloc ul {
   padding: 10px;
 }
-/* line 29, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 29, ../sass/page/_blocs.scss */
 .page .blocs .bloc li {
   text-align: left;
   width: 230px;
 }
-/* line 32, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 32, ../sass/page/_blocs.scss */
 .page .blocs .bloc li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -737,12 +737,12 @@ img[class="largePicture"] {
   border-radius: 5px;
   padding: 5px 10px;
 }
-/* line 37, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 37, ../sass/page/_blocs.scss */
 .page .blocs .bloc li a:hover {
   background-color: #abc8e2;
   color: black;
 }
-/* line 43, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 43, ../sass/page/_blocs.scss */
 .page .blocs .bloc p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -750,7 +750,7 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 47, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 47, ../sass/page/_blocs.scss */
 .page .blocs .bloc p a:hover {
   color: #4a6b8a;
 }
@@ -760,7 +760,7 @@ img[class="largePicture"] {
 /*                       Content                      */
 /*                                                    */
 /******************************************************/
-/* line 41, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 41, ../sass/page/_page.scss */
 .content {
   margin-left: 260px;
   /******************************************************/
@@ -775,12 +775,7 @@ img[class="largePicture"] {
   /******************************************************/
   /******************************************************/
   /*                                                    */
-  /*                  Liste Publication                 */
-  /*                                                    */
-  /******************************************************/
-  /******************************************************/
-  /*                                                    */
-  /*                  Liste Messages                    */
+  /*                  	Lists                         */
   /*                                                    */
   /******************************************************/
   /******************************************************/
@@ -794,11 +789,11 @@ img[class="largePicture"] {
   /*                                                    */
   /******************************************************/
 }
-/* line 1, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 1, ../sass/page/_blocs.scss */
 .content .blocs {
   margin: auto;
 }
-/* line 3, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 3, ../sass/page/_blocs.scss */
 .content .blocs .bloc {
   display: inline-block;
   vertical-align: top;
@@ -809,33 +804,33 @@ img[class="largePicture"] {
   border: 1px solid #abc8e2;
   overflow: hidden;
 }
-/* line 12, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 12, ../sass/page/_blocs.scss */
 .content .blocs .bloc h1 {
   text-align: center;
   height: 40px;
   line-height: 40px;
   background-color: #abc8e2;
 }
-/* line 17, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 17, ../sass/page/_blocs.scss */
 .content .blocs .bloc h1:hover {
   cursor: pointer;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 20, ../sass/page/_blocs.scss */
 .content .blocs .bloc h1 img {
   padding: 0px;
   margin: 0px 0px 4px 5px;
   border: none;
 }
-/* line 26, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 26, ../sass/page/_blocs.scss */
 .content .blocs .bloc ul {
   padding: 10px;
 }
-/* line 29, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 29, ../sass/page/_blocs.scss */
 .content .blocs .bloc li {
   text-align: left;
   width: 230px;
 }
-/* line 32, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 32, ../sass/page/_blocs.scss */
 .content .blocs .bloc li a {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -844,12 +839,12 @@ img[class="largePicture"] {
   border-radius: 5px;
   padding: 5px 10px;
 }
-/* line 37, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 37, ../sass/page/_blocs.scss */
 .content .blocs .bloc li a:hover {
   background-color: #abc8e2;
   color: black;
 }
-/* line 43, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 43, ../sass/page/_blocs.scss */
 .content .blocs .bloc p {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -857,11 +852,11 @@ img[class="largePicture"] {
   text-align: right;
   padding: 10px 20px;
 }
-/* line 47, C:/wamp/www/e-etudPartage/sass/page/_blocs.scss */
+/* line 47, ../sass/page/_blocs.scss */
 .content .blocs .bloc p a:hover {
   color: #4a6b8a;
 }
-/* line 44, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 44, ../sass/page/_page.scss */
 .content h1 {
   width: 630px;
   margin: auto;
@@ -874,7 +869,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px solid #4a6b8a;
 }
-/* line 49, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 49, ../sass/page/_page.scss */
 .content h1[class="large"] {
   width: 920px;
   margin: auto;
@@ -886,7 +881,7 @@ img[class="largePicture"] {
   font-size: 20px;
   padding-bottom: 5px;
 }
-/* line 53, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 53, ../sass/page/_page.scss */
 .content h2 {
   width: 590px;
   margin: auto;
@@ -899,7 +894,7 @@ img[class="largePicture"] {
   padding-bottom: 5px;
   border-bottom: 1px dashed #4a6b8a;
 }
-/* line 58, C:/wamp/www/e-etudPartage/sass/page/_page.scss */
+/* line 58, ../sass/page/_page.scss */
 .content h2[class="large"] {
   width: 880px;
   margin: auto;
@@ -911,13 +906,13 @@ img[class="largePicture"] {
   font-size: 20px;
   padding-bottom: 5px;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_title.scss */
+/* line 7, ../sass/page/_title.scss */
 .content .title {
   border-radius: 10px 10px 0px 0px;
   border: 1px solid #abc8e2;
   background-color: #abc8e2;
 }
-/* line 11, C:/wamp/www/e-etudPartage/sass/page/_title.scss */
+/* line 11, ../sass/page/_title.scss */
 .content .title p {
   font-size: 40px;
   display: inline-block;
@@ -925,7 +920,7 @@ img[class="largePicture"] {
   line-height: 90px;
   margin-left: 220px;
 }
-/* line 18, C:/wamp/www/e-etudPartage/sass/page/_title.scss */
+/* line 18, ../sass/page/_title.scss */
 .content .title img {
   position: absolute;
   border: 1px solid #4a6b8a;
@@ -935,7 +930,7 @@ img[class="largePicture"] {
   margin: -18px 20px 0px 20px;
   border-radius: 10px;
 }
-/* line 18, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 18, ../sass/page/_menubar.scss */
 .content .menuBar {
   margin-bottom: 50px;
   padding-left: 200px;
@@ -947,27 +942,27 @@ img[class="largePicture"] {
   /* background des liens menus et sous menus au survol */
   /* les a href */
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 24, ../sass/page/_menubar.scss */
 .content .menuBar .menu li {
   display: inline-block;
   text-align: center;
   position: relative;
   border-radius: 8px 8px 0 0;
 }
-/* line 30, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 30, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul li {
   display: inherit;
   border-radius: 0;
 }
-/* line 34, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 34, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul li:hover {
   border-radius: 0;
 }
-/* line 37, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 37, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul li:last-child {
   border-radius: 0 0 8px 8px;
 }
-/* line 40, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 40, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul {
   position: absolute;
   max-height: 0;
@@ -978,81 +973,81 @@ img[class="largePicture"] {
   -webkit-transition: .8s all .0s;
   transition: .8s all .0s;
 }
-/* line 50, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 50, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover ul {
   max-height: 15em;
 }
-/* line 54, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 54, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:first-child {
   background-color: #5c7ca8;
   background-image: -webkit-linear-gradient(top, #5c7ca8 0%, #25497c 100%);
   background-image: linear-gradient(to bottom, #5c7ca8 0%, #25497c 100%);
 }
-/* line 59, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 59, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(2) {
   background-color: #53a492;
   background-image: -webkit-linear-gradient(top, #53a492 0%, #1c7964 100%);
   background-image: linear-gradient(to bottom, #53a492 0%, #1c7964 100%);
 }
-/* line 64, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 64, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(3) {
   background-color: #83c766;
   background-image: -webkit-linear-gradient(top, #83c766 0%, #3d851e 100%);
   background-image: linear-gradient(to bottom, #83c766 0%, #3d851e 100%);
 }
-/* line 69, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 69, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(4) {
   background-color: #e7be76;
   background-image: -webkit-linear-gradient(top, #e7be76 0%, #9b6f23 100%);
   background-image: linear-gradient(to bottom, #e7be76 0%, #9b6f23 100%);
 }
-/* line 74, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 74, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:last-child {
   background-color: #d96f82;
   background-image: -webkit-linear-gradient(top, #d96f82 0%, #922035 100%);
   background-image: linear-gradient(to bottom, #d96f82 0%, #922035 100%);
 }
-/* line 80, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 80, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:first-child li {
   background: #25497c;
 }
-/* line 83, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 83, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(2) li {
   background: #1c7964;
 }
-/* line 86, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 86, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(3) li {
   background: #3d851e;
 }
-/* line 89, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 89, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(4) li {
   background: #9b6f23;
 }
-/* line 92, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 92, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:last-child li {
   background: #922035;
 }
-/* line 96, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 96, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:first-child:hover, .content .menuBar .menu li:first-child li:hover {
   background: #5c7ca8;
 }
-/* line 99, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 99, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(2):hover, .content .menuBar .menu li:nth-child(2) li:hover {
   background: #53a492;
 }
-/* line 102, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 102, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(3):hover, .content .menuBar .menu li:nth-child(3) li:hover {
   background: #83c766;
 }
-/* line 105, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 105, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:nth-child(4):hover, .content .menuBar .menu li:nth-child(4) li:hover {
   background: #e7be76;
 }
-/* line 108, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 108, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:last-child:hover, .content .menuBar .menu li:last-child li:hover {
   background: #d96f82;
 }
-/* line 112, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 112, ../sass/page/_menubar.scss */
 .content .menuBar .menu a {
   text-decoration: none;
   display: block;
@@ -1060,21 +1055,21 @@ img[class="largePicture"] {
   color: white;
   font-family: arial;
 }
-/* line 119, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 119, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul a {
   padding: 8px 0;
 }
-/* line 122, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 122, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover li a {
   color: white;
   text-transform: inherit;
 }
-/* line 126, C:/wamp/www/e-etudPartage/sass/page/_menubar.scss */
+/* line 126, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover a, .content .menuBar .menu li li:hover a {
   color: black;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication {
+/* line 7, ../sass/page/_list.scss */
+.content .list, .content .listMessage, .content .listCategory, .content .listSubcategory, .content .listPublication {
   width: 940px;
   margin: auto;
   padding: 0;
@@ -1084,142 +1079,81 @@ img[class="largePicture"] {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 13, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table {
+/* line 13, ../sass/page/_list.scss */
+.content .list table, .content .listMessage table, .content .listCategory table, .content .listSubcategory table, .content .listPublication table {
   width: 100%;
   text-align: left;
 }
-/* line 16, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table tr:first-child {
+/* line 16, ../sass/page/_list.scss */
+.content .list table tr:first-child, .content .listMessage table tr:first-child, .content .listCategory table tr:first-child, .content .listSubcategory table tr:first-child, .content .listPublication table tr:first-child {
   background-color: #abc8e2;
 }
-/* line 18, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table tr:first-child:hover {
+/* line 18, ../sass/page/_list.scss */
+.content .list table tr:first-child:hover, .content .listMessage table tr:first-child:hover, .content .listCategory table tr:first-child:hover, .content .listSubcategory table tr:first-child:hover, .content .listPublication table tr:first-child:hover {
   background-color: #abc8e2;
 }
-/* line 22, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table tr {
+/* line 22, ../sass/page/_list.scss */
+.content .list table tr, .content .listMessage table tr, .content .listCategory table tr, .content .listSubcategory table tr, .content .listPublication table tr {
   border: 1px solid #abc8e2;
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table tr:hover {
+/* line 24, ../sass/page/_list.scss */
+.content .list table tr:hover, .content .listMessage table tr:hover, .content .listCategory table tr:hover, .content .listSubcategory table tr:hover, .content .listPublication table tr:hover {
   background-color: #ffedb9;
 }
-/* line 25, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table tr a:hover {
+/* line 25, ../sass/page/_list.scss */
+.content .list table tr a:hover, .content .listMessage table tr a:hover, .content .listCategory table tr a:hover, .content .listSubcategory table tr a:hover, .content .listPublication table tr a:hover {
   color: #9a1b16;
 }
-/* line 27, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td {
-  padding: 5px 10px;
-  border: 1px solid #abc8e2;
-}
-/* line 30, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td p {
-  display: inline-block;
-}
-/* line 34, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:first-child {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  width: 20px;
-  max-width: 20px;
-  text-align: center;
-}
-/* line 40, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:nth-child(2) {
-  width: 120px;
-  max-width: 120px;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-/* line 46, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:nth-child(3) {
-  width: 60px;
-  max-width: 60px;
-  text-align: center;
-}
-/* line 51, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:nth-child(4) {
-  width: 400px;
-  max-width: 400px;
-}
-/* line 55, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:nth-child(5) {
-  width: 30px;
-  max-width: 30px;
-  text-align: center;
-}
-/* line 60, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table td:last-child {
-  width: 20px;
-  max-width: 20px;
-  text-align: center;
-}
-/* line 65, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table .odd {
-  background-color: #eff9ff;
-}
-/* line 68, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table .peer {
-  background-color: white;
-}
-/* line 71, C:/wamp/www/e-etudPartage/sass/page/_listPublication.scss */
-.content .listPublication table img {
-  border-radius: 5px;
-}
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage {
-  width: 940px;
-  margin: auto;
-  padding: 0;
-  left: 0;
-  right: 0;
-  background-color: #eff9ff;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-/* line 13, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table {
-  width: 100%;
-  text-align: left;
-}
-/* line 16, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table tr:first-child {
-  background-color: #abc8e2;
-}
-/* line 18, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table tr:first-child:hover {
-  background-color: #abc8e2;
-}
-/* line 22, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table tr {
-  border: 1px solid #abc8e2;
-}
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table tr:hover {
-  background-color: #ffedb9;
-}
-/* line 25, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table tr a:hover {
-  color: #9a1b16;
-}
-/* line 27, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table td {
+/* line 27, ../sass/page/_list.scss */
+.content .list table td, .content .listMessage table td, .content .listCategory table td, .content .listSubcategory table td, .content .listPublication table td {
   height: 30px;
   line-height: 30px;
+  vertical-align: middle;
   padding: 5px 10px;
   border: 1px solid #abc8e2;
 }
-/* line 32, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table td p {
+/* line 33, ../sass/page/_list.scss */
+.content .list table td p, .content .listMessage table td p, .content .listCategory table td p, .content .listSubcategory table td p, .content .listPublication table td p {
   display: inline-block;
 }
-/* line 36, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table td:first-child {
+/* line 36, ../sass/page/_list.scss */
+.content .list table td button, .content .listMessage table td button, .content .listCategory table td button, .content .listSubcategory table td button, .content .listPublication table td button {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  background: transparent;
+}
+/* line 41, ../sass/page/_list.scss */
+.content .list table td button:hover, .content .listMessage table td button:hover, .content .listCategory table td button:hover, .content .listSubcategory table td button:hover, .content .listPublication table td button:hover {
+  cursor: pointer;
+}
+/* line 44, ../sass/page/_list.scss */
+.content .list table td button img, .content .listMessage table td button img, .content .listCategory table td button img, .content .listSubcategory table td button img, .content .listPublication table td button img {
+  width: 20px;
+  height: 20px;
+}
+/* line 50, ../sass/page/_list.scss */
+.content .list table .odd, .content .listMessage table .odd, .content .listCategory table .odd, .content .listSubcategory table .odd, .content .listPublication table .odd {
+  background-color: #eff9ff;
+}
+/* line 53, ../sass/page/_list.scss */
+.content .list table .peer, .content .listMessage table .peer, .content .listCategory table .peer, .content .listSubcategory table .peer, .content .listPublication table .peer {
+  background-color: white;
+}
+/* line 56, ../sass/page/_list.scss */
+.content .list table .read, .content .listMessage table .read, .content .listCategory table .read, .content .listSubcategory table .read, .content .listPublication table .read {
+  background-color: white;
+}
+/* line 59, ../sass/page/_list.scss */
+.content .list table .notRead, .content .listMessage table .notRead, .content .listCategory table .notRead, .content .listSubcategory table .notRead, .content .listPublication table .notRead {
+  background-color: #eff9ff;
+}
+/* line 62, ../sass/page/_list.scss */
+.content .list table img, .content .listMessage table img, .content .listCategory table img, .content .listSubcategory table img, .content .listPublication table img {
+  border-radius: 5px;
+}
+/* line 3, ../sass/page/_listMessage.scss */
+.content .listMessage td:first-child {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -1227,8 +1161,8 @@ img[class="largePicture"] {
   max-width: 30px;
   text-align: left;
 }
-/* line 42, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table td:nth-child(2) {
+/* line 9, ../sass/page/_listMessage.scss */
+.content .listMessage td:nth-child(2) {
   width: 660px;
   max-width: 660px;
   overflow: hidden;
@@ -1236,25 +1170,114 @@ img[class="largePicture"] {
   text-overflow: ellipsis;
   text-align: left;
 }
-/* line 48, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table td:last-child {
+/* line 15, ../sass/page/_listMessage.scss */
+.content .listMessage td:last-child {
   width: 190px;
   max-width: 190px;
   text-align: center;
 }
-/* line 53, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table .read {
-  background-color: white;
+/* line 3, ../sass/page/_listCategory.scss */
+.content .listCategory td:first-child {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 200px;
+  text-align: left;
 }
-/* line 56, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table .notRead {
-  background-color: #eff9ff;
+/* line 9, ../sass/page/_listCategory.scss */
+.content .listCategory td:nth-child(2) {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 200px;
+  text-align: left;
 }
-/* line 59, C:/wamp/www/e-etudPartage/sass/page/_listMessage.scss */
-.content .listMessage table img {
-  border-radius: 5px;
+/* line 15, ../sass/page/_listCategory.scss */
+.content .listCategory td:nth-child(3) {
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 20, ../sass/page/_listCategory.scss */
+.content .listCategory td:nth-child(4) {
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
+}
+/* line 25, ../sass/page/_listCategory.scss */
+.content .listCategory td:last-child {
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
+}
+/* line 3, ../sass/page/_listSubcategory.scss */
+.content .listSubcategory td:first-child {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 200px;
+  text-align: left;
+}
+/* line 9, ../sass/page/_listSubcategory.scss */
+.content .listSubcategory td:nth-child(2) {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 200px;
+  text-align: left;
+}
+/* line 15, ../sass/page/_listSubcategory.scss */
+.content .listSubcategory td:last-child {
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
+}
+/* line 3, ../sass/page/_listPublication.scss */
+.content .listPublication td:first-child {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
+}
+/* line 9, ../sass/page/_listPublication.scss */
+.content .listPublication td:nth-child(2) {
+  width: 120px;
+  max-width: 120px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+/* line 15, ../sass/page/_listPublication.scss */
+.content .listPublication td:nth-child(3) {
+  width: 60px;
+  max-width: 60px;
+  text-align: center;
+}
+/* line 20, ../sass/page/_listPublication.scss */
+.content .listPublication td:nth-child(4) {
+  width: 400px;
+  max-width: 400px;
+}
+/* line 24, ../sass/page/_listPublication.scss */
+.content .listPublication td:nth-child(5) {
+  width: 30px;
+  max-width: 30px;
+  text-align: center;
+}
+/* line 29, ../sass/page/_listPublication.scss */
+.content .listPublication td:last-child {
+  width: 20px;
+  max-width: 20px;
+  text-align: center;
+}
+/* line 7, ../sass/page/_post.scss */
 .content .post, .content .postPublication, .content .postComment {
   width: 648px;
   margin: auto;
@@ -1264,56 +1287,56 @@ img[class="largePicture"] {
   background-color: white;
   border: 1px solid #abc8e2;
 }
-/* line 11, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 11, ../sass/page/_post.scss */
 .content .post .contentPost, .content .postPublication .contentPost, .content .postComment .contentPost {
   padding: 10px 10px 0px 10px;
 }
-/* line 13, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 13, ../sass/page/_post.scss */
 .content .post .contentPost .titlePost, .content .postPublication .contentPost .titlePost, .content .postComment .contentPost .titlePost {
   border-bottom: 1px solid #c4d7ed;
 }
-/* line 15, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 15, ../sass/page/_post.scss */
 .content .post .contentPost .titlePost.error, .content .postPublication .contentPost .titlePost.error, .content .postComment .contentPost .titlePost.error {
   background-color: #ffcece;
   border-color: #9a1b16;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 20, ../sass/page/_post.scss */
 .content .post .contentPost span[class="error"], .content .postPublication .contentPost span[class="error"], .content .postComment .contentPost span[class="error"] {
   color: #9a1b16;
   display: inline-block;
   margin-bottom: 5px;
 }
-/* line 25, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 25, ../sass/page/_post.scss */
 .content .post .contentPost input, .content .postPublication .contentPost input, .content .postComment .contentPost input, .content .post .contentPost textarea, .content .postPublication .contentPost textarea, .content .postComment .contentPost textarea {
   width: 98%;
   padding: 5px 5px;
   border: none;
   overflow-y: visible;
 }
-/* line 31, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 31, ../sass/page/_post.scss */
 .content .post .contentPost .messagePost, .content .postPublication .contentPost .messagePost, .content .postComment .contentPost .messagePost {
   margin: 0px;
   resize: none;
 }
-/* line 34, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 34, ../sass/page/_post.scss */
 .content .post .contentPost .messagePost.error, .content .postPublication .contentPost .messagePost.error, .content .postComment .contentPost .messagePost.error {
   background-color: #ffcece;
   border-color: #9a1b16;
 }
-/* line 40, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 40, ../sass/page/_post.scss */
 .content .post .footerPost, .content .postPublication .footerPost, .content .postComment .footerPost {
   background-color: #eff9ff;
   height: 40px;
   border-top: 1px solid #c4d7ed;
 }
-/* line 44, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 44, ../sass/page/_post.scss */
 .content .post .footerPost .fileUploadPost, .content .postPublication .footerPost .fileUploadPost, .content .postComment .footerPost .fileUploadPost {
   height: 30px;
   width: 500px;
   margin-top: 5px;
   margin-left: 15px;
 }
-/* line 50, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 50, ../sass/page/_post.scss */
 .content .post .footerPost .submitPost, .content .postPublication .footerPost .submitPost, .content .postComment .footerPost .submitPost {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
@@ -1323,24 +1346,24 @@ img[class="largePicture"] {
   margin-top: 5px;
   margin-right: 15px;
 }
-/* line 52, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 52, ../sass/page/_post.scss */
 .content .post .footerPost .submitPost:hover, .content .postPublication .footerPost .submitPost:hover, .content .postComment .footerPost .submitPost:hover {
   background-color: #c4d7ed;
   border: 1px solid #4a6b8a;
   cursor: pointer;
 }
-/* line 60, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 60, ../sass/page/_post.scss */
 .content .postPublication {
   margin-top: 20px;
 }
-/* line 65, C:/wamp/www/e-etudPartage/sass/page/_post.scss */
+/* line 65, ../sass/page/_post.scss */
 .content .postComment {
   border-top: 1px solid #e1e6fa;
   border-right: 1px solid #abc8e2;
   border-bottom: 1px solid #abc8e2;
   border-left: 1px solid #abc8e2;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 7, ../sass/page/_publication.scss */
 .content .publication {
   width: 650px;
   margin: auto;
@@ -1349,16 +1372,16 @@ img[class="largePicture"] {
   right: 0;
   margin-top: 20px;
 }
-/* line 10, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 10, ../sass/page/_publication.scss */
 .content .publication:last-child {
   margin-bottom: 20px;
 }
-/* line 13, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 13, ../sass/page/_publication.scss */
 .content .publication .message {
   background-color: white;
   border: 1px solid #abc8e2;
 }
-/* line 17, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 17, ../sass/page/_publication.scss */
 .content .publication .comment {
   background-color: #eff9ff;
   border-top: 1px solid #e1e6fa;
@@ -1366,65 +1389,65 @@ img[class="largePicture"] {
   border-bottom: 1px solid #abc8e2;
   border-left: 1px solid #abc8e2;
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 24, ../sass/page/_publication.scss */
 .content .publication .message, .content .publication .comment {
   padding: 10px 20px;
   overflow: auto;
 }
-/* line 28, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 28, ../sass/page/_publication.scss */
 .content .publication .message .headerMessage .authorPicture, .content .publication .message .headerMessage .author, .content .publication .message .headerMessage .datePublication, .content .publication .message .headerComment .authorPicture, .content .publication .message .headerComment .author, .content .publication .message .headerComment .datePublication, .content .publication .comment .headerMessage .authorPicture, .content .publication .comment .headerMessage .author, .content .publication .comment .headerMessage .datePublication, .content .publication .comment .headerComment .authorPicture, .content .publication .comment .headerComment .author, .content .publication .comment .headerComment .datePublication {
   float: left;
 }
-/* line 31, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 31, ../sass/page/_publication.scss */
 .content .publication .message .headerMessage .authorPicture img, .content .publication .message .headerComment .authorPicture img, .content .publication .comment .headerMessage .authorPicture img, .content .publication .comment .headerComment .authorPicture img {
   border-radius: 5px;
 }
-/* line 34, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 34, ../sass/page/_publication.scss */
 .content .publication .message .headerMessage .author, .content .publication .message .headerMessage .datePublication, .content .publication .message .headerComment .author, .content .publication .message .headerComment .datePublication, .content .publication .comment .headerMessage .author, .content .publication .comment .headerMessage .datePublication, .content .publication .comment .headerComment .author, .content .publication .comment .headerComment .datePublication {
   height: 30px;
   line-height: 30px;
 }
-/* line 38, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 38, ../sass/page/_publication.scss */
 .content .publication .message .headerMessage .author, .content .publication .message .headerMessage .datePublication, .content .publication .message .headerComment .author, .content .publication .message .headerComment .datePublication, .content .publication .comment .headerMessage .author, .content .publication .comment .headerMessage .datePublication, .content .publication .comment .headerComment .author, .content .publication .comment .headerComment .datePublication {
   padding-left: 10px;
 }
-/* line 41, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 41, ../sass/page/_publication.scss */
 .content .publication .message .headerMessage .optionsPublication, .content .publication .message .headerComment .optionsPublication, .content .publication .comment .headerMessage .optionsPublication, .content .publication .comment .headerComment .optionsPublication {
   float: right;
 }
-/* line 45, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 45, ../sass/page/_publication.scss */
 .content .publication .message .contentMessage, .content .publication .message .contentComment, .content .publication .comment .contentMessage, .content .publication .comment .contentComment {
   clear: both;
   padding: 10px 0px;
 }
-/* line 48, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 48, ../sass/page/_publication.scss */
 .content .publication .message .contentMessage p:nth-child(2), .content .publication .message .contentMessage p:nth-child(3), .content .publication .message .contentComment p:nth-child(2), .content .publication .message .contentComment p:nth-child(3), .content .publication .comment .contentMessage p:nth-child(2), .content .publication .comment .contentMessage p:nth-child(3), .content .publication .comment .contentComment p:nth-child(2), .content .publication .comment .contentComment p:nth-child(3) {
   padding-top: 10px;
 }
-/* line 53, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 53, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage p:hover, .content .publication .comment .footerMessage p:hover {
   color: #4a6b8a;
 }
-/* line 56, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 56, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion, .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .goodOpinion, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   float: left;
 }
-/* line 59, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 59, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   height: 20px;
   line-height: 20px;
 }
-/* line 63, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 63, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   padding-left: 10px;
 }
-/* line 66, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 66, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .message .footerMessage .sharePublication, .content .publication .comment .footerMessage .commentPublication, .content .publication .comment .footerMessage .sharePublication {
   float: right;
   height: 20px;
   line-height: 20px;
 }
-/* line 71, C:/wamp/www/e-etudPartage/sass/page/_publication.scss */
+/* line 71, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .comment .footerMessage .commentPublication {
   padding-right: 10px;
 }
@@ -1434,12 +1457,12 @@ img[class="largePicture"] {
 /*                       Ribbon1                      */
 /*                                                    */
 /******************************************************/
-/* line 7, C:/wamp/www/e-etudPartage/sass/_ribbon.scss */
+/* line 7, ../sass/_ribbon.scss */
 .mainRibbon {
   height: 350px;
   padding-top: 200px;
 }
-/* line 10, C:/wamp/www/e-etudPartage/sass/_ribbon.scss */
+/* line 10, ../sass/_ribbon.scss */
 .mainRibbon .contentMainRibbon {
   width: 650px;
   margin: auto;
@@ -1453,12 +1476,12 @@ img[class="largePicture"] {
   color: black;
   padding: 30px 0px;
 }
-/* line 18, C:/wamp/www/e-etudPartage/sass/_ribbon.scss */
+/* line 18, ../sass/_ribbon.scss */
 .mainRibbon .contentMainRibbon h1 {
   font-size: 40px;
   margin-bottom: 30px;
 }
-/* line 22, C:/wamp/www/e-etudPartage/sass/_ribbon.scss */
+/* line 22, ../sass/_ribbon.scss */
 .mainRibbon .contentMainRibbon a {
   background-color: #4a6b8a;
   border: 1px solid white;
@@ -1473,7 +1496,7 @@ img[class="largePicture"] {
     height: 600px;
     background-color: grey;
 }*/
-/* line 8, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 8, ../sass/_popup.scss */
 #popup {
   width: 500px;
   margin: auto;
@@ -1485,28 +1508,28 @@ img[class="largePicture"] {
   padding: 10px 10px;
   border-radius: 10px;
 }
-/* line 14, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 14, ../sass/_popup.scss */
 #popup #messagePopup {
   padding-left: 10px;
   height: 20px;
 }
-/* line 17, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 17, ../sass/_popup.scss */
 #popup #messagePopup #optionsPopup {
   float: right;
   margin: 5px 0px;
 }
-/* line 20, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 20, ../sass/_popup.scss */
 #popup #messagePopup #optionsPopup:hover {
   cursor: pointer;
 }
-/* line 23, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 23, ../sass/_popup.scss */
 #popup[class="error"] {
   border: 2px solid #9a1b16;
   background-color: #ffa7a7;
   color: #9a1b16;
   border-radius: 10px;
 }
-/* line 26, C:/wamp/www/e-etudPartage/sass/_popup.scss */
+/* line 26, ../sass/_popup.scss */
 #popup[class="success"] {
   border: 2px solid #00722d;
   background-color: #bedb89;
@@ -1514,7 +1537,7 @@ img[class="largePicture"] {
   border-radius: 10px;
 }
 
-/* line 1, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 1, ../sass/_checkbox.scss */
 input[type=radio].css-radio {
   position: absolute;
   z-index: -1000;
@@ -1528,7 +1551,7 @@ input[type=radio].css-radio {
   border: 0;
 }
 
-/* line 12, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 12, ../sass/_checkbox.scss */
 input[type=radio].css-radio + label.css-label-radio {
   padding-left: 20px;
   height: 15px;
@@ -1541,12 +1564,12 @@ input[type=radio].css-radio + label.css-label-radio {
   cursor: pointer;
 }
 
-/* line 23, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 23, ../sass/_checkbox.scss */
 input[type=radio].css-radio:checked + label.css-label-radio {
   background-position: 0 -15px;
 }
 
-/* line 26, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 26, ../sass/_checkbox.scss */
 label.css-label-radio {
   background-image: url("../Images/checkbox.png");
   -webkit-touch-callout: none;
@@ -1558,7 +1581,7 @@ label.css-label-radio {
 }
 
 /*****************************************/
-/* line 38, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 38, ../sass/_checkbox.scss */
 input[type=checkbox].css-checkbox {
   position: absolute;
   z-index: -1000;
@@ -1572,7 +1595,7 @@ input[type=checkbox].css-checkbox {
   border: 0;
 }
 
-/* line 41, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 41, ../sass/_checkbox.scss */
 input[type=checkbox].css-checkbox + label.css-label-checkbox {
   padding-left: 21px;
   height: 16px;
@@ -1585,12 +1608,12 @@ input[type=checkbox].css-checkbox + label.css-label-checkbox {
   cursor: pointer;
 }
 
-/* line 52, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 52, ../sass/_checkbox.scss */
 input[type=checkbox].css-checkbox:checked + label.css-label-checkbox {
   background-position: 0 -16px;
 }
 
-/* line 55, C:/wamp/www/e-etudPartage/sass/_checkbox.scss */
+/* line 55, ../sass/_checkbox.scss */
 label.css-label-checkbox {
   background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e1ed503050e15ccc5d00ce6dbccefb99.png);
   -webkit-touch-callout: none;
@@ -1608,7 +1631,7 @@ label.css-label-checkbox {
   position: relative;
   vertical-align: middle;
 }
-/* line 1, C:/wamp/www/e-etudPartage/sass/select2/_multiple.scss */
+/* line 1, ../sass/select2/_multiple.scss */
 .select2-container .select2-selection--multiple {
   box-sizing: border-box;
   cursor: pointer;
@@ -1617,7 +1640,7 @@ label.css-label-checkbox {
   user-select: none;
   -webkit-user-select: none;
 }
-/* line 12, C:/wamp/www/e-etudPartage/sass/select2/_multiple.scss */
+/* line 12, ../sass/select2/_multiple.scss */
 .select2-container .select2-selection--multiple .select2-selection__rendered {
   display: inline-block;
   overflow: hidden;
@@ -1625,23 +1648,23 @@ label.css-label-checkbox {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-/* line 21, C:/wamp/www/e-etudPartage/sass/select2/_multiple.scss */
+/* line 21, ../sass/select2/_multiple.scss */
 .select2-container .select2-search--inline {
   float: left;
 }
-/* line 24, C:/wamp/www/e-etudPartage/sass/select2/_multiple.scss */
+/* line 24, ../sass/select2/_multiple.scss */
 .select2-container .select2-search--inline .select2-search__field {
   box-sizing: border-box;
   border: none;
   font-size: 100%;
   margin-top: 5px;
 }
-/* line 30, C:/wamp/www/e-etudPartage/sass/select2/_multiple.scss */
+/* line 30, ../sass/select2/_multiple.scss */
 .select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-/* line 1, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 1, ../sass/select2/_dropdown.scss */
 .select2-dropdown {
   background-color: white;
   border: 1px solid #d9c27e;
@@ -1654,77 +1677,77 @@ label.css-label-checkbox {
   z-index: 800;
 }
 
-/* line 15, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 15, ../sass/select2/_dropdown.scss */
 .select2-results {
   display: block;
   width: 418px;
 }
 
-/* line 20, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 20, ../sass/select2/_dropdown.scss */
 .select2-results__options {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 26, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 26, ../sass/select2/_dropdown.scss */
 .select2-results__option {
   padding: 6px;
   user-select: none;
   -webkit-user-select: none;
 }
-/* line 32, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 32, ../sass/select2/_dropdown.scss */
 .select2-results__option[aria-selected] {
   cursor: pointer;
 }
 
-/* line 37, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 37, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown {
   left: 0;
 }
 
-/* line 41, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 41, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown--above {
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-/* line 47, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 47, ../sass/select2/_dropdown.scss */
 .select2-container--open .select2-dropdown--below {
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-/* line 53, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 53, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown {
   display: block;
   padding: 4px;
 }
-/* line 57, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 57, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown .select2-search__field {
   padding: 4px;
   width: 100%;
   box-sizing: border-box;
 }
-/* line 62, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 62, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown .select2-search__field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-/* line 67, C:/wamp/www/e-etudPartage/sass/select2/_dropdown.scss */
+/* line 67, ../sass/select2/_dropdown.scss */
 .select2-search--dropdown.select2-search--hide {
   display: none;
 }
 
-/* line 1, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 1, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple {
   background-color: #eff9ff;
   border: 1px solid #abc8e2;
   border-radius: 5px;
   cursor: text;
 }
-/* line 7, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 7, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   box-sizing: border-box;
   list-style: none;
@@ -1732,13 +1755,13 @@ label.css-label-checkbox {
   padding: 0 5px;
   width: 100%;
 }
-/* line 15, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 15, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__placeholder {
   color: #999;
   margin-top: 5px;
   float: left;
 }
-/* line 23, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 23, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__clear {
   cursor: pointer;
   float: right;
@@ -1746,7 +1769,7 @@ label.css-label-checkbox {
   margin-top: 5px;
   margin-right: 10px;
 }
-/* line 31, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 31, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
   background-color: #abc8e2;
   border: 1px solid #4a6b8a;
@@ -1757,7 +1780,7 @@ label.css-label-checkbox {
   margin-top: 5px;
   padding: 0 5px;
 }
-/* line 44, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 44, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
   color: #4a6b8a;
   cursor: pointer;
@@ -1765,54 +1788,54 @@ label.css-label-checkbox {
   font-weight: bold;
   margin-right: 2px;
 }
-/* line 53, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 53, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
   color: #172635;
 }
-/* line 61, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 61, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice, .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__placeholder {
   float: right;
 }
-/* line 65, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 65, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice {
   margin-left: 5px;
   margin-right: auto;
 }
-/* line 70, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 70, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove {
   margin-left: 2px;
   margin-right: auto;
 }
-/* line 78, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 78, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default.select2-container--focus .select2-selection--multiple {
   border: solid #d9c27e 1px;
   background-color: #ffedb9;
   outline: 0;
 }
-/* line 86, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 86, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default.select2-container--disabled .select2-selection--multiple {
   background-color: #eee;
   cursor: default;
 }
-/* line 91, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_multiple.scss */
+/* line 91, ../sass/select2/theme/default/_multiple.scss */
 .select2-container--default.select2-container--disabled .select2-selection__choice__remove {
   display: none;
 }
-/* line 5, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 5, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--single, .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-/* line 12, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 12, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 19, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 19, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-search--dropdown .select2-search__field {
   border: 1px solid #aaa;
 }
-/* line 25, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 25, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-search--inline .select2-search__field {
   background: transparent;
   border: none;
@@ -1821,67 +1844,67 @@ label.css-label-checkbox {
   margin-top: 7px;
   padding: 0px;
 }
-/* line 36, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 36, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results > .select2-results__options {
   max-height: 200px;
   overflow-y: auto;
 }
-/* line 42, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 42, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option img {
   width: 20px;
   height: 20px;
   padding-right: 5px;
 }
-/* line 47, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 47, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option[role=group] {
   padding: 0;
 }
-/* line 51, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 51, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option[aria-disabled=true] {
   color: #999;
 }
-/* line 55, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 55, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option[aria-selected=true] {
   background-color: #d9c27e;
 }
-/* line 59, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 59, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option {
   padding-left: 1em;
 }
-/* line 62, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 62, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__group {
   padding-left: 0;
 }
-/* line 66, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 66, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__option {
   margin-left: -1em;
   padding-left: 2em;
 }
-/* line 70, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 70, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
   margin-left: -2em;
   padding-left: 3em;
 }
-/* line 74, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 74, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
   margin-left: -3em;
   padding-left: 4em;
 }
-/* line 78, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 78, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
   margin-left: -4em;
   padding-left: 5em;
 }
-/* line 82, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 82, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option {
   margin-left: -5em;
   padding-left: 6em;
 }
-/* line 93, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 93, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #ffedb9;
 }
-/* line 97, C:/wamp/www/e-etudPartage/sass/select2/theme/default/_layout.scss */
+/* line 97, ../sass/select2/theme/default/_layout.scss */
 .select2-container--default .select2-results__group {
   cursor: default;
   display: block;
