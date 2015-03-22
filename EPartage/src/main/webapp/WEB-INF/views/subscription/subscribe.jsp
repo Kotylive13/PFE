@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<tiles:insertDefinition name="visitor">
+<tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="page">
@@ -113,5 +113,3 @@
 		</div>
 	</tiles:putAttribute>
 </tiles:insertDefinition>
-
-

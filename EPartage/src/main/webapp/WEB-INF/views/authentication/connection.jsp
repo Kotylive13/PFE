@@ -7,7 +7,7 @@
 		<div class="mainRibbon">
 			<div class="contentMainRibbon">
 				<h1>e-Partage</h1>
-				<p>Un réseau social au sein d'Aix-Marseille Université</p>
+				<p>Le réseau social d'Aix-Marseille Université</p>
 				<a href="/EPartage/subscription/subscribe.htm">Inscription</a>
 				<a href="/EPartage/welcome/contact.htm">Contact</a>
 			</div>

@@ -564,7 +564,7 @@ img[class="largePicture"] {
   padding-right: 9px;
 }
 /* line 34, ../sass/page/_information.scss */
-.page .information tr td input[class="error"], .page .form tr td input[class="error"] {
+.page .information tr td input[class="error"], .page .information tr td textarea[class="error"], .page .form tr td input[class="error"], .page .form tr td textarea[class="error"] {
   background-color: #ffcece;
   border-color: #9a1b16;
 }
@@ -978,31 +978,31 @@ img[class="largePicture"] {
   max-height: 15em;
 }
 /* line 54, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:first-child {
+.content .menuBar .menu li:nth-child(1), .content .menuBar .menu li:nth-child(6) {
   background-color: #5c7ca8;
   background-image: -webkit-linear-gradient(top, #5c7ca8 0%, #25497c 100%);
   background-image: linear-gradient(to bottom, #5c7ca8 0%, #25497c 100%);
 }
 /* line 59, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(2) {
+.content .menuBar .menu li:nth-child(2), .content .menuBar .menu li:nth-child(7) {
   background-color: #53a492;
   background-image: -webkit-linear-gradient(top, #53a492 0%, #1c7964 100%);
   background-image: linear-gradient(to bottom, #53a492 0%, #1c7964 100%);
 }
 /* line 64, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(3) {
+.content .menuBar .menu li:nth-child(3), .content .menuBar .menu li:nth-child(8) {
   background-color: #83c766;
   background-image: -webkit-linear-gradient(top, #83c766 0%, #3d851e 100%);
   background-image: linear-gradient(to bottom, #83c766 0%, #3d851e 100%);
 }
 /* line 69, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(4) {
+.content .menuBar .menu li:nth-child(4), .content .menuBar .menu li:nth-child(9) {
   background-color: #e7be76;
   background-image: -webkit-linear-gradient(top, #e7be76 0%, #9b6f23 100%);
   background-image: linear-gradient(to bottom, #e7be76 0%, #9b6f23 100%);
 }
 /* line 74, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:last-child {
+.content .menuBar .menu li:nth-child(5), .content .menuBar .menu li:nth-child(10) {
   background-color: #d96f82;
   background-image: -webkit-linear-gradient(top, #d96f82 0%, #922035 100%);
   background-image: linear-gradient(to bottom, #d96f82 0%, #922035 100%);
@@ -1425,29 +1425,30 @@ img[class="largePicture"] {
   padding-top: 10px;
 }
 /* line 53, ../sass/page/_publication.scss */
-.content .publication .message .footerMessage p:hover, .content .publication .comment .footerMessage p:hover {
-  color: #4a6b8a;
-}
-/* line 56, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion, .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .goodOpinion, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   float: left;
 }
-/* line 59, ../sass/page/_publication.scss */
+/* line 57, ../sass/page/_publication.scss */
+.content .publication .message .footerMessage .goodOpinion:hover, .content .publication .message .footerMessage .badOpinion:hover, .content .publication .message .footerMessage .numComments:hover, .content .publication .message .footerMessage .commentPublication:hover, .content .publication .message .footerMessage .sharePublication:hover, .content .publication .comment .footerMessage .goodOpinion:hover, .content .publication .comment .footerMessage .badOpinion:hover, .content .publication .comment .footerMessage .numComments:hover, .content .publication .comment .footerMessage .commentPublication:hover, .content .publication .comment .footerMessage .sharePublication:hover {
+  color: #4a6b8a;
+  cursor: pointer;
+}
+/* line 62, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   height: 20px;
   line-height: 20px;
 }
-/* line 63, ../sass/page/_publication.scss */
+/* line 66, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   padding-left: 10px;
 }
-/* line 66, ../sass/page/_publication.scss */
+/* line 69, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .message .footerMessage .sharePublication, .content .publication .comment .footerMessage .commentPublication, .content .publication .comment .footerMessage .sharePublication {
   float: right;
   height: 20px;
   line-height: 20px;
 }
-/* line 71, ../sass/page/_publication.scss */
+/* line 74, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .comment .footerMessage .commentPublication {
   padding-right: 10px;
 }

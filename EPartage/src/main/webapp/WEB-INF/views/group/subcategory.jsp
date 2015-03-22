@@ -55,7 +55,7 @@
 						<div class="contentPost">
 							<form:input name="titlePostPublication" class="titlePost"
 								type="text" placeholder="Titre" path="title" />
-							<form:errors path="title" cssClass="error" />
+							<!--<form:errors path="title" cssClass="error" />-->
 							<form:textarea path="content" name="messagePostPublication"
 								class="messagePost" placeholder="Exprimez-vous" />
 							<form:errors path="content" cssClass="error" />
