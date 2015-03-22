@@ -77,10 +77,7 @@ public class AuthenticationController {
 			result = new ModelAndView("authentication/connection", message);
 			model.addAttribute("student", student);
 			return result;
-		}
-	
-		System.out.println(studentSession.getFirstName());
-		
+		}		
 		message.put("type", "success");
     	message.put("message", "Connexion réussie");
 		result = new ModelAndView("redirect:/workspace/index.htm", message);

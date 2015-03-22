@@ -66,7 +66,6 @@ public class AdminAuthenticationController {
 			message.put("message",
 					"Le login ou le mot de passe n'est pas correct.");
 			Admin admin = new Admin();
-			System.out.println("test");
 			result = new ModelAndView("/login_staff/authentication/connection", message);
 			model.addAttribute("admin", admin);
 			return result;

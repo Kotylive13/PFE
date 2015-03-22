@@ -3,8 +3,10 @@ package controllers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
 import services.GroupService;
@@ -66,16 +69,20 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-	public String detailGroup(
+	public ModelAndView detailGroup(
 			@ModelAttribute Group g,
 			@ModelAttribute User u,
 			Model model) {	
 		
 		if (g == null || g.getName().isEmpty())
-			return "redirect:../index.htm";
+			return new ModelAndView("redirect:../index.htm");
 		
-		if (!u.getGroups().contains(g))
-			return "redirect:../index.htm";
+		ModelAndView result = new ModelAndView("group/group");
+		
+		if (!u.getGroups().contains(g)) {
+			result.addObject("type", "error");
+			result.addObject("message", "Vous n'appartenez pas à ce groupe.");
+		}
 		
 		Map<String, Object> urlParams = new HashMap<String, Object>();
 		
@@ -92,20 +99,24 @@ public class GroupController {
 		
 		model.addAttribute("urlParams", urlParams);
 
-		return "group/group";
+		return result;
 	}
 	
 	@RequestMapping(value = "/subcategory/detail.htm", method = RequestMethod.GET)
-	public String detailSubcategory(
+	public ModelAndView detailSubcategory(
 			@ModelAttribute Subcategory sub,
 			@ModelAttribute User u,
 			Model model) throws UnsupportedEncodingException {
 		
 		if (sub == null || sub.getIdSubcategory().getSubcategory().isEmpty())
-			return "redirect:../../index.htm";
+			return new ModelAndView("redirect:../index.htm");
+		
+		ModelAndView result = new ModelAndView("group/subcategory");
 	
-		if (!u.getGroups().contains(sub.getGroup()))
-			return "redirect:../../index.htm";
+		if (!u.getGroups().contains(sub.getGroup())) {
+			result.addObject("type", "error");
+			result.addObject("message", "Vous n'appartenez pas à ce groupe.");
+		}
 		
 		Map<String, Object> urlParams = new HashMap<String, Object>();
 		
@@ -129,7 +140,21 @@ public class GroupController {
 		
 		model.addAttribute("urlParams", urlParams);
 
-		return "group/subcategory";
+		return result;
+	}
+	
+	@RequestMapping(value = "/search.htm", method = RequestMethod.GET)
+	public ModelAndView search(
+			@RequestParam(value = "keywords", required = true) String keywords) {
+		List<Group> res = new ArrayList<Group>();
+		
+		String tokens[] = keywords.split("\\s+");
+		for(String token : tokens)
+			res.addAll(groupService.findByKeyword(token));
+		
+		Map<String, Object> groups = new HashMap<String, Object>();
+		groups.put("groups", res);
+		return new ModelAndView("group/search", groups);
 	}
 	
 	@ModelAttribute("subcategory")
@@ -170,14 +195,9 @@ public class GroupController {
 	
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
-		User userSession = (User) session.getAttribute("userSession");
-		if (userSession == null)
-			return null;
-		User user = userService.findByLogin(userSession.getEmail());
-		
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
 		
-		for(Group g : user.getGroups()) {
+		for(Group g : groupService.findAll()) {
 			String nameG = g.getName();
 			String urlNameG = AsciiToHex.asciiToHex(nameG);
 			groupsUrl.put(nameG, urlNameG);
