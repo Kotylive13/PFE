@@ -98,11 +98,6 @@ public class WelcomeController {
 		if(message.length() < 10)
 			errors.put("messageError", "Le message doit contenir plus de 10 caractères");
 		if(!errors.isEmpty()) {
-			errors.put("firstNameOld", firstName);
-			errors.put("lastNameOld", lastName);
-			errors.put("emailOld", email);
-			errors.put("objectOld", object);
-			errors.put("messageOld", message);
 			errors.put("student", new Student());
 			return new ModelAndView("welcome/contact", errors);
 		}

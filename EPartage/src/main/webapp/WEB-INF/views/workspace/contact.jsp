@@ -13,7 +13,7 @@
 					<tr>
 						<td>Objet</td>
 						<td>
-							<input name="object" id="object" value="${objectOld}"/>
+							<input name="object" id="object" value="${param.object}"/>
 	 						<c:if test="${!empty objectError}">
 								<span id="content.errors" class="error"><c:out value="${objectError}"/></span>
 							</c:if>
@@ -22,7 +22,7 @@
 					<tr>
 						<td>Message</td>
 						<td>
-							<textarea name="message" id="message" maxlength="2048" rows="10">${messageOld}</textarea>
+							<textarea name="message" id="message" maxlength="2048" rows="10">${param.message}</textarea>
 	 						<c:if test="${!empty messageError}">
 								<span id="content.errors" class="error"><c:out value="${messageError}"/></span>
 							</c:if>

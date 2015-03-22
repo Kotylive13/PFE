@@ -20,10 +20,11 @@
 			<li>E-mail : ${sessionScope.userSession.email}</li>
 			<li>Année d'inscription à l'université : ${sessionScope.userSession.inscriptUnivDate}</li>
 			<li>Promotion : ${sessionScope.userSession.promo}</li>
-			<li>Date d'inscription à l'application : ${sessionScope.userSession.inscriptAppDate}</li>
+			<li>Date d'inscription à l'application : <fmt:formatDate pattern="dd/MM/yyyy"
+							value="${sessionScope.userSession.inscriptAppDate}" /></li>
 		</ul>
 		<p>
-			<a href="">Modifier</a>
+			<a href="${pageContext.request.contextPath}/workspace/editprofile.htm">Modifier</a>
 		</p>
 	</div>
 </div>

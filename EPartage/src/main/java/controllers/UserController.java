@@ -6,27 +6,38 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import services.HobbyService;
 import services.MessageService;
 import services.UserService;
 import utilities.AsciiToHex;
+import utilities.CryptPassword;
 import utilities.MailSender;
 import domain.Category;
 import domain.Group;
+import domain.Hobby;
 import domain.Publication;
 import domain.Student;
 import domain.Subcategory;
@@ -42,10 +53,22 @@ import domain.User;
 public class UserController {
 	
 	/**
+	 * @see ServletContext
+	 */
+	@Autowired
+	ServletContext context;
+	
+	/**
 	 * @see UserService
 	 */
 	@Autowired
 	UserService userService;
+	
+	/**
+	 * @see HobbyService
+	 */
+	@Autowired
+	HobbyService hobbyService;
 	
 	/**
 	 * @see MessageService
@@ -98,11 +121,8 @@ public class UserController {
 			errors.put("objectError", "L'objet doit contenir plus de 2 caractères");
 		if(message.length() < 10)
 			errors.put("messageError", "Le message doit contenir plus de 10 caractères");
-		if(!errors.isEmpty()) {
-			errors.put("objectOld", object);
-			errors.put("messageOld", message);
+		if(!errors.isEmpty())
 			return new ModelAndView("workspace/contact", errors);
-		}
 				
 		Student student = (Student) session.getAttribute("userSession");
 		
@@ -145,6 +165,91 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	@RequestMapping(value = "/editprofile", method = RequestMethod.GET)
+	public ModelAndView subscribe(
+			Model model,
+			HttpSession session) {
+		
+		Map<String, Object> hobbies = new HashMap<String, Object>();
+		hobbies.put("hobbies", hobbyService.findAll());
+		
+		ModelAndView result = new ModelAndView("workspace/editprofile", hobbies);
+		model.addAttribute("student", (Student) session.getAttribute("userSession"));
+		return result;
+	}
+
+	@RequestMapping(value = "/editprofile", method = RequestMethod.POST)
+	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,
+			@RequestParam(required = false) MultipartFile file,
+			BindingResult bindingResult, 
+			HttpServletRequest request,
+			RedirectAttributes redirectAttributes) {
+		
+		Map<String, Object> allHobbies = new HashMap<String, Object>();
+		allHobbies.put("hobbies", hobbyService.findAll());
+		ModelAndView result = new ModelAndView("workspace/editprofile", allHobbies);
+		
+		// Validation du model
+		if (bindingResult.hasErrors()) {
+			return result;
+		}
+		
+		String oldPassword = request.getParameter("oldPassword");
+		if (!(CryptPassword.getCryptString(oldPassword)).equals(student.getPassword()))
+			return result.addObject("errorOldPassword",
+					"Le mot de passe n'est pas le bon");
+		student.setPassword(oldPassword);
+		
+		String newPassword = request.getParameter("newPassword");
+		if(!newPassword.equals("")) {
+			if (!request.getParameter("confirmation").equals(newPassword))
+				return result.addObject("errorConfirmation",
+					"Les mots de passe ne concordent pas");
+		
+			student.setPassword(newPassword);
+		}
+		
+		String input = request.getParameter("hobbies");
+		input = input.replace(" ", "");
+		String[] userHobbies = input.split(",");
+		
+		if (userHobbies[0].isEmpty())
+			return result.addObject("errorHobbies",
+					"Veuillez renseigner des centres d'intérêt");
+		
+		Set<Hobby> hobbies = new HashSet<Hobby>();		
+		for (String userHobby : userHobbies) {				
+			Hobby hobby = hobbyService.find(userHobby);
+			if(hobby == null) {
+				hobby = new Hobby(userHobby);
+				hobby = hobbyService.save(hobby);
+			}				
+			hobbies.add(hobby);
+		}
+		student.setHobbies(hobbies);
+		
+		// save avatar
+		try {
+			if (!file.isEmpty()) {
+				if (!file.getContentType().equals("image/gif") &&
+					!file.getContentType().equals("image/jpeg") &&
+					!file.getContentType().equals("image/png"))				
+					return result.addObject("errorFile",
+						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+				
+				student.setAvatar(file.getBytes());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		userService.save(student);
+				
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Votre profil a bien été modifié.");
+		return new ModelAndView("redirect:/workspace/editprofile.htm");
 	}
 	
 	/**

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.UserService;
 import utilities.CryptPassword;
@@ -58,6 +59,7 @@ public class AuthenticationController {
 			@RequestParam(required = true) String email,
 			@RequestParam(required = true) String password, 
 			HttpSession session,
+			RedirectAttributes redirectAttributes,
 			Model model) {
 		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
@@ -78,8 +80,8 @@ public class AuthenticationController {
 			model.addAttribute("student", student);
 			return result;
 		}		
-		message.put("type", "success");
-    	message.put("message", "Connexion réussie");
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Connexion réussie");
 		result = new ModelAndView("redirect:/workspace/index.htm", message);
 
 		return result;

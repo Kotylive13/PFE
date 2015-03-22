@@ -15,7 +15,7 @@
 						<tr>
 							<td>Nom</td>
 							<td>
-								<input name="lastName" id="lastName" value="${lastNameOld}"/>
+								<input name="lastName" id="lastName" value="${param.lastName}"/>
 		 						<c:if test="${!empty lastNameError}">
 									<span id="content.errors" class="error"><c:out value="${lastNameError}"/></span>
 								</c:if>
@@ -24,7 +24,7 @@
 						<tr>
 							<td>Prénom</td>
 							<td>
-								<input name="firstName" id="firstName" value="${firstNameOld}"/>
+								<input name="firstName" id="firstName" value="${param.firstName}"/>
 		 						<c:if test="${!empty firstNameError}">
 									<span id="content.errors" class="error"><c:out value="${firstNameError}"/></span>
 								</c:if>
@@ -33,7 +33,7 @@
 						<tr>
 							<td>Email</td>
 							<td>
-								<input name="email" id="email" value="${emailOld}"/>
+								<input name="email" id="email" value="${param.email}"/>
 		 						<c:if test="${!empty emailError}">
 									<span id="content.errors" class="error"><c:out value="${emailError}"/></span>
 								</c:if>
@@ -42,7 +42,7 @@
 						<tr>
 							<td>Objet</td>
 							<td>
-								<input name="object" id="object" value="${objectOld}"/>
+								<input name="object" id="object" value="${param.object}"/>
 		 						<c:if test="${!empty objectError}">
 									<span id="content.errors" class="error"><c:out value="${objectError}"/></span>
 								</c:if>
@@ -51,7 +51,7 @@
 						<tr>
 							<td>Message</td>
 							<td>
-								<textarea name="message" id="message" maxlength="2048" rows="10">${messageOld}</textarea>
+								<textarea name="message" id="message" maxlength="2048" rows="10">${param.message}</textarea>
 		 						<c:if test="${!empty messageError}">
 									<span id="content.errors" class="error"><c:out value="${messageError}"/></span>
 								</c:if>
