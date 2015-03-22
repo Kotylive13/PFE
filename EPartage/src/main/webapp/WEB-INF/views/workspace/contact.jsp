@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
 <tiles:insertDefinition name="user">
-	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
+	<tiles:putAttribute name="title">Contacter l'administrateur</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<h1>Envoyer un message à l'administrateur</h1>
 	
