@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.HobbyService;
 import services.UserService;
@@ -69,7 +70,8 @@ public class SubscriptionController {
 	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,
 			@RequestParam(required = false) MultipartFile file,
 			BindingResult bindingResult, 
-			HttpServletRequest request) {
+			HttpServletRequest request,
+			RedirectAttributes redirectAttributes) {
 		System.out
 				.println("Controller : /SubscriptionController --- Action : /subscribePost");
 
@@ -138,10 +140,9 @@ public class SubscriptionController {
 								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
 								+ "A bientôt sur e-Partage !");
 		
-		result = new ModelAndView("authentication/connection");		
-		result.addObject("type", "success");
-		result.addObject("message", "Votre demande d'inscription est en cours de validation.");
-		return result;
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Votre demande d'inscription est en cours de validation.");
+		return new ModelAndView("redirect:/authentication/connection.htm");
 	}
 	
 	@ModelAttribute("hobbiesList")

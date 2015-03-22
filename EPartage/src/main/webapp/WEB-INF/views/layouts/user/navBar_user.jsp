@@ -71,7 +71,7 @@
 			</h1>
 			<div id="contentLink">
 				<ul>
-					<li><a href="">Contact</a></li>
+					<li><a href="${pageContext.request.contextPath}/workspace/contact.htm">Contact</a></li>
 				</ul>
 				<p>Copyright e-Partage 2015</p>
 			</div>
