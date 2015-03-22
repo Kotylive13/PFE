@@ -107,10 +107,16 @@ public class SubscriptionController {
 		}
 		student.setHobbies(hobbies);
 		
-		// save file
+		// save avatar
 		try {
 			if (!file.isEmpty()) {
-					student.setAvatar(file.getBytes());
+				if (!file.getContentType().equals("image/gif") &&
+					!file.getContentType().equals("image/jpeg") &&
+					!file.getContentType().equals("image/png"))				
+					return result.addObject("errorFile",
+						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+				
+				student.setAvatar(file.getBytes());
 			}else{
 				InputStream is = context.getResourceAsStream("/images/user.png");
 				student.setAvatar(IOUtils.toByteArray(is));
