@@ -32,10 +32,9 @@ public class PublicationService {
 		return publicationDAO.save(publication);
 	}
 
-	/*
-	 * public Publication saveForm(PublicationForm pf){ return
-	 * publicationDAO.save(construct(pf)); }
-	 */
+	public Publication find(Integer id){
+		return publicationDAO.findOne(id);
+	}
 
 	public void constructAndSave(PublicationForm pf) {
 

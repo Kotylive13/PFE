@@ -22,16 +22,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.CategoryService;
 import services.CommentFileService;
+import services.CommentService;
 import services.MessageService;
 import services.PublicationFileService;
 import services.PublicationService;
 import utilities.AsciiToHex;
 import domain.CommentFile;
+import domain.CommentForm;
 import domain.Group;
 import domain.IdSubcategory;
+import domain.Publication;
 import domain.PublicationFile;
 import domain.PublicationForm;
 import domain.Student;
@@ -57,6 +61,9 @@ public class PublicationController {
 	PublicationFileService publicationFileService;
 	@Autowired
 	CommentFileService commentFileService;
+	
+	@Autowired
+	CommentService commentService;
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView save(
@@ -81,8 +88,7 @@ public class PublicationController {
 		idSubcategory.setCategory(AsciiToHex.decode(nameC));
 		idSubcategory.setSubcategory(AsciiToHex.decode(nameS));
 		publication.setSubcategory(categoryService.findOne(idSubcategory));
-		
-		
+
 		// save file
 		if (!file.isEmpty()) {
 			try {
@@ -91,20 +97,69 @@ public class PublicationController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else{
+		} else {
 			publication.setFile(null);
 		}
 		// Validating model
-		if (bindingResult.hasErrors() ) {
+		if (bindingResult.hasErrors()) {
 			System.out.println(bindingResult.getAllErrors());
 			result.addObject("publication", publication);
 			return result;
 		}
-		
-		
+
 		publicationService.constructAndSave(publication);
 
 		return result;
+	}
+
+	@RequestMapping(value = "/comment/edit", method = RequestMethod.POST)
+	public ModelAndView saveComment(@Valid @ModelAttribute CommentForm comment,
+			BindingResult bindingResult, HttpSession session,
+			@RequestParam(required = false) MultipartFile file,
+			@RequestParam(required = true) Integer id_pub,
+			RedirectAttributes redirectAttributes) {
+
+		Publication pub = publicationService.find(id_pub);
+		System.out
+				.println("Controller : /PublicationController --- Action : /saveComment");
+		String nameG = AsciiToHex.asciiToHex(pub.getGroup().getName());
+		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory()
+				.getIdCategory().getName());
+		String nameS = AsciiToHex.asciiToHex(pub.getSubcategory()
+				.getIdSubcategory().getSubcategory());
+
+		ModelAndView result = new ModelAndView(
+				"redirect:/workspace/group/subcategory/detail.htm?nameG="
+						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
+
+		User user = (User) session.getAttribute("userSession");
+		comment.setAuthor(user);
+		comment.setDateC(new Date());
+		comment.setPublication(pub);
+
+		// save file
+		if (!file.isEmpty()) {
+			try {
+				comment.setFile(file.getBytes());
+				comment.setFileTile(file.getOriginalFilename());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			comment.setFile(null);
+		}
+		if (bindingResult.hasErrors()) {
+			redirectAttributes.addFlashAttribute("type", "Error");
+			redirectAttributes.addFlashAttribute("message",
+					"Pop up exemple Asma");
+			return result;
+		}
+		// save comment
+		
+		commentService.reconstructAndSave(comment);
+
+		return result;
+
 	}
 
 	@RequestMapping("/file.htm")
@@ -179,12 +234,16 @@ public class PublicationController {
 	public PublicationForm newPublicatin() {
 		return new PublicationForm();
 	}
-	
-	
+
+	@ModelAttribute("comment")
+	public CommentForm newComment() {
+		return new CommentForm();
+	}
+
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-	    binder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
+		binder.registerCustomEditor(byte[].class,
+				new ByteArrayMultipartFileEditor());
 	}
-	
 
 }

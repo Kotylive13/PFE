@@ -35,17 +35,18 @@
 				</c:forEach>
 			</ul>
 		</div>
-		
+
 		<h1>${subcategory.idSubcategory.category}</h1>
 		<h2>${subcategory.idSubcategory.subcategory}</h2>
 
 		<c:choose>
-		    <c:when test="${not empty type}">
+			<c:when test="${not empty type}">
 				<div class="information">
-				    <p>Pour accèder au contenu du groupe, veuillez faire une demande d'adhésion auprès de l'administrateur.</p>
+					<p>Pour accèder au contenu du groupe, veuillez faire une
+						demande d'adhésion auprès de l'administrateur.</p>
 				</div>
-		    </c:when>
-		    <c:otherwise>
+			</c:when>
+			<c:otherwise>
 
 				<div class="postPublication">
 					<form:form id="postPublicationForm" modelAttribute="publication"
@@ -60,12 +61,13 @@
 							<form:errors path="content" cssClass="error" />
 						</div>
 						<div class="footerPost">
-							<form:input class="fileUploadPost" type="file" name="file" path="file"/>
+							<form:input class="fileUploadPost" type="file" name="file"
+								path="file" />
 							<input class="submitPost" type="submit" value="Publier">
 						</div>
 					</form:form>
 				</div>
-		
+
 				<div id="publications">
 					<c:choose>
 						<c:when test="${subcategory.publications.size() > 0}">
@@ -76,7 +78,8 @@
 								<div class="publication">
 									<div class="message">
 										<div class="headerMessage">
-											<a class="authorPicture" href=""><img class="smallPicture"
+											<a class="authorPicture" href=""><img
+												class="smallPicture"
 												src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
 												alt="" /></a>
 											<p class="author">
@@ -94,7 +97,7 @@
 										<div class="contentMessage">
 											<p>${p.title}</p>
 											<p>${p.content}</p>
-		
+
 											<p>
 												<a
 													href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
@@ -121,16 +124,17 @@
 										</div>
 									</div>
 									<div id="postComment_${p.id}" class="postComment">
-										<form>
+										<form:form id="postPublicationForm" modelAttribute="comment"
+											method="post" enctype="multipart/form-data"
+											action="${pageContext.request.contextPath}/publication/comment/edit.htm?id_pub=${p.id}">
 											<div class="contentPost">
-												<textarea id="" class="messagePost"
-													placeholder="Exprimez-vous"></textarea>
+												<form:textarea id="" class="messagePost" placeholder="Exprimez-vous" path="content" />
 											</div>
 											<div class="footerPost">
-												<input id="" class="fileUploadPost" type="file" /> <input
-													id="" class="submitPost" type="submit" value="Publier">
+												<form:input id="" class="fileUploadPost" type="file" path="file" />
+												<input id="" class="submitPost" type="submit" value="Publier">
 											</div>
-										</form>
+										</form:form>
 									</div>
 									<div id="comments_${p.id}" class="comments">
 										<c:forEach items="${p.comments}" var="com">
@@ -173,8 +177,8 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-		
-		    </c:otherwise>
+
+			</c:otherwise>
 		</c:choose>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

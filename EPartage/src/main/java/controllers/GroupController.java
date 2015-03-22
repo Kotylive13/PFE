@@ -27,6 +27,7 @@ import services.MessageService;
 import services.UserService;
 import utilities.AsciiToHex;
 import domain.Category;
+import domain.CommentForm;
 import domain.Group;
 import domain.IdSubcategory;
 import domain.PublicationForm;
@@ -236,5 +237,10 @@ public class GroupController {
 	@ModelAttribute("publication")
 	public PublicationForm newPublicatin(){
 		return new PublicationForm();
+	}
+	
+	@ModelAttribute("comment")
+	public CommentForm newComment() {
+		return new CommentForm();
 	}
 }

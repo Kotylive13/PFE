@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Embeddable
 public class IdComment implements Serializable {
@@ -15,7 +16,7 @@ public class IdComment implements Serializable {
 	private int publication;
 	
 	@Column(name = "id_com")
-	@GeneratedValue
+	@GeneratedValue ( strategy = GenerationType.AUTO )
 	private int num;
 
 	public IdComment() {}

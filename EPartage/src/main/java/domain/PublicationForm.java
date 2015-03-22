@@ -26,7 +26,7 @@ public class PublicationForm {
 	
 	private User author;
 
-	@SuppressWarnings(value = { "" })
+	
 	private byte[] file;
 
 	private String fileTile;
