@@ -83,7 +83,6 @@ public class PublicationController {
 		publication.setSubcategory(categoryService.findOne(idSubcategory));
 		
 		
-		
 		// save file
 		if (!file.isEmpty()) {
 			try {

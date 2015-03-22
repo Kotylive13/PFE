@@ -36,7 +36,12 @@
 						</tr>
 						<tr>
 							<td><label>Image de profil</label></td>
-							<td><input name="file" type="file" /></td>
+							<td>
+								<input name="file" type="file" accept="image/jpeg, image/gif, image/png"/>
+						        <c:if test="${!empty errorFile}">
+									<span class="error"><c:out value="${errorFile}"/></span>
+								</c:if>	
+							</td>
 						</tr>
 						<tr>
 							<td><form:label path="birthDate">Date de naissance</form:label></td>

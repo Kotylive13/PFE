@@ -16,11 +16,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.MessageService;
 import services.UserService;
 import utilities.AsciiToHex;
+import utilities.MailSender;
 import domain.Category;
 import domain.Group;
 import domain.Publication;
@@ -45,6 +49,47 @@ public class UserController {
 	@RequestMapping("/index.htm")
 	public String index(HttpSession session) {		
 		return "workspace/workspace";
+	}
+
+	@RequestMapping(value = "/contact.htm",  method = RequestMethod.GET)
+	public String contact() {		
+		return "workspace/contact";
+	}
+	
+	@RequestMapping(value = "/contact.htm",  method = RequestMethod.POST)
+	public ModelAndView contact(
+			@RequestParam(required = true) String object,
+			@RequestParam(required = true) String message,
+			HttpSession session, RedirectAttributes redirectAttributes) {
+		Map<String, String> errors = new HashMap<String, String>();
+		
+		if(object.length() < 2)
+			errors.put("objectError", "L'objet doit contenir plus de 2 caractères");
+		if(message.length() < 10)
+			errors.put("messageError", "Le message doit contenir plus de 10 caractères");
+		if(!errors.isEmpty()) {
+			errors.put("objectOld", object);
+			errors.put("messageOld", message);
+			return new ModelAndView("workspace/contact", errors);
+		}
+				
+		Student student = (Student) session.getAttribute("userSession");
+		
+		MailSender
+			.sendEmail(
+				"luminy.annuaire@gmail.com",
+				"e-Partage - Nouveau message de " + student.getFirstName() + " " + student.getLastName() + " - Objet : " + object,
+				"Message reçu de la part de " + student.getFirstName() + " " + student.getLastName() + "\n"
+						+ "Numéro étudiant : " + student.getNumStudent() + "\n"
+						+ "Promotion : " + student.getPromo() + "\n"
+						+ "Email : " + student.getEmail() + "\n"
+						+ "Adresse :" + student.getAdress() + "\n"
+						+ "Téléphone :" + student.getPhone() + "\n\n\n"
+						+ "Objet :" + object + "\n\n" 
+						+ "Message : " + message);
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Votre message a été envoyé à l'administrateur.");
+		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 	
 	@RequestMapping("/avatar.htm")

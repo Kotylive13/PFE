@@ -23,15 +23,11 @@
 
 	<import resource="config/packages.xml" />
 
-
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-		
-		
+		<property name="suffix" value=".jsp" />	
 	</bean>
-
 
 	<import resource="config/data.xml" />
 
@@ -93,19 +89,24 @@
     </bean>
     
     <!-- Interceptors -->
-    <!--<mvc:interceptors>
+    <mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/workspace/*" />
-			<mvc:mapping path="/workspace/group/*" />
-			<mvc:mapping path="/workspace/group/subcategory/*" />
-			<mvc:mapping path="/message/*" />
-			<mvc:mapping path="/publication/*" />
-			<bean class="interceptors.UnauthenticatedUserInterceptor" />
+			<mvc:mapping path="/login_staff/*" />
+			<mvc:mapping path="/login_staff/category/*" />
+			<mvc:mapping path="/login_staff/group/*" />
+			<mvc:mapping path="/login_staff/subcategory/*" />
+			<mvc:mapping path="/login_staff/waitingUsers/*" />
+			<bean class="interceptors.UnauthenticatedAdminInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/authentication/connection.htm" />
-			<bean class="interceptors.AuthenticatedUserInterceptor" />
+			<mvc:mapping path="/login_staff/authentication/connection.htm" />
+			<bean class="interceptors.AuthenticatedAdminInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors>-->
+		<mvc:interceptor>
+			<mvc:mapping path="/workspace/avatar.htm" />
+			<mvc:mapping path="/workspace/group/avatar.htm" />
+			<bean class="interceptors.AvatarsAccessInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
