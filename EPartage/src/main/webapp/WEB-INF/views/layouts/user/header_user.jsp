@@ -5,8 +5,8 @@
 <div class="fixedHeader">
 	<div class="centerHeader">
 		<p id="logo"><a href="${pageContext.request.contextPath}/workspace/index.htm" href="accueil">e-Partage</a></p>
-		<form id="searchForm" method="post" action="">
-	  		<input id="searchBar" type="text" placeholder="Chercher des personnes, des groupes ou d'autres choses"/>
+		<form id="searchForm" method="get" action="${pageContext.request.contextPath}/workspace/group/search.htm">
+	  		<input name="keywords" id="searchBar" type="text" placeholder="Chercher des groupes"/>
 	  		<input id="searchButton" type="image" src="<c:url value="/images/magnifying-glass.png" />" title="Recherche">
 		</form>
 		<p id="option" onclick="slideOptions('#options', 'fast')" title="Options"><img src="<c:url value="/images/option.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_option.png" />')" onmouseout="unhover(this, '<c:url value="/images/option.png" />')" /></p>

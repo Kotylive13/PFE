@@ -8,6 +8,7 @@
 			<h1>S'inscrire</h1>
 			<div class="form">
 				<form:form id="updateInformationForm" method="POST"
+					enctype="multipart/form-data"
 					modelAttribute="student"
 					action="${pageContext.request.contextPath}/subscription/subscribe.htm">
 
@@ -32,6 +33,10 @@
 							<td><form:input path="firstName" name="firstName"
 									type="text" />
 							<form:errors path="firstName" cssClass="error" /></td>
+						</tr>
+						<tr>
+							<td><label>Image de profil</label></td>
+							<td><input name="file" type="file" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="birthDate">Date de naissance</form:label></td>

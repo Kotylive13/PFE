@@ -18,7 +18,8 @@ public interface MessageDAO extends JpaRepository<Message, IdMessage>{
 	public final String FIND_ALL_SENT_MESSAGES_BY_USER_ID_QUERY = 
 			  " SELECT m "
 			+ " FROM Message m " 
-			+ " WHERE m.idMessage.sender = :id ";
+			+ " WHERE m.idMessage.sender = :id "
+			+ " ORDER BY m.idMessage.dateM DESC ";
 	
 	@Query(FIND_ALL_SENT_MESSAGES_BY_USER_ID_QUERY)
 	public List<Message> findAllSentMessagesByUserId(@Param("id") Integer id);
@@ -30,7 +31,8 @@ public interface MessageDAO extends JpaRepository<Message, IdMessage>{
 			+ " FROM Message m, MessageReceiver mr " 
 			+ " WHERE mr.idMessageReceiver.receiver = :id "
 			+ " AND m.idMessage.sender = mr.idMessageReceiver.id_u "
-			+ " AND m.idMessage.dateM = mr.idMessageReceiver.dateM ";
+			+ " AND m.idMessage.dateM = mr.idMessageReceiver.dateM "
+			+ " ORDER BY m.idMessage.dateM DESC ";
 	
 	@Query(FIND_ALL_RECEIVED_MESSAGES_BY_USER_ID)
 	public List<Message> findAllReceivedMessages(@Param("id") Integer id);

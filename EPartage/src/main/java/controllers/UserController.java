@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -52,12 +53,15 @@ public class UserController {
 			HttpServletResponse response) {
 		
 		User user = userService.find(Integer.parseInt(id));
-		try {
-			OutputStream o = response.getOutputStream();
-			o.write(user.getAvatar());
-			o.flush(); o.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (user != null) {
+			try {
+				OutputStream o = response.getOutputStream();
+				o.write(user.getAvatar());
+				o.flush();
+				o.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -68,18 +72,34 @@ public class UserController {
 	
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
-		return (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		if (userSession == null)
+			return null;
+		return userService.findByLogin(userSession.getEmail());
 	}
 	
 	@ModelAttribute("nbOfUnconsultedMessages")
 	public int nbOfUnconsultedMessages(HttpSession session) {
-		return messageService.getNbOfUnconsultedMessages(
-				(User) session.getAttribute("userSession"));
+		User userSession = (User) session.getAttribute("userSession");
+		if (userSession == null)
+			return 0;
+		return messageService.getNbOfUnconsultedMessages(userSession);
+	}
+	
+	@ModelAttribute("groupsList")
+	public Collection<Group> getUserGroups(HttpSession session) {
+		User userSession = (User) session.getAttribute("userSession");
+		if (userSession == null)
+			return null;
+		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
-		User user = (User) session.getAttribute("userSession");
+		User userSession = (User) session.getAttribute("userSession");
+		if (userSession == null)
+			return null;
+		User user = userService.findByLogin(userSession.getEmail());
 		
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
 		
@@ -96,6 +116,8 @@ public class UserController {
 	public List<Publication> getAllPublications(HttpSession session) {
 
 		User userSession = (User) session.getAttribute("userSession");
+		if (userSession == null)
+			return null;
 		User user = userService.findByLogin(userSession.getEmail());
 		List<Publication> publications = new ArrayList<Publication>();
 		

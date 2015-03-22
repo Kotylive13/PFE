@@ -43,9 +43,9 @@ $("#updateInformationForm").validate({
 		password : {
 			required : true
 		},
-		confirmation : {
+		confirmation : {/*
 			required: true,
-	        equalTo: "#password"
+	        equalTo: "#password"*/
 		},
 		adress : {
 			required : true
