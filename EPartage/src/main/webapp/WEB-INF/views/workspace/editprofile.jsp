@@ -96,14 +96,26 @@
 								<select id="tokenizer" class="tokenizer" multiple>
 									<c:if test="${!empty hobbies}">
 										<c:forEach items="${hobbies}" var="hobby">
-									    	<option>${hobby.nameH}</option>
+											<c:choose>
+											    <c:when test="${fn:contains(sessionScope.userSession.hobbies, hobby)}">
+											       <option selected>${hobby.nameH}</option>
+											    </c:when>
+											    <c:otherwise>
+											        <option>${hobby.nameH}</option>
+											    </c:otherwise>
+											</c:choose>
 										</c:forEach>
 									</c:if>
 						        </select>
-						        <input name="hobbies" id="selectedValues" type="hidden" />
+						        
+						        <c:set var="hobbies" value=""/>
+						        <c:forEach items="${sessionScope.userSession.hobbies}" var="hobby">
+									<c:set var="hobbies" value="${hobby.nameH},${hobbies}"/>
+								</c:forEach>
+						        <input name="hobbies" id="selectedValues" type="hidden" value="${hobbies}"/>
 						        <c:if test="${!empty errorHobbies}">
 									<span class="error"><c:out value="${errorHobbies}"/></span>
-								</c:if>			
+								</c:if>								
 							</td>
 						</tr>
 						

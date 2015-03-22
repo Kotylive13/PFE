@@ -100,7 +100,7 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private Set<ProfessionalPeriod> professionnalPeriods;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		      name="UserHobby",
 		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},

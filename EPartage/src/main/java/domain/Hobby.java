@@ -30,4 +30,28 @@ public class Hobby {
 		this.nameH = nameH;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nameH == null) ? 0 : nameH.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Hobby other = (Hobby) obj;
+		if (nameH == null) {
+			if (other.nameH != null)
+				return false;
+		} else if (!nameH.equals(other.nameH))
+			return false;
+		return true;
+	}
 }
