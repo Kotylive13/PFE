@@ -35,6 +35,10 @@
 				</c:forEach>
 			</ul>
 		</div>
+		
+		
+		<h1>${subcategory.idSubcategory.category}</h1>
+		<h2>${subcategory.idSubcategory.subcategory}</h2>
 
 		<div class="postPublication">
 			<form:form id="postPublicationForm" modelAttribute="publication"
