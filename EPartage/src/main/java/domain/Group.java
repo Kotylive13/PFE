@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Table(name ="`Group`")
-public class Group implements Comparable<Group> {
+public class Group {
 
 	@Id
 	@Column(name = "nameG")
@@ -81,8 +81,15 @@ public class Group implements Comparable<Group> {
 	}
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	
+	@Override
 	public boolean equals(Object obj) {
-		System.out.println("equals");
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -96,12 +103,6 @@ public class Group implements Comparable<Group> {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	@Override
-	public int compareTo(Group g) {
-		System.out.println("CompareTo");
-		return g.getName().compareTo(this.name);
 	}
 
 }
