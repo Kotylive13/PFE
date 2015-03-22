@@ -42,6 +42,10 @@ public class UserService {
 	public User find(int userId) {
 		return userDao.findOne(userId);	
 	}
+
+	public Student findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
 	
 	/*public boolean exists(User user){
 		return userDao.exists(user.getId());

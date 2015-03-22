@@ -8,7 +8,7 @@
 			<input id="connection" type="submit" value="Connexion">
 		  	<form:input id="password" type="password" path="password" placeholder="Mot de passe" tabindex="2"/>
 		  	<form:input id="login" type="text" path="email" placeholder="Adresse mail" tabindex="1"/>
-		  	<a id="forgetPassword" href="">Mot de passe oublié ?</a>
+		  	<a id="forgetPassword" href="${pageContext.request.contextPath}/welcome/forgotpassword.htm">Mot de passe oublié ?</a>
 		</form:form>
 	</div>
 </div>

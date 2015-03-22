@@ -1,12 +1,13 @@
 package controllers;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpSession;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import services.UserService;
 import utilities.MailSender;
 import domain.Student;
 
@@ -25,6 +27,9 @@ import domain.Student;
 @Controller
 @RequestMapping("/welcome")
 public class WelcomeController {
+	
+	@Autowired
+	UserService userService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -58,9 +63,11 @@ public class WelcomeController {
 	 * Allows to contact administrator
 	 * Called when visitor sends contact form
 	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @param email
 	 * @param object
-	 * @param message Content
-	 * @param session {@link HttpSession}
+	 * @param message
 	 * @param redirectAttributes {@link RedirectAttributes}
 	 * @return view with specific message
 	 */
@@ -71,7 +78,7 @@ public class WelcomeController {
 			@RequestParam(required = true) String email,
 			@RequestParam(required = true) String object,
 			@RequestParam(required = true) String message,
-			HttpSession session, RedirectAttributes redirectAttributes) {
+			RedirectAttributes redirectAttributes) {
 		
 		Map<String, Object> errors = new HashMap<String, Object>();
 		
@@ -110,6 +117,59 @@ public class WelcomeController {
 						+ "Message : " + message);
 		redirectAttributes.addFlashAttribute("type", "success");
 		redirectAttributes.addFlashAttribute("message", "Votre message a été envoyé à l'administrateur.");
+		return new ModelAndView("redirect:/authentication/connection.htm");
+	}
+	
+	/**
+	 * Return the view corresponding to the forgot password form
+	 * 
+	 * @return ModelAndView
+	 */
+	@RequestMapping(value = "/forgotpassword.htm",  method = RequestMethod.GET)
+	public ModelAndView forgotPassword() {		
+		ModelAndView result = new ModelAndView("welcome/forgotpassword");
+		result.addObject("student", new Student());
+		return result;
+	}
+	
+	/**
+	 * Allows the new password request
+	 * Called when visitor sends forgot password form
+	 * 
+	 * @param email
+	 * @param numStudent
+	 * @param redirectAttributes {@link RedirectAttributes}
+	 * @return view with specific message
+	 */
+	@RequestMapping(value = "/forgotpassword.htm",  method = RequestMethod.POST)
+	public ModelAndView forgotPassword(
+			@RequestParam(required = true) String email,
+			@RequestParam(required = true) String numStudent,
+			RedirectAttributes redirectAttributes) {
+		
+		Student student = userService.findByEmail(email);
+		
+		if(student == null || !student.getNumStudent().equals(numStudent)) {
+			ModelAndView res = new ModelAndView("welcome/forgotpassword");
+			res.addObject(
+					"error", "L'email ou le numéro d'étudiant n'est pas valide");
+			res.addObject("student", new Student());
+			return res;
+		}
+			
+		SecureRandom random = new SecureRandom();
+		MailSender
+			.sendEmail(
+				email,
+				"e-Partage - Nouveau mot de passe",
+				"Veuillez trouver ci-dessous votre nouveau mot de passe pour vous connecter sur la platerforme e-Partage.\n"
+						+ new BigInteger(32, random).toString(32) + "\n"
+						+ "Pour rappel, votre email de login est " + email + ".\n\n"
+						+ "Cordialement,\n"
+						+ "L'équipe de e-Partage.");
+		
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Votre nouveau mot de passe vous a été envoyé par email.");
 		return new ModelAndView("redirect:/authentication/connection.htm");
 	}
 }

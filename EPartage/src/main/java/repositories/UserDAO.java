@@ -31,5 +31,16 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 	
 	@Query(FIND_BY_LOGIN_QUERY)
 	public User findByLogin(@Param("login") String login);
+	
+//	FIND_BY_EMAIL_PASSWORD_QUERY ----------------------------------------------
+	
+	public final String FIND_BY_EMAIL_QUERY = 
+			  " SELECT s "
+			+ " FROM User u, Student s " 
+			+ " WHERE u.email = :email "
+			+ " AND u.id = s.id";
+
+	@Query(FIND_BY_EMAIL_QUERY)
+	public Student findByEmail(@Param("email") String email);
 
 }
