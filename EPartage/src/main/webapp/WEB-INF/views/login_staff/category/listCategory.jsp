@@ -6,29 +6,44 @@
 	
 	<tiles:putAttribute name="content">
 		<c:if test="${!empty sessionScope.adminSession}">
-			<h1>Listes des catégories</h1>
+			<h1 class="large">Listes des catégories</h1>
 			<c:choose>
 				<c:when test="${not empty listCategory}">
-					<ul>
-						<c:forEach var="category" items="${listCategory}">
-							<li>
-							<table>
-								<form:form method="POST"
-									modelAttribute="category"
+					<div class="listCategory">
+						<table>
+							<tr>
+								<td>Groupe</td>
+								<td>Catégorie</td>
+								<td><img class="extraSmallPicture" src="<c:url value='/images/eyes.png' />" alt="" title="Voir les sous-categories"/></td>
+								<td><img class="extraSmallPicture" src="<c:url value='/images/add.png' />" alt="" title="Ajouter une sous-categorie"/></td>
+								<td><img class="extraSmallPicture" src="<c:url value='/images/trash.png' />" alt="" title="Supprimer"/></td>
+							</tr>
+							<c:forEach var="category" items="${listCategory}">
+								<form:form method="POST" modelAttribute="category"
 									action="${pageContext.request.contextPath}/login_staff/category/managementCategory.htm?nameCategory=${category.idCategory.name}&groupCategory=${category.idCategory.group}">
 										<tr>
-											<td width=150><c:out value="${category.idCategory.group}" /></td>
-											<td width=150><c:out value="${category.idCategory.name}" /></td>
-											<td width=100><input name="action" type="submit" value="Supprimer"></td>
-											<td width=100><input name="action" type="submit" value="Voir les sous-categories"></td>
-											<td width=100><input name="action" type="submit" value="Ajouter sous-categorie"></td>
-											
+											<td><c:out value="${category.idCategory.group}" /></td>
+											<td><c:out value="${category.idCategory.name}" /></td>
+											<td>
+												<button type="submit" name="action" value="Voir les sous-categories" title="Voir les sous-categories">
+												    <img src="<c:url value="/images/eyes.png" />" />
+												</button>
+											</td>
+											<td>
+												<button type="submit" name="action" value="Ajouter sous-categorie" title="Ajouter une sous-categorie">
+												    <img src="<c:url value="/images/add.png" />" />
+												</button>
+											</td>
+											<td>
+												<button type="submit" name="action" value="Supprimer" title="Supprimer">
+												    <img src="<c:url value="/images/trash.png" />" />
+												</button>
+											</td>
 										</tr>
-								</form:form>
-							</table>						
-							</li>
-						</c:forEach>
-					</ul>
+									</form:form>
+							</c:forEach>
+						</table>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<div class="information">

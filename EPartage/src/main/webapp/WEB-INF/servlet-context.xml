@@ -91,20 +91,6 @@
     <!-- Interceptors -->
     <mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/workspace/*" />
-			<mvc:mapping path="/workspace/group/*" />
-			<mvc:mapping path="/workspace/group/subcategory/*" />
-			<mvc:mapping path="/message/*" />
-			<mvc:mapping path="/publication/*" />
-			<mvc:exclude-mapping path="/workspace/avatar.htm" />
-			<mvc:exclude-mapping path="/workspace/group/avatar.htm" />
-			<bean class="interceptors.UnauthenticatedUserInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/authentication/connection.htm" />
-			<bean class="interceptors.AuthenticatedUserInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
 			<mvc:mapping path="/login_staff/*" />
 			<mvc:mapping path="/login_staff/category/*" />
 			<mvc:mapping path="/login_staff/group/*" />

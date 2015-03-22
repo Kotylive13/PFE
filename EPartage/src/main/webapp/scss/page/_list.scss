@@ -1,0 +1,71 @@
+/******************************************************/
+/*                                                    */
+/*                  	Lists                         */
+/*                                                    */
+/******************************************************/
+
+.list{
+	$width-listPublication: 940px;
+	@include center($width-listPublication);
+	background-color: $blue1;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	table {
+		width: 100%;
+		text-align: left;
+		tr:first-child {
+			background-color: $blue4;
+			&:hover {
+				background-color: $blue4;
+			}
+		}
+		tr {
+			border: 1px solid $blue4;
+			&:hover { background-color: $yellow1; }
+			a:hover { color: $red3; }
+		}		
+		td{
+			height: 30px;
+			line-height: 30px;
+			vertical-align: middle;
+			padding: 5px 10px;
+			border: 1px solid $blue4;
+			p {
+				display: inline-block;
+			}
+			button {
+				border: 0px;
+				padding: 0px;
+				margin: 0px;
+				background: transparent;
+				&:hover {
+						cursor: pointer;
+					}
+				img {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}		
+		.odd {
+			background-color: $blue1;
+		}
+		.peer {
+			background-color: white;
+		}
+		.read {
+			background-color: white;
+		}
+		.notRead {
+			background-color: $blue1;
+		}
+		img {
+			border-radius: 5px;
+		}
+	}
+}
+
+@import "_listMessage";
+@import "_listCategory";
+@import "_listSubcategory";
+@import "_listPublication";
