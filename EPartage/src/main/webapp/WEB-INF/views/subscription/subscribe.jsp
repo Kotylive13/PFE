@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 
-<tiles:insertDefinition name="user">
+<tiles:insertDefinition name="visitor">
 	<tiles:putAttribute name="title">Inscription</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="page">
@@ -86,15 +86,24 @@
 						
 						<tr>
 							<td><label>Centres d'intérêt</label></td>
-							<td>							
+							<td><c:set var="selectedHobbies" value="${fn:split(param.hobbies, ',')}" />
+							
 								<select id="tokenizer" class="tokenizer" multiple>
+									<c:if test="${!empty param.hobbies}">
+										<c:forEach items="${selectedHobbies}" var="selectedHobby">
+											<option selected>${selectedHobby}</option>
+										</c:forEach>
+									</c:if>
+								
 									<c:if test="${!empty hobbies}">
 										<c:forEach items="${hobbies}" var="hobby">
-									    	<option>${hobby.nameH}</option>
+										 	<c:if test="${!fn:contains(param.hobbies, hobby.nameH)}">
+												<option>${hobby.nameH}</option>
+											</c:if>
 										</c:forEach>
 									</c:if>
 						        </select>
-						        <input name="hobbies" id="selectedValues" type="hidden" />
+						        <input name="hobbies" id="selectedValues" type="hidden" value="${param.hobbies}"/>
 						        <c:if test="${!empty errorHobbies}">
 									<span class="error"><c:out value="${errorHobbies}"/></span>
 								</c:if>			
