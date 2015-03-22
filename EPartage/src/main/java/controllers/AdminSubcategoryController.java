@@ -87,7 +87,9 @@ public class AdminSubcategoryController {
 		subcategory.setIdSubcategory(idSubcategory);
 		subcategoryService.save(subcategory);
 
-		return new ModelAndView("/login_staff/index");
+		return new ModelAndView("/login_staff/subcategory/listSubcategory");
+		
+		//return new ModelAndView("/login_staff/index"); Ce qu'il y avait de base !!!!!
 	}
 	
 	

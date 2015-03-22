@@ -8,6 +8,7 @@
 
 <tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">Boîte de réception</tiles:putAttribute>
+	
 	<tiles:putAttribute name="content">
 
 		<h1 class="large">Messagerie</h1>

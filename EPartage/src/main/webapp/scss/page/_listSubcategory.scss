@@ -1,20 +1,20 @@
-.listMessage {
+.listSubcategory {
 	@extend .list;
 	td:first-child {
 		@include overflowHidden;
-		width: 30px;
-		max-width: 30px;
+		width: 200px;
+		max-width: 200px;
 		text-align: left;
 	}
 	td:nth-child(2) {
-		width: 660px;
-		max-width: 660px;
 		@include overflowHidden;
+		width: 200px;
+		max-width: 200px;
 		text-align: left;
 	}
 	td:last-child {
-		width: 190px;
-		max-width: 190px;
+		width: 20px;
+		max-width: 20px;
 		text-align: center;
 	}
 }

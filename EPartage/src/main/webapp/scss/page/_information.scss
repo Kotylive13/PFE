@@ -115,7 +115,7 @@
 	}
 }
 
-.messagingOptions {
+.toolbar {
 	@include center(940px);
 	.submit {
 		@include button ($blue4, $blue5);
