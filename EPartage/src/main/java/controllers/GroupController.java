@@ -3,11 +3,11 @@ package controllers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -146,12 +146,11 @@ public class GroupController {
 	@RequestMapping(value = "/search.htm", method = RequestMethod.GET)
 	public ModelAndView search(
 			@RequestParam(value = "keywords", required = true) String keywords) {
-		List<Group> res = new ArrayList<Group>();
+		Set<Group> res = new HashSet<Group>();
 		
 		String tokens[] = keywords.split("\\s+");
 		for(String token : tokens) {
 			for(Group group : groupService.findByKeyword(token)) {
-				if(!res.contains(group))
 					res.add(group);
 			}
 		}
