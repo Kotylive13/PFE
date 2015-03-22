@@ -22,7 +22,10 @@
 						</tr>
 						<tr>
 							<td></td>
-							<td><input id="addGroup" class="submit" type="submit"></td>
+							<td>
+								<input id="addGroup" class="submit" type="submit">
+								<a href="${pageContext.request.contextPath}/login_staff/index.htm"><button type="button" class="submit">Annuler</button></a>
+							</td>
 						</tr>
 					</table>
 				</form:form>

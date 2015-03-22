@@ -36,6 +36,9 @@
 			</ul>
 		</div>
 		
+		<h1>${subcategory.idSubcategory.category}</h1>
+		<h2>${subcategory.idSubcategory.subcategory}</h2>
+
 		<c:choose>
 		    <c:when test="${not empty type}">
 				<div class="information">

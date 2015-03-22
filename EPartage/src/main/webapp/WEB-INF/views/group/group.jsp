@@ -9,7 +9,7 @@
 		</tiles:putAttribute>
 	<tiles:putAttribute name="content">
 		<div class="title">
-			<img class="largePicture" src="${pageContext.request.contextPath}/workspace/group/avatar.htm?nameG=${groupsUrl[group.name]}" alt="" />
+			<img class="largePicture" src="${pageContext.request.contextPath}/workspace/group/avatar.htm?nameG=${groupsUrl[group.name]}" />
 			<p>${group.name}</p>
 		</div>
 
