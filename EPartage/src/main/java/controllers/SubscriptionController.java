@@ -1,5 +1,7 @@
 package controllers;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -7,9 +9,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +21,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.HobbyService;
@@ -34,6 +40,9 @@ import domain.Student;
 @Controller
 @RequestMapping("/subscription")
 public class SubscriptionController {
+	
+	@Autowired
+	ServletContext context;
 
 	@Autowired
 	UserService userService;
@@ -58,6 +67,7 @@ public class SubscriptionController {
 
 	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
 	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,
+			@RequestParam(required = false) MultipartFile file,
 			BindingResult bindingResult, 
 			HttpServletRequest request) {
 		System.out
@@ -96,8 +106,19 @@ public class SubscriptionController {
 			hobbies.add(hobby);
 		}
 		student.setHobbies(hobbies);
-
-		// show message "Votre demande d'inscription est en cours de validation"
+		
+		// save file
+		try {
+			if (!file.isEmpty()) {
+					student.setAvatar(file.getBytes());
+			}else{
+				InputStream is = context.getResourceAsStream("/images/user.png");
+				student.setAvatar(IOUtils.toByteArray(is));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		userService.save(student);
 		// send email to this person
 		MailSender
@@ -110,7 +131,10 @@ public class SubscriptionController {
 								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"
 								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
 								+ "A bientôt sur e-Partage !");
-		result = new ModelAndView("welcome/index");
+		
+		result = new ModelAndView("authentication/connection");		
+		result.addObject("type", "success");
+		result.addObject("message", "Votre demande d'inscription est en cours de validation.");
 		return result;
 	}
 	
