@@ -1,11 +1,20 @@
 package utilities;
 
+/**
+ * Class allowing to encode and decode String
+ * Encode from Ascii String to Hexadecimal String
+ * Decode from Hexadecimal String to Ascii String
+ * 
+ * @author
+ *
+ */
 public class AsciiToHex {
 
 	/**
-	 *
-	 * @param ascii
-	 * @return
+	 * Encode from Ascii String to Hexadecimal String
+	 * 
+	 * @param ascii Ascii String
+	 * @return hexadecimal String
 	 */
 	public static String asciiToHex(String ascii) {
 		StringBuilder hex = new StringBuilder();
@@ -17,9 +26,10 @@ public class AsciiToHex {
 	}
 
 	/**
-	 *
-	 * @param hexString
-	 * @return
+	 * Decode from Hexadecimal String to Ascii String
+	 * 
+	 * @param hexString Hexadecimal String
+	 * @return Ascii String
 	 */
 	public static String decode(final String hexString) {
 		final int len = hexString.length();

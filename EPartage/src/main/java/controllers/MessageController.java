@@ -40,9 +40,15 @@ import domain.User;
 @RequestMapping("/message")
 public class MessageController {
 
+	/**
+	 * @see MessageService
+	 */
 	@Autowired
 	private MessageService messageService;
 	
+	/**
+	 * @see UserService
+	 */
 	@Autowired
 	private UserService userService;
 
@@ -50,6 +56,12 @@ public class MessageController {
 		super();
 	}
 	
+	/**
+	 * Finds all application users to display possible receivers in the view
+	 * 
+	 * @param model {@link Model}
+	 * @return New message form
+	 */
 	@RequestMapping(value = "/newmessage.htm", method = RequestMethod.GET)
 	public ModelAndView newMessageForm(Model model) {
 		Map<String, Object> users = new HashMap<String, Object>();
@@ -57,6 +69,15 @@ public class MessageController {
 		return new ModelAndView("message/newMessageForm", users);
 	}
 	
+	/**
+	 * Called when user sends new message form
+	 * 
+	 * @param message Content of the message
+	 * @param bindingResult {@link BindingResult}
+	 * @param session {@link HttpSession}
+	 * @param request {@link HttpServletRequest}
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/newmessage.htm",  method = RequestMethod.POST)
 	public ModelAndView newMessageForm(@Valid @ModelAttribute Message message,
 			BindingResult bindingResult, HttpSession session, 
@@ -106,16 +127,31 @@ public class MessageController {
 		return result;
 	}
 
+	/**
+	 * @return view which display sent messages
+	 */
 	@RequestMapping("/sentMessagesList.htm")
 	public String sentMessageList() {
 		return "message/sentMessagesList";
 	}
 	
+	/**
+	 * @return view which display received messages
+	 */
 	@RequestMapping("/receivedMessagesList.htm")
 	public String receivedMessageList() {
 		return "message/receivedMessagesList";
 	}
 	
+	/**
+	 * Displays the details of a message if user in session is either author 
+	 * or receiver
+	 * 
+	 * @param m Message that we want to see informations
+	 * @param u User in session
+	 * @param session {@link HttpSession}
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
 	public ModelAndView detailMessage(
 			@ModelAttribute Message m, 
@@ -136,7 +172,12 @@ public class MessageController {
 		
 		return result;
 	}
-	
+
+	/**
+	 * @param author Author id
+	 * @param date Date
+	 * @return Message corresponding to the URL params or a new Message
+	 */
 	@ModelAttribute("message")
 	public Message newMessage(
 			@RequestParam(value = "id", required = false) Integer author,
@@ -152,41 +193,69 @@ public class MessageController {
 		return new Message();
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return List of sent messages corresponding to the user in session
+	 */
 	@ModelAttribute("sentMessages")
 	public Collection<Message> sentMessages(HttpSession session) {
 		return messageService.findAllSentMessages(
 				(User) session.getAttribute("userSession"));
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return List of received messages corresponding to the user in session
+	 */
 	@ModelAttribute("receivedMessages")
 	public Collection<ReceivedMessage> receivedMessages(HttpSession session) {
 		return messageService.findAllReceivedMessages(
 				(User) session.getAttribute("userSession"));
 	}
 	
+	/** 
+	 * @param session {@link HttpSession}
+	 * @return Number of unconsulted message of the user in session
+	 */
 	@ModelAttribute("nbOfUnconsultedMessages")
 	public int nbOfUnconsultedMessages(HttpSession session) {
 		return messageService.getNbOfUnconsultedMessages(
 				(User) session.getAttribute("userSession"));
 	}
 	
+	/** 
+	 * @param session {@link HttpSession}
+	 * @return Student in session
+	 */
 	@ModelAttribute("student")
 	public Student getStudent (HttpSession session) {
 		return (Student) session.getAttribute("userSession");
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return User in session
+	 */
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
 		return userService.findByLogin(userSession.getEmail());
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Groups list corresponding to the user in session
+	 */
 	@ModelAttribute("groupsList")
 	public Collection<Group> getUserGroups(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
 		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Map with groups name and corresponding encoded groups name
+	 */
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");

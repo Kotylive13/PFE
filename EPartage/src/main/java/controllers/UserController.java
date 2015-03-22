@@ -32,13 +32,24 @@ import domain.Student;
 import domain.Subcategory;
 import domain.User;
 
+/**
+ * Class managing user page's actions
+ * 
+ * @author 
+ */
 @Controller
 @RequestMapping("/workspace")
 public class UserController {
 	
+	/**
+	 * @see UserService
+	 */
 	@Autowired
 	UserService userService;
 	
+	/**
+	 * @see MessageService
+	 */
 	@Autowired
 	MessageService messageService;
 
@@ -46,16 +57,36 @@ public class UserController {
 		super();
 	}
 
+	/**
+	 * Return the view corresponding to the user workspace
+	 * 
+	 * @return View name
+	 */
 	@RequestMapping("/index.htm")
-	public String index(HttpSession session) {		
+	public String index() {		
 		return "workspace/workspace";
 	}
 
+	/**
+	 * Return the view corresponding to the contact form
+	 * 
+	 * @return View name
+	 */
 	@RequestMapping(value = "/contact.htm",  method = RequestMethod.GET)
 	public String contact() {		
 		return "workspace/contact";
 	}
 	
+	/**
+	 * Allows to contact administrator
+	 * Called when user sends contact form
+	 * 
+	 * @param object
+	 * @param message Content
+	 * @param session {@link HttpSession}
+	 * @param redirectAttributes {@link RedirectAttributes}
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/contact.htm",  method = RequestMethod.POST)
 	public ModelAndView contact(
 			@RequestParam(required = true) String object,
@@ -92,6 +123,12 @@ public class UserController {
 		return new ModelAndView("redirect:/workspace/index.htm");
 	}
 	
+	/**
+	 * Displays avatar corresponding to the URL parameter 
+	 * 
+	 * @param id User id
+	 * @param response {@link HttpServletResponse}
+	 */
 	@RequestMapping("/avatar.htm")
 	public void avatar(
 			@RequestParam(value = "id", required = false) String id,
@@ -110,11 +147,19 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Student in session
+	 */
 	@ModelAttribute("student")
 	public Student getStudent (HttpSession session) {
 		return (Student) session.getAttribute("userSession");
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return User in session
+	 */
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -123,6 +168,10 @@ public class UserController {
 		return userService.findByLogin(userSession.getEmail());
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Number of unconsulted message of the user in session
+	 */
 	@ModelAttribute("nbOfUnconsultedMessages")
 	public int nbOfUnconsultedMessages(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -131,6 +180,10 @@ public class UserController {
 		return messageService.getNbOfUnconsultedMessages(userSession);
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Groups list corresponding to the user in session
+	 */
 	@ModelAttribute("groupsList")
 	public Collection<Group> getUserGroups(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -139,6 +192,10 @@ public class UserController {
 		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Map with groups name and corresponding encoded groups name
+	 */
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -157,6 +214,11 @@ public class UserController {
 		return groupsUrl;
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return All publications of the groups to which the user in session 
+	 * belongs
+	 */
 	@ModelAttribute("allPublications")
 	public List<Publication> getAllPublications(HttpSession session) {
 

@@ -15,6 +15,11 @@ import domain.Message;
 import domain.ReceivedMessage;
 import domain.User;
 
+/**
+ * Service for Message entity
+ *  
+ * @author 
+ */
 @Service
 @Transactional
 public class MessageService {
@@ -22,9 +27,6 @@ public class MessageService {
 	@Autowired
 	private MessageDAO messageDAO;
 	
-	/**
-	 * All messages
-	 */
 	public Collection<Message> findAll() {
 		return messageDAO.findAll();
 	}
@@ -40,10 +42,6 @@ public class MessageService {
 	public Message findOne(IdMessage idMessage) {
 		return messageDAO.findOne(idMessage);
 	}
-	
-//	public Collection<Message> findAllReceivedMessages(User user, boolean consult) {
-//		return messageDAO.findAllReceivedMessages(user.getId(), consult);
-//	}
 	
 	public Collection<ReceivedMessage> findAllReceivedMessages(User user) {
 		List<ReceivedMessage> receivedMessages = new ArrayList<ReceivedMessage>();

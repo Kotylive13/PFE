@@ -8,8 +8,23 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import domain.User;
 
+/**
+ * Class allowing to check if user is authenticated before calling the
+ * URL corresponding methods described in the configuration file 
+ * "servlet-context.xml".
+ * 
+ * @author
+ *
+ */
 public class AuthenticatedUserInterceptor extends HandlerInterceptorAdapter {
 	
+	/**
+	 * Called before each call to the URL corresponding methods described in
+	 * the configuration file "servlet-context.xml".
+	 * If user is authenticated, he is redirected to his workspace page.
+	 * 
+	 * @return True if user is unauthenticated, false otherwise
+	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {

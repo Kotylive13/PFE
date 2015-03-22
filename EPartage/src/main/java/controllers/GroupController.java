@@ -2,7 +2,6 @@ package controllers;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -34,22 +33,45 @@ import domain.Student;
 import domain.Subcategory;
 import domain.User;
 
+/**
+ * Class managing group page's actions
+ * 
+ * @author 
+ */
 @Controller
 @RequestMapping("/workspace/group")
 public class GroupController {
 
+	/**
+	 * @see UserService
+	 */
 	@Autowired
 	UserService userService;
 	
+	/**
+	 * @see GroupService
+	 */
 	@Autowired
 	GroupService groupService;
 	
+	/**
+	 * @see CategoryService
+	 */
 	@Autowired
 	CategoryService categoryService;
 	
+	/**
+	 * @see MessageService
+	 */
 	@Autowired
 	MessageService messageService;
 	
+	/**
+	 * Displays avatar corresponding to the URL parameter 
+	 * 
+	 * @param nameG group name
+	 * @param response {@link HttpServletResponse}
+	 */
 	@RequestMapping("/avatar.htm")
 	public void avatarGroup(
 			@RequestParam(value = "nameG", required = false) String nameG,
@@ -68,6 +90,15 @@ public class GroupController {
 		}
 	}
 	
+	/**
+	 * Displays group's informations if user in session belongs to
+	 * this group.
+	 * 
+	 * @param g Group that we want to see informations
+	 * @param u User in session
+	 * @param model {@link Model}
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
 	public ModelAndView detailGroup(
 			@ModelAttribute Group g,
@@ -102,11 +133,20 @@ public class GroupController {
 		return result;
 	}
 	
+	/**
+	 * Displays subcategory's informations if user in session belongs to
+	 * the corresponding group.
+	 * 
+	 * @param sub Subcategory that we want to see informations
+	 * @param u User in session
+	 * @param model {@link Model}
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/subcategory/detail.htm", method = RequestMethod.GET)
 	public ModelAndView detailSubcategory(
 			@ModelAttribute Subcategory sub,
 			@ModelAttribute User u,
-			Model model) throws UnsupportedEncodingException {
+			Model model) {
 		
 		if (sub == null || sub.getIdSubcategory().getSubcategory().isEmpty())
 			return new ModelAndView("redirect:../index.htm");
@@ -143,6 +183,12 @@ public class GroupController {
 		return result;
 	}
 	
+	/**
+	 * Search groups and display them. 
+	 * 
+	 * @param keywords Keywords corresponding to the search
+	 * @return view with specific message
+	 */
 	@RequestMapping(value = "/search.htm", method = RequestMethod.GET)
 	public ModelAndView search(
 			@RequestParam(value = "keywords", required = true) String keywords) {
@@ -160,6 +206,12 @@ public class GroupController {
 		return new ModelAndView("group/search", groups);
 	}
 	
+	/**
+	 * @param nameG Group name
+	 * @param nameC Category name
+	 * @param nameS Subcategory name
+	 * @return Subcategory corresponding to the URL params or a new Subcategory
+	 */
 	@ModelAttribute("subcategory")
 	public Subcategory newSubcategory(
 			@RequestParam(value = "nameG", required = false) String nameG,
@@ -177,6 +229,10 @@ public class GroupController {
 		return new Subcategory();
 	}
 	
+	/**
+	 * @param name Group name
+	 * @return Group corresponding to the URL params or a new Group
+	 */
 	@ModelAttribute("group")
 	public Group newGroup(
 			@RequestParam(value = "nameG", required = false) String name) {
@@ -188,6 +244,10 @@ public class GroupController {
 		return new Group();
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Groups list corresponding to the user in session
+	 */
 	@ModelAttribute("groupsList")
 	public Collection<Group> getUserGroups(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -196,6 +256,10 @@ public class GroupController {
 		return userService.findByLogin(userSession.getEmail()).getGroups();
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Map with groups name and corresponding encoded groups name
+	 */
 	@ModelAttribute("groupsUrl")
 	public Map<String, Object> getGroupsUrl (HttpSession session) {
 		Map<String, Object> groupsUrl = new HashMap<String, Object>();
@@ -209,6 +273,10 @@ public class GroupController {
 		return groupsUrl;
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return Student in session
+	 */
 	@ModelAttribute("student")
 	public Student getStudent (HttpSession session) {
 		Student studentSession = (Student) session.getAttribute("userSession");
@@ -217,6 +285,10 @@ public class GroupController {
 		return studentSession;
 	}
 	
+	/**
+	 * @param session {@link HttpSession}
+	 * @return User in session
+	 */
 	@ModelAttribute("user")
 	public User getUser (HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -225,6 +297,10 @@ public class GroupController {
 		return userService.findByLogin(userSession.getEmail());
 	}
 	
+	/** 
+	 * @param session {@link HttpSession}
+	 * @return Number of unconsulted message of the user in session
+	 */
 	@ModelAttribute("nbOfUnconsultedMessages")
 	public int nbOfUnconsultedMessages(HttpSession session) {
 		User userSession = (User) session.getAttribute("userSession");
@@ -233,6 +309,9 @@ public class GroupController {
 		return messageService.getNbOfUnconsultedMessages(userSession);
 	}
 	
+	/**
+	 * @return new Publication form
+	 */
 	@ModelAttribute("publication")
 	public PublicationForm newPublicatin(){
 		return new PublicationForm();
