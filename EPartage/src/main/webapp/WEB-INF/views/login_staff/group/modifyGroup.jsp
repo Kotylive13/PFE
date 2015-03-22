@@ -18,12 +18,15 @@
 						</tr>
 						<tr>
 							<td><form:label path="description">Description</form:label></td>
-							<td><form:input path="description" name="description" type="text" value="${group.description}"/></td>
+							<td><form:textarea path="description" name="description" type="text" value="${group.description}" rows="10" /></td>
 						</tr>
 
 						<tr>
 							<td></td>
-							<td><input id="modifyGroup" class="submit" type="submit"></td>
+							<td>
+								<input id="modifyGroup" class="submit" type="submit">
+								<a href="${pageContext.request.contextPath}/login_staff/index.htm"><button type="button" class="submit">Annuler</button></a>
+							</td>
 						</tr>
 						
 					</table>

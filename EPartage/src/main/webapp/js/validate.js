@@ -62,6 +62,59 @@ $("#updateInformationForm").validate({
 	}
 });
 
+$("#addGroup").validate({
+	errorElement : 'span',
+	rules : {
+		name : {
+			required : true
+		},
+		description : {
+			required : true
+		}
+	}
+});
+
+$("#addCategory").validate({
+	errorElement : 'span',
+	rules : {
+		'idCategory.name' : {
+			required : true
+		},
+		'idCategory.group' : {
+			required : true
+		}
+	}
+});
+
+$("#addSubcategory").validate({
+	errorElement : 'span',
+	rules : {
+		'idSubcategory.subcategory' : {
+			required : true
+		}
+	}
+});
+
+$("#modifyGroup").validate({
+	errorElement : 'span',
+	rules : {
+		name : {
+			required : true
+		},
+		description : {
+			required : true
+		}
+	}
+});
+
+$("#newMessage").validate({
+	errorElement : 'span',
+	rules : {
+		content : {
+			required : true
+		}
+	}
+});
 
 $("#postPublicationForm").validate({
 	errorElement : 'span',

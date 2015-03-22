@@ -9,7 +9,7 @@
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1>Ajout d'une sous-catégorie</h1>
 			<div class="form">
-				<form:form method="POST" modelAttribute="subcategory" 
+				<form:form id="addSubcategory" method="POST" modelAttribute="subcategory" 
  					action="${pageContext.request.contextPath}/login_staff/subcategory/addSubcategory.htm?groupname=${group}&category=${category}">
 
 					<table>

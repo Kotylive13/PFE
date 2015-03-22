@@ -19,7 +19,7 @@
 		</c:if>
 		
 		<div class="form">
-			<form:form method="POST" modelAttribute="message"
+			<form:form id="newMessage" method="POST" modelAttribute="message"
 				action="${pageContext.request.contextPath}/message/newmessage.htm">
 				<table>
 					<tr>
@@ -39,7 +39,7 @@
 					<tr>
 						<td>Message</td>
 						<td>
-							<form:textarea path="content" maxlength="2048" rows="10"/>
+							<form:textarea path="content" name="content" maxlength="2048" rows="10"/>
 							<form:errors cssClass="error" path="content" />
 						</td>
 					</tr>

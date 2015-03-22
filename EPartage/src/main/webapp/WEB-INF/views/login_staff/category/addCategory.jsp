@@ -8,7 +8,7 @@
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1>Ajout d'une catégorie</h1>
 			<div class="form">
-				<form:form method="POST" modelAttribute="category" 
+				<form:form id="addCategory" method="POST" modelAttribute="category" 
  					action="${pageContext.request.contextPath}/login_staff/category/addCategory.htm">
 					<table>
 						<tr>
