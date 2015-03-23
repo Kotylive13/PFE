@@ -344,14 +344,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/showProfile",  method = RequestMethod.GET)
-	public ModelAndView showProfile(@RequestParam(required = true) Integer userId,
+	public ModelAndView showProfile(@RequestParam(required = false) Integer userId,
 			RedirectAttributes redirectAttributes, Model model) {	
 		
 		ModelAndView result = new ModelAndView("workspace/showProfile");
 		if(userId==null){
-			redirectAttributes.addFlashAttribute("type", "Error");
+			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message",	"Vous devez cliquez sur le nom de l'utilisateur pour afficher son profile !");
-			return result;
+			return new ModelAndView("redirect:/workspace/index.htm");
 		}
 		Student studentProfile = (Student) userService.find(userId);
 		model.addAttribute("studentProfile", studentProfile);
