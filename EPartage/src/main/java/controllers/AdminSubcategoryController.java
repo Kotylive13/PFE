@@ -87,9 +87,9 @@ public class AdminSubcategoryController {
 		subcategory.setIdSubcategory(idSubcategory);
 		subcategoryService.save(subcategory);
 
-		return new ModelAndView("/login_staff/subcategory/listSubcategory");
-		
-		//return new ModelAndView("/login_staff/index"); Ce qu'il y avait de base !!!!!
+		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+		mapSubcategory.put("listSubcategory", subcategoryService.findByGroupAndCategory(groupname, category));
+		return new ModelAndView("/login_staff/subcategory/listSubcategory", mapSubcategory);
 	}
 	
 	

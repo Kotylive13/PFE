@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.CategoryService;
 import services.GroupService;
@@ -68,7 +69,9 @@ public class AdminCategoryController {
 	
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
 	public ModelAndView addGroupForm(HttpSession session, Model model, 
-			@Valid @ModelAttribute Category category, BindingResult bindingResult){
+			@Valid @ModelAttribute Category category, 
+			RedirectAttributes redirectAttributes,
+			BindingResult bindingResult){
 		
 		if(session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
@@ -82,12 +85,9 @@ public class AdminCategoryController {
 
 		categoryService.save(category);
 		
-		model.addAttribute("type", "success");
-		model.addAttribute("message", "La catégorie a bien été ajoutée");
-		
-		return new ModelAndView("/login_staff/category/listCategory");
-		
-		//return new ModelAndView("/login_staff/index"); Ce qu'il y avait de base !!!!!
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "La catégorie a bien été ajoutée");
+		return new ModelAndView("redirect:/login_staff/category/listCategory.htm");
 	}
 	
 // MANAGEMENT CATEGORY --------------------------------------------------------

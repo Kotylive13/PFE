@@ -1222,15 +1222,6 @@ img[class="largePicture"] {
   text-align: left;
 }
 /* line 9, ../sass/page/_listSubcategory.scss */
-.content .listSubcategory td:nth-child(2) {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  width: 200px;
-  max-width: 200px;
-  text-align: left;
-}
-/* line 15, ../sass/page/_listSubcategory.scss */
 .content .listSubcategory td:last-child {
   width: 20px;
   max-width: 20px;

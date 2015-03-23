@@ -8,6 +8,7 @@
 	<tiles:putAttribute name="content">
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1 class="large">Liste des sous-catégories</h1>
+			<h2 class="large">Groupe : <c:out value="${param.groupCategory}" /> => Catégorie : <c:out value="${param.nameCategory}" /></h2>
 			<c:choose>
 				<c:when test="${not empty listSubcategory}">
 					<div class="toolbar">
@@ -17,7 +18,6 @@
 					<div class="listSubcategory">
 						<table>
 							<tr>
-								<td>Catégorie</td>
 								<td>Sous-catégorie</td>
 								<td><img class="extraSmallPicture" src="<c:url value='/images/trash.png' />" alt="" title="Supprimer"/></td>
 							</tr>
@@ -25,7 +25,6 @@
 								<form:form method="POST" modelAttribute="subcategory"
 									action="${pageContext.request.contextPath}/login_staff/subcategory/managementSubcategory.htm?subcategory=${subcategory.idSubcategory.subcategory}&group=${subcategory.idSubcategory.group}&category=${subcategory.idSubcategory.category}">
 									<tr>
-										<td><c:out value="${subcategory.idSubcategory.category}" /></td>
 										<td><c:out value="${subcategory.idSubcategory.subcategory}" /></td>
 										<td>
 											<button type="submit" name="action" value="Supprimer" title="Supprimer">
