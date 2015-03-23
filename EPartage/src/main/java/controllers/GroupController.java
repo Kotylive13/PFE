@@ -196,11 +196,8 @@ public class GroupController {
 		Set<Group> res = new HashSet<Group>();
 		
 		String tokens[] = keywords.split("\\s+");
-		for(String token : tokens) {
-			for(Group group : groupService.findByKeyword(token)) {
-					res.add(group);
-			}
-		}
+		for(String token : tokens)
+			res.addAll(groupService.findByKeyword(token));
 		
 		Map<String, Object> groups = new HashMap<String, Object>();
 		groups.put("groups", res);
