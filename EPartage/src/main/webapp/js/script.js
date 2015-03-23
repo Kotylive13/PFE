@@ -81,3 +81,29 @@ function formatState (state) {
   );
   return $state;
 };
+
+function addGoodOpinion (publication, author) {
+	$.ajax({
+        url: "/EPartage/publication/addGoodOpinion.htm",
+        type:'GET',
+        data:
+        {
+            idPub: publication,
+            idAuthor: author
+        }               
+    });
+	setTimeout(function(){ location.reload(); }, 500);
+}
+
+function addBadOpinion (publication, author) {
+	$.ajax({
+        url: "/EPartage/publication/addBadOpinion.htm",
+        type:'GET',
+        data:
+        {
+            idPub: publication,
+            idAuthor: author
+        }
+	});
+	setTimeout(function(){ location.reload(); }, 500);
+}

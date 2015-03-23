@@ -28,13 +28,16 @@ import services.CategoryService;
 import services.CommentFileService;
 import services.CommentService;
 import services.MessageService;
+import services.OpinionService;
 import services.PublicationFileService;
 import services.PublicationService;
+import services.UserService;
 import utilities.AsciiToHex;
 import domain.CommentFile;
 import domain.CommentForm;
 import domain.Group;
 import domain.IdSubcategory;
+import domain.Opinion;
 import domain.Publication;
 import domain.PublicationFile;
 import domain.PublicationForm;
@@ -54,6 +57,8 @@ public class PublicationController {
 	@Autowired
 	PublicationService publicationService;
 	@Autowired
+	UserService userService;
+	@Autowired
 	CategoryService categoryService;
 	@Autowired
 	MessageService messageService;
@@ -61,7 +66,8 @@ public class PublicationController {
 	PublicationFileService publicationFileService;
 	@Autowired
 	CommentFileService commentFileService;
-	
+	@Autowired
+	OpinionService opinionService;	
 	@Autowired
 	CommentService commentService;
 
@@ -197,6 +203,52 @@ public class PublicationController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping("/addGoodOpinion.htm")
+	public void addGoodOpinion(
+			@RequestParam(value = "idPub", required = true) String idPub,
+			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
+
+		User author = userService.find(Integer.parseInt(idAuthor));
+		
+		Opinion opinion = opinionService.findByAuthorAndPublication(author, Integer.parseInt(idPub));
+		if(opinion != null)
+			if(opinion.getValue().equals("good")) {
+				opinionService.delete(opinion);
+				return;
+			}
+			else
+				opinionService.delete(opinion);
+		
+		opinion = new Opinion();
+		opinion.setAuthor(author);
+		opinion.setPublication(publicationService.find(Integer.parseInt(idPub)));
+		opinion.setValue("good");
+		opinionService.save(opinion);
+	}
+	
+	@RequestMapping("/addBadOpinion.htm")
+	public void addBadOpinion(
+			@RequestParam(value = "idPub", required = true) String idPub,
+			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
+
+		User author = userService.find(Integer.parseInt(idAuthor));
+		
+		Opinion opinion = opinionService.findByAuthorAndPublication(author, Integer.parseInt(idPub));
+		if(opinion != null)
+			if(opinion.getValue().equals("bad")) {
+				opinionService.delete(opinion);
+				return;
+			}
+			else
+				opinionService.delete(opinion);
+		
+		opinion = new Opinion();
+		opinion.setAuthor(author);
+		opinion.setPublication(publicationService.find(Integer.parseInt(idPub)));
+		opinion.setValue("bad");
+		opinionService.save(opinion);
 	}
 
 	@ModelAttribute("student")

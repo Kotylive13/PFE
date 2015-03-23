@@ -18,19 +18,23 @@ import javax.validation.constraints.Size;
 public class Opinion {
 
 	@EmbeddedId
-	private IdOpinion idOpinion;
+	private IdOpinion idOpinion = new IdOpinion();
 	
 	@Column ( name = "VALUE")
 	@Size (max = 32)
 	private String value;
 	
-	@Column(name = "AUTHOR", nullable = false)
-	private Integer author;
+	@ManyToOne
+	@JoinColumn(name = "author")
+	private User author;
 
 	@MapsId("id_pub")
 	@ManyToOne
 	@JoinColumn(name = "id_pub")
 	private Publication publication;
+	
+	public Opinion() {
+	}
 
 	public IdOpinion getIdOpinion() {
 		return idOpinion;
@@ -48,20 +52,20 @@ public class Opinion {
 		this.value = value;
 	}
 
-	public Integer getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Integer author) {
-		this.author = author;
-	}
-
 	public Publication getPublication() {
 		return publication;
 	}
 
 	public void setPublication(Publication publication) {
 		this.publication = publication;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 	
 }

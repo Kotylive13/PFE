@@ -19,6 +19,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -71,7 +72,12 @@ public class Publication implements Comparable<Publication>{
 	private List<Comment> comments;
 	
 	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
-	private List<Opinion> opinions;
+	@Where(clause = "value = 'good'")
+	private List<Opinion> goodOpinions;
+	
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	@Where(clause = "value = 'bad'")
+	private List<Opinion> badOpinions;
 	
 	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
 	private List<PublicationFile> files;
@@ -151,14 +157,6 @@ public class Publication implements Comparable<Publication>{
 		this.comments = comments;
 	}
 
-	public List<Opinion> getOpinions() {
-		return opinions;
-	}
-
-	public void setOpinions(List<Opinion> opinions) {
-		this.opinions = opinions;
-	}
-
 	public List<PublicationFile> getFiles() {
 		return files;
 	}
@@ -172,4 +170,19 @@ public class Publication implements Comparable<Publication>{
 		return p.dateP.compareTo(this.dateP);
 	}
 
+	public List<Opinion> getGoodOpinions() {
+		return goodOpinions;
+	}
+
+	public void setGoodOpinions(List<Opinion> goodOpinions) {
+		this.goodOpinions = goodOpinions;
+	}
+
+	public List<Opinion> getBadOpinions() {
+		return badOpinions;
+	}
+
+	public void setBadOpinions(List<Opinion> badOpinions) {
+		this.badOpinions = badOpinions;
+	}
 }

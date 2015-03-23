@@ -39,16 +39,19 @@
 							</p>
 						</div>
 						<div class="footerMessage">
-							<p class="goodOpinion" title="Opinion positive">
+							<p class="goodOpinion" title="Opinion positive"
+								onclick="addGoodOpinion('${p.id}', '${p.author.id}');">
+								
 								<img class="extraSmallPicture"
 									src="<c:url value="/images/thumb_up.png"/>" alt="" />
 							</p>
-							<p class="numGoodOpinion">()</p>
-							<p class="badOpinion" title="Opinion négative">
+							<p id="numGoodOpinion" class="numGoodOpinion">(${p.goodOpinions.size()})</p>
+							<p class="badOpinion" title="Opinion négative"
+								onclick="addBadOpinion('${p.id}', '${p.author.id}');">
 								<img class="extraSmallPicture"
 									src="<c:url value="/images/thumb_down.png"/>" alt="" />
 							</p>
-							<p class="numBadOpinion">()</p>
+							<p id="numBadOpinion" class="numBadOpinion">(${p.badOpinions.size()})</p>
 							<p class="numComments"
 								onclick="slideToggle('#comments_${p.id}', 'slow');">Commentaires
 								(${p.comments.size()})</p>
@@ -100,6 +103,5 @@
 				</div>
 			</c:forEach>
 		</div>
-
 	</tiles:putAttribute>
 </tiles:insertDefinition>

@@ -14,7 +14,6 @@ public class IdOpinion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-
 	@GeneratedValue( strategy = GenerationType.AUTO )
 	@Column (name = "ID_OP")
 	@Size (max = 11)

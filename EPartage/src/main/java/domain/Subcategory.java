@@ -11,6 +11,7 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +34,7 @@ public class Subcategory {
 	private Category category;
 	
 	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@OrderBy("dateP")
 	private List<Publication> publications;
 
 	public IdSubcategory getIdSubcategory() {
