@@ -73,21 +73,6 @@ public class AdminGroupController {
 
 		Map<String, List<Group>> mapGroup = new HashMap<String, List<Group>>();
 		List<Group> listGroups = new ArrayList<Group>();
-//		if (file == null)
-//			System.out.println("coucouuuuuuu");
-//		
-//		if (file.isEmpty())
-//			System.out.println("pistache");
-//		// save file
-//		if (!file.isEmpty()) {
-//			try {
-//				group.setAvatar(file.getBytes());
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		} else {
-//			group.setAvatar(null);
-//		}
 		
 		groupService.save(group);
 		listGroups = (List<Group>) groupService.findAll();
@@ -174,6 +159,7 @@ public class AdminGroupController {
 		// CHANGERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 		Map<String, List<Group>> mapGroup = new HashMap<String, List<Group>>();
 		Map<String, Group> mapGroupModify = new HashMap<String, Group>();
+		
 		String[] listName = name.split(",");
 
 		groupNew.setName(listName[1]);
@@ -187,6 +173,8 @@ public class AdminGroupController {
 					mapGroupModify);
 			// TODO FAIRE MESSAGE ERREUR
 		}
+		Group groupOld = groupService.findGroupByName(name);
+		groupNew.setAvatar(groupOld.getAvatar());
 		groupService.modify(groupNew, name);
 
 		mapGroup.put("listGroups", (List<Group>) groupService.findAll());
