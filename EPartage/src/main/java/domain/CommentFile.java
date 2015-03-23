@@ -24,10 +24,8 @@ public class CommentFile {
 	
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name = "id_com", referencedColumnName = "id_com",
-					insertable=false, updatable=false),
-		@JoinColumn(name = "id_pub", referencedColumnName = "id_pub",
-					insertable=false, updatable=false)
+		@JoinColumn(name = "id_com", referencedColumnName = "id_com", updatable = false, insertable=false),
+		@JoinColumn(name = "id_pub", referencedColumnName = "id_pub", updatable = false, insertable=false)
 	})
 	private Comment comment;
 	

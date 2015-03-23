@@ -13,45 +13,45 @@ public class IdCommentFile implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "id_pub")
-	private int publication;
+	private Integer publication;
 	
-	@Column(name = "id_com")
-	private int comment;
+	@Column(name = "id_com", nullable = false)
+	private Integer comment;
 	
 	@Column(name = "id_cf")
 	@GeneratedValue ( strategy = GenerationType.AUTO )
-	private int id;
+	private Integer id;
 
 	public IdCommentFile() {}
 
-	public int getPublication() {
+	public Integer getPublication() {
 		return publication;
 	}
 
-	public void setPublication(int publication) {
+	public void setPublication(Integer publication) {
 		this.publication = publication;
 	}
 
-	public int getComment() {
+	public Integer getComment() {
 		return comment;
 	}
 
-	public void setComment(int comment) {
+	public void setComment(Integer comment) {
 		this.comment = comment;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+		final Integer prime = 31;
+		Integer result = 1;
 		result = prime * result + id;
 		result = prime * result + comment;
 		result = prime * result + publication;
