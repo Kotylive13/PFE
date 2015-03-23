@@ -342,4 +342,9 @@ public class UserController {
 		
 		return publications;
 	}
+	
+	@RequestMapping(value = "/showProfile",  method = RequestMethod.GET)
+	public String showProfile() {		
+		return "workspace/showProfile";
+	}
 }

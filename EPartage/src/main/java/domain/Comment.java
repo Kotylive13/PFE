@@ -3,6 +3,7 @@ package domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -39,7 +40,7 @@ public class Comment {
 	@Column(name = "content", nullable = false, columnDefinition="Text")
 	String content;
 	
-	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<CommentFile> files;
 
 	public IdComment getIdComment() {

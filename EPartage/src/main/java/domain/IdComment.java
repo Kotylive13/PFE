@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Embeddable
 public class IdComment implements Serializable {
@@ -13,27 +14,28 @@ public class IdComment implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "id_pub")
-	private int publication;
+	private Integer publication;
+	
 	
 	@Column(name = "id_com")
 	@GeneratedValue ( strategy = GenerationType.AUTO )
-	private int num;
+	private Integer num;
 
 	public IdComment() {}
 
-	public int getPublication() {
+	public Integer getPublication() {
 		return publication;
 	}
 
-	public void setPublication(int publication) {
+	public void setPublication(Integer publication) {
 		this.publication = publication;
 	}
 
-	public int getNum() {
+	public Integer getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(Integer num) {
 		this.num = num;
 	}
 
