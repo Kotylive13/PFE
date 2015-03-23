@@ -18,7 +18,7 @@
 								src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
 								alt="" /></a>
 							<p class="author">
-								<a href="">${p.author.firstName} ${p.author.lastName}</a>
+								<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}">${p.author.firstName} ${p.author.lastName}</a>
 							</p>
 							<p class="datePublication">
 								<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${p.dateP}" />
@@ -79,7 +79,7 @@
 										src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${com.author.id}"
 										alt="" /></a>
 									<p class="author">
-										<a href="">${com.author.firstName} ${com.author.lastName}</a>
+										<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${com.author.id}">${com.author.firstName} ${com.author.lastName}</a>
 									</p>
 									<p class="datePublication">
 										<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"

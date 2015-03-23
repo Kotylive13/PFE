@@ -78,7 +78,8 @@ public class PublicationController {
 			@RequestParam(required = false) MultipartFile file,
 			@RequestParam(required = true) String nameC,
 			@RequestParam(required = true) String nameG,
-			@RequestParam(required = true) String nameS) {
+			@RequestParam(required = true) String nameS, 
+			RedirectAttributes redirectAttributes) {
 
 		System.out
 				.println("Controller : /PublicationController --- Action : /save");
@@ -110,6 +111,9 @@ public class PublicationController {
 		if (bindingResult.hasErrors()) {
 			System.out.println(bindingResult.getAllErrors());
 			result.addObject("publication", publication);
+			redirectAttributes.addFlashAttribute("type", "Error");
+			redirectAttributes.addFlashAttribute("message",
+					"Erreur lors de la publication de ce contenu !");
 			return result;
 		}
 
@@ -155,15 +159,16 @@ public class PublicationController {
 			comment.setFile(null);
 		}
 		if (bindingResult.hasErrors()) {
-			redirectAttributes.addFlashAttribute("type", "Error");
+			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message",
-					"Pop up exemple Asma");
+					"Erreur lors de la publication de ce commentaire !");
 			return result;
 		}
 		// save comment
 		
 		commentService.reconstructAndSave(comment);
-
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Commentaire publié avec succès !");
 		return result;
 
 	}
