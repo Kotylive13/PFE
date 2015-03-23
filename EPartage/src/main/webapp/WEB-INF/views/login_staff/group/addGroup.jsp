@@ -8,10 +8,14 @@
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1>Ajout d'un groupe</h1>
 			<div class="form">
-				<form:form id="addGroup" method="POST" modelAttribute="group" 
+				<form:form id="addGroup" method="POST" modelAttribute="group" enctype="multipart/form-data"
  					action="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">
 
 					<table>
+						<tr>
+							<form:input class="fileUploadPost" type="file" name="file"
+								path="avatar" />
+						</tr>
 						<tr>
 							<td><form:label path="name">Nom du groupe</form:label></td>
 							<td><form:input path="name" name="name" type="text"/></td>

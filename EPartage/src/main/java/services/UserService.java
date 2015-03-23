@@ -47,6 +47,9 @@ public class UserService {
 		return userDao.findByEmail(email);
 	}
 	
+	public void updateUser(User user) {
+		//userDao.updateUser(User user);
+	}
 	/*public boolean exists(User user){
 		return userDao.exists(user.getId());
 	}*/

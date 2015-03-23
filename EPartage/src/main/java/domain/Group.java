@@ -26,7 +26,7 @@ public class Group {
 	private String name;
 	
 	@Lob @Basic(fetch = FetchType.LAZY)
-	@Column( name = "avatar", length=100000)
+	@Column( name = "avatar")
 	private byte[] avatar;
 	
 	@Column(name = "description", columnDefinition="TEXT")
