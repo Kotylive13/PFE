@@ -48,6 +48,7 @@ import domain.Publication;
 import domain.PublicationFile;
 import domain.PublicationForm;
 import domain.Student;
+import domain.Subcategory;
 import domain.User;
 
 /**
@@ -87,8 +88,27 @@ public class PublicationController implements HandlerExceptionResolver {
 			@RequestParam(required = false) String nameS,
 			RedirectAttributes redirectAttributes, Model model) {
 
-		System.out
-				.println("Controller : /PublicationController --- Action : /save");
+		String errorMessage = "Veuillez utiliser le formulaire de publication pour partager un contenu !";
+		// test if no params
+		if (nameC == null || nameG == null || nameS == null) {
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", errorMessage);
+			return new ModelAndView("redirect:/workspace/index.htm");
+		}
+		// test if wrong params
+		IdSubcategory idSubcategory = new IdSubcategory();
+		idSubcategory.setGroup(AsciiToHex.decode(nameG));
+		idSubcategory.setCategory(AsciiToHex.decode(nameC));
+		idSubcategory.setSubcategory(AsciiToHex.decode(nameS));
+		Subcategory subcategory = categoryService.findOne(idSubcategory);
+
+		if (subcategory == null) {
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", errorMessage);
+			return new ModelAndView("redirect:/workspace/index.htm");
+		}
+		publication.setSubcategory(subcategory);
+
 		ModelAndView result = new ModelAndView(
 				"redirect:/workspace/group/subcategory/detail.htm?nameG="
 						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
@@ -96,11 +116,6 @@ public class PublicationController implements HandlerExceptionResolver {
 		User user = (User) session.getAttribute("userSession");
 		publication.setAuthor(user);
 		publication.setDateP(new Date());
-		IdSubcategory idSubcategory = new IdSubcategory();
-		idSubcategory.setGroup(AsciiToHex.decode(nameG));
-		idSubcategory.setCategory(AsciiToHex.decode(nameC));
-		idSubcategory.setSubcategory(AsciiToHex.decode(nameS));
-		publication.setSubcategory(categoryService.findOne(idSubcategory));
 
 		// save file
 		if (!file.isEmpty()) {
@@ -137,10 +152,9 @@ public class PublicationController implements HandlerExceptionResolver {
 		// Validating model
 		if (bindingResult.hasErrors()) {
 			System.out.println(bindingResult.getAllErrors());
-			model.addAttribute("publication", publication);
+			redirectAttributes.addFlashAttribute("publication", publication);
 			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes.addFlashAttribute("message",
-					"Veuillez saisir au moins un titre et un contenu !");
+			redirectAttributes.addFlashAttribute("message", "Veuillez saisir un titre et un contenu !");
 			return result;
 		}
 		redirectAttributes.addFlashAttribute("type", "success");
