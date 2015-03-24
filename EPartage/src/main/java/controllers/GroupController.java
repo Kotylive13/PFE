@@ -327,8 +327,13 @@ public class GroupController {
 	 * @return new Publication form
 	 */
 	@ModelAttribute("publication")
-	public PublicationForm newPublicatin() {
-		return new PublicationForm();
+	public PublicationForm newPublicatin(
+			@ModelAttribute PublicationForm publication) {
+		if (publication == null)
+
+			return new PublicationForm();
+		else
+			return publication;
 	}
 
 	@ModelAttribute("comment")

@@ -16,20 +16,19 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "Comment")
 public class Comment {
-	
+
 	@EmbeddedId
 	private IdComment idComment;
-	
-//	@NotNull(message="la date doit etre renseignée !")
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateC;
-	
-	@MapsId("publication")	
+
+	@MapsId("publication")
 	@ManyToOne
 	@JoinColumn(name = "id_pub")
 	private Publication publication;
@@ -37,12 +36,15 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name = "author")
 	private User author;
-	
-	@Column(name = "content", nullable = false, columnDefinition="Text")
+
+	@NotBlank
+	@Column(name = "content", columnDefinition = "Text")
 	String content;
-	
+
 	@OneToMany(mappedBy = "comment", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<CommentFile> files;
+	
+	public Comment(){}
 
 	public IdComment getIdComment() {
 		return idComment;
