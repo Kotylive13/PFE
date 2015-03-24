@@ -28,10 +28,7 @@
 						<td>E-mail</td>
 						<td>${studentProfile.email}</td>
 					</tr>
-<!-- 					<tr> -->
-<!-- 						<td>Mot de passe</td> -->
-<!-- 						<td>bonjour</td> -->
-<!-- 					</tr> -->
+
 					<tr>
 						<td>Adresse</td>
 						<td>${studentProfile.adress}</td>
@@ -42,7 +39,7 @@
 					</tr>
 					<tr>
 						<td>Centres d'intérêt</td>
-						<td>Informatique, jeux vidéos</td>
+						<td>${hobbies}</td>
 					</tr>
 					<tr>
 						<td>Formation actuelle</td>
@@ -55,14 +52,6 @@
 					<tr>
 						<td>Année d'inscription à l'université</td>
 						<td>${studentProfile.inscriptUnivDate}</td>
-					</tr>
-					<tr>
-						<td>Parcours académique</td>
-						<td>01/01/2011 - 01/02/2011 M1 Informatique</td>
-					</tr>
-					<tr>
-						<td>Expériences professionnelles</td>
-						<td>01/01/2011 - 01/02/2011 Mc Donalds</td>
 					</tr>
 				</table>
 			</form:form>
