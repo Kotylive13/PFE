@@ -18,66 +18,67 @@ import utilities.CryptPassword;
 import domain.Status;
 import domain.Student;
 
-
 /**
  * Class managing connection page's actions
  * 
- * @author 
+ * @author
  */
 @Controller
 @RequestMapping("/authentication")
 public class AuthenticationController {
 
-	
-
 	@Autowired
 	UserService userService;
-	
+
 	// Constructors -----------------------------------------------------------
 
 	public AuthenticationController() {
 		super();
 	}
 
-	// Connection ------------------------------------------------------------------
+	// Connection
+	// ------------------------------------------------------------------
 
 	@RequestMapping(value = "/connection")
 	public ModelAndView connection(Model model) {
+		System.out
+				.println("Controller : /AuthenticationController --- Action : /connection");
 		Student student = new Student();
 		ModelAndView result;
 		result = new ModelAndView("authentication/connection");
 		model.addAttribute("student", student);
 		return result;
 	}
-	
+
 	/**
 	 * User connection
 	 */
 	@RequestMapping(value = "/login")
-	public ModelAndView login (
-			@RequestParam(required = true) String email,
-			@RequestParam(required = true) String password, 
-			HttpSession session,
-			RedirectAttributes redirectAttributes,
+	public ModelAndView login(@RequestParam(required = true) String email,
+			@RequestParam(required = true) String password,
+			HttpSession session, RedirectAttributes redirectAttributes,
 			Model model) {
-		
+		System.out
+				.println("Controller : /AuthenticationController --- Action : /login");
+
 		ModelAndView result;
 		password = CryptPassword.getCryptString(password);
 		Map<String, Object> message = new HashMap<String, Object>();
 		Student studentSession = userService.findByEmailPass(email, password);
-		if(studentSession != null){
-			if(studentSession.getStatus().equals(Status.A)){
-				session.setAttribute( "userSession", studentSession );
+		if (studentSession != null) {
+			if (studentSession.getStatus().equals(Status.A)) {
+				session.setAttribute("userSession", studentSession);
 			}
 		} else {
-			session.setAttribute( "userSession", null );
+			session.setAttribute("userSession", null);
 			message.put("type", "error");
-	    	message.put("message", "Le login ou le mot de passe n'est pas correct.");
-	    	Student student = new Student();
+			message.put("message",
+					"Le login ou le mot de passe n'est pas correct.");
+			Student student = new Student();
 			result = new ModelAndView("authentication/connection", message);
 			model.addAttribute("student", student);
 			return result;
-		}		
+		}
 		redirectAttributes.addFlashAttribute("type", "success");
 		redirectAttributes.addFlashAttribute("message", "Connexion réussie");
 		result = new ModelAndView("redirect:/workspace/index.htm", message);
@@ -89,7 +90,7 @@ public class AuthenticationController {
 	 * User logout
 	 */
 	@RequestMapping(value = "/logout")
-	public ModelAndView logoutForm (HttpSession session) {
+	public ModelAndView logoutForm(HttpSession session) {
 		session.invalidate();
 		return new ModelAndView("welcome/index");
 	}
