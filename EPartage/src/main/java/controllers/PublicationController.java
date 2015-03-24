@@ -6,23 +6,26 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -35,6 +38,7 @@ import services.PublicationFileService;
 import services.PublicationService;
 import services.UserService;
 import utilities.AsciiToHex;
+import utilities.Final;
 import domain.Comment;
 import domain.CommentFile;
 import domain.Group;
@@ -54,7 +58,7 @@ import domain.User;
 
 @Controller
 @RequestMapping("/publication")
-public class PublicationController {
+public class PublicationController implements HandlerExceptionResolver {
 
 	@Autowired
 	PublicationService publicationService;
@@ -69,7 +73,7 @@ public class PublicationController {
 	@Autowired
 	CommentFileService commentFileService;
 	@Autowired
-	OpinionService opinionService;	
+	OpinionService opinionService;
 	@Autowired
 	CommentService commentService;
 
@@ -80,7 +84,7 @@ public class PublicationController {
 			@RequestParam(required = false) MultipartFile file,
 			@RequestParam(required = false) String nameC,
 			@RequestParam(required = false) String nameG,
-			@RequestParam(required = false) String nameS, 
+			@RequestParam(required = false) String nameS,
 			RedirectAttributes redirectAttributes, Model model) {
 
 		System.out
@@ -100,6 +104,27 @@ public class PublicationController {
 
 		// save file
 		if (!file.isEmpty()) {
+			// test if name too long
+			if (file.getOriginalFilename().length() > 32
+					|| file.getOriginalFilename().length() < 5) {
+				model.addAttribute("publication", publication);
+				redirectAttributes.addFlashAttribute("type", "error");
+				redirectAttributes
+						.addFlashAttribute("message",
+								"Le nom du fichier doit contenir entre 4 et 32 caractère !");
+				return result;
+			}
+			// test if file too big > 5 Mo
+			if (file.getSize() > Final.FILE_MAX_SIZE) {
+				System.out.println(bindingResult.getAllErrors());
+				model.addAttribute("publication", publication);
+				redirectAttributes.addFlashAttribute("type", "error");
+				redirectAttributes
+						.addFlashAttribute("message",
+								"La taille du fichier joint ne doit pas dépasser 5 Mo !");
+				return result;
+			}
+
 			try {
 				publication.setFile(file.getBytes());
 				publication.setFileTile(file.getOriginalFilename());
@@ -112,12 +137,15 @@ public class PublicationController {
 		// Validating model
 		if (bindingResult.hasErrors()) {
 			System.out.println(bindingResult.getAllErrors());
-			model.addAttribute("publication", new PublicationForm());
+			model.addAttribute("publication", publication);
 			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes.addFlashAttribute("message", "Veuillez saisir au moins un titre et un contenu !");
+			redirectAttributes.addFlashAttribute("message",
+					"Veuillez saisir au moins un titre et un contenu !");
 			return result;
 		}
-
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message",
+				"Contenu publié avec succès !");
 		publicationService.constructAndSave(publication);
 
 		return result;
@@ -131,8 +159,10 @@ public class PublicationController {
 
 		Publication pub = publicationService.find(id_pub);
 		String nameG = AsciiToHex.asciiToHex(pub.getGroup().getName());
-		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory().getIdCategory().getName());
-		String nameS = AsciiToHex.asciiToHex(pub.getSubcategory().getIdSubcategory().getSubcategory());
+		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory()
+				.getIdCategory().getName());
+		String nameS = AsciiToHex.asciiToHex(pub.getSubcategory()
+				.getIdSubcategory().getSubcategory());
 
 		ModelAndView result = new ModelAndView(
 				"redirect:/workspace/group/subcategory/detail.htm?nameG="
@@ -142,7 +172,7 @@ public class PublicationController {
 		User user = (User) session.getAttribute("userSession");
 		comment.setAuthor(user);
 		comment.setPublication(pub);
-		
+
 		if (bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message",
@@ -150,10 +180,11 @@ public class PublicationController {
 			return result;
 		}
 		// save comment
-		
+
 		commentService.save(comment);
 		redirectAttributes.addFlashAttribute("type", "success");
-		redirectAttributes.addFlashAttribute("message", "Commentaire publié avec succès !");
+		redirectAttributes.addFlashAttribute("message",
+				"Commentaire publié avec succès !");
 		return result;
 	}
 
@@ -193,46 +224,46 @@ public class PublicationController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@RequestMapping("/addGoodOpinion.htm")
 	public void addGoodOpinion(
 			@RequestParam(value = "idPub", required = true) String idPub,
 			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
 
 		User author = userService.find(Integer.parseInt(idAuthor));
-		
-		Opinion opinion = opinionService.findByAuthorAndPublication(author, Integer.parseInt(idPub));
-		if(opinion != null)
-			if(opinion.getValue().equals("good")) {
+
+		Opinion opinion = opinionService.findByAuthorAndPublication(author,
+				Integer.parseInt(idPub));
+		if (opinion != null)
+			if (opinion.getValue().equals("good")) {
 				opinionService.delete(opinion);
 				return;
-			}
-			else
+			} else
 				opinionService.delete(opinion);
-		
+
 		opinion = new Opinion();
 		opinion.setAuthor(author);
 		opinion.setPublication(publicationService.find(Integer.parseInt(idPub)));
 		opinion.setValue("good");
 		opinionService.save(opinion);
 	}
-	
+
 	@RequestMapping("/addBadOpinion.htm")
 	public void addBadOpinion(
 			@RequestParam(value = "idPub", required = true) String idPub,
 			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
 
 		User author = userService.find(Integer.parseInt(idAuthor));
-		
-		Opinion opinion = opinionService.findByAuthorAndPublication(author, Integer.parseInt(idPub));
-		if(opinion != null)
-			if(opinion.getValue().equals("bad")) {
+
+		Opinion opinion = opinionService.findByAuthorAndPublication(author,
+				Integer.parseInt(idPub));
+		if (opinion != null)
+			if (opinion.getValue().equals("bad")) {
 				opinionService.delete(opinion);
 				return;
-			}
-			else
+			} else
 				opinionService.delete(opinion);
-		
+
 		opinion = new Opinion();
 		opinion.setAuthor(author);
 		opinion.setPublication(publicationService.find(Integer.parseInt(idPub)));
@@ -285,6 +316,22 @@ public class PublicationController {
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(byte[].class,
 				new ByteArrayMultipartFileEditor());
+	}
+
+	@ExceptionHandler(Throwable.class)
+	public ModelAndView resolveException(HttpServletRequest request,
+			HttpServletResponse response, Object handler, Exception exception) {
+		ModelAndView result = new ModelAndView("redirect:/workspace/index.htm");
+
+		if (exception instanceof MaxUploadSizeExceededException) {
+			result.addObject("type", "error");
+			result.addObject("message",
+					"La taille du fichier joint ne doit pas dépasser 5 Mo !");
+		} else {
+			result.addObject("type", "error");
+			result.addObject("message", "Oops ! Une erreur s'est produite !");
+		}
+		return result;
 	}
 
 }

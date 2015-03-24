@@ -40,7 +40,7 @@
 		<h2>${subcategory.idSubcategory.subcategory}</h2>
 
 		<c:choose>
-			<c:when test="${not empty type}">
+			<c:when test="${not empty notInGroup}">
 				<div class="information">
 					<p>Pour accèder au contenu du groupe, veuillez faire une
 						demande d'adhésion auprès de l'administrateur.</p>

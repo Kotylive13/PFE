@@ -116,7 +116,7 @@ public class GroupController {
 		ModelAndView result = new ModelAndView("group/group");
 
 		if (!u.getGroups().contains(g)) {
-			result.addObject("type", "error");
+			result.addObject("notInGroup", "error");
 			result.addObject("message", "Vous n'appartenez pas à ce groupe.");
 		}
 
