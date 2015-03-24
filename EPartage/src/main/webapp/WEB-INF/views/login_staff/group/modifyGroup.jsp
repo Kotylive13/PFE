@@ -8,10 +8,17 @@
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1>Modification d'un groupe</h1>
 			<div class="form">
-				<form:form id="modifyGroup" method="POST" modelAttribute="group" 
- 					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?name=${group.name}">
+				<form:form id="modifyGroup" method="POST" modelAttribute="group"  enctype="multipart/form-data"
+ 					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?gname=${group.name}">
 
 					<table>
+						<tr>
+							<td>Image du groupe</td>
+							<td><input name="file" type="file" accept="image/jpeg, image/gif, image/png"/>
+						        <c:if test="${!empty errorFile}">
+									<span class="error"><c:out value="${errorFile}"/></span>
+								</c:if></td>
+						</tr>
 						<tr>
 							<td><form:label path="name">Nom du groupe</form:label></td>
 							<td><form:input path="name" name="name" type="text" value="${group.name}"/></td>

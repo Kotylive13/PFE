@@ -103,7 +103,7 @@ public class AdminGroupController {
 		groupService.save(group);
 
 		redirectAttributes.addFlashAttribute("type", "success");
-		redirectAttributes.addFlashAttribute("message", "Le groupe "+group.getName()+" a bien été ajouté");
+		redirectAttributes.addFlashAttribute("message", "Le groupe "+group.getName()+" a bien été ajouté.");
 
 		return new ModelAndView("redirect:/login_staff/group/listGroup.htm");
 	}
@@ -170,8 +170,10 @@ public class AdminGroupController {
 	// ---------------------------------------------------------------
 
 	@RequestMapping(value = "/modifyGroup")
-	public ModelAndView modifyGroup(@RequestParam(value = "name") String name,
+	public ModelAndView modifyGroup(@RequestParam(value = "gname") String name,
 			@ModelAttribute(value = "group") Group groupNew,
+			@RequestParam(required = false) MultipartFile file,
+			RedirectAttributes redirectAttributes,
 			HttpSession session, Model model) {
 
 		if (session.getAttribute("adminSession") == null) {
@@ -181,14 +183,8 @@ public class AdminGroupController {
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		// TODO A
 		// CHANGERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-		Map<String, List<Group>> mapGroup = new HashMap<String, List<Group>>();
 		Map<String, Group> mapGroupModify = new HashMap<String, Group>();
 		
-		String[] listName = name.split(",");
-
-		groupNew.setName(listName[1]);
-		name = listName[0];
-
 		if (!groupNew.getName().equals(name)
 				&& groupService.findGroupByName(groupNew.getName()) != null) {
 			Group group = groupService.findGroupByName(name);
@@ -198,12 +194,30 @@ public class AdminGroupController {
 			// TODO FAIRE MESSAGE ERREUR
 		}
 		Group groupOld = groupService.findGroupByName(name);
-		groupNew.setAvatar(groupOld.getAvatar());
+		try {
+			if (!file.isEmpty()) {
+				if (!file.getContentType().equals("image/gif") &&
+					!file.getContentType().equals("image/jpeg") &&
+					!file.getContentType().equals("image/png")) {		
+					
+					ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
+					result.addObject("errorFile",
+						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+					return result;
+				}
+				
+				groupNew.setAvatar(file.getBytes());
+			}
+			else groupNew.setAvatar(groupOld.getAvatar());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		groupService.modify(groupNew, name);
+		
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Le groupe "+groupNew.getName()+" a bien été modifié.");
 
-		mapGroup.put("listGroups", (List<Group>) groupService.findAll());
-
-		return new ModelAndView("login_staff/group/listGroup", mapGroup);
+		return new ModelAndView("redirect:/login_staff/group/listGroup.htm");
 	}
 
 	@ModelAttribute("groupsUrl")
