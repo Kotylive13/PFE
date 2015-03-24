@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.AdminService;
+import services.UserService;
 import utilities.CryptPassword;
 import domain.Admin;
 
@@ -22,6 +24,9 @@ public class AdminAuthenticationController {
 
 	@Autowired
 	AdminService adminService;
+
+	@Autowired
+	UserService userService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -85,5 +90,10 @@ public class AdminAuthenticationController {
 	public ModelAndView logoutForm (HttpSession session, Model model) {
 		session.invalidate();
 		return new ModelAndView("redirect:/login_staff/authentication/connection.htm");
+	}
+	
+	@ModelAttribute("nbWaitingUsers")
+	public int nbWaitingUsers () {
+		return userService.nbWaitingUsers();
 	}
 }

@@ -42,5 +42,15 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 
 	@Query(FIND_BY_EMAIL_QUERY)
 	public Student findByEmail(@Param("email") String email);
+	
+//	COUNT_NB_WAITING_USERS_QUERY ----------------------------------------------
+	
+	public final String COUNT_NB_WAITING_USERS_QUERY = 
+			  " SELECT count(u) "
+			+ " FROM User u " 
+			+ " WHERE u.status = 'W'";
+
+	@Query(COUNT_NB_WAITING_USERS_QUERY)
+	public int nbWaitingUsers();
 
 }

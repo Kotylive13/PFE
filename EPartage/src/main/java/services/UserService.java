@@ -53,5 +53,9 @@ public class UserService {
 	/*public boolean exists(User user){
 		return userDao.exists(user.getId());
 	}*/
+
+	public int nbWaitingUsers() {
+		return userDao.nbWaitingUsers();
+	}
 	
 }

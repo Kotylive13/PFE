@@ -13,11 +13,12 @@
 
 					<table>
 						<tr>
-							<form:input class="fileUploadPost" type="file" name="file"
-								path="avatar" />
+							<td>Image du groupe</td>
+							<td><form:input class="fileUploadPost" type="file" name="file"
+								path="avatar" /></td>
 						</tr>
 						<tr>
-							<td><form:label path="name">Nom du groupe</form:label></td>
+							<td><form:label path="name">Nom du groupe</form:label>
 							<td><form:input path="name" name="name" type="text"/></td>
 						</tr>
 						<tr>

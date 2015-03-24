@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import services.CategoryService;
 import services.GroupService;
 import services.SubcategoryService;
+import services.UserService;
 import domain.Category;
 import domain.Group;
 import domain.IdCategory;
@@ -32,9 +33,12 @@ import domain.Subcategory;
 @RequestMapping("/login_staff/category")
 public class AdminCategoryController {
 	
-	
+
 	@Autowired
 	GroupService groupService;
+	
+	@Autowired
+	UserService userService;
 	
 	@Autowired
 	CategoryService categoryService;
@@ -202,6 +206,11 @@ public class AdminCategoryController {
 	@ModelAttribute("subcategory")
 	public Subcategory newSubcategory() {
 		return new Subcategory();
+	}
+	
+	@ModelAttribute("nbWaitingUsers")
+	public int nbWaitingUsers () {
+		return userService.nbWaitingUsers();
 	}
 	
 }

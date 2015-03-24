@@ -142,4 +142,9 @@ public class AdminUsersController {
 		}
 		return groupMap;
 	}
+	
+	@ModelAttribute("nbWaitingUsers")
+	public int nbWaitingUsers () {
+		return userService.nbWaitingUsers();
+	}
 }

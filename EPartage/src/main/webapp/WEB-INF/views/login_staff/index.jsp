@@ -27,7 +27,7 @@
 					<td class="bloc">
 						<h1>Gestion des utilisateurs</h1>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/login_staff/user/listWaiting.htm">Utilisateurs en attente</a></li>
+							<li><a href="${pageContext.request.contextPath}/login_staff/user/listWaiting.htm">Utilisateurs en attente (${nbWaitingUsers})</a></li>
 							<li><a href="${pageContext.request.contextPath}/login_staff/user/listUsers.htm">Ajouter un groupe à un utilisateur</a></li>
 						</ul>
 					</td>

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.CategoryService;
 import services.GroupService;
 import services.SubcategoryService;
+import services.UserService;
 import domain.Category;
 import domain.IdSubcategory;
 import domain.Subcategory;
@@ -35,6 +36,9 @@ public class AdminSubcategoryController {
 	
 	@Autowired
 	GroupService groupService;
+	
+	@Autowired
+	UserService userService;
 	
 	// Constructors
 	// ---------------------------------------------------------------
@@ -148,5 +152,10 @@ public class AdminSubcategoryController {
 //
 //		return new Subcategory();
 //	}
+	
+	@ModelAttribute("nbWaitingUsers")
+	public int nbWaitingUsers () {
+		return userService.nbWaitingUsers();
+	}
 
 }

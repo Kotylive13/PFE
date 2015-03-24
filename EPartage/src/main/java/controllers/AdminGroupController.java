@@ -1,6 +1,5 @@
 package controllers;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,11 +16,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.GroupService;
+import services.UserService;
 import utilities.AsciiToHex;
 import domain.Group;
 
@@ -31,6 +30,9 @@ public class AdminGroupController {
 
 	@Autowired
 	GroupService groupService;
+	
+	@Autowired
+	UserService userService;
 
 	// @Autowired
 	// MembershipGroupService membershipGroupService;
@@ -200,5 +202,10 @@ public class AdminGroupController {
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(byte[].class,
 				new ByteArrayMultipartFileEditor());
+	}
+	
+	@ModelAttribute("nbWaitingUsers")
+	public int nbWaitingUsers () {
+		return userService.nbWaitingUsers();
 	}
 }

@@ -11,7 +11,7 @@
 		<ul class="adminNavBar">
 			<li><a
 				href="${pageContext.request.contextPath}/login_staff/user/listWaiting.htm">Utilisateurs
-					en attente</a></li>
+					en attente (${nbWaitingUsers})</a></li>
 			<li><a href="${pageContext.request.contextPath}/login_staff/user/listUsers.htm">Ajouter un groupe à un utilisateur</a></li>
 		</ul>
 	</div>
