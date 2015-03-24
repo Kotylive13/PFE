@@ -169,13 +169,15 @@ public class UserController {
 
 		User user = userService.find(Integer.parseInt(id));
 		if (user != null) {
-			try {
-				OutputStream o = response.getOutputStream();
-				o.write(user.getAvatar());
-				o.flush();
-				o.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+			if (user.getAvatar() != null) {
+				try {
+					OutputStream o = response.getOutputStream();
+					o.write(user.getAvatar());
+					o.flush();
+					o.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -229,8 +231,8 @@ public class UserController {
 		String[] tempHobbies = input.split(",");
 
 		List<String> userHobbies = new ArrayList<String>();
-		for(String s : tempHobbies)
-			if(s.length() > 0)
+		for (String s : tempHobbies)
+			if (s.length() > 0)
 				userHobbies.add(s);
 
 		if (userHobbies.isEmpty())
@@ -379,11 +381,11 @@ public class UserController {
 	public ModelAndView showProfile(
 			@RequestParam(required = false) String userId,
 			RedirectAttributes redirectAttributes, Model model) {
-		
-		String errorMessage="Veuillez cliquer sur le nom de l'utilisateur pour afficher son profile !";
+
+		String errorMessage = "Veuillez cliquer sur le nom de l'utilisateur pour afficher son profile !";
 
 		ModelAndView result = new ModelAndView("workspace/showProfile");
-		//test if no parameter in request
+		// test if no parameter in request
 		if (userId == null) {
 			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message", errorMessage);
@@ -400,13 +402,12 @@ public class UserController {
 			return new ModelAndView("redirect:/workspace/index.htm");
 		}
 		Student studentProfile = (Student) userService.find(parameterValue);
-		
+
 		// test if user doesn't exist in Database
 		if (studentProfile == null) {
 
 			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes
-					.addFlashAttribute("message",errorMessage);
+			redirectAttributes.addFlashAttribute("message", errorMessage);
 			return new ModelAndView("redirect:/workspace/index.htm");
 
 		}
@@ -414,7 +415,7 @@ public class UserController {
 		// Get all user hobbies
 		String hobbies = "";
 		List<UserHobby> hobbiesList = userHobbyService.findAll(parameterValue);
-		
+
 		if (hobbiesList.size() <= 0) {
 			hobbies = "--";
 		} else {
