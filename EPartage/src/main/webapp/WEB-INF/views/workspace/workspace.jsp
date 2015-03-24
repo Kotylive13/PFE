@@ -14,11 +14,15 @@
 				<div class="publication">
 					<div class="message">
 						<div class="headerMessage">
-							<a class="authorPicture" href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}"><img class="smallPicture"
+							<a class="authorPicture"
+								href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}"><img
+								class="smallPicture"
 								src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
 								alt="" /></a>
 							<p class="author">
-								<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}">${p.author.firstName} ${p.author.lastName}</a>
+								<a
+									href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}">${p.author.firstName}
+									${p.author.lastName}</a>
 							</p>
 							<p class="datePublication">
 								<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${p.dateP}" />
@@ -42,7 +46,7 @@
 						<div class="footerMessage">
 							<p class="goodOpinion" title="Opinion positive"
 								onclick="addGoodOpinion('${p.id}', '${p.author.id}');">
-								
+
 								<img class="extraSmallPicture"
 									src="<c:url value="/images/thumb_up.png"/>" alt="" />
 							</p>
@@ -62,15 +66,18 @@
 						</div>
 					</div>
 					<div id="postComment_${p.id}" class="postComment">
-						<form>
+						<form:form id="postPublicationForm" modelAttribute="comment"
+							method="post" enctype="multipart/form-data"
+							action="${pageContext.request.contextPath}/publication/comment/edit.htm?id_pub=${p.id}&url=W">
 							<div class="contentPost">
-								<textarea id="" class="messagePost" placeholder="Exprimez-vous"></textarea>
+								<form:textarea id="" class="messagePost"
+									placeholder="Exprimez-vous" path="content" />
 							</div>
 							<div class="footerPost">
 								<%--<form:input id="" class="fileUploadPost" type="file" path="file" />--%>
 								<input id="" class="submitPost" type="submit" value="Publier">
 							</div>
-						</form>
+						</form:form>
 					</div>
 					<div id="comments_${p.id}" class="comments">
 						<c:forEach items="${p.comments}" var="com">
@@ -80,7 +87,9 @@
 										src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${com.author.id}"
 										alt="" /></a>
 									<p class="author">
-										<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${com.author.id}">${com.author.firstName} ${com.author.lastName}</a>
+										<a
+											href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${com.author.id}">${com.author.firstName}
+											${com.author.lastName}</a>
 									</p>
 									<p class="datePublication">
 										<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
@@ -92,11 +101,11 @@
 								</div>
 								<div class="contentComment">
 									<p>${com.content}</p>
-									<p>
+									<%-- <p>
 										<a
 											href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"
 											target="_blank">${com.files[0].title}</a>
-									</p>
+									</p> --%>
 								</div>
 							</div>
 						</c:forEach>

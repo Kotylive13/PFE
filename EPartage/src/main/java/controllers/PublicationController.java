@@ -154,7 +154,8 @@ public class PublicationController implements HandlerExceptionResolver {
 			System.out.println(bindingResult.getAllErrors());
 			redirectAttributes.addFlashAttribute("publication", publication);
 			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes.addFlashAttribute("message", "Veuillez saisir un titre et un contenu !");
+			redirectAttributes.addFlashAttribute("message",
+					"Veuillez saisir un titre et un contenu !");
 			return result;
 		}
 		redirectAttributes.addFlashAttribute("type", "success");
@@ -169,7 +170,11 @@ public class PublicationController implements HandlerExceptionResolver {
 	public ModelAndView saveComment(@Valid @ModelAttribute Comment comment,
 			BindingResult bindingResult, HttpSession session,
 			@RequestParam(required = true) Integer id_pub,
-			RedirectAttributes redirectAttributes) {
+			@RequestParam(required = false) String url,
+			RedirectAttributes redirectAttributes, HttpServletRequest request) {
+
+		System.out.println(request.getRequestURL().toString() + "?"
+				+ request.getQueryString());
 
 		Publication pub = publicationService.find(id_pub);
 		String nameG = AsciiToHex.asciiToHex(pub.getGroup().getName());
@@ -181,6 +186,12 @@ public class PublicationController implements HandlerExceptionResolver {
 		ModelAndView result = new ModelAndView(
 				"redirect:/workspace/group/subcategory/detail.htm?nameG="
 						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
+		//test if comment from workspace
+		if (url != null) {
+			if (url.equals("W")) {
+				result = new ModelAndView("redirect:/workspace/index.htm");
+			}
+		}
 
 		comment.setDateC(new Date());
 		User user = (User) session.getAttribute("userSession");

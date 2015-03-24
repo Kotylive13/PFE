@@ -38,6 +38,7 @@ import utilities.CryptPassword;
 import utilities.Final;
 import utilities.MailSender;
 import domain.Category;
+import domain.Comment;
 import domain.Group;
 import domain.Hobby;
 import domain.Publication;
@@ -429,5 +430,10 @@ public class UserController {
 
 		model.addAttribute("hobbies", hobbies);
 		return result;
+	}
+	
+	@ModelAttribute("comment")
+	public Comment newComment() {
+		return new Comment();
 	}
 }
