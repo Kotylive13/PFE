@@ -119,6 +119,11 @@ img[class="largePicture"] {
 }
 
 /* line 123, ../sass/style.scss */
+#contentLightInformation img, .title img, #profil img {
+  background-color: white;
+}
+
+/* line 126, ../sass/style.scss */
 *:focus {
   outline: 0;
 }
@@ -1412,34 +1417,47 @@ img[class="largePicture"] {
   padding: 10px 0px;
 }
 /* line 48, ../sass/page/_publication.scss */
-.content .publication .message .contentMessage p:nth-child(2), .content .publication .message .contentMessage p:nth-child(3), .content .publication .message .contentComment p:nth-child(2), .content .publication .message .contentComment p:nth-child(3), .content .publication .comment .contentMessage p:nth-child(2), .content .publication .comment .contentMessage p:nth-child(3), .content .publication .comment .contentComment p:nth-child(2), .content .publication .comment .contentComment p:nth-child(3) {
-  padding-top: 10px;
+.content .publication .message .contentMessage p:nth-child(1), .content .publication .message .contentComment p:nth-child(1), .content .publication .comment .contentMessage p:nth-child(1), .content .publication .comment .contentComment p:nth-child(1) {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #abc8e2;
 }
-/* line 53, ../sass/page/_publication.scss */
+/* line 56, ../sass/page/_publication.scss */
+.content .publication .message .contentMessage p:nth-child(2), .content .publication .message .contentComment p:nth-child(2), .content .publication .comment .contentMessage p:nth-child(2), .content .publication .comment .contentComment p:nth-child(2) {
+  padding: 10px 0px;
+}
+/* line 59, ../sass/page/_publication.scss */
+.content .publication .message .contentMessage p:nth-child(3) a, .content .publication .message .contentComment p:nth-child(3) a, .content .publication .comment .contentMessage p:nth-child(3) a, .content .publication .comment .contentComment p:nth-child(3) a {
+  display: block;
+  padding: 5px 5px;
+  border: 1px solid #abc8e2;
+  background-color: #eff9ff;
+}
+/* line 67, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion, .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .goodOpinion, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   float: left;
 }
-/* line 57, ../sass/page/_publication.scss */
+/* line 71, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion:hover, .content .publication .message .footerMessage .badOpinion:hover, .content .publication .message .footerMessage .numComments:hover, .content .publication .message .footerMessage .commentPublication:hover, .content .publication .message .footerMessage .sharePublication:hover, .content .publication .comment .footerMessage .goodOpinion:hover, .content .publication .comment .footerMessage .badOpinion:hover, .content .publication .comment .footerMessage .numComments:hover, .content .publication .comment .footerMessage .commentPublication:hover, .content .publication .comment .footerMessage .sharePublication:hover {
   color: #4a6b8a;
   cursor: pointer;
 }
-/* line 62, ../sass/page/_publication.scss */
+/* line 76, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   height: 20px;
   line-height: 20px;
 }
-/* line 66, ../sass/page/_publication.scss */
+/* line 80, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   padding-left: 10px;
 }
-/* line 69, ../sass/page/_publication.scss */
+/* line 83, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .message .footerMessage .sharePublication, .content .publication .comment .footerMessage .commentPublication, .content .publication .comment .footerMessage .sharePublication {
   float: right;
   height: 20px;
   line-height: 20px;
 }
-/* line 74, ../sass/page/_publication.scss */
+/* line 88, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .comment .footerMessage .commentPublication {
   padding-right: 10px;
 }
@@ -1616,7 +1634,7 @@ label.css-label-checkbox {
   user-select: none;
 }
 
-/* line 142, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 .select2-container {
   box-sizing: border-box;
   margin: 0;

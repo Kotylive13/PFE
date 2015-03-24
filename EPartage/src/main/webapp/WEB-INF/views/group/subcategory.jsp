@@ -97,12 +97,13 @@
 										<div class="contentMessage">
 											<p>${p.title}</p>
 											<p>${p.content}</p>
-
-											<p>
-												<a
-													href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
-													target="_blank">${p.files[0].title}</a>
-											</p>
+											<c:if test="${!empty p.files[0].title}">
+												<p>
+													<a
+														href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
+														target="_blank">${p.files[0].title}</a>
+												</p>
+											</c:if>
 										</div>
 										<div class="footerMessage">
 											<p class="goodOpinion" title="Opinion positive"

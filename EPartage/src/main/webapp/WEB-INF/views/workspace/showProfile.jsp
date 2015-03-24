@@ -15,7 +15,7 @@
 		<div class="menuBar">
 			<ul class="menu">
 				<li>
-					<a>Informations personnelles</a>
+					<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${studentProfile.id}">Informations personnelles</a>
 				</li>
 			</ul>
 		</div>
