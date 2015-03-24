@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -107,11 +106,7 @@ public class User {
 		      inverseJoinColumns={@JoinColumn(name="nameH", referencedColumnName="nameH")})
 	private Set<Hobby> hobbies;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
-	@JoinTable(
-		      name="MembershipGroup",
-		      joinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")},
-		      inverseJoinColumns={@JoinColumn(name="nameG", referencedColumnName="nameG")})
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "members") 
 	private List<Group> groups;
 
 	public User() {

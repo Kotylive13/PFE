@@ -25,9 +25,7 @@ public class Category {
 	private Group group;
 
 	@OneToMany(mappedBy="category", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	private List<Subcategory> subcategories;
-
-	
+	private List<Subcategory> subcategories;	
 
 	public IdCategory getIdCategory() {
 		return idCategory;

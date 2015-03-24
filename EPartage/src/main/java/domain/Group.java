@@ -12,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -36,7 +38,11 @@ public class Group {
 	@OneToMany(mappedBy="group", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Category> categories;
 
-	@ManyToMany (mappedBy = "groups", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.MERGE)
+	@JoinTable(
+		      name="MembershipGroup",
+		      joinColumns={@JoinColumn(name="nameG", referencedColumnName="nameG")},
+		      inverseJoinColumns={@JoinColumn(name="id_u", referencedColumnName="ID_U")})
 	private Set<User> members;
 		
 	public Set<User> getMembers() {
