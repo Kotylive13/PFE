@@ -82,7 +82,7 @@ public class AdminUsersController {
 		
 		
 		Student student = adminService.findStudentById(id);
-		if (student == null) {
+		if (student == null || !student.getStatus().equals(Status.W)) {
 			errorMessages.put("type", "error");
 			errorMessages.put("message", "Cette page est inaccessible.");
 			return new ModelAndView("login_staff/user/listWaiting", errorMessages);
