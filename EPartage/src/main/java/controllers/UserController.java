@@ -239,6 +239,10 @@ public class UserController {
 					return result.addObject("errorFile",
 						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
 				
+				if(file.getSize() > 1048576)
+					return result.addObject("errorFile",
+						"La taille de l'image est trop grande, veuillez en selectionner une autre");
+				
 				student.setAvatar(file.getBytes());
 			}
 		} catch (IOException e) {

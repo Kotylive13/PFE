@@ -95,7 +95,11 @@ public class AdminGroupController {
 					!file.getContentType().equals("image/jpeg") &&
 					!file.getContentType().equals("image/png"))				
 					return new ModelAndView("/login_staff/group/addGroup").addObject("errorFile",
-						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png)");
+				
+				if(file.getSize() > 1048576)
+					return new ModelAndView("/login_staff/group/addGroup").addObject("errorFile",
+						"La taille de l'image est trop grande, veuillez en selectionner une autre");
 				
 				group.setAvatar(file.getBytes());
 			}else{
@@ -209,6 +213,13 @@ public class AdminGroupController {
 					ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
 					result.addObject("errorFile",
 						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+					return result;
+				}
+				
+				if(file.getSize() > 1048576) {							
+					ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
+					result.addObject("errorFile",
+							"La taille de l'image est trop grande, veuillez en selectionner une autre");
 					return result;
 				}
 				
