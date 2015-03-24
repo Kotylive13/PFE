@@ -62,8 +62,21 @@
 										<form:form method="POST" modelAttribute="admin"
 											action="${pageContext.request.contextPath}/login_staff/user/addGrouptoUser.htm?id=${student.id}">
 										<tr>
-											<td>Groupe</td>
-											<td><form:select name="groupPost" items="${groupMap}" path="" /></td>
+											<td>Groupe</td>											
+											<td><select name="groupPost">											
+													<c:forEach items="${groupList}" var="group">														
+														<c:set var="contains" value="false" />
+														<c:forEach var="item" items="${student.groups}">
+														  <c:if test="${group.name eq item.name}">
+														    <c:set var="contains" value="true" />
+														  </c:if>
+														</c:forEach>
+														<c:if test="${contains eq false}">
+															<option value="${group.name}">${group.name}</option>
+														  </c:if>
+													</c:forEach>
+												</select>
+											</td>
 										</tr>
 										<tr>
 											<td></td>

@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -35,11 +36,9 @@ public class Group {
 	@OneToMany(mappedBy="group", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Category> categories;
 
-	@ManyToMany (mappedBy = "groups", cascade=CascadeType.ALL)
+	@ManyToMany (mappedBy = "groups", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	private Set<User> members;
-	
-
-	
+		
 	public Set<User> getMembers() {
 		return members;
 	}
@@ -79,15 +78,21 @@ public class Group {
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + Arrays.hashCode(avatar);
+		result = prime * result
+				+ ((categories == null) ? 0 : categories.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((members == null) ? 0 : members.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -97,6 +102,23 @@ public class Group {
 		if (getClass() != obj.getClass())
 			return false;
 		Group other = (Group) obj;
+		if (!Arrays.equals(avatar, other.avatar))
+			return false;
+		if (categories == null) {
+			if (other.categories != null)
+				return false;
+		} else if (!categories.equals(other.categories))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (members == null) {
+			if (other.members != null)
+				return false;
+		} else if (!members.equals(other.members))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -104,5 +126,4 @@ public class Group {
 			return false;
 		return true;
 	}
-
 }

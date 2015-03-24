@@ -149,6 +149,11 @@ public class AdminUsersController {
 		return groupMap;
 	}
 	
+	@ModelAttribute("groupList")
+	public List<Group> getGroupsList() {
+		return groupService.findAll();
+	}
+	
 	@ModelAttribute("nbWaitingUsers")
 	public int nbWaitingUsers () {
 		return userService.nbWaitingUsers();
