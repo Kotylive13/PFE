@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.AdminService;
 import services.UserService;
@@ -49,10 +50,18 @@ public class AdminAuthenticationController {
 	 */
 	@RequestMapping(value = "/login")
 	public ModelAndView login (
-			@RequestParam(required = true) String login,
-			@RequestParam(required = true) String password, 
+			@RequestParam(required = false) String login,
+			@RequestParam(required = false) String password, 
+			RedirectAttributes redirectAttributes,
 			HttpSession session,
 			Model model) {
+		if(login == null || password == null) {
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", "Les champs \"login\" et \"mot de passe\" sont obligatoires.");
+			ModelAndView result = new ModelAndView("redirect:/login_staff/authentication/connection.htm");
+			return result;
+		}
+		
 		System.out.println("Controller : /AdminController --- Action : /login");
 		
 		Map<String, Object> message = new HashMap<String, Object>();
