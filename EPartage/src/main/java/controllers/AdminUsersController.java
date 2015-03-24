@@ -103,15 +103,14 @@ public class AdminUsersController {
 			adminService.refusedUser(student.getId());
 			MailSender.sendEmail(student.getEmail(), "Non validation de l'inscription", 
 					"Votre compte n'a pas été validé par l'administrateur pour des raisons de sécurité sur le site E-Partage.");
+			
+			redirectAttributes.addFlashAttribute("type", "success");
+			redirectAttributes.addFlashAttribute("message", "La demande de " + student.getFirstName() + " " + 
+								student.getLastName() + " a été refusée.");
 		} else {
 			System.out.println("Erreur");
 			return new ModelAndView ("redirect:/login_staff/authentication/connection.htm");
 		}
-
-
-		redirectAttributes.addFlashAttribute("type", "success");
-		redirectAttributes.addFlashAttribute("message", "La demande de " + student.getFirstName() + " " + 
-							student.getLastName() + " a été refusée.");
 		return new ModelAndView("redirect:/login_staff/user/listWaiting.htm");
 	}
 	
