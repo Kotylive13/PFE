@@ -9,7 +9,7 @@
 			<h1>Envoyer un message à l'administrateur</h1>	
 			
 			<div class="form">
-				<form:form method="POST"
+				<form:form id="contactFormVisitor" method="POST"
 					action="${pageContext.request.contextPath}/welcome/contact.htm">
 					<table>
 						<tr>
