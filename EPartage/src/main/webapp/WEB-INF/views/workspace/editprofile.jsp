@@ -122,7 +122,7 @@
 							<td>	
 					        </td>
 							<td><input id="informationSubmit" class="submit" type="submit"
-								value="S'inscrire"></td>
+								value="Valider"></td>
 						</tr>
 					</table>
 				</form:form>
