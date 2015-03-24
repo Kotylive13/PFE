@@ -13,13 +13,6 @@
 
 					<table>
 						<tr>
-							<td>Image du groupe</td>
-							<td><input name="file" type="file" accept="image/jpeg, image/gif, image/png"/>
-						        <c:if test="${!empty errorFile}">
-									<span class="error"><c:out value="${errorFile}"/></span>
-								</c:if></td>
-						</tr>
-						<tr>
 							<td><form:label path="name">Nom du groupe</form:label></td>
 							<td><form:input path="name" name="name" type="text" value="${group.name}"/>
 						        <c:if test="${!empty errorName}">
@@ -30,7 +23,13 @@
 							<td><form:label path="description">Description</form:label></td>
 							<td><form:textarea path="description" name="description" type="text" value="${group.description}" rows="10" /></td>
 						</tr>
-
+						<tr>
+							<td>Image du groupe</td>
+							<td><input name="file" type="file" accept="image/jpeg, image/gif, image/png"/>
+						        <c:if test="${!empty errorFile}">
+									<span class="error"><c:out value="${errorFile}"/></span>
+								</c:if></td>
+						</tr>
 						<tr>
 							<td></td>
 							<td>

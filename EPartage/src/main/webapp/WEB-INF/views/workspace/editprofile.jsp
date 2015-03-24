@@ -14,23 +14,22 @@
 					<table>
 						<tr>
 							<td><form:label path="numStudent">Numéro étudiant</form:label></td>
-							<td><form:input path="numStudent" name="numStudent" />
+							<td><form:input path="numStudent" name="numStudent" disabled="true"/>
 							<form:errors path="numStudent" cssClass="error" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="inscriptUnivDate">Date d'inscription à l'université</form:label></td>
-							<td><form:input path="inscriptUnivDate" type="text" />
+							<td><form:input path="inscriptUnivDate" type="text" disabled="true"/>
 							<form:errors path="inscriptUnivDate" cssClass="error" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="lastName">Nom</form:label></td>
-							<td><form:input path="lastName" name="lastName" type="text" />
+							<td><form:input path="lastName" name="lastName" type="text" disabled="true"/>
 							<form:errors path="lastName" cssClass="error" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="firstName">Prénom</form:label></td>
-							<td><form:input path="firstName" name="firstName"
-									type="text" />
+							<td><form:input path="firstName" name="firstName" type="text" disabled="true"/>
 							<form:errors path="firstName" cssClass="error" /></td>
 						</tr>
 						<tr>
@@ -44,7 +43,7 @@
 						</tr>
 						<tr>
 							<td><form:label path="birthDate">Date de naissance</form:label></td>
-							<td><form:input path="birthDate" type="text" />
+							<td><form:input path="birthDate" type="text" disabled="true"/>
 							<form:errors path="birthDate" cssClass="error" /></td>
 						</tr>
 						<tr>
