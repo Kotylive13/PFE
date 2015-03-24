@@ -6,6 +6,7 @@
 	<head>
 		<title><tiles:insertAttribute name="title" /></title>
 		<link type="text/css" rel="stylesheet" href="<c:url value="/css/style.css" />" />
+		<link rel="shortcut icon" type="image/x-icon" href="<c:url value="/images/favicon.ico" />" />
 	</head>
 	<body>
 		<tiles:insertAttribute name="header" />
