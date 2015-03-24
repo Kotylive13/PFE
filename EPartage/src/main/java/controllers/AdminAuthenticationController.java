@@ -50,23 +50,17 @@ public class AdminAuthenticationController {
 	 */
 	@RequestMapping(value = "/login")
 	public ModelAndView login (
-			@RequestParam(required = false) String login,
-			@RequestParam(required = false) String password, 
+			@RequestParam(required = true) String login,
+			@RequestParam(required = true) String password, 
 			RedirectAttributes redirectAttributes,
 			HttpSession session,
 			Model model) {
-		if(login == null || password == null) {
-			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes.addFlashAttribute("message", "Les champs \"login\" et \"mot de passe\" sont obligatoires.");
-			ModelAndView result = new ModelAndView("redirect:/login_staff/authentication/connection.htm");
-			return result;
-		}
 		
 		System.out.println("Controller : /AdminController --- Action : /login");
 		
 		Map<String, Object> message = new HashMap<String, Object>();
 
-		ModelAndView result = new ModelAndView ("login_staff/index");
+		ModelAndView result = new ModelAndView ("redirect:/login_staff/index.htm");
 		
 		password = CryptPassword.getCryptString(password);
 
@@ -85,8 +79,8 @@ public class AdminAuthenticationController {
 			return result;
 		}
 		
-		result.addObject("type", "success");
-		result.addObject("message", "Connexion réussie");
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Connexion réussie");
 		
 		return result;
 	}
