@@ -28,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import services.GroupService;
 import services.UserService;
 import utilities.AsciiToHex;
+import utilities.Final;
 import domain.Group;
 
 @Controller
@@ -97,7 +98,7 @@ public class AdminGroupController {
 					return new ModelAndView("/login_staff/group/addGroup").addObject("errorFile",
 						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png)");
 				
-				if(file.getSize() > 1048576)
+				if(file.getSize() > Final.FILE_MAX_SIZE)
 					return new ModelAndView("/login_staff/group/addGroup").addObject("errorFile",
 						"La taille de l'image est trop grande, veuillez en selectionner une autre");
 				
@@ -216,7 +217,7 @@ public class AdminGroupController {
 					return result;
 				}
 				
-				if(file.getSize() > 1048576) {							
+				if(file.getSize() > Final.FILE_MAX_SIZE) {							
 					ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
 					result.addObject("errorFile",
 							"La taille de l'image est trop grande, veuillez en selectionner une autre");

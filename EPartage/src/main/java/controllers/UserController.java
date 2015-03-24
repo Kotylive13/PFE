@@ -35,6 +35,7 @@ import services.UserHobbyService;
 import services.UserService;
 import utilities.AsciiToHex;
 import utilities.CryptPassword;
+import utilities.Final;
 import utilities.MailSender;
 import domain.Category;
 import domain.Group;
@@ -260,7 +261,7 @@ public class UserController {
 							.addObject("errorFile",
 									"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
 
-				if (file.getSize() > 1048576)
+				if (file.getSize() > Final.FILE_MAX_SIZE)
 					return result
 							.addObject("errorFile",
 									"La taille de l'image est trop grande, veuillez en selectionner une autre");

@@ -28,6 +28,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.HobbyService;
 import services.UserService;
+import utilities.Final;
 import utilities.MailSender;
 import domain.Hobby;
 import domain.Status;
@@ -118,7 +119,7 @@ public class SubscriptionController {
 					return result.addObject("errorFile",
 						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
 				
-				if(file.getSize() > 1048576)
+				if(file.getSize() > Final.FILE_MAX_SIZE)
 					return result.addObject("errorFile",
 						"La taille de l'image est trop grande, veuillez en selectionner une autre");
 				

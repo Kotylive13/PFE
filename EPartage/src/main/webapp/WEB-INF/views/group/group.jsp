@@ -37,7 +37,7 @@
 			<p>${group.description}</p>
 		</div>
 		
-		<c:if test="${not empty type}">
+		<c:if test="${not empty notInGroup}">
 			<div class="information">
 			    <p>Pour accèder au contenu du groupe, veuillez faire une demande d'adhésion auprès de l'administrateur.</p>
 			</div>
