@@ -1,12 +1,16 @@
 package controllers;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +20,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.GroupService;
 import services.UserService;
@@ -27,6 +33,9 @@ import domain.Group;
 @Controller
 @RequestMapping("/login_staff/group")
 public class AdminGroupController {
+	
+	@Autowired
+	ServletContext context;
 
 	@Autowired
 	GroupService groupService;
@@ -63,6 +72,8 @@ public class AdminGroupController {
 
 	@RequestMapping(value = "/addGroup", method = RequestMethod.POST)
 	public ModelAndView addGroupForm(HttpSession session, Model model,
+			@RequestParam(required = false) MultipartFile file,
+			RedirectAttributes redirectAttributes,
 			@ModelAttribute Group group) {
 		if (session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
@@ -70,20 +81,31 @@ public class AdminGroupController {
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 
-		System.out
-				.println("Controller : /AdminGroupController --- Action : /addGroup POST");
-
-		Map<String, List<Group>> mapGroup = new HashMap<String, List<Group>>();
-		List<Group> listGroups = new ArrayList<Group>();
+		System.out.println("Controller : /AdminGroupController --- Action : /addGroup POST");
+		
+		try {
+			if (!file.isEmpty()) {
+				if (!file.getContentType().equals("image/gif") &&
+					!file.getContentType().equals("image/jpeg") &&
+					!file.getContentType().equals("image/png"))				
+					return new ModelAndView("/login_staff/group/addGroup").addObject("errorFile",
+						"L'avatar doit être un fichier de type image (.gif, .jpeg ou .png).");
+				
+				group.setAvatar(file.getBytes());
+			}else{
+				InputStream is = context.getResourceAsStream("/images/user.png");
+				group.setAvatar(IOUtils.toByteArray(is));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		groupService.save(group);
-		listGroups = (List<Group>) groupService.findAll();
-		mapGroup.put("listGroups", listGroups);
 
-		model.addAttribute("type", "success");
-		model.addAttribute("message", "Le groupe a bien été ajouté");
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", "Le groupe "+group.getName()+" a bien été ajouté");
 
-		return new ModelAndView("/login_staff/group/listGroup", mapGroup);
+		return new ModelAndView("redirect:/login_staff/group/listGroup.htm");
 	}
 
 	// LIST GROUP

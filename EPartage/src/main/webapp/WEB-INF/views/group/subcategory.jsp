@@ -134,7 +134,7 @@
 												<form:textarea id="" class="messagePost" placeholder="Exprimez-vous" path="content" />
 											</div>
 											<div class="footerPost">
-												<form:input id="" class="fileUploadPost" type="file" path="file" />
+												<%--<form:input id="" class="fileUploadPost" type="file" path="file" />--%>
 												<input id="" class="submitPost" type="submit" value="Publier">
 											</div>
 										</form:form>

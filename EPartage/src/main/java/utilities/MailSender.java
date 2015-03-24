@@ -54,7 +54,8 @@ public class MailSender {
 		// Compte gmail : Luminy.annuaire@gmail.com
 		// password : annu1987
 		
-		 AbstractApplicationContext context = new ClassPathXmlApplicationContext("mailParams.xml");
+		 @SuppressWarnings("resource")
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("mailParams.xml");
 	     context.registerShutdownHook();
 
 	        // recuperer les beans

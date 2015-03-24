@@ -66,8 +66,8 @@
 								<textarea id="" class="messagePost" placeholder="Exprimez-vous"></textarea>
 							</div>
 							<div class="footerPost">
-								<input id="" class="fileUploadPost" type="file" /> <input id=""
-									class="submitPost" type="submit" value="Publier">
+								<%--<form:input id="" class="fileUploadPost" type="file" path="file" />--%>
+								<input id="" class="submitPost" type="submit" value="Publier">
 							</div>
 						</form>
 					</div>
