@@ -23,7 +23,7 @@
 						<tr>
 							<td></td>
 							<td>
-								<input class="submit" type="submit">
+								<input class="submit" type="submit" value="Valider">
 								<a href="${pageContext.request.contextPath}/login_staff/category/listCategory.htm"><button type="button" class="submit">Annuler</button></a>
 							</td>
 						</tr>

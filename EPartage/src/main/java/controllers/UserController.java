@@ -226,14 +226,14 @@ public class UserController {
 
 		String input = request.getParameter("hobbies");
 		input = input.replace(" ", "");
-		String[] tmpHobbies = input.split(",");
+		String[] tempHobbies = input.split(",");
 
 		List<String> userHobbies = new ArrayList<String>();
-		for (String s : tmpHobbies)
-			if (s != "")
+		for(String s : tempHobbies)
+			if(s.length() > 0)
 				userHobbies.add(s);
 
-		if (userHobbies.size() < 1)
+		if (userHobbies.isEmpty())
 			return result.addObject("errorHobbies",
 					"Veuillez renseigner des centres d'intérêt");
 
@@ -269,6 +269,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 
+		student.setPassword(oldPassword);
 		userService.save(student);
 
 		redirectAttributes.addFlashAttribute("type", "success");

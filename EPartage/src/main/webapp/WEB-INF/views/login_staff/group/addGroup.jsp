@@ -33,7 +33,7 @@
 						<tr>
 							<td></td>
 							<td>
-								<input id="addGroup" class="submit" type="submit">
+								<input id="addGroup" class="submit" type="submit" value="Valider">
 								<a href="${pageContext.request.contextPath}/login_staff/index.htm"><button type="button" class="submit">Annuler</button></a>
 							</td>
 						</tr>
