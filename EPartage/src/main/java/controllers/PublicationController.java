@@ -131,7 +131,6 @@ public class PublicationController implements HandlerExceptionResolver {
 			}
 			// test if file too big > 5 Mo
 			if (file.getSize() > Final.FILE_MAX_SIZE) {
-				System.out.println(bindingResult.getAllErrors());
 				model.addAttribute("publication", publication);
 				redirectAttributes.addFlashAttribute("type", "error");
 				redirectAttributes
@@ -151,7 +150,6 @@ public class PublicationController implements HandlerExceptionResolver {
 		}
 		// Validating model
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			redirectAttributes.addFlashAttribute("publication", publication);
 			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message",
@@ -173,9 +171,6 @@ public class PublicationController implements HandlerExceptionResolver {
 			@RequestParam(required = false) String url,
 			RedirectAttributes redirectAttributes, HttpServletRequest request) {
 
-		System.out.println(request.getRequestURL().toString() + "?"
-				+ request.getQueryString());
-
 		Publication pub = publicationService.find(id_pub);
 		String nameG = AsciiToHex.asciiToHex(pub.getGroup().getName());
 		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory()
@@ -186,7 +181,7 @@ public class PublicationController implements HandlerExceptionResolver {
 		ModelAndView result = new ModelAndView(
 				"redirect:/workspace/group/subcategory/detail.htm?nameG="
 						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
-		//test if comment from workspace
+		// test if comment from workspace
 		if (url != null) {
 			if (url.equals("W")) {
 				result = new ModelAndView("redirect:/workspace/index.htm");

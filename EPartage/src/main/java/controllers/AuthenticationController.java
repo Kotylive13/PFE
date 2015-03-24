@@ -43,7 +43,6 @@ public class AuthenticationController {
 
 	@RequestMapping(value = "/connection")
 	public ModelAndView connection(Model model) {
-		System.out.println("Controller : /AuthenticationController --- Action : /connection");
 		Student student = new Student();
 		ModelAndView result;
 		result = new ModelAndView("authentication/connection");
@@ -61,7 +60,6 @@ public class AuthenticationController {
 			HttpSession session,
 			RedirectAttributes redirectAttributes,
 			Model model) {
-		System.out.println("Controller : /AuthenticationController --- Action : /login");
 		
 		ModelAndView result;
 		password = CryptPassword.getCryptString(password);
