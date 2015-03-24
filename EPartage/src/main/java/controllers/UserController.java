@@ -226,9 +226,14 @@ public class UserController {
 
 		String input = request.getParameter("hobbies");
 		input = input.replace(" ", "");
-		String[] userHobbies = input.split(",");
+		String[] tmpHobbies = input.split(",");
+		
+		List<String> userHobbies = new ArrayList<String>();
+		for(String s : tmpHobbies)
+			if(s != "")
+				userHobbies.add(s);
 
-		if (userHobbies[0].isEmpty())
+		if (userHobbies.size() < 1)
 			return result.addObject("errorHobbies",
 					"Veuillez renseigner des centres d'intérêt");
 
