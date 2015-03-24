@@ -181,17 +181,17 @@ public class AdminGroupController {
 			return new ModelAndView("/authentication/connection");
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
-		// TODO A
-		// CHANGERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
 		Map<String, Group> mapGroupModify = new HashMap<String, Group>();
 		
 		if (!groupNew.getName().equals(name)
 				&& groupService.findGroupByName(groupNew.getName()) != null) {
 			Group group = groupService.findGroupByName(name);
-			mapGroupModify.put("group", group);
-			return new ModelAndView("login_staff/group/modifyGroup",
-					mapGroupModify);
-			// TODO FAIRE MESSAGE ERREUR
+			mapGroupModify.put("group", group);	
+			
+			ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
+			result.addObject("errorName",
+				"Un groupe porte déjà le nom "+ groupNew.getName());
+			return result;
 		}
 		Group groupOld = groupService.findGroupByName(name);
 		try {
