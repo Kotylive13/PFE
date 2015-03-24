@@ -5,57 +5,67 @@
 	<tiles:putAttribute name="title">Profile de </tiles:putAttribute>
 	<tiles:putAttribute name="content">
 
-		<div class="information">
-			<form:form modelAttribute="studentProfile">
-				<table>
-					<tr>
-						<td>Numéro étudiant</td>
-						<td>${studentProfile.numStudent}</td>
-					</tr>
-					<tr>
-						<td>Nom</td>
-						<td>${studentProfile.lastName}</td>
-					</tr>
-					<tr>
-						<td>Prénom</td>
-						<td>${studentProfile.firstName}</td>
-					</tr>
-					<tr>
-						<td>Date de naissance</td>
-						<td>${studentProfile.birthDate}</td>
-					</tr>
-					<tr>
-						<td>E-mail</td>
-						<td>${studentProfile.email}</td>
-					</tr>
 
-					<tr>
-						<td>Adresse</td>
-						<td>${studentProfile.adress}</td>
-					</tr>
-					<tr>
-						<td>Téléphone</td>
-						<td>${studentProfile.phone}</td>
-					</tr>
-					<tr>
-						<td>Centres d'intérêt</td>
-						<td>${hobbies}</td>
-					</tr>
-					<tr>
-						<td>Formation actuelle</td>
-						<td>${studentProfile.promo}</td>
-					</tr>
-					<tr>
-						<td>Année d'inscription sur la plateforme</td>
-						<td>${studentProfile.inscriptAppDate}</td>
-					</tr>
-					<tr>
-						<td>Année d'inscription à l'université</td>
-						<td>${studentProfile.inscriptUnivDate}</td>
-					</tr>
-				</table>
-			</form:form>
+
+		<div class="title">
+			<img class="authorPicture"
+				src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${studentProfile.id}"
+				alt="" />
+			<p>${studentProfile.firstName} ${studentProfile.lastName}</p>
 		</div>
+		<ul>
+			<li class="information">
+			<form:form
+					modelAttribute="studentProfile">
+					<table>
+						<tr>
+							<td>Numéro étudiant</td>
+							<td>${studentProfile.numStudent}</td>
+						</tr>
+						<tr>
+							<td>Nom</td>
+							<td>${studentProfile.lastName}</td>
+						</tr>
+						<tr>
+							<td>Prénom</td>
+							<td>${studentProfile.firstName}</td>
+						</tr>
+						<tr>
+							<td>Date de naissance</td>
+							<td>${studentProfile.birthDate}</td>
+						</tr>
+						<tr>
+							<td>E-mail</td>
+							<td>${studentProfile.email}</td>
+						</tr>
 
+						<tr>
+							<td>Adresse</td>
+							<td>${studentProfile.adress}</td>
+						</tr>
+						<tr>
+							<td>Téléphone</td>
+							<td>${studentProfile.phone}</td>
+						</tr>
+						<tr>
+							<td>Centres d'intérêt</td>
+							<td>${hobbies}</td>
+						</tr>
+						<tr>
+							<td>Formation actuelle</td>
+							<td>${studentProfile.promo}</td>
+						</tr>
+						<tr>
+							<td>Inscription sur ePartage</td>
+							<td>${studentProfile.inscriptAppDate}</td>
+						</tr>
+						<tr>
+							<td>Inscription à l'université</td>
+							<td>${studentProfile.inscriptUnivDate}</td>
+						</tr>
+					</table>
+				</form:form>
+				</li>
+		</ul>
 	</tiles:putAttribute>
 </tiles:insertDefinition>

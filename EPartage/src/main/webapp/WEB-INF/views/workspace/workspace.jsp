@@ -14,7 +14,7 @@
 				<div class="publication">
 					<div class="message">
 						<div class="headerMessage">
-							<a class="authorPicture" href=""><img class="smallPicture"
+							<a class="authorPicture" href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${p.author.id}"><img class="smallPicture"
 								src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${p.author.id}"
 								alt="" /></a>
 							<p class="author">
