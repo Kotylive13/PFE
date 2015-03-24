@@ -15,7 +15,10 @@
 					<table>
 						<tr>
 							<td><form:label path="idSubcategory.subcategory">Nom de la sous-catégorie</form:label></td>
-							<td><form:input path="idSubcategory.subcategory" name="idSubcategory.subcategory" type="text"/></td>
+							<td><form:input path="idSubcategory.subcategory" name="idSubcategory.subcategory" type="text"/>
+						        <c:if test="${!empty errorName}">
+									<span class="error"><c:out value="${errorName}"/></span>
+								</c:if></td>
 						</tr>
 						<tr>
 							<td></td>

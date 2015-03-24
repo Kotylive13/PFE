@@ -89,6 +89,13 @@ public class AdminSubcategoryController {
 		idSubcategory.setGroup(groupname);
 		idSubcategory.setSubcategory(subcategory.getIdSubcategory().getSubcategory());
 		subcategory.setIdSubcategory(idSubcategory);
+		
+		if (subcategoryService.findOne(idSubcategory) != null) {		
+			ModelAndView result = new ModelAndView("login_staff/subcategory/addSubcategory");
+			result.addObject("errorName", "Une sous-catégorie porte déjà ce nom");
+			return result;
+		}
+		
 		subcategoryService.save(subcategory);
 
 		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
