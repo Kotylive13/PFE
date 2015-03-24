@@ -55,9 +55,7 @@
 						    	<li><a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">${group.name}</a></li>
 							</c:forEach>
 						</ul>
-						<p>
-							<a href="">Voir tout</a>
-						</p>
+						<!--<p><a href="">Voir tout</a></p>-->
 					</c:when>
 					<c:otherwise>
 				        <p>Aucun groupe</p>
