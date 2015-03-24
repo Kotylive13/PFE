@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +35,8 @@ import services.PublicationFileService;
 import services.PublicationService;
 import services.UserService;
 import utilities.AsciiToHex;
+import domain.Comment;
 import domain.CommentFile;
-import domain.CommentForm;
 import domain.Group;
 import domain.IdSubcategory;
 import domain.Opinion;
@@ -123,54 +124,37 @@ public class PublicationController {
 	}
 
 	@RequestMapping(value = "/comment/edit", method = RequestMethod.POST)
-	public ModelAndView saveComment(@Valid @ModelAttribute CommentForm comment,
+	public ModelAndView saveComment(@Valid @ModelAttribute Comment comment,
 			BindingResult bindingResult, HttpSession session,
-			@RequestParam(required = false) MultipartFile file,
 			@RequestParam(required = true) Integer id_pub,
 			RedirectAttributes redirectAttributes) {
 
 		Publication pub = publicationService.find(id_pub);
-		System.out
-				.println("Controller : /PublicationController --- Action : /saveComment");
 		String nameG = AsciiToHex.asciiToHex(pub.getGroup().getName());
-		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory()
-				.getIdCategory().getName());
-		String nameS = AsciiToHex.asciiToHex(pub.getSubcategory()
-				.getIdSubcategory().getSubcategory());
+		String nameC = AsciiToHex.asciiToHex(pub.getSubcategory().getCategory().getIdCategory().getName());
+		String nameS = AsciiToHex.asciiToHex(pub.getSubcategory().getIdSubcategory().getSubcategory());
 
 		ModelAndView result = new ModelAndView(
 				"redirect:/workspace/group/subcategory/detail.htm?nameG="
 						+ nameG + "&nameC=" + nameC + "&nameS=" + nameS);
 
+		comment.setDateC(new Date());
 		User user = (User) session.getAttribute("userSession");
 		comment.setAuthor(user);
-		comment.setDateC(new Date());
 		comment.setPublication(pub);
-
-		// save file
-		if (!file.isEmpty()) {
-			try {
-				comment.setFile(file.getBytes());
-				comment.setFileTile(file.getOriginalFilename());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else {
-			comment.setFile(null);
-		}
+		
 		if (bindingResult.hasErrors()) {
 			redirectAttributes.addFlashAttribute("type", "error");
 			redirectAttributes.addFlashAttribute("message",
-					"Erreur lors de la publication de ce commentaire !");
+					"Veuillez saisir un commentaire !");
 			return result;
 		}
 		// save comment
 		
-		commentService.reconstructAndSave(comment);
+		commentService.save(comment);
 		redirectAttributes.addFlashAttribute("type", "success");
 		redirectAttributes.addFlashAttribute("message", "Commentaire publié avec succès !");
 		return result;
-
 	}
 
 	@RequestMapping("/file.htm")
@@ -293,8 +277,8 @@ public class PublicationController {
 	}
 
 	@ModelAttribute("comment")
-	public CommentForm newComment() {
-		return new CommentForm();
+	public Comment newComment() {
+		return new Comment();
 	}
 
 	@InitBinder

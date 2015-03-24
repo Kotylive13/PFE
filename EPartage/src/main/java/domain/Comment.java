@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+
+
 @Entity
 @Table(name = "Comment")
 public class Comment {
@@ -24,7 +26,7 @@ public class Comment {
 	@EmbeddedId
 	private IdComment idComment;
 	
-	@NotNull
+//	@NotNull(message="la date doit etre renseignée !")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateC;
 	
