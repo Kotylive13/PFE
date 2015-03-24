@@ -33,7 +33,7 @@ public class Subcategory {
 	})
 	private Category category;
 	
-	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@OrderBy("dateP")
 	private List<Publication> publications;
 

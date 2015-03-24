@@ -3,6 +3,7 @@ package domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -68,18 +69,18 @@ public class Publication implements Comparable<Publication>{
 	@JoinColumn (name = "NAMEG", nullable = false, insertable = false, updatable = false)
 	private Group group;
 	
-	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<Comment> comments;
 	
-	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@Where(clause = "value = 'good'")
 	private List<Opinion> goodOpinions;
 	
-	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@Where(clause = "value = 'bad'")
 	private List<Opinion> badOpinions;
 	
-	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	private List<PublicationFile> files;
 
 	public Integer getId() {

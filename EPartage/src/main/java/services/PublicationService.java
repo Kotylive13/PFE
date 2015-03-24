@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import repositories.PublicationDAO;
-import repositories.PublicationFileDAO;
 import domain.IdPublicationFile;
 import domain.Publication;
 import domain.PublicationFile;
@@ -26,7 +25,9 @@ public class PublicationService {
 	@Autowired
 	private PublicationDAO publicationDAO;
 	@Autowired
-	PublicationFileDAO publicationFileDAO;
+	PublicationFileService publicationFileService;
+	@Autowired
+	OpinionService opinionService;
 
 	public Publication save(Publication publication) {
 		return publicationDAO.save(publication);
@@ -54,9 +55,8 @@ public class PublicationService {
 			pubFile.setIdPublicationFile(idpf);
 			pubFile.setFile(pf.getFile());
 			pubFile.setPublication(p);
-			publicationFileDAO.save(pubFile);
+			publicationFileService.save(pubFile);
 		}
 
 	}
-
 }

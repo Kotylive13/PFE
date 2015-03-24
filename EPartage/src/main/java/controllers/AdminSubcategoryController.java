@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.CategoryService;
 import services.GroupService;
+import services.PublicationService;
 import services.SubcategoryService;
 import services.UserService;
 import domain.Category;
@@ -30,6 +31,9 @@ public class AdminSubcategoryController {
 
 	@Autowired
 	SubcategoryService subcategoryService;
+
+	@Autowired
+	PublicationService publicationService;
 	
 	@Autowired
 	CategoryService categoryService;
@@ -128,7 +132,7 @@ public class AdminSubcategoryController {
 			idSubcategory.setCategory(category);
 			idSubcategory.setGroup(group);
 			idSubcategory.setSubcategory(subcategory);
-			Subcategory deleteSubcategory = subcategoryService.findOne(idSubcategory);
+			Subcategory deleteSubcategory = categoryService.findOne(idSubcategory);
 			subcategoryService.delete(deleteSubcategory);
 		} 
 		else {

@@ -19,6 +19,8 @@ public class SubcategoryService {
 	@Autowired
 	private SubcategoryDAO subcategoryDAO;
 	
+	@Autowired
+	private PublicationService publicationService;	
 	
 	public Subcategory findOne(IdSubcategory idSubcategory) {
 		return subcategoryDAO.findOne(idSubcategory);
@@ -36,9 +38,7 @@ public class SubcategoryService {
 		return subcategoryDAO.findByGroupAndCategory(group, category);
 	}
 
-	public void delete(Subcategory subcategory) {
-		subcategoryDAO.delete(subcategory);
+	public void delete(Subcategory deleteSubcategory) {
+		subcategoryDAO.delete(deleteSubcategory);		
 	}
-	
-
 }

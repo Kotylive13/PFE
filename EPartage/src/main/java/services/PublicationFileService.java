@@ -30,5 +30,4 @@ public class PublicationFileService {
 	public PublicationFile find(int pub, int id) {
 		return publicationFileDAO.find(pub, id);
 	}
-	
 }
