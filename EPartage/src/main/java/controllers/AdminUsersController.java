@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.AdminService;
 import services.GroupService;
@@ -67,7 +68,8 @@ public class AdminUsersController {
 	
 	@RequestMapping(value = "/validateUser")
 	public ModelAndView validateUsers(@RequestParam(value="id") Integer id , 
-			@RequestParam String action, @RequestParam("groupPost") String groupName, HttpSession session, Model model) {
+			@RequestParam String action, @RequestParam("groupPost") String groupName, 
+			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
 		
 		if(session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
@@ -101,7 +103,11 @@ public class AdminUsersController {
 			System.out.println("Erreur");
 			return new ModelAndView ("/authentication/connection");
 		}
-		return new ModelAndView("login_staff/user/listWaiting");
+
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", student.getFirstName() + " " + 
+							student.getLastName() + " à désormais accès à la paterforme.");
+		return new ModelAndView("redirect:/login_staff/user/listWaiting.htm");
 	}
 	
 	@RequestMapping(value = "/listUsers")
