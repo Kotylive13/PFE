@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -76,10 +77,10 @@ public class PublicationController {
 			@Valid @ModelAttribute PublicationForm publication,
 			BindingResult bindingResult, HttpSession session,
 			@RequestParam(required = false) MultipartFile file,
-			@RequestParam(required = true) String nameC,
-			@RequestParam(required = true) String nameG,
-			@RequestParam(required = true) String nameS, 
-			RedirectAttributes redirectAttributes) {
+			@RequestParam(required = false) String nameC,
+			@RequestParam(required = false) String nameG,
+			@RequestParam(required = false) String nameS, 
+			RedirectAttributes redirectAttributes, Model model) {
 
 		System.out
 				.println("Controller : /PublicationController --- Action : /save");
@@ -110,10 +111,9 @@ public class PublicationController {
 		// Validating model
 		if (bindingResult.hasErrors()) {
 			System.out.println(bindingResult.getAllErrors());
-			result.addObject("publication", publication);
-			redirectAttributes.addFlashAttribute("type", "Error");
-			redirectAttributes.addFlashAttribute("message",
-					"Erreur lors de la publication de ce contenu !");
+			model.addAttribute("publication", new PublicationForm());
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", "Veuillez saisir au moins un titre et un contenu !");
 			return result;
 		}
 

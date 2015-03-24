@@ -4,9 +4,10 @@ import java.util.Date;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-
 /**
- * Class for publications with only one file (used as a model atributte for new publications)
+ * Class for publications with only one file (used as a model atributte for new
+ * publications)
+ * 
  * @author Asma
  *
  */
@@ -16,23 +17,22 @@ public class PublicationForm {
 	private String title;
 
 	private Date dateP;
-	
+
 	@NotBlank(message = "Veuillez saisir un contenu !")
 	private String content;
 
-	
 	private Subcategory subcategory;
 
-	
 	private User author;
 
-	
 	private byte[] file;
 
 	private String fileTile;
-	
-	
-	
+
+	public PublicationForm() {
+		this.content = "";
+		this.title = "";
+	}
 
 	public String getFileTile() {
 		return fileTile;
@@ -40,10 +40,6 @@ public class PublicationForm {
 
 	public void setFileTile(String fileTile) {
 		this.fileTile = fileTile;
-	}
-
-	public PublicationForm() {
-
 	}
 
 	public User getAuthor() {
