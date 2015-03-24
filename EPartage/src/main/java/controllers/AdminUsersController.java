@@ -126,16 +126,19 @@ public class AdminUsersController {
 	
 	@RequestMapping(value = "/addGrouptoUser")
 	public ModelAndView addGrouptoUser(@RequestParam(value="id") Integer id , 
-			@RequestParam String action, @RequestParam("groupPost") String groupName, HttpSession session, Model model) {
+			@RequestParam String action, @RequestParam("groupPost") String groupName, 
+			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
 		
-		model.addAttribute("admin", session.getAttribute("adminSession"));
-		Map<String, List<User>> mapUsers = new HashMap<String, List<User>>();
+		model.addAttribute("admin", session.getAttribute("adminSession"));		
+		User user = userService.find(id);
+		membershipGroupService.addUser(user, groupName);
 		
+
+		redirectAttributes.addFlashAttribute("type", "success");
+		redirectAttributes.addFlashAttribute("message", user.getFirstName() + " " + 
+				user.getLastName() + " à désormais accès au groupe "+groupName+".");
 		
-		membershipGroupService.addUser(userService.find(id), groupName);
-		List<User> listUsers = (List<User>) userService.findAll();
-		mapUsers.put("listStudents", listUsers);
-		return new ModelAndView("login_staff/user/listUsers", mapUsers); 
+		return new ModelAndView("redirect:/login_staff/user/listUsers.htm"); 
 	}
 	
 	@ModelAttribute("groupMap")
