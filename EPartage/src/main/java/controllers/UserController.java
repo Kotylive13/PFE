@@ -227,10 +227,10 @@ public class UserController {
 		String input = request.getParameter("hobbies");
 		input = input.replace(" ", "");
 		String[] tmpHobbies = input.split(",");
-		
+
 		List<String> userHobbies = new ArrayList<String>();
-		for(String s : tmpHobbies)
-			if(s != "")
+		for (String s : tmpHobbies)
+			if (s != "")
 				userHobbies.add(s);
 
 		if (userHobbies.size() < 1)
@@ -376,32 +376,55 @@ public class UserController {
 
 	@RequestMapping(value = "/showProfile", method = RequestMethod.GET)
 	public ModelAndView showProfile(
-			@RequestParam(required = false) Integer userId,
+			@RequestParam(required = false) String userId,
 			RedirectAttributes redirectAttributes, Model model) {
+		
+		String errorMessage="Veuillez cliquer sur le nom de l'utilisateur pour afficher son profile !";
 
 		ModelAndView result = new ModelAndView("workspace/showProfile");
+		//test if no parameter in request
 		if (userId == null) {
 			redirectAttributes.addFlashAttribute("type", "error");
-			redirectAttributes
-					.addFlashAttribute("message",
-							"Veuillez cliquer sur le nom de l'utilisateur pour afficher son profile !");
+			redirectAttributes.addFlashAttribute("message", errorMessage);
 			return new ModelAndView("redirect:/workspace/index.htm");
 		}
-		Student studentProfile = (Student) userService.find(userId);
+
+		// test if userId not number
+		Integer parameterValue = null;
+		try {
+			parameterValue = Integer.valueOf(userId);
+		} catch (NumberFormatException ex) {
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", errorMessage);
+			return new ModelAndView("redirect:/workspace/index.htm");
+		}
+		Student studentProfile = (Student) userService.find(parameterValue);
+		
+		// test if user doesn't exist in Database
+		if (studentProfile == null) {
+
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes
+					.addFlashAttribute("message",errorMessage);
+			return new ModelAndView("redirect:/workspace/index.htm");
+
+		}
 		model.addAttribute("studentProfile", studentProfile);
 		// Get all user hobbies
 		String hobbies = "";
-		List<UserHobby> hobbiesList = userHobbyService.findAll(userId);
+		List<UserHobby> hobbiesList = userHobbyService.findAll(parameterValue);
+		
 		if (hobbiesList.size() <= 0) {
 			hobbies = "--";
 		} else {
-			hobbies+=hobbiesList.get(0).getIdUserHobby().getNameH();
+			hobbies += hobbiesList.get(0).getIdUserHobby().getNameH();
 			for (int i = 1; i < hobbiesList.size(); i++) {
-				hobbies += ", "+hobbiesList.get(i).getIdUserHobby().getNameH();
+				hobbies += ", "
+						+ hobbiesList.get(i).getIdUserHobby().getNameH();
 			}
 		}
 
-		model.addAttribute("hobbies",hobbies);
+		model.addAttribute("hobbies", hobbies);
 		return result;
 	}
 }
