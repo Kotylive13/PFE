@@ -142,7 +142,7 @@ public class AdminGroupController {
 
 	@RequestMapping(value = "/managementGroup")
 	public ModelAndView managementGroup(
-			@RequestParam(value = "name") String name,
+			@RequestParam(value = "name") String nameg,
 			@RequestParam String action, HttpSession session, Model model) {
 
 		if (session.getAttribute("adminSession") == null) {
@@ -156,6 +156,7 @@ public class AdminGroupController {
 
 		Map<String, Group> mapGroupModify = new HashMap<String, Group>();
 
+		String name = AsciiToHex.decode(nameg);
 		Group group = groupService.findGroupByName(name);
 
 		if (action.equals("Supprimer")) {
@@ -181,7 +182,7 @@ public class AdminGroupController {
 	// ---------------------------------------------------------------
 
 	@RequestMapping(value = "/modifyGroup")
-	public ModelAndView modifyGroup(@RequestParam(value = "gname") String name,
+	public ModelAndView modifyGroup(@RequestParam(value = "gname") String gname,
 			@ModelAttribute(value = "group") Group groupNew,
 			@RequestParam(required = false) MultipartFile file,
 			RedirectAttributes redirectAttributes,
@@ -193,6 +194,8 @@ public class AdminGroupController {
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		Map<String, Group> mapGroupModify = new HashMap<String, Group>();
+		
+		String name = AsciiToHex.decode(gname);
 		
 		if (!groupNew.getName().equals(name)
 				&& groupService.findGroupByName(groupNew.getName()) != null) {

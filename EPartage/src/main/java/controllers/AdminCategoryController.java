@@ -24,6 +24,7 @@ import services.CategoryService;
 import services.GroupService;
 import services.SubcategoryService;
 import services.UserService;
+import utilities.AsciiToHex;
 import domain.Category;
 import domain.Group;
 import domain.IdCategory;
@@ -104,8 +105,8 @@ public class AdminCategoryController {
 
 	@RequestMapping(value = "/managementCategory")
 	public ModelAndView managementCategory(
-			@RequestParam(value="nameCategory") String nameCategory ,
-			@RequestParam(value="groupCategory") String groupCategory ,
+			@RequestParam(value="nameCategory") String nameC ,
+			@RequestParam(value="groupCategory") String groupC ,
 			@RequestParam String action, 
 			HttpSession session, 
 			Model model) {
@@ -116,6 +117,8 @@ public class AdminCategoryController {
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		
+		String nameCategory = AsciiToHex.decode(nameC);
+		String groupCategory = AsciiToHex.decode(groupC);		
 		
 		Map<String, List<Category>> mapCategory = new HashMap<String, List<Category>>();
 		List<Category> listCategory = new ArrayList <Category>();
@@ -139,9 +142,11 @@ public class AdminCategoryController {
 		else if (action.equals("Voir les sous-categories")){
 			//TODO
 			
-			Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+			Map<String, Object> mapSubcategory = new HashMap<String, Object>();
 			List<Subcategory> listSubcategory = subcategoryService.findByGroupAndCategory(groupCategory, nameCategory);
 			
+			mapSubcategory.put("groupname", nameCategory);
+			mapSubcategory.put("groupcategory", groupCategory);
 			mapSubcategory.put("listSubcategory", listSubcategory);
 			
 			return new ModelAndView("login_staff/subcategory/listSubcategory", mapSubcategory);
@@ -217,6 +222,38 @@ public class AdminCategoryController {
 	@ModelAttribute("nbWaitingUsers")
 	public int nbWaitingUsers () {
 		return userService.nbWaitingUsers();
+	}
+
+	/**
+	 * @param session
+	 *            {@link HttpSession}
+	 * @return Map with groups name and corresponding encoded groups name
+	 */
+	@ModelAttribute("groupsUrl")
+	public Map<String, Object> getGroupsUrl(HttpSession session) {
+		Map<String, Object> groupsUrl = new HashMap<String, Object>();
+
+		for (Group g : groupService.findAll()) {
+			String nameG = g.getName();
+			String urlNameG = AsciiToHex.asciiToHex(nameG);
+			groupsUrl.put(nameG, urlNameG);
+			
+			for (Category cat : groupService.findGroupByName(nameG).getCategories()) {
+
+				String nameC = cat.getIdCategory().getName();
+				String urlNameC = AsciiToHex.asciiToHex(nameC);
+				groupsUrl.put(nameC, urlNameC);
+
+				for (Subcategory s : cat.getSubcategories()) {
+
+					String nameS = s.getIdSubcategory().getSubcategory();
+					String urlNameS = AsciiToHex.asciiToHex(nameS);
+					groupsUrl.put(nameS, urlNameS);
+				}
+			}
+		}
+
+		return groupsUrl;
 	}
 	
 }

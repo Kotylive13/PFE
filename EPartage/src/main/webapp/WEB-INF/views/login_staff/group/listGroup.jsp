@@ -18,13 +18,13 @@
 									<p class="author">
 										${group.name}
 										<span class="optionInformation">
-											<img id="optionInformation_<c:out value="${group.name}"/>"
-												onclick="slideElement('#contentInformation_<c:out value="${group.name}"/>', '#optionInformation_<c:out value="${group.name}"/>', 'slow');"
+											<img id="optionInformation_${groupsUrl[group.name]}"
+												onclick="slideElement('#contentInformation_${groupsUrl[group.name]}', '#optionInformation_${groupsUrl[group.name]}', 'slow');"
 												class="extraSmallPicture" src="<c:url value="/images/arrow-down.png"/>" />
 										</span>
 									</p>
 								</div>
-								<div id="contentInformation_<c:out value="${group.name}"/>" class="contentInformation">
+								<div id="contentInformation_${groupsUrl[group.name]}" class="contentInformation">
 									<div class="margin"></div>
 									<table>
 										<tr>
@@ -37,7 +37,7 @@
 											<td>
 												<form:form method="POST"
 													modelAttribute="group"
-													action="${pageContext.request.contextPath}/login_staff/group/managementGroup.htm?name=${group.name}">
+													action="${pageContext.request.contextPath}/login_staff/group/managementGroup.htm?name=${groupsUrl[group.name]}">
 													<input name="action" class="submit" type="submit" value="Modifier">
 													<input name="action" class="submit" type="submit" value="Supprimer">
 												</form:form>

@@ -21,7 +21,9 @@ import services.GroupService;
 import services.PublicationService;
 import services.SubcategoryService;
 import services.UserService;
+import utilities.AsciiToHex;
 import domain.Category;
+import domain.Group;
 import domain.IdSubcategory;
 import domain.Subcategory;
 
@@ -72,8 +74,8 @@ public class AdminSubcategoryController {
 
 	@RequestMapping(value = "/addSubcategory", method = RequestMethod.POST)
 	public ModelAndView addGroupForm(HttpSession session, Model model,
-			@RequestParam(value = "groupname") String groupname,
-			@RequestParam(value = "category") String category,
+			@RequestParam(value = "groupname") String group,
+			@RequestParam(value = "category") String cat,
 			@ModelAttribute(value = "subcategory") Subcategory subcategory,
 			BindingResult bindingResult) {
 
@@ -82,6 +84,9 @@ public class AdminSubcategoryController {
 			return new ModelAndView("/authentication/connection");
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
+		
+		String groupname = AsciiToHex.decode(group);
+		String category = AsciiToHex.decode(cat);
 
 		System.out
 				.println("Controller : /AdminCategory --- Action : /addCategory POST");
@@ -102,7 +107,9 @@ public class AdminSubcategoryController {
 		
 		subcategoryService.save(subcategory);
 
-		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+		Map<String, Object> mapSubcategory = new HashMap<String, Object>();
+		mapSubcategory.put("groupname", category);
+		mapSubcategory.put("groupcategory", groupname);
 		mapSubcategory.put("listSubcategory", subcategoryService.findByGroupAndCategory(groupname, category));
 		return new ModelAndView("/login_staff/subcategory/listSubcategory", mapSubcategory);
 	}
@@ -113,9 +120,9 @@ public class AdminSubcategoryController {
 	@RequestMapping(value = "/managementSubcategory")
 	public ModelAndView managementGroup(
 			@RequestParam String action,
-			@RequestParam (value = "subcategory") String subcategory,
-			@RequestParam (value = "category") String category,
-			@RequestParam (value = "group") String group,
+			@RequestParam (value = "subcategory") String subcat,
+			@RequestParam (value = "category") String cat,
+			@RequestParam (value = "group") String groupname,
 			HttpSession session, 
 			Model model) {
 
@@ -124,8 +131,12 @@ public class AdminSubcategoryController {
 			return new ModelAndView("/authentication/connection");
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
+		
+		String subcategory = AsciiToHex.decode(subcat);
+		String category = AsciiToHex.decode(cat);
+		String group = AsciiToHex.decode(groupname);
 
-		Map<String, List<Subcategory>> mapSubcategory = new HashMap<String, List<Subcategory>>();
+		Map<String, Object> mapSubcategory = new HashMap<String, Object>();
 		
 		if (action.equals("Supprimer")) {
 			IdSubcategory idSubcategory = new IdSubcategory();
@@ -142,8 +153,9 @@ public class AdminSubcategoryController {
 		List<Subcategory> listSubcategory = 
 				subcategoryService.findByGroupAndCategory(group, category);
 		
-		mapSubcategory.put("listSubcategory", listSubcategory);
-		
+		mapSubcategory.put("groupname", category);
+		mapSubcategory.put("groupcategory", group);
+		mapSubcategory.put("listSubcategory", listSubcategory);		
 		return new ModelAndView("login_staff/subcategory/listSubcategory", mapSubcategory);
 	}
 	
@@ -169,4 +181,21 @@ public class AdminSubcategoryController {
 		return userService.nbWaitingUsers();
 	}
 
+	/**
+	 * @param session
+	 *            {@link HttpSession}
+	 * @return Map with groups name and corresponding encoded groups name
+	 */
+	@ModelAttribute("groupsUrl")
+	public Map<String, Object> getGroupsUrl(HttpSession session) {
+		Map<String, Object> groupsUrl = new HashMap<String, Object>();
+
+		for (Group g : groupService.findAll()) {
+			String nameG = g.getName();
+			String urlNameG = AsciiToHex.asciiToHex(nameG);
+			groupsUrl.put(nameG, urlNameG);
+		}
+
+		return groupsUrl;
+	}
 }

@@ -9,7 +9,7 @@
 			<h1>Modification d'un groupe</h1>
 			<div class="form">
 				<form:form id="modifyGroup" method="POST" modelAttribute="group"  enctype="multipart/form-data"
- 					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?gname=${group.name}">
+ 					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?gname=${groupsUrl[group.name]}">
 
 					<table>
 						<tr>

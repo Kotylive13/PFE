@@ -20,7 +20,7 @@
 							</tr>
 							<c:forEach var="category" items="${listCategory}">
 								<form:form method="POST" modelAttribute="category"
-									action="${pageContext.request.contextPath}/login_staff/category/managementCategory.htm?nameCategory=${category.idCategory.name}&groupCategory=${category.idCategory.group}">
+									action="${pageContext.request.contextPath}/login_staff/category/managementCategory.htm?nameCategory=${groupsUrl[category.idCategory.name]}&groupCategory=${groupsUrl[category.idCategory.group]}">
 										<tr>
 											<td><c:out value="${category.idCategory.group}" /></td>
 											<td><c:out value="${category.idCategory.name}" /></td>

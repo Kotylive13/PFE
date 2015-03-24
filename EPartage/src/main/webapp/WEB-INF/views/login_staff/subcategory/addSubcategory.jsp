@@ -10,7 +10,7 @@
 			<h1>Ajout d'une sous-catégorie</h1>
 			<div class="form">
 				<form:form id="addSubcategory" method="POST" modelAttribute="subcategory" 
- 					action="${pageContext.request.contextPath}/login_staff/subcategory/addSubcategory.htm?groupname=${group}&category=${category}">
+ 					action="${pageContext.request.contextPath}/login_staff/subcategory/addSubcategory.htm?groupname=${groupsUrl[group]}&category=${groupsUrl[category]}">
 
 					<table>
 						<tr>

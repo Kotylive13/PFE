@@ -8,7 +8,7 @@
 	<tiles:putAttribute name="content">
 		<c:if test="${!empty sessionScope.adminSession}">
 			<h1 class="large">Liste des sous-catégories</h1>
-			<h2 class="large">Groupe : <c:out value="${param.groupCategory}" /> => Catégorie : <c:out value="${param.nameCategory}" /></h2>
+			<h2 class="large">Groupe : <c:out value="${groupname}" /> => Catégorie : <c:out value="${groupcategory}" /></h2>
 			<c:choose>
 				<c:when test="${not empty listSubcategory}">
 					<div class="toolbar">
@@ -23,12 +23,14 @@
 							</tr>
 							<c:forEach var="subcategory" items="${listSubcategory}">
 								<form:form method="POST" modelAttribute="subcategory"
-									action="${pageContext.request.contextPath}/login_staff/subcategory/managementSubcategory.htm?subcategory=${subcategory.idSubcategory.subcategory}&group=${subcategory.idSubcategory.group}&category=${subcategory.idSubcategory.category}">
+									action="${pageContext.request.contextPath}/login_staff/subcategory/managementSubcategory.htm?subcategory=${groupsUrl[subcategory.idSubcategory.subcategory]}&group=${groupsUrl[subcategory.idSubcategory.group]}&category=${groupsUrl[subcategory.idSubcategory.category]}">
 									<tr>
-										<td><c:out value="${subcategory.idSubcategory.subcategory}" /></td>
+										<td><c:out
+												value="${subcategory.idSubcategory.subcategory}" /></td>
 										<td>
-											<button type="submit" name="action" value="Supprimer" title="Supprimer">
-											    <img src="<c:url value="/images/trash.png" />" />
+											<button type="submit" name="action" value="Supprimer"
+												title="Supprimer">
+												<img src="<c:url value="/images/trash.png" />" />
 											</button>
 										</td>
 									</tr>
