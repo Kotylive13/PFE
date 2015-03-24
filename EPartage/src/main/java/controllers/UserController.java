@@ -277,7 +277,7 @@ public class UserController {
 		redirectAttributes.addFlashAttribute("type", "success");
 		redirectAttributes.addFlashAttribute("message",
 				"Votre profil a bien été modifié.");
-		return new ModelAndView("redirect:/workspace/editprofile.htm");
+		return new ModelAndView("redirect:/workspace/showProfile.htm?userId="+student.getId());
 	}
 
 	/**
