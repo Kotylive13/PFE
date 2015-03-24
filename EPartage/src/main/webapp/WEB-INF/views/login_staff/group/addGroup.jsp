@@ -21,7 +21,10 @@
 						</tr>
 						<tr>
 							<td><form:label path="name">Nom du groupe</form:label>
-							<td><form:input path="name" name="name" type="text"/></td>
+							<td><form:input path="name" name="name" type="text"/>
+						        <c:if test="${!empty errorName}">
+									<span class="error"><c:out value="${errorName}"/></span>
+								</c:if></td>
 						</tr>
 						<tr>
 							<td><form:label path="description">Description</form:label></td>

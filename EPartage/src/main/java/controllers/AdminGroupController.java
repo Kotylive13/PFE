@@ -80,6 +80,12 @@ public class AdminGroupController {
 			return new ModelAndView("/authentication/connection");
 		}
 		model.addAttribute("admin", session.getAttribute("adminSession"));
+		
+		if (groupService.findGroupByName(group.getName()) != null) {			
+			ModelAndView result = new ModelAndView("/login_staff/group/addGroup");
+			result.addObject("errorName", "Un groupe porte déjà ce nom");
+			return result;
+		}
 
 		System.out.println("Controller : /AdminGroupController --- Action : /addGroup POST");
 		

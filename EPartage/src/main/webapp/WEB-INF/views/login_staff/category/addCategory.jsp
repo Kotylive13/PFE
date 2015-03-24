@@ -13,7 +13,10 @@
 					<table>
 						<tr>
 							<td><form:label path="idCategory.name">Nom de la catégorie</form:label></td>
-							<td><form:input path="idCategory.name" name="idCategory.name" type="text"/></td>
+							<td><form:input path="idCategory.name" name="idCategory.name" type="text"/>
+						        <c:if test="${!empty errorName}">
+									<span class="error"><c:out value="${errorName}"/></span>
+								</c:if></td>
 						</tr>
 						<tr>
 							<td><form:label path="idCategory.group">Nom du groupe</form:label></td>

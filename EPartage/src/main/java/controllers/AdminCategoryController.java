@@ -86,6 +86,12 @@ public class AdminCategoryController {
 		System.out.println("Controller : /AdminCategory --- Action : /addCategory POST");
 		
 		category.setGroup(groupService.findGroupByName(category.getIdCategory().getGroup()));
+		
+		if (categoryService.findByNameAndGroup(category.getIdCategory().getName(), category.getGroup().getName()) != null) {			
+			ModelAndView result = new ModelAndView("/login_staff/category/addCategory");
+			result.addObject("errorName", "Une catégorie de ce groupe porte déjà ce nom");
+			return result;
+		}
 
 		categoryService.save(category);
 		
