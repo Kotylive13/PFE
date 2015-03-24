@@ -119,7 +119,7 @@ public class AdminUsersController {
 		
 		model.addAttribute("admin", session.getAttribute("adminSession"));
 		Map<String, List<User>> mapUsers = new HashMap<String, List<User>>();
-		List<User> listUsers = (List<User>) userService.findAll();
+		List<User> listUsers = (List<User>) userService.findAllActive();
 		mapUsers.put("listStudents", listUsers);
 		return new ModelAndView("login_staff/user/listUsers", mapUsers);
 	}

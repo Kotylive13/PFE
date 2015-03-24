@@ -1,6 +1,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -56,6 +57,10 @@ public class UserService {
 
 	public int nbWaitingUsers() {
 		return userDao.nbWaitingUsers();
+	}
+
+	public List<User> findAllActive() {
+		return userDao.findAllActive();
 	}
 	
 }

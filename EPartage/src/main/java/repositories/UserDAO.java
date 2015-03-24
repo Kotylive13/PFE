@@ -1,5 +1,7 @@
 package repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -52,5 +54,15 @@ public interface UserDAO extends JpaRepository<User, Integer> {
 
 	@Query(COUNT_NB_WAITING_USERS_QUERY)
 	public int nbWaitingUsers();
+
+//	FIND_ALL_ACTIVE_USERS_QUERY ----------------------------------------------
+	
+	public final String FIND_ALL_ACTIVE_USERS_QUERY = 
+			  " SELECT u "
+			+ " FROM User u " 
+			+ " WHERE u.status = 'A'";
+
+	@Query(FIND_ALL_ACTIVE_USERS_QUERY)
+	public List<User> findAllActive();
 
 }
