@@ -11,7 +11,13 @@
 		</form>
 		<p id="option" onclick="slideOptions('#options', 'fast')" title="Options"><img src="<c:url value="/images/option.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_option.png" />')" onmouseout="unhover(this, '<c:url value="/images/option.png" />')" /></p>
 		<a id="shortcutMessaging" href="${pageContext.request.contextPath}/message/receivedMessagesList.htm" title="Messagerie"><img src="<c:url value="/images/envelop.png" />" alt="" onmouseover="hover(this, '<c:url value="/images/dark_envelop.png" />')" onmouseout="unhover(this, '<c:url value="/images/envelop.png" />')" /></a>
+<<<<<<< HEAD
 		<a id="profil" title="Profil" href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${sessionScope.userSession.id}"><img class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${sessionScope.userSession.id}" alt="" /></a>
+=======
+		<a id="profil" title="Profil" href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${sessionScope.userSession.id}">
+			<img class="smallPicture" src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${sessionScope.userSession.id}" alt="" />
+		</a>
+>>>>>>> branch 'master' of https://github.com/Kotylive13/PFE
 	    <p id="status" >Bienvenue ${sessionScope.userSession.firstName}</p>
 	</div>
 </div>

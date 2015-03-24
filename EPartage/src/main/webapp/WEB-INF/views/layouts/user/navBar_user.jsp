@@ -8,7 +8,7 @@
 		src="<c:url value="/images/arrow-up.png"/>" alt="" />
 	</h1>
 	<div id="contentLightInformation">
-		<a href=""><img class="largePicture"
+		<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${sessionScope.userSession.id}"><img class="largePicture"
 			src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${sessionScope.userSession.id}"
 			alt="" />
 		</a>

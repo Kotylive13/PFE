@@ -7,7 +7,7 @@
 		<h1>Envoyer un message à l'administrateur</h1>
 	
 		<div class="form">
-			<form:form method="POST"
+			<form:form id="contactFormUser" method="POST"
 				action="${pageContext.request.contextPath}/workspace/contact.htm">
 				<table>
 					<tr>

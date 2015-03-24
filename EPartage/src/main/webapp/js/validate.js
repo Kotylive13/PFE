@@ -23,10 +23,6 @@ $("#updateInformationForm").validate({
 		password : {
 			required : true
 		},
-		confirmation : {/*
-			required: true,
-	        equalTo: "#password"*/
-		},
 		adress : {
 			required : true
 		},
@@ -108,15 +104,35 @@ $("#postPublicationForm").validate({
 	}
 });
 
-/*
- * $( "#editPerson" ).validate({ errorElement: 'div', rules: { firstName: {
- * required: true }, lastName: { required: true }, mail: { required: true,
- * email: true }, website: { url: true }, birthDate: { required: true, date:
- * true }, password: { required: true, minlength: 6, maxlength: 16 },
- * passwordConfirm: { required: true, equalTo: "#password" }, groupe: {
- * required: true } } });
- *  $( "#editGroupe" ).validate({ errorElement: 'div', rules: { name: {
- * required: true } } });
- *  $( "#loginForgotForm" ).validate({ errorElement: 'div', rules: { login: {
- * required: true }, mail: { required: true, email: true } } });
- */
+$("#contactFormUser").validate({
+	errorElement : 'span',
+	rules : {
+		object : {
+			required : true
+		},
+		message : {
+			required : true
+		}
+	}
+});
+
+$("#contactFormVisitor").validate({
+	errorElement : 'span',
+	rules : {
+		lastName : {
+			required : true
+		},
+		firstName : {
+			required : true
+		},
+		email : {
+			required : true
+		},
+		object : {
+			required : true
+		},
+		message : {
+			required : true
+		}
+	}
+});

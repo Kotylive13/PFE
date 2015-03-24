@@ -978,37 +978,37 @@ img[class="largePicture"] {
   max-height: 15em;
 }
 /* line 54, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(1), .content .menuBar .menu li:nth-child(6) {
+.content .menuBar .menu li:nth-child(1) {
   background-color: #5c7ca8;
   background-image: -webkit-linear-gradient(top, #5c7ca8 0%, #25497c 100%);
   background-image: linear-gradient(to bottom, #5c7ca8 0%, #25497c 100%);
 }
 /* line 59, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(2), .content .menuBar .menu li:nth-child(7) {
+.content .menuBar .menu li:nth-child(2) {
   background-color: #53a492;
   background-image: -webkit-linear-gradient(top, #53a492 0%, #1c7964 100%);
   background-image: linear-gradient(to bottom, #53a492 0%, #1c7964 100%);
 }
 /* line 64, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(3), .content .menuBar .menu li:nth-child(8) {
+.content .menuBar .menu li:nth-child(3) {
   background-color: #83c766;
   background-image: -webkit-linear-gradient(top, #83c766 0%, #3d851e 100%);
   background-image: linear-gradient(to bottom, #83c766 0%, #3d851e 100%);
 }
 /* line 69, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(4), .content .menuBar .menu li:nth-child(9) {
+.content .menuBar .menu li:nth-child(4) {
   background-color: #e7be76;
   background-image: -webkit-linear-gradient(top, #e7be76 0%, #9b6f23 100%);
   background-image: linear-gradient(to bottom, #e7be76 0%, #9b6f23 100%);
 }
 /* line 74, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(5), .content .menuBar .menu li:nth-child(10) {
+.content .menuBar .menu li:nth-child(5) {
   background-color: #d96f82;
   background-image: -webkit-linear-gradient(top, #d96f82 0%, #922035 100%);
   background-image: linear-gradient(to bottom, #d96f82 0%, #922035 100%);
 }
 /* line 80, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:first-child li {
+.content .menuBar .menu li:nth-child(1) li {
   background: #25497c;
 }
 /* line 83, ../sass/page/_menubar.scss */
@@ -1024,11 +1024,11 @@ img[class="largePicture"] {
   background: #9b6f23;
 }
 /* line 92, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:last-child li {
+.content .menuBar .menu li:nth-child(5) li {
   background: #922035;
 }
 /* line 96, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:first-child:hover, .content .menuBar .menu li:first-child li:hover {
+.content .menuBar .menu li:nth-child(1):hover, .content .menuBar .menu li:nth-child(1) li:hover {
   background: #5c7ca8;
 }
 /* line 99, ../sass/page/_menubar.scss */
@@ -1044,7 +1044,7 @@ img[class="largePicture"] {
   background: #e7be76;
 }
 /* line 108, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:last-child:hover, .content .menuBar .menu li:last-child li:hover {
+.content .menuBar .menu li:nth-child(5):hover, .content .menuBar .menu li:nth-child(5) li:hover {
   background: #d96f82;
 }
 /* line 112, ../sass/page/_menubar.scss */
