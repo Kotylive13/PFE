@@ -1,7 +1,8 @@
 package domain;
 
 import java.text.DateFormat;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -40,7 +41,7 @@ public class Message {
 			@JoinColumn(name="id_u", referencedColumnName = "author")},
 	inverseJoinColumns=
 			@JoinColumn(name="receiver", referencedColumnName = "id_u"))
-	private List<User> receivers;
+	private Set<User> receivers = new HashSet<User>();
 
 	@Column(name = "content")
 	@Pattern(regexp = "^[\\sa-zA-Z0-9ÀÂÇÈÉÊËÎÔÙÛàâçèéêëîôöùû\\.\\?\\!\\,\\;\\:\\(\\)\\[\\]\"\\-\\/\\{\\}]*$", 
@@ -56,11 +57,11 @@ public class Message {
 		this.idMessage = idMessage;
 	}
 
-	public List<User> getReceivers() {
+	public Set<User> getReceivers() {
 		return receivers;
 	}
 
-	public void setReceivers(List<User> receivers) {
+	public void setReceivers(Set<User> receivers) {
 		this.receivers = receivers;
 	}
 
