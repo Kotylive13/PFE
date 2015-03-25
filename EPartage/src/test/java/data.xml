@@ -20,7 +20,7 @@
 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property value="jdbc:mysql://localhost/epartagetest" name="url" />
+		<property value="jdbc:mysql://localhost/dbpfe" name="url" />
 		<property value="root" name="username" />
 		<property value="" name="password" />
 		<property name="validationQuery" value="SELECT 1" />

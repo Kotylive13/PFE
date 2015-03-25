@@ -1,5 +1,6 @@
 package repositories;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -39,10 +40,13 @@ public class MessageDaoTest {
 	private User u2;
 	private User u3;
 	private Message m1;
-	private Date date = new Date();
+	private Date date;
 	
 	@Before
 	public void setUp() throws Exception {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		date = sdf.parse("21/12/2012");
+		
 		u1 = new User();
 		u1.setFirstName("Yoann");
 		u1.setLastName("M");
