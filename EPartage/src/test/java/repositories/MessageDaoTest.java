@@ -2,7 +2,9 @@ package repositories;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -71,7 +73,7 @@ public class MessageDaoTest {
 		m1 = new Message();
 		m1.setAuthor(u1);
 		m1.getIdMessage().setDateM(new Date());
-		List<User> receivers = new ArrayList<User>();
+		Set<User> receivers = new HashSet<User>();
 		receivers.add(u2);
 		m1.setReceivers(receivers);
 		m1.setContent("Message de test");
