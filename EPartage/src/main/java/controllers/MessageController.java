@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -99,7 +101,7 @@ public class MessageController {
 				return result.addObject("error",
 						"Le nombre de destinataire doit être compris entre 1 et 100");
 			
-			List<User> receivers = new ArrayList<User>();
+			Set<User> receivers = new HashSet<User>();
 			List<String> badReceivers = new ArrayList<String>();
 			
 			for (String userId : userIds) {				
