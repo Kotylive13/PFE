@@ -374,8 +374,6 @@ public class UserController {
 				for (Subcategory subcategory : category.getSubcategories())
 					publications.addAll(subcategory.getPublications());
 
-		Collections.sort(publications);
-
 		return publications;
 	}
 

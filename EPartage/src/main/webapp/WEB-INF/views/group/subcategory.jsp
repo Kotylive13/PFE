@@ -71,10 +71,7 @@
 				<div id="publications">
 					<c:choose>
 						<c:when test="${subcategory.publications.size() > 0}">
-							<c:set var="size" value="${subcategory.publications.size()-1}" />
-							<c:forEach var="i" begin="0" end="${size}" step="1"
-								varStatus="loop">
-								<c:set var="p" value="${subcategory.publications.get(size-i)}" />
+							<c:forEach items="${subcategory.publications}" var="p">
 								<div class="publication">
 									<div class="message">
 										<div class="headerMessage">
@@ -155,18 +152,18 @@
 													<p class="datePublication">
 														<fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss"
 															value="${com.dateC}" />
-													<P>
-														<%--<a class="optionsPublication" href=""><img
+													<%--<P>
+														<a class="optionsPublication" href=""><img
 													class="veryExtraSmallPicture"
-													src="<c:url value="/images/cross.png"/>" alt="" /></a>--%>
+													src="<c:url value="/images/cross.png"/>" alt="" /></a></P>--%>
 												</div>
 												<div class="contentComment">
 													<p>${com.content}</p>
-													<p>
+													<%--<p>
 														<a
 															href="${pageContext.request.contextPath}/publication/comment/file.htm?pub=${p.id}&com=${com.idComment.num}&id=${com.files[0].idCommentFile.id}"
 															target="_blank">${com.files[0].title}</a>
-													</p>
+													</p>--%>
 												</div>
 											</div>
 										</c:forEach>

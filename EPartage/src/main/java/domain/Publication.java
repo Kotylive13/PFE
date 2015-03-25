@@ -1,7 +1,9 @@
 package domain;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -70,7 +73,8 @@ public class Publication implements Comparable<Publication>{
 	private Group group;
 	
 	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
-	private List<Comment> comments;
+	@OrderBy("dateC DESC")
+	private Set<Comment> comments = new LinkedHashSet<Comment>();
 	
 	@OneToMany(mappedBy = "publication", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
 	@Where(clause = "value = 'good'")
@@ -150,11 +154,11 @@ public class Publication implements Comparable<Publication>{
 		this.group = group;
 	}
 
-	public List<Comment> getComments() {
+	public Set<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
+	public void setComments(Set<Comment> comments) {
 		this.comments = comments;
 	}
 

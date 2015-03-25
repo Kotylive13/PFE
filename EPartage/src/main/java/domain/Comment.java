@@ -92,5 +92,5 @@ public class Comment {
 
 	public void setFiles(List<CommentFile> files) {
 		this.files = files;
-	}
+	}	
 }

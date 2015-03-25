@@ -1,6 +1,7 @@
 package domain;
 
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
@@ -34,8 +35,8 @@ public class Subcategory {
 	private Category category;
 	
 	@OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)
-	@OrderBy("dateP")
-	private List<Publication> publications;
+	@OrderBy("dateP DESC")
+	private Set<Publication> publications = new LinkedHashSet<Publication>();
 
 	public IdSubcategory getIdSubcategory() {
 		return idSubcategory;
@@ -61,11 +62,11 @@ public class Subcategory {
 		this.category = category;
 	}
 
-	public List<Publication> getPublications() {
+	public Set<Publication> getPublications() {
 		return publications;
 	}
 
-	public void setPublications(List<Publication> publications) {
+	public void setPublications(Set<Publication> publications) {
 		this.publications = publications;
 	}
 
