@@ -27,7 +27,7 @@ public class Group {
 
 	@Id
 	@Column(name = "nameG")
-	@Size(max=32, message= "Le nom du groupe est trop long !")
+	@Size(max=32, message= "Le nom du groupe est trop long ! (32 caractères maximum)")
 	private String name;
 	
 	@Lob @Basic(fetch = FetchType.LAZY)
@@ -35,6 +35,7 @@ public class Group {
 	private byte[] avatar;
 	
 	@Column(name = "description", columnDefinition="TEXT")
+	@Size(max=1024, message= "La description est trop longue ! (1024 caractères")
 	private String description;
 	
 	@OneToMany(mappedBy="group", fetch = FetchType.EAGER, cascade=CascadeType.REMOVE)

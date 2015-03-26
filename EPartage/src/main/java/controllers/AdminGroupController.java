@@ -9,11 +9,13 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -75,7 +77,15 @@ public class AdminGroupController {
 	public ModelAndView addGroupForm(HttpSession session, Model model,
 			@RequestParam(required = false) MultipartFile file,
 			RedirectAttributes redirectAttributes,
-			@ModelAttribute Group group) {
+			@Valid @ModelAttribute Group group,
+			BindingResult bindingResult) {
+		
+		if (bindingResult.hasErrors()) {
+			ModelAndView result = new ModelAndView("/login_staff/group/addGroup");
+			result.addObject("group", group);
+			return result;
+		}
+		
 		if (session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
 			return new ModelAndView("/authentication/connection");
@@ -183,11 +193,18 @@ public class AdminGroupController {
 
 	@RequestMapping(value = "/modifyGroup")
 	public ModelAndView modifyGroup(@RequestParam(value = "gname") String gname,
-			@ModelAttribute(value = "group") Group groupNew,
+			@Valid @ModelAttribute(value = "group") Group groupNew,
 			@RequestParam(required = false) MultipartFile file,
 			RedirectAttributes redirectAttributes,
-			HttpSession session, Model model) {
+			HttpSession session, Model model,
+			BindingResult bindingResult) {
 
+		if (bindingResult.hasErrors()) {
+			ModelAndView result = new ModelAndView("/login_staff/group/addGroup");
+			result.addObject("group", groupNew);
+			return result;
+		}
+		
 		if (session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
 			return new ModelAndView("/authentication/connection");

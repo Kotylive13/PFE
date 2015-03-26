@@ -22,20 +22,18 @@ public class Student extends User {
 	@NotNull(message = "Veuillez saisir votre numéro d''étudiant !")
 	@NotEmpty(message = "Veuillez saisir votre numéro d''étudiant !")
 	@Size(max=10, message= "Le numéro d'étudiant est trop long !")
-	
 	private String numStudent;
 	
 	@Column (name = "inscriptUnivDate")
 	@Temporal(TemporalType.DATE)
 	@Past (message = "Veuillez saisir une date dans le passé !")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@NotNull (message = "Veuillez saisir votre date d''inscription!")
+	@NotNull (message = "Veuillez saisir votre date d''inscription !")
 	private Date inscriptUnivDate;
 	
 	@Column (name = "promo")
-	@NotNull
+	@NotNull (message = "Veuillez saisir votre promotion !")
 	private String promo;
-
 	
 	public String getNumStudent() {
 		return numStudent;

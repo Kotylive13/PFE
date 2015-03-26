@@ -18,7 +18,9 @@
 							<td><form:input path="idSubcategory.subcategory" name="idSubcategory.subcategory" type="text"/>
 						        <c:if test="${!empty errorName}">
 									<span class="error"><c:out value="${errorName}"/></span>
-								</c:if></td>
+								</c:if>
+								<form:errors cssClass="error" path="idSubcategory.subcategory" />
+							</td>
 						</tr>
 						<tr>
 							<td></td>

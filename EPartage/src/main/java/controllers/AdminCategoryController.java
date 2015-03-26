@@ -74,9 +74,15 @@ public class AdminCategoryController {
 	
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
 	public ModelAndView addGroupForm(HttpSession session, Model model, 
-			@Valid @ModelAttribute Category category, 
-			RedirectAttributes redirectAttributes,
-			BindingResult bindingResult){
+			@Valid @ModelAttribute Category category,
+			BindingResult bindingResult,
+			RedirectAttributes redirectAttributes){
+		
+		if (bindingResult.hasErrors()) {
+			ModelAndView result = new ModelAndView("/login_staff/category/addCategory");
+			result.addObject("category", category);
+			return result;
+		}
 		
 		if(session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");

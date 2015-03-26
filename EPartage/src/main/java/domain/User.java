@@ -55,14 +55,17 @@ public class User {
 	// , nullable = false)
 	@NotEmpty(message = "Veuillez saisir votre prénom !")
 	@NotNull
+	@Length(min = 2, max = 32, message = "Entre 2 et 32 caractères")
 	private String firstName;
 
 	@Column(name = "LASTNAME", nullable = false)
 	@NotEmpty(message = "Veuillez saisir votre nom !")
+	@Length(min = 2, max = 32, message = "Entre 2 et 32 caractères")
 	private String lastName;
 
 	@Column(name = "ADRESS", nullable = false)
 	@NotEmpty(message = "Veuillez saisir votre adresse !")
+	@Length(max = 128, message = "128 caractères max")
 	private String adress;
 
 	@Column(name = "PHONE")
@@ -87,6 +90,7 @@ public class User {
 	@Column(name = "EMAIL", nullable = false, unique = true)
 	@Email(message = "Veuillez saisir une adresse électronique valide !")
 	@NotEmpty(message = "Veuillez saisir votre adresse électronique !")
+	@Length(max = 255, message = "255 caractères max")
 	private String email;
 
 	@Column(name = "STATUS")

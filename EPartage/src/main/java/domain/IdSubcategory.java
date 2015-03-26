@@ -12,15 +12,13 @@ public class IdSubcategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "nameS")
-	@Size(max=32, message= "Le nom de la sous-catégorie est trop long !")
+	@Size(max=32, message= "Le nom de la sous-catégorie est trop long ! (32 caractères maximum)")
 	private String subcategory;
 	
 	@Column(name = "nameC")
-	@Size(max=32, message= "Le nom de le catégorie est trop long !")
 	private String category;
 	
 	@Column(name = "nameG")
-	@Size(max=32, message= "Le nom du groupe est trop long !")
 	private String group;
 	
 	public String getSubcategory() {

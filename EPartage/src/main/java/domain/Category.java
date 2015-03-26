@@ -11,12 +11,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 @Entity
 @Table(name = "Category")
 public class Category {
 
 	@EmbeddedId
+	@Valid
 	private IdCategory idCategory = new IdCategory();
 	
 	@MapsId("group")

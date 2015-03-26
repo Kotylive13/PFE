@@ -68,9 +68,10 @@ public class SubscriptionController {
 	}
 
 	@RequestMapping(value = "/subscribe", method = RequestMethod.POST)
-	public ModelAndView subscribePost(@Valid @ModelAttribute Student student ,
-			@RequestParam(required = false) MultipartFile file,
+	public ModelAndView subscribePost(
+			@Valid @ModelAttribute Student student,
 			BindingResult bindingResult, 
+			@RequestParam(required = false) MultipartFile file,
 			HttpServletRequest request,
 			RedirectAttributes redirectAttributes) {
 		System.out
@@ -82,7 +83,6 @@ public class SubscriptionController {
 		
 		// Validation du model
 		if (bindingResult.hasErrors()) {
-			System.out.println("teeefef");
 			return result;
 		}
 		if (!request.getParameter("confirmation").equals(student.getPassword()))

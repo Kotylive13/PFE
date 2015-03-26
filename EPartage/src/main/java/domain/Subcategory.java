@@ -14,12 +14,14 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 @Entity
 @Table(name = "Subcategory")
 public class Subcategory {
 
 	@EmbeddedId
+	@Valid
 	private IdSubcategory idSubcategory = new IdSubcategory();
 	
 	@MapsId("group")

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,7 +77,7 @@ public class AdminSubcategoryController {
 	public ModelAndView addGroupForm(HttpSession session, Model model,
 			@RequestParam(value = "groupname") String group,
 			@RequestParam(value = "category") String cat,
-			@ModelAttribute(value = "subcategory") Subcategory subcategory,
+			@Valid @ModelAttribute(value = "subcategory") Subcategory subcategory,
 			BindingResult bindingResult) {
 
 		if (session.getAttribute("adminSession") == null) {

@@ -17,11 +17,16 @@
 							<td><form:input path="name" name="name" type="text"/>
 						        <c:if test="${!empty errorName}">
 									<span class="error"><c:out value="${errorName}"/></span>
-								</c:if></td>
+								</c:if>
+								<form:errors cssClass="error" path="name" />
+							</td>
 						</tr>
 						<tr>
 							<td><form:label path="description">Description</form:label></td>
-							<td><form:textarea rows="10" path="description" name="description" type="text"/></td>
+							<td>
+								<form:textarea rows="10" path="description" name="description" type="text"/>
+								<form:errors cssClass="error" path="description" />
+							</td>
 						</tr>
 						<tr>
 							<td>Image du groupe</td>
