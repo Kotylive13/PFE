@@ -69,6 +69,16 @@ public class AuthenticationController {
 			if (studentSession.getStatus().equals(Status.A)) {
 				session.setAttribute("userSession", studentSession);
 			}
+			else if(studentSession.getStatus().equals(Status.W)){
+				session.setAttribute("userSession", null);
+				message.put("type", "error");
+				message.put("message",
+						"Votre compte est en attente d'activation.");
+				Student student = new Student();
+				result = new ModelAndView("authentication/connection", message);
+				model.addAttribute("student", student);
+				return result;
+			}
 		} else {
 			session.setAttribute("userSession", null);
 			message.put("type", "error");
