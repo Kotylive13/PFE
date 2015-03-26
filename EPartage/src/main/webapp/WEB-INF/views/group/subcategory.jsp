@@ -98,7 +98,7 @@
 												<p>
 													<a
 														href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
-														target="_blank">${p.files[0].title}</a>
+														target="_blank" download="${p.files[0].title}">${p.files[0].title}</a>
 												</p>
 											</c:if>
 										</div>
