@@ -88,8 +88,7 @@ function addGoodOpinion (publication, author) {
         type:'GET',
         data:
         {
-            idPub: publication,
-            idAuthor: author
+            idPub: publication
         }               
     });
 	setTimeout(function(){ location.reload(); }, 500);
@@ -101,8 +100,7 @@ function addBadOpinion (publication, author) {
         type:'GET',
         data:
         {
-            idPub: publication,
-            idAuthor: author
+            idPub: publication
         }
 	});
 	setTimeout(function(){ location.reload(); }, 500);
