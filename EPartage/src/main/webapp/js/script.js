@@ -19,7 +19,7 @@ $('#options').scrollToFixed({
 /* Listes de hobbies */
 $('.tokenizer').select2({
   tags: true,
-  tokenSeparators: [',', ' ']
+  tokenSeparators: [',']
 });
 
 $('#tokenizer').change(function() {

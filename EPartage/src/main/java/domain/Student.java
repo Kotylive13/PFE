@@ -9,6 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,6 +21,8 @@ public class Student extends User {
 	@Column (name = "numStudent", unique=true)
 	@NotNull(message = "Veuillez saisir votre numéro d''étudiant !")
 	@NotEmpty(message = "Veuillez saisir votre numéro d''étudiant !")
+	@Size(max=10, message= "Le numéro d'étudiant est trop long !")
+	
 	private String numStudent;
 	
 	@Column (name = "inscriptUnivDate")
