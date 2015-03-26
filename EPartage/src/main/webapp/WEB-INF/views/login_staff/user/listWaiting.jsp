@@ -61,7 +61,9 @@
 											<tr>
 												<td>Groupe</td>
 												<td><form:select name="groupPost" items="${groupMap}"
-														path="" /></td>
+														path="" /> <a href="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">
+													<img class="extraSmallPicture" src="<c:url value='/images/add.png' />" alt="" title="Créer un nouveau groupe"/>
+												</a></td>
 											</tr>
 											<tr>
 												<td></td>
