@@ -6,12 +6,6 @@
 		max-width: 200px;
 		text-align: left;
 	}
-	td:nth-child(2) {
-		@include overflowHidden;
-		width: 200px;
-		max-width: 200px;
-		text-align: left;
-	}
 	td:last-child {
 		width: 20px;
 		max-width: 20px;

@@ -3,7 +3,11 @@
 
 <div class="header">
 	<div class="centerHeader">
-		<p id="logo"><a href="${pageContext.request.contextPath}/authentication/connection.htm" title="accueil">e-Partage</a></p>
+		<p id="logo">
+			<a href="${pageContext.request.contextPath}/authentication/connection.htm" title="accueil">
+				<img src="<c:url value="/images/logo.png" />" >
+			</a>
+		</p>
 		<form:form method="POST" modelAttribute="student" action="${pageContext.request.contextPath}/authentication/login.htm">
 			<input id="connection" type="submit" value="Connexion">
 		  	<form:input id="password" type="password" path="password" placeholder="Mot de passe" tabindex="2"/>

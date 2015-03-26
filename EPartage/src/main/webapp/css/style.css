@@ -172,30 +172,35 @@ img[class="largePicture"] {
 .header .centerHeader #logo a, .fixedHeader .centerHeader #logo a {
   color: #eff9ff;
 }
-/* line 30, ../sass/header/_header.scss */
+/* line 29, ../sass/header/_header.scss */
+.header .centerHeader #logo img, .fixedHeader .centerHeader #logo img {
+  width: 142px;
+  height: 40px;
+}
+/* line 34, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar, .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   height: 26px;
   margin: 12px 0px;
   padding: 0px 10px;
   border: none;
 }
-/* line 36, ../sass/header/_header.scss */
+/* line 40, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar {
   width: 400px;
   background-color: white;
   border-radius: 15px 0px 0px 15px;
 }
-/* line 41, ../sass/header/_header.scss */
+/* line 45, ../sass/header/_header.scss */
 .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   width: 26px;
   background-color: white;
   border-radius: 0px 15px 15px 0px;
 }
-/* line 46, ../sass/header/_header.scss */
+/* line 50, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status, .header .centerHeader #profil, .fixedHeader .centerHeader #profil, .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging, .header .centerHeader #option, .fixedHeader .centerHeader #option, .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password, .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword, .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   float: right;
 }
-/* line 49, ../sass/header/_header.scss */
+/* line 53, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -207,43 +212,43 @@ img[class="largePicture"] {
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 58, ../sass/header/_header.scss */
+/* line 62, ../sass/header/_header.scss */
 .header .centerHeader #profil, .fixedHeader .centerHeader #profil {
   margin: 9px 25px 9px 0px;
 }
-/* line 60, ../sass/header/_header.scss */
+/* line 64, ../sass/header/_header.scss */
 .header .centerHeader #profil img, .fixedHeader .centerHeader #profil img {
   border-radius: 5px;
   border: 1px solid #172635;
 }
-/* line 65, ../sass/header/_header.scss */
+/* line 69, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging {
   margin: 5px 20px 5px 0px;
 }
-/* line 67, ../sass/header/_header.scss */
+/* line 71, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging img, .fixedHeader .centerHeader #shortcutMessaging img {
   background-image: url("../Images/profil.jpg") no-repeat;
   width: 40px;
   height: 40px;
 }
-/* line 72, ../sass/header/_header.scss */
+/* line 76, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging:hover, .fixedHeader .centerHeader #shortcutMessaging:hover {
   background: url("../Images/user.png") no-repeat;
 }
-/* line 76, ../sass/header/_header.scss */
+/* line 80, ../sass/header/_header.scss */
 .header .centerHeader #option, .fixedHeader .centerHeader #option {
   margin: 7px 0px;
 }
-/* line 78, ../sass/header/_header.scss */
+/* line 82, ../sass/header/_header.scss */
 .header .centerHeader #option img, .fixedHeader .centerHeader #option img {
   width: 36px;
   height: 36px;
 }
-/* line 81, ../sass/header/_header.scss */
+/* line 85, ../sass/header/_header.scss */
 .header .centerHeader #option img:hover, .fixedHeader .centerHeader #option img:hover {
   cursor: pointer;
 }
-/* line 86, ../sass/header/_header.scss */
+/* line 90, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password {
   height: 26px;
   margin: 12px 20px 12px 0px;
@@ -251,22 +256,22 @@ img[class="largePicture"] {
   border: none;
   border-radius: 5px;
 }
-/* line 93, ../sass/header/_header.scss */
+/* line 97, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login {
   width: 180px;
 }
-/* line 96, ../sass/header/_header.scss */
+/* line 100, ../sass/header/_header.scss */
 .header .centerHeader #password, .fixedHeader .centerHeader #password {
   width: 180px;
 }
-/* line 99, ../sass/header/_header.scss */
+/* line 103, ../sass/header/_header.scss */
 .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword {
   height: 50px;
   line-height: 50px;
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 105, ../sass/header/_header.scss */
+/* line 109, ../sass/header/_header.scss */
 .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   margin: 12px 0px;
   background-color: #abc8e2;
@@ -274,7 +279,7 @@ img[class="largePicture"] {
   padding: 3px 20px;
   border-radius: 5px;
 }
-/* line 111, ../sass/header/_header.scss */
+/* line 115, ../sass/header/_header.scss */
 .header .centerHeader #connection:hover, .fixedHeader .centerHeader #connection:hover {
   background-color: #c4d7ed;
   border: 1px solid #abc8e2;
@@ -958,16 +963,17 @@ img[class="largePicture"] {
 .content .menuBar .menu ul li {
   display: inherit;
   border-radius: 0;
+  z-index: 800;
 }
-/* line 34, ../sass/page/_menubar.scss */
+/* line 35, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul li:hover {
   border-radius: 0;
 }
-/* line 37, ../sass/page/_menubar.scss */
+/* line 38, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul li:last-child {
   border-radius: 0 0 8px 8px;
 }
-/* line 40, ../sass/page/_menubar.scss */
+/* line 41, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul {
   position: absolute;
   max-height: 0;
@@ -978,81 +984,86 @@ img[class="largePicture"] {
   -webkit-transition: .8s all .0s;
   transition: .8s all .0s;
 }
-/* line 50, ../sass/page/_menubar.scss */
+/* line 51, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover ul {
   max-height: 15em;
 }
-/* line 54, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(1) {
+/* line 55, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(1), .content .menuBar .menu li:nth-child(6) {
   background-color: #5c7ca8;
   background-image: -webkit-linear-gradient(top, #5c7ca8 0%, #25497c 100%);
   background-image: linear-gradient(to bottom, #5c7ca8 0%, #25497c 100%);
 }
-/* line 59, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(2) {
+/* line 60, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(2), .content .menuBar .menu li:nth-child(7) {
   background-color: #53a492;
   background-image: -webkit-linear-gradient(top, #53a492 0%, #1c7964 100%);
   background-image: linear-gradient(to bottom, #53a492 0%, #1c7964 100%);
 }
-/* line 64, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(3) {
+/* line 65, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(3), .content .menuBar .menu li:nth-child(8) {
   background-color: #83c766;
   background-image: -webkit-linear-gradient(top, #83c766 0%, #3d851e 100%);
   background-image: linear-gradient(to bottom, #83c766 0%, #3d851e 100%);
 }
-/* line 69, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(4) {
+/* line 70, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(4), .content .menuBar .menu li:nth-child(9) {
   background-color: #e7be76;
   background-image: -webkit-linear-gradient(top, #e7be76 0%, #9b6f23 100%);
   background-image: linear-gradient(to bottom, #e7be76 0%, #9b6f23 100%);
 }
-/* line 74, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(5) {
+/* line 75, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(5), .content .menuBar .menu li:nth-child(10) {
   background-color: #d96f82;
   background-image: -webkit-linear-gradient(top, #d96f82 0%, #922035 100%);
   background-image: linear-gradient(to bottom, #d96f82 0%, #922035 100%);
 }
-/* line 80, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(1) li {
+/* line 81, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(1) li, .content .menuBar .menu li:nth-child(6) li {
   background: #25497c;
 }
-/* line 83, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(2) li {
+/* line 84, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(2) li, .content .menuBar .menu li:nth-child(7) li {
   background: #1c7964;
 }
-/* line 86, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(3) li {
+/* line 87, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(3) li, .content .menuBar .menu li:nth-child(8) li {
   background: #3d851e;
 }
-/* line 89, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(4) li {
+/* line 90, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(4) li, .content .menuBar .menu li:nth-child(9) li {
   background: #9b6f23;
 }
-/* line 92, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(5) li {
+/* line 93, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(5) li, .content .menuBar .menu li:nth-child(10) li {
   background: #922035;
 }
-/* line 96, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(1):hover, .content .menuBar .menu li:nth-child(1) li:hover {
+/* line 98, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(1):hover, .content .menuBar .menu li:nth-child(1) li:hover,
+.content .menuBar .menu li:nth-child(6):hover, .content .menuBar .menu li:nth-child(6) li:hover {
   background: #5c7ca8;
 }
-/* line 99, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(2):hover, .content .menuBar .menu li:nth-child(2) li:hover {
+/* line 102, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(2):hover, .content .menuBar .menu li:nth-child(2) li:hover,
+.content .menuBar .menu li:nth-child(7):hover, .content .menuBar .menu li:nth-child(7) li:hover {
   background: #53a492;
 }
-/* line 102, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(3):hover, .content .menuBar .menu li:nth-child(3) li:hover {
+/* line 106, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(3):hover, .content .menuBar .menu li:nth-child(3) li:hover,
+.content .menuBar .menu li:nth-child(8):hover, .content .menuBar .menu li:nth-child(8) li:hover {
   background: #83c766;
 }
-/* line 105, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(4):hover, .content .menuBar .menu li:nth-child(4) li:hover {
+/* line 110, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(4):hover, .content .menuBar .menu li:nth-child(4) li:hover,
+.content .menuBar .menu li:nth-child(9):hover, .content .menuBar .menu li:nth-child(9) li:hover {
   background: #e7be76;
 }
-/* line 108, ../sass/page/_menubar.scss */
-.content .menuBar .menu li:nth-child(5):hover, .content .menuBar .menu li:nth-child(5) li:hover {
+/* line 114, ../sass/page/_menubar.scss */
+.content .menuBar .menu li:nth-child(5):hover, .content .menuBar .menu li:nth-child(5) li:hover,
+.content .menuBar .menu li:nth-child(10):hover, .content .menuBar .menu li:nth-child(10) li:hover {
   background: #d96f82;
 }
-/* line 112, ../sass/page/_menubar.scss */
+/* line 118, ../sass/page/_menubar.scss */
 .content .menuBar .menu a {
   text-decoration: none;
   display: block;
@@ -1060,16 +1071,16 @@ img[class="largePicture"] {
   color: white;
   font-family: arial;
 }
-/* line 119, ../sass/page/_menubar.scss */
+/* line 125, ../sass/page/_menubar.scss */
 .content .menuBar .menu ul a {
   padding: 8px 0;
 }
-/* line 122, ../sass/page/_menubar.scss */
+/* line 128, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover li a {
   color: white;
   text-transform: inherit;
 }
-/* line 126, ../sass/page/_menubar.scss */
+/* line 132, ../sass/page/_menubar.scss */
 .content .menuBar .menu li:hover a, .content .menuBar .menu li li:hover a {
   color: black;
 }
@@ -1412,52 +1423,65 @@ img[class="largePicture"] {
   float: right;
 }
 /* line 45, ../sass/page/_publication.scss */
-.content .publication .message .contentMessage, .content .publication .message .contentComment, .content .publication .comment .contentMessage, .content .publication .comment .contentComment {
+.content .publication .message .contentMessage, .content .publication .comment .contentMessage {
   clear: both;
   padding: 10px 0px;
 }
 /* line 48, ../sass/page/_publication.scss */
-.content .publication .message .contentMessage p:nth-child(1), .content .publication .message .contentComment p:nth-child(1), .content .publication .comment .contentMessage p:nth-child(1), .content .publication .comment .contentComment p:nth-child(1) {
+.content .publication .message .contentMessage p:nth-child(1), .content .publication .comment .contentMessage p:nth-child(1) {
   padding-bottom: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid #abc8e2;
 }
-/* line 56, ../sass/page/_publication.scss */
-.content .publication .message .contentMessage p:nth-child(2), .content .publication .message .contentComment p:nth-child(2), .content .publication .comment .contentMessage p:nth-child(2), .content .publication .comment .contentComment p:nth-child(2) {
+/* line 53, ../sass/page/_publication.scss */
+.content .publication .message .contentMessage p:nth-child(2), .content .publication .comment .contentMessage p:nth-child(2) {
   padding: 10px 0px;
 }
-/* line 59, ../sass/page/_publication.scss */
-.content .publication .message .contentMessage p:nth-child(3) a, .content .publication .message .contentComment p:nth-child(3) a, .content .publication .comment .contentMessage p:nth-child(3) a, .content .publication .comment .contentComment p:nth-child(3) a {
+/* line 56, ../sass/page/_publication.scss */
+.content .publication .message .contentMessage p:nth-child(3) a, .content .publication .comment .contentMessage p:nth-child(3) a {
   display: block;
   padding: 5px 5px;
   border: 1px solid #abc8e2;
   background-color: #eff9ff;
 }
-/* line 67, ../sass/page/_publication.scss */
+/* line 63, ../sass/page/_publication.scss */
+.content .publication .message .contentComment, .content .publication .comment .contentComment {
+  clear: both;
+  padding: 10px 0px 0px 0px;
+}
+/* line 66, ../sass/page/_publication.scss */
+.content .publication .message .contentComment p:nth-child(2) a, .content .publication .comment .contentComment p:nth-child(2) a {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 5px;
+  border: 1px solid #abc8e2;
+  background-color: white;
+}
+/* line 75, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion, .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .goodOpinion, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   float: left;
 }
-/* line 71, ../sass/page/_publication.scss */
+/* line 79, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .goodOpinion:hover, .content .publication .message .footerMessage .badOpinion:hover, .content .publication .message .footerMessage .numComments:hover, .content .publication .message .footerMessage .commentPublication:hover, .content .publication .message .footerMessage .sharePublication:hover, .content .publication .comment .footerMessage .goodOpinion:hover, .content .publication .comment .footerMessage .badOpinion:hover, .content .publication .comment .footerMessage .numComments:hover, .content .publication .comment .footerMessage .commentPublication:hover, .content .publication .comment .footerMessage .sharePublication:hover {
   color: #4a6b8a;
   cursor: pointer;
 }
-/* line 76, ../sass/page/_publication.scss */
+/* line 84, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   height: 20px;
   line-height: 20px;
 }
-/* line 80, ../sass/page/_publication.scss */
+/* line 88, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .numGoodOpinion, .content .publication .message .footerMessage .badOpinion, .content .publication .message .footerMessage .numBadOpinion, .content .publication .message .footerMessage .numComments, .content .publication .comment .footerMessage .numGoodOpinion, .content .publication .comment .footerMessage .badOpinion, .content .publication .comment .footerMessage .numBadOpinion, .content .publication .comment .footerMessage .numComments {
   padding-left: 10px;
 }
-/* line 83, ../sass/page/_publication.scss */
+/* line 91, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .message .footerMessage .sharePublication, .content .publication .comment .footerMessage .commentPublication, .content .publication .comment .footerMessage .sharePublication {
   float: right;
   height: 20px;
   line-height: 20px;
 }
-/* line 88, ../sass/page/_publication.scss */
+/* line 96, ../sass/page/_publication.scss */
 .content .publication .message .footerMessage .commentPublication, .content .publication .comment .footerMessage .commentPublication {
   padding-right: 10px;
 }
@@ -1492,14 +1516,27 @@ img[class="largePicture"] {
   margin-bottom: 30px;
 }
 /* line 22, ../sass/_ribbon.scss */
-.mainRibbon .contentMainRibbon a {
+.mainRibbon .contentMainRibbon p[class="button"] {
   background-color: #4a6b8a;
   border: 1px solid white;
   padding: 5px 20px;
   border-radius: 5px;
   margin-top: 30px;
   display: inline-block;
+}
+/* line 26, ../sass/_ribbon.scss */
+.mainRibbon .contentMainRibbon p[class="button"] a {
   color: white;
+}
+/* line 31, ../sass/_ribbon.scss */
+.mainRibbon .contentMainRibbon p[class="link"] {
+  padding-top: 5px;
+  font-size: 12px;
+}
+/* line 34, ../sass/_ribbon.scss */
+.mainRibbon .contentMainRibbon p[class="link"] a:hover {
+  color: #4a6b8a;
+  text-decoration: underline;
 }
 
 /*.ribbon2 {

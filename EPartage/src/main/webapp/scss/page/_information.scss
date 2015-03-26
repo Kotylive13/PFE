@@ -31,7 +31,7 @@
 			label[class="css-label-checkbox"]:nth-child(2), label[class="css-label-checkbox"]:nth-child(4) {
 				padding-right: 9px;
 			}
-			input[class="error"] {
+			input[class="error"], textarea[class="error"] {
 				background-color: $red1;
 				border-color: $red3;
 			}

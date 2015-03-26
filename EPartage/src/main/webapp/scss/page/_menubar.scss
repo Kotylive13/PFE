@@ -30,6 +30,7 @@ $color5-bis: #922035;
 	.menu ul li {
 		display:inherit;
 		border-radius:0;
+		z-index: 800;
 	}
 	.menu ul li:hover {
 		border-radius:0;
@@ -51,61 +52,66 @@ $color5-bis: #922035;
 			max-height:15em;
 	}
 	/* background des liens menus */
-	.menu li:first-child {
+	.menu li:nth-child(1), .menu li:nth-child(6) {
 		background-color: $color1;
 		background-image:-webkit-linear-gradient(top, $color1 0%, $color1-bis 100%);
 		background-image:linear-gradient(to bottom, $color1 0%, $color1-bis 100%);
 	}
-	.menu li:nth-child(2) {
+	.menu li:nth-child(2), .menu li:nth-child(7) {
 		background-color: $color2;
 		background-image: -webkit-linear-gradient(top, $color2 0%, $color2-bis 100%);
 		background-image:linear-gradient(to bottom, $color2 0%, $color2-bis 100%);
 	}
-	.menu li:nth-child(3) {
+	.menu li:nth-child(3), .menu li:nth-child(8) {
 		background-color: $color3;
 		background-image:-webkit-linear-gradient(top, $color3 0%, $color3-bis 100%);
 		background-image:linear-gradient(to bottom, $color3 0%, $color3-bis 100%);
 	}
-	.menu li:nth-child(4) {
+	.menu li:nth-child(4), .menu li:nth-child(9) {
 		background-color: $color4;
 		background-image:-webkit-linear-gradient(top, $color4 0%, $color4-bis 100%);
 		background-image:linear-gradient(to bottom, $color4 0%, $color4-bis 100%);
 	}
-	.menu li:last-child {
+	.menu li:nth-child(5), .menu li:nth-child(10) {
 		background-color: $color5;
 		background-image:-webkit-linear-gradient(top, $color5 0%, $color5-bis 100%);
 		background-image:linear-gradient(to bottom, $color5 0%, $color5-bis 100%);
 	}
 	/* background des liens sous menus */
-	.menu li:first-child li {
+	.menu li:nth-child(1) li, .menu li:nth-child(6) li {
 		background: $color1-bis;
 	}
-	.menu li:nth-child(2) li {
+	.menu li:nth-child(2) li, .menu li:nth-child(7) li {
 		background:$color2-bis;
 	}
-	.menu li:nth-child(3) li {
+	.menu li:nth-child(3) li, .menu li:nth-child(8) li {
 		background: $color3-bis;
 	}
-	.menu li:nth-child(4) li {
+	.menu li:nth-child(4) li, .menu li:nth-child(9) li {
 		background: $color4-bis;
 	}
-	.menu li:last-child li {
+	.menu li:nth-child(5) li, .menu li:nth-child(10) li {
 		background: $color5-bis;
 	}
 	/* background des liens menus et sous menus au survol */
-	.menu li:first-child:hover, .menu li:first-child li:hover {
+	.menu li:nth-child(1):hover, .menu li:nth-child(1) li:hover,
+	.menu li:nth-child(6):hover, .menu li:nth-child(6) li:hover {
 		background: $color1;
 	}
-	.menu li:nth-child(2):hover, .menu li:nth-child(2) li:hover {
+	.menu li:nth-child(2):hover, .menu li:nth-child(2) li:hover,
+	.menu li:nth-child(7):hover, .menu li:nth-child(7) li:hover {
 		background: $color2;
 	}
-	.menu li:nth-child(3):hover, .menu li:nth-child(3) li:hover {
+	.menu li:nth-child(3):hover, .menu li:nth-child(3) li:hover,
+	.menu li:nth-child(8):hover, .menu li:nth-child(8) li:hover {
 		background: $color3;
 	}
-	.menu li:nth-child(4):hover, .menu li:nth-child(4) li:hover {
+	.menu li:nth-child(4):hover, .menu li:nth-child(4) li:hover,
+	.menu li:nth-child(9):hover, .menu li:nth-child(9) li:hover {
 		background: $color4;
 	}
-	.menu li:last-child:hover, .menu li:last-child li:hover {
+	.menu li:nth-child(5):hover, .menu li:nth-child(5) li:hover,
+	.menu li:nth-child(10):hover, .menu li:nth-child(10) li:hover {
 		background: $color5;
 	}
 	/* les a href */

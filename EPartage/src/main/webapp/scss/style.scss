@@ -120,6 +120,9 @@ img[class="largePicture"] {
 	width: 160px;
 	height: 160px;
 }
+#contentLightInformation img, .title img, #profil img {
+	background-color: white;
+}
 *:focus {
     outline: 0;
 }

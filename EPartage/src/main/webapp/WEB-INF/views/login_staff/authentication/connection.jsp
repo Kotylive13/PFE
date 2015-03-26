@@ -6,7 +6,11 @@
 	<tiles:putAttribute name="header">
 		<div class="header">
 			<div class="centerHeader">
-				<p id="logo"><a href="">e-Partage</a></p>		
+				<p id="logo">
+					<a href="">
+						<img src="<c:url value="/images/logo.png" />" >
+					</a>
+				</p>		
 				<form:form method="POST" modelAttribute="admin" action="${pageContext.request.contextPath}/login_staff/authentication/login.htm">
 					<input id="connection" type="submit" value="Connexion">
 				  	<form:input id="password" tabindex="2" type="password" path="password" placeholder="Mot de passe"/>

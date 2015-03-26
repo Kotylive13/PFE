@@ -4,7 +4,11 @@
 
 <div class="fixedHeader">
 	<div class="centerHeader">
-		<p id="logo"><a href="${pageContext.request.contextPath}/workspace/index.htm" href="accueil">e-Partage</a></p>
+		<p id="logo">
+			<a href="${pageContext.request.contextPath}/workspace/index.htm" href="accueil">
+			<img src="<c:url value="/images/logo.png" />" >
+			</a>
+		</p>
 		<form id="searchForm" method="get" action="${pageContext.request.contextPath}/workspace/group/search.htm">
 	  		<input name="keywords" id="searchBar" type="text" placeholder="Chercher des groupes"/>
 	  		<input id="searchButton" type="image" src="<c:url value="/images/magnifying-glass.png" />" title="Recherche">

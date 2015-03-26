@@ -7,9 +7,10 @@
 		<div class="mainRibbon">
 			<div class="contentMainRibbon">
 				<h1>e-Partage</h1>
-				<p>Le réseau social d'Aix-Marseille Université</p>
-				<a href="/EPartage/subscription/subscribe.htm">Inscription</a>
-				<a href="/EPartage/welcome/contact.htm">Contact</a>
+				<p>Un réseau social au sein d'Aix-Marseille Université</p>
+				<p class="button"><a href="/EPartage/subscription/subscribe.htm">Inscription</a></p>
+				<p class="button"><a href="/EPartage/welcome/contact.htm">Contact</a></p>
+				<p class="link"><a href="http://philippe.mothais.etu.perso.luminy.univ-amu.fr/e-Partage/index.html">En savoir plus</a></p>				
 			</div>
 		</div>
 	</tiles:putAttribute>

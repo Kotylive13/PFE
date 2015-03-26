@@ -19,12 +19,23 @@
     		font-size: 40px;
             margin-bottom: 30px;
     	}
-    	a {
+    	p[class="button"] {
     		@include button ($blue5, white);
             margin-top: 30px;
             display: inline-block;
-    		color: white;
+    		a {
+                color: white;
+            }
     	}
+
+        p[class="link"] {
+            padding-top: 5px;
+            font-size: 12px;
+            a:hover {
+                color: $blue5;
+                text-decoration: underline;
+            }
+        }
     }
 }
 
