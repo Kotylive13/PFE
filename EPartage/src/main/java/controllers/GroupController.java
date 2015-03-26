@@ -41,7 +41,7 @@ import domain.User;
  */
 @Controller
 @RequestMapping("/workspace/group")
-public class GroupController extends GlobalExceptionHandler {
+public class GroupController {
 
 	/**
 	 * @see UserService

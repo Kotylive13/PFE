@@ -40,7 +40,7 @@ import domain.User;
  */
 @Controller
 @RequestMapping("/message")
-public class MessageController extends GlobalExceptionHandler{
+public class MessageController {
 
 	/**
 	 * @see MessageService

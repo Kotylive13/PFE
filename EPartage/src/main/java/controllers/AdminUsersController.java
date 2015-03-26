@@ -28,7 +28,7 @@ import domain.User;
 
 @Controller
 @RequestMapping("/login_staff/user")
-public class AdminUsersController extends GlobalExceptionHandler{
+public class AdminUsersController {
 
 	@Autowired
 	AdminService adminService;

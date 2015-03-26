@@ -41,7 +41,7 @@ import domain.Student;
  */
 @Controller
 @RequestMapping("/subscription")
-public class SubscriptionController extends GlobalExceptionHandler {
+public class SubscriptionController {
 	
 	@Autowired
 	ServletContext context;

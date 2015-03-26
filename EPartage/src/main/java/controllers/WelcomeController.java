@@ -26,7 +26,7 @@ import domain.Student;
  */
 @Controller
 @RequestMapping("/welcome")
-public class WelcomeController extends GlobalExceptionHandler{
+public class WelcomeController {
 	
 	@Autowired
 	UserService userService;

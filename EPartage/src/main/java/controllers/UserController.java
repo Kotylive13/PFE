@@ -53,7 +53,7 @@ import domain.UserHobby;
  */
 @Controller
 @RequestMapping("/workspace")
-public class UserController extends GlobalExceptionHandler {
+public class UserController {
 
 	/**
 	 * @see ServletContext
