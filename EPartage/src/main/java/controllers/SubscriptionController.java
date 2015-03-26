@@ -92,7 +92,10 @@ public class SubscriptionController extends GlobalExceptionHandler {
 		student.setStatus(Status.W);
 		
 		String input = request.getParameter("hobbies");
-		input = input.replace(" ", "");
+		input = input.replace("\\s+", " ");
+		input = input.replace(",\\s+", ",");
+		input = input.replace("\\s+,", ",");
+		input = input.replace(",\\s+,", ",");
 		String[] userHobbies = input.split(",");
 		
 		if (userHobbies[0].isEmpty())

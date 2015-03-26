@@ -228,7 +228,10 @@ public class UserController extends GlobalExceptionHandler {
 		}
 
 		String input = request.getParameter("hobbies");
-		input = input.replace(" ", "");
+		input = input.replace("\\s+", " ");
+		input = input.replace(",\\s+", ",");
+		input = input.replace("\\s+,", ",");
+		input = input.replace(",\\s+,", ",");
 		String[] tempHobbies = input.split(",");
 
 		List<String> userHobbies = new ArrayList<String>();

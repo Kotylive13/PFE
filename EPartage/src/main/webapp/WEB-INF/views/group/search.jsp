@@ -25,13 +25,13 @@
 								<p class="author">
 									<a href="${pageContext.request.contextPath}/workspace/group/detail.htm?nameG=${groupsUrl[group.name]}">${group.name}</a>
 									<span class="optionInformation">
-										<img id="optionInformation_<c:out value="${group.name}"/>"
-											onclick="slideElement('#contentInformation_<c:out value="${group.name}"/>', '#optionInformation_<c:out value="${group.name}"/>', 'slow');"
+										<img id="optionInformation_<c:out value="${groupsUrl[group.name]}"/>"
+											onclick="slideElement('#contentInformation_<c:out value="${groupsUrl[group.name]}"/>', '#optionInformation_<c:out value="${groupsUrl[group.name]}"/>', 'slow');"
 											class="extraSmallPicture" src="<c:url value="/images/arrow-down.png"/>" />
 									</span>
 								</p>
 							</div>
-							<div id="contentInformation_<c:out value="${group.name}"/>" class="contentInformation">
+							<div id="contentInformation_<c:out value="${groupsUrl[group.name]}"/>" class="contentInformation">
 								<div class="margin"></div>
 								<table>
 									<tr>
