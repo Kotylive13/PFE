@@ -16,16 +16,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
-import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -59,7 +56,7 @@ import domain.User;
 
 @Controller
 @RequestMapping("/publication")
-public class PublicationController implements HandlerExceptionResolver {
+public class PublicationController extends GlobalExceptionHandler {
 
 	@Autowired
 	PublicationService publicationService;
@@ -338,20 +335,6 @@ public class PublicationController implements HandlerExceptionResolver {
 				new ByteArrayMultipartFileEditor());
 	}
 
-	@ExceptionHandler(Throwable.class)
-	public ModelAndView resolveException(HttpServletRequest request,
-			HttpServletResponse response, Object handler, Exception exception) {
-		ModelAndView result = new ModelAndView("redirect:/workspace/index.htm");
-
-		if (exception instanceof MaxUploadSizeExceededException) {
-			result.addObject("type", "error");
-			result.addObject("message",
-					"La taille du fichier joint ne doit pas dépasser 5 Mo !");
-		} else {
-			result.addObject("type", "error");
-			result.addObject("message", "Oops ! Une erreur s'est produite !");
-		}
-		return result;
-	}
+	
 
 }

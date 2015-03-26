@@ -29,7 +29,7 @@ import domain.Subcategory;
 
 @Controller
 @RequestMapping("/login_staff/subcategory")
-public class AdminSubcategoryController {
+public class AdminSubcategoryController extends GlobalExceptionHandler{
 
 	@Autowired
 	SubcategoryService subcategoryService;

@@ -33,7 +33,7 @@ import domain.Group;
 
 @Controller
 @RequestMapping("/login_staff/group")
-public class AdminGroupController {
+public class AdminGroupController extends GlobalExceptionHandler{
 	
 	@Autowired
 	ServletContext context;

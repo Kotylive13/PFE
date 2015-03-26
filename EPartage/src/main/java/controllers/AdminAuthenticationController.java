@@ -21,7 +21,7 @@ import domain.Admin;
 
 @Controller
 @RequestMapping("/login_staff/authentication")
-public class AdminAuthenticationController {
+public class AdminAuthenticationController extends GlobalExceptionHandler{
 
 	@Autowired
 	AdminService adminService;
@@ -37,7 +37,7 @@ public class AdminAuthenticationController {
 
 	@RequestMapping(value = "/connection")
 	public ModelAndView connection(Model model) {
-		System.out.println("Controller : /AdminController --- Action : /connection");
+		//System.out.println("Controller : /AdminController --- Action : /connection");
 		Admin admin = new Admin();
 		ModelAndView result;
 		result = new ModelAndView("login_staff/authentication/connection");
@@ -56,7 +56,7 @@ public class AdminAuthenticationController {
 			HttpSession session,
 			Model model) {
 		
-		System.out.println("Controller : /AdminController --- Action : /login");
+		//System.out.println("Controller : /AdminController --- Action : /login");
 		
 		Map<String, Object> message = new HashMap<String, Object>();
 

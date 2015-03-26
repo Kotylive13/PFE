@@ -14,7 +14,7 @@ import services.UserService;
 
 @Controller
 @RequestMapping("/login_staff")
-public class AdminController {
+public class AdminController extends GlobalExceptionHandler {
 	
 	@Autowired
 	AdminService adminService;
