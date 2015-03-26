@@ -9,7 +9,7 @@
 			<img class="authorPicture"
 				src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${studentProfile.id}"
 				alt="" />
-			<p>${studentProfile.firstName}${studentProfile.lastName}</p>
+			<p>${studentProfile.firstName} ${studentProfile.lastName}</p>
 		</div>
 
 		<div class="menuBar">
