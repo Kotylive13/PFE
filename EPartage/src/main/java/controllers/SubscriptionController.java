@@ -142,7 +142,7 @@ public class SubscriptionController extends GlobalExceptionHandler {
 								+ student.getFirstName()
 								+ ",\n"
 								+ "Votre demande d'inscription à la plateforme collaborative e-Partage a bien été prise en compte.\n\n"
-								+ "La validation de celle-ci vous sera communiquer par mail d'ici quelques jours.\n\n"
+								+ "La validation de celle-ci vous sera communiquée par mail d'ici quelques jours.\n\n"
 								+ "A bientôt sur e-Partage !");
 		
 		redirectAttributes.addFlashAttribute("type", "success");
