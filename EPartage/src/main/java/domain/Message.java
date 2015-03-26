@@ -44,6 +44,7 @@ public class Message {
 	private Set<User> receivers = new HashSet<User>();
 
 	@Column(name = "content")
+	@Pattern(regexp = "^[\\sa-zA-Z0-9ÀÂÇÈÉÊËÎÔÙÛàâçèéêëîïôöùû\\'\\.\\?\\!\\,\\;\\:\\(\\)\\[\\]\"\\-\\/\\{\\}]*$", 
 		message = "Seul les caractères alphanumériques et de ponctuation sont admis")
 	@Size (min = 2, max = 2048, message = "Le message doit contenir entre 2 et 2048 caractères")
 	private String content;
