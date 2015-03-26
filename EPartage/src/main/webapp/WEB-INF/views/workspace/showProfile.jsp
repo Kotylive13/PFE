@@ -3,23 +3,23 @@
 
 <tiles:insertDefinition name="user">
 	<tiles:putAttribute name="title">Profile de ${studentProfile.firstName} ${studentProfile.lastName}</tiles:putAttribute>
-	
+
 	<tiles:putAttribute name="content">
 		<div class="title">
 			<img class="authorPicture"
 				src="${pageContext.request.contextPath}/workspace/avatar.htm?id=${studentProfile.id}"
 				alt="" />
-			<p>${studentProfile.firstName} ${studentProfile.lastName}</p>
+			<p>${studentProfile.firstName}${studentProfile.lastName}</p>
 		</div>
-		
+
 		<div class="menuBar">
 			<ul class="menu">
-				<li>
-					<a href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${studentProfile.id}">Informations personnelles</a>
-				</li>
+				<li><a
+					href="${pageContext.request.contextPath}/workspace/showProfile.htm?userId=${studentProfile.id}">Informations
+						personnelles</a></li>
 			</ul>
 		</div>
-		
+
 		<h1>Informations personnelles</h1>
 		<div class="information">
 			<form:form modelAttribute="studentProfile">
@@ -38,7 +38,8 @@
 					</tr>
 					<tr>
 						<td>Date de naissance</td>
-						<td>${studentProfile.birthDate}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy"
+								value="${studentProfile.birthDate}" /></td>
 					</tr>
 					<tr>
 						<td>E-mail</td>
@@ -63,7 +64,8 @@
 					</tr>
 					<tr>
 						<td>Inscription sur ePartage</td>
-						<td>${studentProfile.inscriptAppDate}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy"
+								value="${studentProfile.inscriptAppDate}" /></td>
 					</tr>
 					<tr>
 						<td>Inscription à l'université</td>
@@ -72,9 +74,9 @@
 					<c:if test="${sessionScope.userSession.id == studentProfile.id}">
 						<tr>
 							<td></td>
-							<td>
-								<a href="${pageContext.request.contextPath}/workspace/editprofile.htm"><button type="button" class="submit">Modifier</button></a>
-							</td>
+							<td><a
+								href="${pageContext.request.contextPath}/workspace/editprofile.htm"><button
+										type="button" class="submit">Modifier</button></a></td>
 						</tr>
 					</c:if>
 				</table>
