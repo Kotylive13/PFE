@@ -174,33 +174,34 @@ img[class="largePicture"] {
 }
 /* line 29, ../sass/header/_header.scss */
 .header .centerHeader #logo img, .fixedHeader .centerHeader #logo img {
+  margin: 5px 0px;
   width: 142px;
   height: 40px;
 }
-/* line 34, ../sass/header/_header.scss */
+/* line 35, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar, .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   height: 26px;
   margin: 12px 0px;
   padding: 0px 10px;
   border: none;
 }
-/* line 40, ../sass/header/_header.scss */
+/* line 41, ../sass/header/_header.scss */
 .header .centerHeader #searchBar, .fixedHeader .centerHeader #searchBar {
   width: 400px;
   background-color: white;
   border-radius: 15px 0px 0px 15px;
 }
-/* line 45, ../sass/header/_header.scss */
+/* line 46, ../sass/header/_header.scss */
 .header .centerHeader #searchButton, .fixedHeader .centerHeader #searchButton {
   width: 26px;
   background-color: white;
   border-radius: 0px 15px 15px 0px;
 }
-/* line 50, ../sass/header/_header.scss */
+/* line 51, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status, .header .centerHeader #profil, .fixedHeader .centerHeader #profil, .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging, .header .centerHeader #option, .fixedHeader .centerHeader #option, .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password, .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword, .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   float: right;
 }
-/* line 53, ../sass/header/_header.scss */
+/* line 54, ../sass/header/_header.scss */
 .header .centerHeader #status, .fixedHeader .centerHeader #status {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -212,43 +213,43 @@ img[class="largePicture"] {
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 62, ../sass/header/_header.scss */
+/* line 63, ../sass/header/_header.scss */
 .header .centerHeader #profil, .fixedHeader .centerHeader #profil {
   margin: 9px 25px 9px 0px;
 }
-/* line 64, ../sass/header/_header.scss */
+/* line 65, ../sass/header/_header.scss */
 .header .centerHeader #profil img, .fixedHeader .centerHeader #profil img {
   border-radius: 5px;
   border: 1px solid #172635;
 }
-/* line 69, ../sass/header/_header.scss */
+/* line 70, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging, .fixedHeader .centerHeader #shortcutMessaging {
   margin: 5px 20px 5px 0px;
 }
-/* line 71, ../sass/header/_header.scss */
+/* line 72, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging img, .fixedHeader .centerHeader #shortcutMessaging img {
   background-image: url("../Images/profil.jpg") no-repeat;
   width: 40px;
   height: 40px;
 }
-/* line 76, ../sass/header/_header.scss */
+/* line 77, ../sass/header/_header.scss */
 .header .centerHeader #shortcutMessaging:hover, .fixedHeader .centerHeader #shortcutMessaging:hover {
   background: url("../Images/user.png") no-repeat;
 }
-/* line 80, ../sass/header/_header.scss */
+/* line 81, ../sass/header/_header.scss */
 .header .centerHeader #option, .fixedHeader .centerHeader #option {
   margin: 7px 0px;
 }
-/* line 82, ../sass/header/_header.scss */
+/* line 83, ../sass/header/_header.scss */
 .header .centerHeader #option img, .fixedHeader .centerHeader #option img {
   width: 36px;
   height: 36px;
 }
-/* line 85, ../sass/header/_header.scss */
+/* line 86, ../sass/header/_header.scss */
 .header .centerHeader #option img:hover, .fixedHeader .centerHeader #option img:hover {
   cursor: pointer;
 }
-/* line 90, ../sass/header/_header.scss */
+/* line 91, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login, .header .centerHeader #password, .fixedHeader .centerHeader #password {
   height: 26px;
   margin: 12px 20px 12px 0px;
@@ -256,22 +257,22 @@ img[class="largePicture"] {
   border: none;
   border-radius: 5px;
 }
-/* line 97, ../sass/header/_header.scss */
+/* line 98, ../sass/header/_header.scss */
 .header .centerHeader #login, .fixedHeader .centerHeader #login {
   width: 180px;
 }
-/* line 100, ../sass/header/_header.scss */
+/* line 101, ../sass/header/_header.scss */
 .header .centerHeader #password, .fixedHeader .centerHeader #password {
   width: 180px;
 }
-/* line 103, ../sass/header/_header.scss */
+/* line 104, ../sass/header/_header.scss */
 .header .centerHeader #forgetPassword, .fixedHeader .centerHeader #forgetPassword {
   height: 50px;
   line-height: 50px;
   padding-right: 20px;
   color: #eff9ff;
 }
-/* line 109, ../sass/header/_header.scss */
+/* line 110, ../sass/header/_header.scss */
 .header .centerHeader #connection, .fixedHeader .centerHeader #connection {
   margin: 12px 0px;
   background-color: #abc8e2;
@@ -279,7 +280,7 @@ img[class="largePicture"] {
   padding: 3px 20px;
   border-radius: 5px;
 }
-/* line 115, ../sass/header/_header.scss */
+/* line 116, ../sass/header/_header.scss */
 .header .centerHeader #connection:hover, .fixedHeader .centerHeader #connection:hover {
   background-color: #c4d7ed;
   border: 1px solid #abc8e2;
