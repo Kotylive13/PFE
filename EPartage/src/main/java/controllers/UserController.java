@@ -242,9 +242,9 @@ public class UserController extends GlobalExceptionHandler {
 
 		Set<Hobby> hobbies = new HashSet<Hobby>();
 		for (String userHobby : userHobbies) {
-			Hobby hobby = hobbyService.find(userHobby);
+			Hobby hobby = hobbyService.find(userHobby.toUpperCase());
 			if (hobby == null) {
-				hobby = new Hobby(userHobby);
+				hobby = new Hobby(userHobby.toUpperCase());
 				hobby = hobbyService.save(hobby);
 			}
 			hobbies.add(hobby);
