@@ -76,6 +76,9 @@
 														  </c:if>
 													</c:forEach>
 												</select>
+												<a href="${pageContext.request.contextPath}/login_staff/group/addGroup.htm">
+													<img class="extraSmallPicture" src="<c:url value='/images/add.png' />" alt="" title="Créer un nouveau groupe"/>
+												</a>
 											</td>
 										</tr>
 										<tr>

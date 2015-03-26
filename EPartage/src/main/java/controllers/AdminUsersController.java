@@ -130,10 +130,15 @@ public class AdminUsersController extends GlobalExceptionHandler{
 	
 	@RequestMapping(value = "/addGrouptoUser")
 	public ModelAndView addGrouptoUser(@RequestParam(value="id") Integer id , 
-			@RequestParam String action, @RequestParam("groupPost") String groupName, 
+			@RequestParam String action, @RequestParam(value="groupPost", required = false) String groupName, 
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
 		
 		model.addAttribute("admin", session.getAttribute("adminSession"));		
+		if(groupName == null || groupName.equals("")){
+			redirectAttributes.addFlashAttribute("type", "error");
+			redirectAttributes.addFlashAttribute("message", "Veuillez selectionner un groupe !");
+			return new ModelAndView("redirect:/login_staff/user/listUsers.htm");
+		}
 		User user = userService.find(id);
 		membershipGroupService.addUser(user, groupName);
 		
