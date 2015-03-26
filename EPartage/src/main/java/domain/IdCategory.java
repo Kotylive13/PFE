@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Size;
 
 @Embeddable
 public class IdCategory implements Serializable {
@@ -11,9 +12,11 @@ public class IdCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "nameG")
+	@Size(max=32, message= "Le nom du groupe est trop long !")
 	private String group;
 
 	@Column(name = "nameC")
+	@Size(max=32, message= "Le nom de le catégorie est trop long !")
 	private String name;
 	
 	public IdCategory() {}
