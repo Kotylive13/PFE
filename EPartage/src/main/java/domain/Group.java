@@ -18,6 +18,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -26,6 +27,7 @@ public class Group {
 
 	@Id
 	@Column(name = "nameG")
+	@Size(max=32, message= "Le nom du groupe est trop long !")
 	private String name;
 	
 	@Lob @Basic(fetch = FetchType.LAZY)
