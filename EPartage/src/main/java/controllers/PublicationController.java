@@ -56,7 +56,7 @@ import domain.User;
 
 @Controller
 @RequestMapping("/publication")
-public class PublicationController {
+public class PublicationController extends GlobalExceptionHandler {
 
 	@Autowired
 	PublicationService publicationService;

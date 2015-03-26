@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.AdminService;
@@ -21,7 +22,7 @@ import domain.Admin;
 
 @Controller
 @RequestMapping("/login_staff/authentication")
-public class AdminAuthenticationController {
+public class AdminAuthenticationController extends GlobalExceptionHandler {
 
 	@Autowired
 	AdminService adminService;

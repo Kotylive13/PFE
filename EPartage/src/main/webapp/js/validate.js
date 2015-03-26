@@ -2,7 +2,8 @@ $("#updateInformationForm").validate({
 	errorElement : 'span',
 	rules : {
 		numStudent : {
-			required : true
+			required : true,
+			maxlength : 10
 		},
 		inscriptUnivDate : {
 			required : true
@@ -21,7 +22,9 @@ $("#updateInformationForm").validate({
 			email: true
 		},
 		password : {
-			required : true
+			required : true,
+			minlength: 6,
+			maxlength: 32
 		},
 		adress : {
 			required : true
@@ -30,7 +33,9 @@ $("#updateInformationForm").validate({
 			required : true
 		},
 		phone : {
-			required : true
+			required : true,
+			minlength: 10,
+			maxlength: 10
 		},
 		tokenizer : {
 			required : true
@@ -42,7 +47,8 @@ $("#addGroup").validate({
 	errorElement : 'span',
 	rules : {
 		name : {
-			required : true
+			required : true,
+			maxlength: 32
 		},
 		description : {
 			required : true
@@ -54,10 +60,12 @@ $("#addCategory").validate({
 	errorElement : 'span',
 	rules : {
 		'idCategory.name' : {
-			required : true
+			required : true,
+			maxlength: 32
 		},
 		'idCategory.group' : {
-			required : true
+			required : true,
+			maxlength: 32
 		}
 	}
 });
@@ -66,7 +74,8 @@ $("#addSubcategory").validate({
 	errorElement : 'span',
 	rules : {
 		'idSubcategory.subcategory' : {
-			required : true
+			required : true,
+			maxlength: 32
 		}
 	}
 });
@@ -75,7 +84,8 @@ $("#modifyGroup").validate({
 	errorElement : 'span',
 	rules : {
 		name : {
-			required : true
+			required : true,
+			maxlength: 32
 		},
 		description : {
 			required : true
@@ -87,7 +97,9 @@ $("#newMessage").validate({
 	errorElement : 'span',
 	rules : {
 		content : {
-			required : true
+			required : true,
+			minlength: 2,
+			maxlength: 2048
 		}
 	}
 });
@@ -96,7 +108,8 @@ $("#postPublicationForm").validate({
 	errorElement : 'span',
 	rules : {
 		titlePostPublication : {
-			required : true
+			required : true,
+			maxlength: 32
 		},
 		messagePostPublication : {
 			required : true
@@ -126,13 +139,16 @@ $("#contactFormVisitor").validate({
 			required : true
 		},
 		email : {
-			required : true
+			required : true,
+			email: true
 		},
 		object : {
 			required : true
 		},
 		message : {
-			required : true
+			required : true,
+			minlength: 2,
+			maxlength: 2048
 		}
 	}
 });

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.CategoryService;
@@ -32,7 +33,7 @@ import domain.Subcategory;
 
 @Controller
 @RequestMapping("/login_staff/category")
-public class AdminCategoryController {
+public class AdminCategoryController extends GlobalExceptionHandler {
 	
 
 	@Autowired
