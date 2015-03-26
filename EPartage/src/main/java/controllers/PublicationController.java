@@ -213,6 +213,7 @@ public class PublicationController {
 		PublicationFile publicationFile = publicationFileService.find(
 				Integer.parseInt(pub), Integer.parseInt(id));
 		try {
+			response.setContentType("application/vnd.ms-powerpoint");
 			OutputStream o = response.getOutputStream();
 			o.write(publicationFile.getFile());
 			o.flush();
