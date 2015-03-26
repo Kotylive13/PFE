@@ -82,6 +82,7 @@ public class SubscriptionController {
 		
 		// Validation du model
 		if (bindingResult.hasErrors()) {
+			System.out.println("teeefef");
 			return result;
 		}
 		if (!request.getParameter("confirmation").equals(student.getPassword()))

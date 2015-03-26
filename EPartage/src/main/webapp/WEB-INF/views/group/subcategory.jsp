@@ -98,20 +98,20 @@
 												<p>
 													<a
 														href="${pageContext.request.contextPath}/publication/file.htm?pub=${p.id}&id=${p.files[0].idPublicationFile.id}"
-														target="_blank">${p.files[0].title}</a>
+														target="_blank" download="${p.files[0].title}">${p.files[0].title}</a>
 												</p>
 											</c:if>
 										</div>
 										<div class="footerMessage">
 											<p class="goodOpinion" title="Opinion positive"
-												onclick="addGoodOpinion('${p.id}', '${p.author.id}');">
+												onclick="addGoodOpinion('${p.id}');">
 												
 												<img class="extraSmallPicture"
 													src="<c:url value="/images/thumb_up.png"/>" alt="" />
 											</p>
 											<p class="numGoodOpinion">(${p.goodOpinions.size()})</p>
 											<p class="badOpinion" title="Opinion négative"
-												onclick="addBadOpinion('${p.id}', '${p.author.id}');">
+												onclick="addBadOpinion('${p.id}');">
 												<img class="extraSmallPicture"
 													src="<c:url value="/images/thumb_down.png"/>" alt="" />
 											</p>

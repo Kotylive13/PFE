@@ -245,9 +245,9 @@ public class PublicationController {
 	@RequestMapping("/addGoodOpinion.htm")
 	public void addGoodOpinion(
 			@RequestParam(value = "idPub", required = true) String idPub,
-			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
+			HttpSession session) {
 
-		User author = userService.find(Integer.parseInt(idAuthor));
+		User author = (User) session.getAttribute("userSession");
 
 		Opinion opinion = opinionService.findByAuthorAndPublication(author,
 				Integer.parseInt(idPub));
@@ -268,9 +268,9 @@ public class PublicationController {
 	@RequestMapping("/addBadOpinion.htm")
 	public void addBadOpinion(
 			@RequestParam(value = "idPub", required = true) String idPub,
-			@RequestParam(value = "idAuthor", required = true) String idAuthor) {
+			HttpSession session) {
 
-		User author = userService.find(Integer.parseInt(idAuthor));
+		User author = (User) session.getAttribute("userSession");
 
 		Opinion opinion = opinionService.findByAuthorAndPublication(author,
 				Integer.parseInt(idPub));
