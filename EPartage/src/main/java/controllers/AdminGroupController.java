@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.GroupService;
@@ -33,7 +34,7 @@ import domain.Group;
 
 @Controller
 @RequestMapping("/login_staff/group")
-public class AdminGroupController {
+public class AdminGroupController extends GlobalExceptionHandler {
 	
 	@Autowired
 	ServletContext context;

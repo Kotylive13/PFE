@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.UserService;
@@ -25,7 +26,7 @@ import domain.Student;
  */
 @Controller
 @RequestMapping("/authentication")
-public class AuthenticationController {
+public class AuthenticationController extends GlobalExceptionHandler {
 
 	@Autowired
 	UserService userService;

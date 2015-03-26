@@ -30,7 +30,7 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver {
 					"La taille du fichier joint ne doit pas dépasser 5 Mo !");
 		} else {
 			result.addObject("type", "error");
-			result.addObject("message", "Oops ! Une erreur s'est produite !");
+			result.addObject("message", "Oups ! Une erreur s'est produite !");
 			System.out.println("Coucou");
 		}
 		return result;
