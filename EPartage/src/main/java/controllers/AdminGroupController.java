@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import services.GroupService;
@@ -194,10 +193,10 @@ public class AdminGroupController extends GlobalExceptionHandler {
 
 	@RequestMapping(value = "/modifyGroup")
 	public ModelAndView modifyGroup(@RequestParam(value = "gname") String gname,
-			@Valid @ModelAttribute(value = "group") Group groupNew,
 			@RequestParam(required = false) MultipartFile file,
 			RedirectAttributes redirectAttributes,
 			HttpSession session, Model model,
+			@Valid @ModelAttribute(value = "group") Group groupNew,
 			BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {

@@ -197,8 +197,9 @@ public class UserController extends GlobalExceptionHandler {
 
 	@RequestMapping(value = "/editprofile", method = RequestMethod.POST)
 	public ModelAndView subscribePost(@Valid @ModelAttribute Student student,
+			BindingResult bindingResult,
 			@RequestParam(required = false) MultipartFile file,
-			BindingResult bindingResult, HttpServletRequest request,
+			HttpServletRequest request,
 			RedirectAttributes redirectAttributes) {
 
 		Map<String, Object> allHobbies = new HashMap<String, Object>();
