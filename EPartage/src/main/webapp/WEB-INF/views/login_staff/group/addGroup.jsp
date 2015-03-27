@@ -24,7 +24,7 @@
 						<tr>
 							<td><form:label path="description">Description</form:label></td>
 							<td>
-								<form:textarea rows="10" path="description" name="description" type="text"/>
+								<form:textarea maxlength="1024" rows="10" path="description" name="description" type="text"/>
 								<form:errors cssClass="error" path="description" />
 							</td>
 						</tr>

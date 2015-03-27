@@ -6,25 +6,16 @@
 	
 	<tiles:putAttribute name="content">
 		<c:if test="${!empty sessionScope.adminSession}">
-			<h1>Modification d'un groupe</h1>
+			<h1>Modification d'un groupe</h1>			
+			<h2>${group.name}</h2>
 			<div class="form">
 				<form:form id="modifyGroup" method="POST" modelAttribute="group"  enctype="multipart/form-data"
  					action="${pageContext.request.contextPath}/login_staff/group/modifyGroup.htm?gname=${groupsUrl[group.name]}">
-
 					<table>
-						<tr>
-							<td><form:label path="name">Nom du groupe</form:label></td>
-							<td><form:input path="name" name="name" type="text" value="${group.name}"/>
-						        <c:if test="${!empty errorName}">
-									<span class="error"><c:out value="${errorName}"/></span>
-								</c:if>
-								<form:errors cssClass="error" path="name" />
-							</td>
-						</tr>
 						<tr>
 							<td><form:label path="description">Description</form:label></td>
 							<td>
-								<form:textarea path="description" name="description" type="text" value="${group.description}" rows="10" />
+								<form:textarea path="description" name="description" type="text" value="${group.description}" maxlength="1024" rows="10" />
 								<form:errors cssClass="error" path="description" />
 							</td>
 						</tr>

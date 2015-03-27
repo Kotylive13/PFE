@@ -198,12 +198,6 @@ public class AdminGroupController extends GlobalExceptionHandler {
 			HttpSession session, Model model,
 			@Valid @ModelAttribute(value = "group") Group groupNew,
 			BindingResult bindingResult) {
-
-		if (bindingResult.hasErrors()) {
-			ModelAndView result = new ModelAndView("/login_staff/group/addGroup");
-			result.addObject("group", groupNew);
-			return result;
-		}
 		
 		if (session.getAttribute("adminSession") == null) {
 			System.out.println("Error Admin Session is Null");
@@ -214,17 +208,7 @@ public class AdminGroupController extends GlobalExceptionHandler {
 		
 		String name = AsciiToHex.decode(gname);
 		
-		if (!groupNew.getName().equals(name)
-				&& groupService.findGroupByName(groupNew.getName()) != null) {
-			Group group = groupService.findGroupByName(name);
-			mapGroupModify.put("group", group);	
-			
-			ModelAndView result = new ModelAndView("login_staff/group/modifyGroup", mapGroupModify);
-			result.addObject("errorName",
-				"Un groupe porte déjà le nom "+ groupNew.getName());
-			return result;
-		}
-		Group groupOld = groupService.findGroupByName(name);
+		Group group = groupService.findGroupByName(name);
 		try {
 			if (!file.isEmpty()) {
 				if (!file.getContentType().equals("image/gif") &&
@@ -244,16 +228,16 @@ public class AdminGroupController extends GlobalExceptionHandler {
 					return result;
 				}
 				
-				groupNew.setAvatar(file.getBytes());
+				group.setAvatar(file.getBytes());
 			}
-			else groupNew.setAvatar(groupOld.getAvatar());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		groupService.modify(groupNew, name);
+		group.setDescription(groupNew.getDescription());
+		groupService.save(group);
 		
 		redirectAttributes.addFlashAttribute("type", "success");
-		redirectAttributes.addFlashAttribute("message", "Le groupe "+groupNew.getName()+" a bien été modifié.");
+		redirectAttributes.addFlashAttribute("message", "Le groupe "+name+" a bien été modifié.");
 
 		return new ModelAndView("redirect:/login_staff/group/listGroup.htm");
 	}
