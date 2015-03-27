@@ -110,7 +110,7 @@ public class GroupController extends GlobalExceptionHandler {
 	public ModelAndView detailGroup(@ModelAttribute Group g,
 			@ModelAttribute User u, Model model) {
 
-		if (g == null || g.getName().isEmpty())
+		if (g == null || g.getName() == null)
 			return new ModelAndView("redirect:../index.htm");
 
 		ModelAndView result = new ModelAndView("group/group");
@@ -155,8 +155,8 @@ public class GroupController extends GlobalExceptionHandler {
 	public ModelAndView detailSubcategory(@ModelAttribute Subcategory sub,
 			@ModelAttribute User u, Model model) {
 
-		if (sub == null || sub.getIdSubcategory().getSubcategory().isEmpty())
-			return new ModelAndView("redirect:../index.htm");
+		if (sub == null || sub.getIdSubcategory().getSubcategory() == null)
+			return new ModelAndView("redirect:../../index.htm");
 
 		ModelAndView result = new ModelAndView("group/subcategory");
 

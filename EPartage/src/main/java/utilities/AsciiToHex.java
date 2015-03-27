@@ -34,7 +34,8 @@ public class AsciiToHex {
 	public static String decode(final String hexString) {
 		final int len = hexString.length();
 		if (len % 2 != 0) {
-			throw new RuntimeException("bad length");
+			//throw new RuntimeException("bad length");
+			return "";
 		}
 		final StringBuilder sb = new StringBuilder(len / 2);
 		for (int i = 0; i < len; i += 2) {
